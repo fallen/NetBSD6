@@ -1,0 +1,11 @@
+/membar_ops.S/1.1/Wed Nov 28 21:47:02 2007//
+/Makefile.inc/1.6/Mon Jan  5 03:02:51 2009//
+/atomic_add.S/1.5/Mon Mar  9 03:03:50 2009//
+/atomic_and.S/1.5/Mon Mar  9 03:03:50 2009//
+/atomic_cas.S/1.6/Mon Mar  9 03:03:50 2009//
+/atomic_dec.S/1.5/Mon Mar  9 03:03:50 2009//
+/atomic_inc.S/1.5/Mon Mar  9 03:03:50 2009//
+/atomic_or.S/1.5/Mon Mar  9 03:03:50 2009//
+/atomic_swap.S/1.5/Mon Mar  9 03:03:50 2009//
+/atomic_op_asm.h/1.4/Mon Mar 22 03:01:29 2010//
+D

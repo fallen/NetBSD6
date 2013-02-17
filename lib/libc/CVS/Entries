@@ -1,0 +1,43 @@
+/libcincludes.mk/1.1/Sun Oct 26 07:28:06 2008//
+D/arch////
+D/atomic////
+D/citrus////
+D/compat////
+D/compat-43////
+D/db////
+D/dlfcn////
+D/gdtoa////
+D/gen////
+D/gmon////
+D/hash////
+D/iconv////
+D/include////
+D/inet////
+D/isc////
+D/locale////
+D/md////
+D/misc////
+D/nameser////
+D/net////
+D/nls////
+D/quad////
+D/regex////
+D/resolv////
+D/rpc////
+D/softfloat////
+D/ssp////
+D/stdio////
+D/stdlib////
+D/string////
+D/sys////
+D/termios////
+D/thread-stub////
+D/time////
+D/uuid////
+D/yp////
+D/cdb////
+D/tls////
+/Makefile/1.149/Sat Jan 21 03:02:49 2012//
+/Makefile.inc/1.14/Thu Mar 22 03:02:39 2012//
+/shlib_version/1.236/Thu Oct 25 03:01:12 2012//
+D

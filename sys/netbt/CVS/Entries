@@ -1,0 +1,27 @@
+/Makefile/1.1/Mon Jun 19 15:44:45 2006//
+/bt_proto.c/1.12/Sun Sep 13 18:45:11 2009//
+/bt_sysctl.c/1.2/Sun Aug 27 11:41:58 2006//
+/hci_misc.c/1.3/Sun Sep 16 19:59:30 2007//
+/l2cap_lower.c/1.9/Tue Aug  5 13:08:31 2008//
+/l2cap_misc.c/1.7/Sun Sep 13 18:45:11 2009//
+/l2cap_socket.c/1.9/Wed Aug  6 15:01:24 2008//
+/rfcomm.h/1.9/Sun Sep 13 18:45:11 2009//
+/rfcomm_socket.c/1.10/Wed Aug  6 15:01:24 2008//
+/sco.h/1.3/Wed Aug  6 15:01:24 2008//
+/sco_socket.c/1.11/Wed Aug  6 15:01:24 2008//
+/l2cap_upper.c/1.11/Tue Jan  5 03:04:01 2010//
+/rfcomm_upper.c/1.13/Tue Jan  5 03:04:01 2010//
+/sco_upper.c/1.9/Tue Jan  5 03:04:01 2010//
+/files.netbt/1.5/Sat Mar 27 03:02:50 2010//
+/hci_ioctl.c/1.10/Tue Nov 23 03:01:55 2010//
+/hci_socket.c/1.20/Mon Jan 31 03:04:16 2011//
+/l2cap.h/1.10/Mon Feb  7 03:01:39 2011//
+/bluetooth.h/1.11/Wed Apr 27 03:01:36 2011//
+/hci_event.c/1.23/Thu Jul 28 03:02:06 2011//
+/hci_link.c/1.23/Thu Jul 28 03:02:06 2011//
+/rfcomm_session.c/1.18/Thu Jul 28 03:02:06 2011//
+/rfcomm_dlc.c/1.7/Mon Aug 22 03:01:51 2011//
+/hci.h/1.35/Sun Sep 18 03:01:17 2011//
+/hci_unit.c/1.13/Sun Sep 18 03:01:17 2011//
+/l2cap_signal.c/1.16/Sat Feb  9 03:06:59 2013//
+D

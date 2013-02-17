@@ -1,0 +1,29 @@
+/Makefile.am/1.1.1.1/Tue Jun 21 01:24:29 2011//
+/Makefile.in/1.1.1.1/Tue Jun 21 01:24:29 2011//
+D/17_intro////
+D/18_support////
+D/19_diagnostics////
+D/20_util////
+D/21_strings////
+D/22_locale////
+D/23_containers////
+D/24_iterators////
+D/25_algorithms////
+D/26_numerics////
+D/27_io////
+D/28_regex////
+D/29_atomics////
+D/30_threads////
+D/abi////
+D/backward////
+D/config////
+D/data////
+D/decimal////
+D/ext////
+D/lib////
+D/libstdc++-abi////
+D/libstdc++-dg////
+D/performance////
+D/tr1////
+D/util////
+D

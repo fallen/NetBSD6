@@ -1,0 +1,22 @@
+/conf.c/1.2/Mon Jul 20 04:59:04 2009//
+/copy.c/1.4/Mon Oct 26 19:16:56 2009//
+/delay.c/1.2/Sat Apr 22 07:58:53 2006//
+/exit.c/1.3/Mon Jul 20 04:59:04 2009//
+/ldscript.ia64/1.1/Fri Apr  7 14:21:32 2006//
+/pal_stub.S/1.2/Sat Apr 22 07:58:53 2006//
+/skiconsole.c/1.4/Mon Jul 20 04:59:04 2009//
+/skifs.c/1.4/Mon Jul 20 04:59:04 2009//
+/ssc.c/1.3/Mon Jul 20 04:59:04 2009//
+/start.S/1.2/Sat Apr 22 07:58:53 2006//
+/time.c/1.3/Mon Jul 20 04:59:04 2009//
+/version/1.2/Sat Apr 22 07:58:53 2006//
+/Makefile/1.4/Sun Jan 23 03:01:45 2011//
+/acpi_stub.c/1.7/Fri Dec 28 03:03:54 2012//
+/bootinfo.c/1.4/Fri Dec 28 03:03:55 2012//
+/devicename.c/1.4/Fri Dec 28 03:03:55 2012//
+/efi_stub.c/1.4/Fri Dec 28 03:03:55 2012//
+/exec.c/1.6/Fri Dec 28 03:03:55 2012//
+/libski.h/1.3/Fri Dec 28 03:03:55 2012//
+/main.c/1.4/Fri Dec 28 03:03:55 2012//
+/sal_stub.c/1.4/Fri Dec 28 03:03:55 2012//
+D

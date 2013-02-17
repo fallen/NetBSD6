@@ -1,0 +1,65 @@
+/CommitLog-4.1.0/1.1.1.1/Sun Dec 13 16:51:59 2009//
+/INSTALL/1.1.1.1/Sun Dec 13 16:53:01 2009//
+/NOTES.y2kfixes/1.1.1.1/Sun Dec 13 16:53:01 2009//
+/README/1.1.1.1/Sun Dec 13 16:53:02 2009//
+/README.bk/1.1.1.1/Sun Dec 13 16:53:02 2009//
+/README.hackers/1.1.1.1/Sun Dec 13 16:53:02 2009//
+/README.patches/1.1.1.1/Sun Dec 13 16:53:02 2009//
+/README.refclocks/1.1.1.1/Sun Dec 13 16:53:02 2009//
+/README.versions/1.1.1.1/Sun Dec 13 16:53:02 2009//
+/TODO/1.1.1.1/Sun Dec 13 16:53:02 2009//
+/WHERE-TO-START/1.1.1.1/Sun Dec 13 16:53:02 2009//
+/compile/1.1.1.1/Sun Dec 13 16:53:08 2009//
+/depcomp/1.1.1.1/Sun Dec 13 16:53:31 2009//
+/depsver.mf/1.1.1.1/Sun Dec 13 16:53:32 2009//
+/dot.emacs/1.1.1.1/Sun Dec 13 16:53:32 2009//
+/excludes/1.1.1.1/Sun Dec 13 16:53:32 2009//
+/install-sh/1.1.1.1/Sun Dec 13 16:53:32 2009//
+/missing/1.1.1.1/Sun Dec 13 16:53:37 2009//
+/readme.y2kfixes/1.1.1.1/Sun Dec 13 16:53:37 2009//
+/results.y2kfixes/1.1.1.1/Sun Dec 13 16:53:37 2009//
+/ylwrap/1.1.1.1/Sun Dec 13 16:53:37 2009//
+D/ElectricFence////
+D/adjtimed////
+D/arlib////
+D/clockstuff////
+D/conf////
+D/html////
+D/include////
+D/kernel////
+D/lib////
+D/libntp////
+D/libopts////
+D/libparse////
+D/m4////
+D/ntpd////
+D/ntpdate////
+D/ntpdc////
+D/ntpq////
+D/ntpsnmpd////
+D/parseutil////
+D/scripts////
+D/sntp////
+D/util////
+/COPYRIGHT/1.1.1.2/Wed Feb  1 03:12:52 2012//
+/ChangeLog/1.1.1.2/Wed Feb  1 03:12:52 2012//
+/CommitLog/1.1.1.2/Wed Feb  1 03:12:54 2012//
+/Makefile.am/1.1.1.2/Wed Feb  1 03:12:54 2012//
+/Makefile.in/1.1.1.2/Wed Feb  1 03:12:54 2012//
+/NEWS/1.1.1.2/Wed Feb  1 03:12:54 2012//
+/aclocal.m4/1.1.1.2/Wed Feb  1 03:12:54 2012//
+/bincheck.mf/1.1.1.2/Wed Feb  1 03:12:54 2012//
+/bootstrap/1.1.1.2/Wed Feb  1 03:12:54 2012//
+/build/1.1.1.2/Wed Feb  1 03:12:54 2012//
+/config.guess/1.1.1.2/Wed Feb  1 03:12:55 2012//
+/config.h.in/1.1.1.2/Wed Feb  1 03:12:55 2012//
+/config.sub/1.1.1.2/Wed Feb  1 03:12:55 2012//
+/configure/1.1.1.2/Wed Feb  1 03:12:56 2012//
+/configure.ac/1.1.1.2/Wed Feb  1 03:12:56 2012//
+/deps-ver/1.1.1.2/Wed Feb  1 03:12:56 2012//
+/flock-build/1.1.1.2/Wed Feb  1 03:12:56 2012//
+/ltmain.sh/1.1.1.2/Wed Feb  1 03:12:56 2012//
+/packageinfo.sh/1.1.1.2/Wed Feb  1 03:12:56 2012//
+/version/1.1.1.2/Wed Feb  1 03:12:56 2012//
+/version.m4/1.1.1.2/Wed Feb  1 03:12:56 2012//
+D

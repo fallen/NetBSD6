@@ -1,0 +1,19 @@
+/check.c/1.1.1.1/Tue Nov  2 15:20:52 2010//
+/check.h/1.2/Tue Nov  2 15:35:38 2010//
+/crc32_fast.c/1.1.1.1/Tue Nov  2 15:20:50 2010//
+/crc32_small.c/1.1.1.1/Tue Nov  2 15:20:52 2010//
+/crc32_table.c/1.1.1.1/Tue Nov  2 15:20:52 2010//
+/crc32_table_be.h/1.1.1.1/Tue Nov  2 15:20:51 2010//
+/crc32_table_le.h/1.1.1.1/Tue Nov  2 15:20:52 2010//
+/crc32_tablegen.c/1.1.1.1/Tue Nov  2 15:20:48 2010//
+/crc32_x86.S/1.1.1.1/Tue Nov  2 15:20:50 2010//
+/crc64_fast.c/1.1.1.1/Tue Nov  2 15:20:48 2010//
+/crc64_small.c/1.1.1.1/Tue Nov  2 15:20:50 2010//
+/crc64_table.c/1.1.1.1/Tue Nov  2 15:20:50 2010//
+/crc64_table_be.h/1.1.1.1/Tue Nov  2 15:20:49 2010//
+/crc64_table_le.h/1.1.1.1/Tue Nov  2 15:20:50 2010//
+/crc64_tablegen.c/1.1.1.1/Tue Nov  2 15:20:48 2010//
+/crc64_x86.S/1.1.1.1/Tue Nov  2 15:20:48 2010//
+/crc_macros.h/1.1.1.1/Tue Nov  2 15:20:52 2010//
+/sha256.c/1.1.1.1/Tue Nov  2 15:20:48 2010//
+D

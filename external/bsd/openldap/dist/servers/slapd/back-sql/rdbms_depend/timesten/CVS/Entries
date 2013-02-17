@@ -1,0 +1,15 @@
+/backsql_create.sql/1.1.1.1/Thu Aug  2 15:29:00 2001//
+/backsql_drop.sql/1.1.1.1/Thu Aug  2 15:29:00 2001//
+/create_schema.sh/1.1.1.1/Thu Aug  2 15:29:00 2001//
+/testdb_create.sql/1.1.1.1/Thu Aug  2 15:29:00 2001//
+/testdb_data.sql/1.1.1.1/Thu Aug  2 15:29:00 2001//
+/testdb_drop.sql/1.1.1.1/Thu Aug  2 15:29:00 2001//
+/testdb_metadata.sql/1.1.1.1/Wed Jul 20 09:17:06 2005//
+/ttcreate_schema.sh/1.1.1.1/Thu Aug  2 15:29:00 2001//
+/tttestdb_create.sql/1.1.1.1/Thu Aug  2 15:29:00 2001//
+/tttestdb_data.sql/1.1.1.1/Thu Aug  2 15:29:00 2001//
+/tttestdb_drop.sql/1.1.1.1/Thu Aug  2 15:29:00 2001//
+/tttestdb_metadata.sql/1.1.1.1/Thu Aug  2 15:29:00 2001//
+D/dnreverse////
+/slapd.conf/1.1.1.2/Mon Mar  8 03:01:11 2010//
+D

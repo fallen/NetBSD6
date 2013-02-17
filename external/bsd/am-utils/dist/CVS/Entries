@@ -1,0 +1,54 @@
+/AUTHORS/1.1.1.1/Fri Sep 19 20:07:11 2008//
+/BUGS/1.1.1.1/Fri Sep 19 20:07:11 2008//
+/FAQ/1.1.1.1/Fri Sep 19 20:07:11 2008//
+/LSM.am-utils/1.1.1.1/Fri Sep 19 20:07:14 2008//
+/MIRRORS.html/1.1.1.1/Fri Sep 19 20:07:14 2008//
+/MIRRORS.txt/1.1.1.1/Fri Sep 19 20:07:14 2008//
+/NEWS/1.1.1.1/Fri Sep 19 20:07:14 2008//
+/README/1.1.1.1/Fri Sep 19 20:07:14 2008//
+/README.attrcache/1.1.1.1/Fri Sep 19 20:07:11 2008//
+/README.autofs/1.1.1.1/Fri Sep 19 20:07:14 2008//
+/README.ldap/1.1.1.1/Fri Sep 19 20:07:14 2008//
+/README.osx/1.1.1.1/Fri Sep 19 20:07:14 2008//
+/README.sun2amd/1.1.1.1/Fri Sep 19 20:07:14 2008//
+/README.y2k/1.1.1.1/Fri Sep 19 20:07:14 2008//
+/aux_conf.h.in/1.1.1.1/Fri Sep 19 20:07:14 2008//
+/bootstrap/1.1.1.1/Fri Sep 19 20:07:14 2008//
+/buildall/1.1.1.1/Fri Sep 19 20:07:14 2008//
+/commit/1.1.1.1/Fri Sep 19 20:07:14 2008//
+/cvs-server.txt/1.1.1.1/Fri Sep 19 20:07:14 2008//
+/ldap-id.ms/1.1.1.1/Fri Sep 19 20:07:14 2008//
+/ldap-id.txt/1.1.1.1/Fri Sep 19 20:07:14 2008//
+/ldap.schema/1.1.1.1/Fri Sep 19 20:07:14 2008//
+/tasks/1.1.1.1/Fri Sep 19 20:07:15 2008//
+/vers.m4/1.1.1.1/Fri Sep 19 20:07:15 2008//
+D/amd////
+D/amq////
+D/conf////
+D/doc////
+D/fixmount////
+D/fsinfo////
+D/hlfsd////
+D/include////
+D/libamu////
+D/m4////
+D/mk-amd-map////
+D/scripts////
+D/wire-test////
+/COPYING/1.1.1.2/Sat Mar 21 03:09:40 2009//
+/INSTALL/1.1.1.2/Sat Mar 21 03:09:41 2009//
+/INSTALL.am-utils/1.1.1.1/Fri Mar 20 20:26:47 2009//
+/Makefile.am/1.1.1.2/Sat Mar 21 03:09:41 2009//
+/config.guess/1.1.1.2/Sat Mar 21 03:09:41 2009//
+/config.guess.long/1.1.1.2/Sat Mar 21 03:09:41 2009//
+/config.sub/1.1.1.2/Sat Mar 21 03:09:41 2009//
+/configure.in/1.3/Sat Mar 21 03:09:41 2009//
+/depcomp/1.1.1.2/Sat Mar 21 03:09:41 2009//
+/install-sh/1.1.1.2/Sat Mar 21 03:09:41 2009//
+/ltmain.sh/1.1.1.2/Sat Mar 21 03:09:41 2009//
+/missing/1.1.1.2/Sat Mar 21 03:09:41 2009//
+/mkinstalldirs/1.1.1.2/Sat Mar 21 03:09:41 2009//
+/ylwrap/1.1.1.2/Sat Mar 21 03:09:41 2009//
+/ChangeLog/1.4/Sun Mar 22 03:04:52 2009//
+/amd2netbsd/1.3/Sun Oct  9 03:01:17 2011//
+D

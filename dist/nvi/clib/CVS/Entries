@@ -1,0 +1,16 @@
+/bsearch.c/1.1.1.2/Sun May 18 14:29:38 2008//
+/env.c/1.1.1.2/Sun May 18 14:29:38 2008//
+/gethostname.c/1.1.1.2/Sun May 18 14:29:38 2008//
+/iswblank.c/1.1.1.2/Sun May 18 14:29:38 2008//
+/memchr.c/1.1.1.2/Sun May 18 14:29:38 2008//
+/memset.c/1.1.1.2/Sun May 18 14:29:38 2008//
+/mmap.c/1.1.1.2/Sun May 18 14:29:38 2008//
+/snprintf.c/1.1.1.2/Sun May 18 14:29:39 2008//
+/strdup.c/1.1.1.2/Sun May 18 14:29:39 2008//
+/strpbrk.c/1.1.1.2/Sun May 18 14:29:39 2008//
+/strsep.c/1.1.1.2/Sun May 18 14:29:39 2008//
+/strtol.c/1.1.1.2/Sun May 18 14:29:39 2008//
+/strtoul.c/1.1.1.2/Sun May 18 14:29:39 2008//
+/vsnprintf.c/1.1.1.2/Sun May 18 14:29:39 2008//
+/mkstemp.c/1.2/Tue Mar 22 03:25:39 2011//
+D

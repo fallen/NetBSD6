@@ -1,0 +1,10 @@
+/Makefile.inc/1.1/Sun Apr 12 03:46:05 2009//
+D/dnssec-dsfromkey////
+D/dnssec-keyfromlabel////
+D/dnssec-keygen////
+D/dnssec-revoke////
+D/dnssec-settime////
+D/dnssec-signzone////
+/Makefile/1.3/Wed Dec  5 03:01:42 2012//
+D/dnssec-verify////
+D

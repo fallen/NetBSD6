@@ -1,0 +1,12 @@
+D/bootfloppy-common////
+D/bootfloppy.generic////
+D/bootfloppy.sysinst////
+D/bootfloppy_com0.generic////
+D/bootfloppy_com0.sysinst////
+D/kernel-generic////
+D/kernel-ramdisk////
+D/ramdisk////
+/Makefile/1.3/Wed Jun 21 03:01:13 2006//
+D/bootfloppy_small.sysinst////
+D/bootfloppy_small_com0.sysinst////
+D

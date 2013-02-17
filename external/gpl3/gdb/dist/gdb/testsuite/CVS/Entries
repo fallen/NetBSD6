@@ -1,0 +1,37 @@
+/.gdbinit/1.1.1.1/Sat Sep 24 20:16:20 2011//
+/ChangeLog/1.1.1.1/Sat Sep 24 20:16:20 2011//
+/Makefile.in/1.1.1.1/Sat Sep 24 20:16:20 2011//
+/TODO/1.1.1.1/Sat Sep 24 20:16:20 2011//
+/aclocal.m4/1.1.1.1/Sat Sep 24 20:16:20 2011//
+/configure/1.1.1.1/Sat Sep 24 20:16:23 2011//
+/configure.ac/1.1.1.1/Sat Sep 24 20:16:23 2011//
+/dg-extract-results.sh/1.1.1.1/Sat Sep 24 20:16:23 2011//
+D/config////
+D/gdb.ada////
+D/gdb.arch////
+D/gdb.asm////
+D/gdb.base////
+D/gdb.cell////
+D/gdb.cp////
+D/gdb.disasm////
+D/gdb.dwarf2////
+D/gdb.fortran////
+D/gdb.gdb////
+D/gdb.hp////
+D/gdb.java////
+D/gdb.mi////
+D/gdb.modula2////
+D/gdb.multi////
+D/gdb.objc////
+D/gdb.opencl////
+D/gdb.opt////
+D/gdb.pascal////
+D/gdb.python////
+D/gdb.reverse////
+D/gdb.server////
+D/gdb.stabs////
+D/gdb.threads////
+D/gdb.trace////
+D/gdb.xml////
+D/lib////
+D

@@ -1,0 +1,14 @@
+/clockvar.h/1.4/Tue Sep  5 01:38:59 2006//
+/disksubr.c/1.23/Wed Jan  2 11:48:28 2008//
+/ip22_cache.S/1.5/Sun Dec 11 12:18:58 2005//
+/locore_machdep.S/1.5/Fri Apr 28 01:12:51 2006//
+/arcemu.h/1.12/Mon Feb 21 04:38:17 2011//
+/clock.c/1.24/Mon Feb 21 04:38:17 2011//
+/cpu.c/1.26/Mon Feb 21 04:38:17 2011//
+/mainbus.c/1.20/Mon Feb 21 04:38:17 2011//
+/arcemu.c/1.21/Sat Jul  2 03:02:53 2011//
+/bus.c/1.65/Wed Oct  3 03:02:44 2012//
+/console.c/1.43/Sun Oct 14 03:02:33 2012//
+/autoconf.c/1.44/Sun Oct 28 03:04:19 2012//
+/machdep.c/1.138/Sun Oct 28 03:04:19 2012//
+D

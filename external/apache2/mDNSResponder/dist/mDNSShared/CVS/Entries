@@ -1,0 +1,16 @@
+/CommonServices.h/1.1.1.1/Tue Sep 29 22:14:14 2009//
+/GenLinkedList.c/1.1.1.1/Tue Sep 29 22:14:14 2009//
+/GenLinkedList.h/1.1.1.1/Tue Sep 29 22:14:14 2009//
+/PlatformCommon.c/1.1.1.1/Tue Sep 29 22:14:14 2009//
+/PlatformCommon.h/1.1.1.1/Tue Sep 29 22:14:14 2009//
+/dns-sd.1/1.2/Tue Sep 29 23:56:28 2009//
+/dns_sd.h/1.2/Tue Sep 29 23:56:28 2009//
+/dnssd_ipc.c/1.1.1.1/Tue Sep 29 22:14:16 2009//
+/mDNSDebug.c/1.1.1.1/Tue Sep 29 22:14:16 2009//
+/mDNSResponder.8/1.1.1.1/Tue Sep 29 22:14:16 2009//
+/uds_daemon.h/1.1.1.1/Tue Sep 29 22:14:17 2009//
+/dnssd_ipc.h/1.2/Sat Oct  3 03:00:49 2009//
+/dnssd_clientlib.c/1.2/Fri Dec 17 03:01:29 2010//
+/uds_daemon.c/1.4/Tue May 24 03:02:53 2011//
+/dnssd_clientstub.c/1.4/Tue Sep 25 03:01:08 2012//
+D

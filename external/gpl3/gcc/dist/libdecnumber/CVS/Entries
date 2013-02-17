@@ -1,0 +1,39 @@
+/Makefile.in/1.1.1.1/Tue Jun 21 01:19:49 2011//
+/aclocal.m4/1.1.1.1/Tue Jun 21 01:19:48 2011//
+/config.in/1.1.1.1/Tue Jun 21 01:19:49 2011//
+/configure/1.1.1.1/Tue Jun 21 01:19:48 2011//
+/configure.ac/1.1.1.1/Tue Jun 21 01:19:48 2011//
+/dconfig.h/1.1.1.1/Tue Jun 21 01:19:49 2011//
+/decBasic.c/1.1.1.1/Tue Jun 21 01:19:49 2011//
+/decCommon.c/1.1.1.1/Tue Jun 21 01:19:48 2011//
+/decCommonSymbols.h/1.1.1.1/Tue Jun 21 01:19:49 2011//
+/decContext.c/1.1.1.1/Tue Jun 21 01:19:48 2011//
+/decContext.h/1.1.1.1/Tue Jun 21 01:19:49 2011//
+/decContextSymbols.h/1.1.1.1/Tue Jun 21 01:19:48 2011//
+/decDPD.h/1.1.1.1/Tue Jun 21 01:19:49 2011//
+/decDPDSymbols.h/1.1.1.1/Tue Jun 21 01:19:48 2011//
+/decDouble.c/1.1.1.1/Tue Jun 21 01:19:49 2011//
+/decDouble.h/1.1.1.1/Tue Jun 21 01:19:49 2011//
+/decDoubleSymbols.h/1.1.1.1/Tue Jun 21 01:19:49 2011//
+/decExcept.c/1.1.1.1/Tue Jun 21 01:19:49 2011//
+/decExcept.h/1.1.1.1/Tue Jun 21 01:19:48 2011//
+/decLibrary.c/1.1.1.1/Tue Jun 21 01:19:48 2011//
+/decNumber.c/1.1.1.1/Tue Jun 21 01:19:48 2011//
+/decNumber.h/1.1.1.1/Tue Jun 21 01:19:49 2011//
+/decNumberLocal.h/1.1.1.1/Tue Jun 21 01:19:49 2011//
+/decNumberSymbols.h/1.1.1.1/Tue Jun 21 01:19:48 2011//
+/decPacked.c/1.1.1.1/Tue Jun 21 01:19:49 2011//
+/decPacked.h/1.1.1.1/Tue Jun 21 01:19:48 2011//
+/decPackedSymbols.h/1.1.1.1/Tue Jun 21 01:19:48 2011//
+/decQuad.c/1.1.1.1/Tue Jun 21 01:19:48 2011//
+/decQuad.h/1.1.1.1/Tue Jun 21 01:19:48 2011//
+/decQuadSymbols.h/1.1.1.1/Tue Jun 21 01:19:48 2011//
+/decRound.c/1.1.1.1/Tue Jun 21 01:19:48 2011//
+/decRound.h/1.1.1.1/Tue Jun 21 01:19:49 2011//
+/decSingle.c/1.1.1.1/Tue Jun 21 01:19:48 2011//
+/decSingle.h/1.1.1.1/Tue Jun 21 01:19:48 2011//
+/decSingleSymbols.h/1.1.1.1/Tue Jun 21 01:19:48 2011//
+D/bid////
+D/dpd////
+/ChangeLog/1.1.1.2/Wed Sep 19 03:01:21 2012//
+D

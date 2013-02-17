@@ -1,0 +1,33 @@
+/Makefile.inc/1.4/Wed Apr 10 14:53:43 2002//
+D/bin////
+D/crypto////
+D/dist////
+D/distrib////
+D/doc////
+D/etc////
+D/games////
+D/gnu////
+D/include////
+D/lib////
+D/rescue////
+D/share////
+D/pkgsrc////
+D/xsrc////
+D/common////
+D/external////
+D/compat////
+D/extsrc////
+D/libexec////
+D/regress////
+D/sbin////
+D/sys////
+D/tests////
+D/tools////
+D/usr.bin////
+D/usr.sbin////
+D/x11////
+/UPDATING/1.241/Thu Oct  4 03:01:46 2012//
+/BUILDING/1.103/Fri Nov  9 03:01:41 2012//
+/Makefile/1.302/Tue Dec  4 03:00:49 2012//
+/build.sh/1.263/Mon Feb  4 03:00:28 2013//
+D

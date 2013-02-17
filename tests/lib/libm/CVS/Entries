@@ -1,0 +1,22 @@
+/t_tanh.c/1.6/Tue Sep 13 03:02:12 2011//
+/t_round.c/1.3/Wed Sep 14 03:03:57 2011//
+/t_scalbn.c/1.7/Wed Sep 14 03:03:57 2011//
+/t_cos.c/1.3/Wed Sep 14 13:29:58 2011//
+/t_sin.c/1.3/Wed Sep 14 13:29:58 2011//
+/t_tan.c/1.4/Fri Sep 16 03:03:43 2011//
+/t_asin.c/1.1/Sat Sep 17 18:08:35 2011//
+/t_ceil.c/1.7/Sun Sep 18 03:01:18 2011//
+/t_erf.c/1.1/Sat Sep 17 12:00:50 2011//
+/t_ldexp.c/1.10/Tue Sep 20 03:10:06 2011//
+/t_pow.c/1.2/Sat Sep 24 03:02:30 2011//
+/t_cbrt.c/1.1/Sun Oct 16 08:25:40 2011//
+/t_cosh.c/1.4/Wed Oct 19 03:02:15 2011//
+/t_sinh.c/1.4/Wed Oct 19 03:02:15 2011//
+/t_sqrt.c/1.3/Tue Feb 14 03:04:12 2012//
+/t_atan.c/1.6/Mon Mar 12 03:04:24 2012//
+/t_acos.c/1.3/Sat Mar 24 03:05:42 2012//
+/t_log.c/1.8/Mon Apr  9 03:02:22 2012//
+/Makefile/1.18/Sat Apr 14 03:03:08 2012//
+/t_exp.c/1.2/Thu May 31 03:01:54 2012//
+/t_infinity.c/1.6/Thu Sep 27 03:02:08 2012//
+D

@@ -1,0 +1,32 @@
+/README/1.1.1.1/Mon Jun 20 05:54:42 2011//
+/aors_n.asm/1.1.1.1/Mon Jun 20 05:54:42 2011//
+/aorsmul_1.asm/1.1.1.1/Mon Jun 20 05:54:42 2011//
+/bdiv_dbm1c.asm/1.1.1.1/Mon Jun 20 05:54:42 2011//
+/copyd.asm/1.1.1.1/Mon Jun 20 05:54:42 2011//
+/copyi.asm/1.1.1.1/Mon Jun 20 05:54:42 2011//
+/darwin.m4/1.1.1.1/Mon Jun 20 05:54:42 2011//
+/dive_1.asm/1.1.1.1/Mon Jun 20 05:54:42 2011//
+/divrem_1.asm/1.1.1.1/Mon Jun 20 05:54:42 2011//
+/divrem_2.asm/1.1.1.1/Mon Jun 20 05:54:42 2011//
+/gmp-mparam.h/1.1.1.1/Mon Jun 20 05:54:42 2011//
+/invert_limb.asm/1.1.1.1/Mon Jun 20 05:54:42 2011//
+/lshift.asm/1.1.1.1/Mon Jun 20 05:54:42 2011//
+/mod_34lsub1.asm/1.1.1.1/Mon Jun 20 05:54:42 2011//
+/mul_1.asm/1.1.1.1/Mon Jun 20 05:54:42 2011//
+/mul_basecase.asm/1.1.1.1/Mon Jun 20 05:54:42 2011//
+/rshift.asm/1.1.1.1/Mon Jun 20 05:54:42 2011//
+/sqr_basecase.asm/1.1.1.1/Mon Jun 20 05:54:42 2011//
+/t-zdisp.sh/1.1.1.1/Mon Jun 20 05:54:42 2011//
+/t-zdisp2.pl/1.1.1.1/Mon Jun 20 05:54:42 2011//
+/udiv.asm/1.1.1.1/Mon Jun 20 05:54:42 2011//
+/umul.asm/1.1.1.1/Mon Jun 20 05:54:42 2011//
+/x86-defs.m4/1.1.1.1/Mon Jun 20 05:54:42 2011//
+D/atom////
+D/fat////
+D/i486////
+D/k6////
+D/k7////
+D/p6////
+D/pentium////
+D/pentium4////
+D

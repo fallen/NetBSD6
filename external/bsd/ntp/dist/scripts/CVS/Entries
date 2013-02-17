@@ -1,0 +1,32 @@
+/README/1.1.1.1/Sun Dec 13 16:56:36 2009//
+/calc_tickadj.in/1.1.1.1/Sun Dec 13 16:56:36 2009//
+/checktime.in/1.1.1.1/Sun Dec 13 16:56:37 2009//
+/fixautomakedepsmagic/1.1.1.1/Sun Dec 13 16:56:38 2009//
+/freq_adj.in/1.1.1.1/Sun Dec 13 16:56:37 2009//
+/genver/1.1.1.1/Sun Dec 13 16:56:37 2009//
+/hpadjtime.sh/1.1.1.1/Sun Dec 13 16:56:38 2009//
+/ntp-close/1.1.1.1/Sun Dec 13 16:56:38 2009//
+/ntp-groper/1.1.1.1/Sun Dec 13 16:56:38 2009//
+/ntp-restart/1.1.1.1/Sun Dec 13 16:56:38 2009//
+/ntp-status/1.1.1.1/Sun Dec 13 16:56:38 2009//
+/ntp-wait.in/1.1.1.1/Sun Dec 13 16:56:37 2009//
+/ntpsweep.in/1.1.1.1/Sun Dec 13 16:56:37 2009//
+/ntptrace.in/1.1.1.1/Sun Dec 13 16:56:37 2009//
+/ntpver.in/1.1.1.1/Sun Dec 13 16:56:37 2009//
+/plot_summary.in/1.1.1.1/Sun Dec 13 16:56:36 2009//
+/summary.in/1.1.1.1/Sun Dec 13 16:56:37 2009//
+D/monitoring////
+D/rc1////
+D/rc2////
+D/stats////
+/Makefile.am/1.1.1.2/Wed Feb  1 03:13:03 2012//
+/Makefile.in/1.1.1.2/Wed Feb  1 03:13:03 2012//
+/UpdatePoint/1.1.1.1/Tue Jan 31 21:27:11 2012//
+/VersionName/1.1.1.2/Wed Feb  1 03:13:03 2012//
+/check--help/1.1.1.1/Tue Jan 31 21:27:10 2012//
+/checkChangeLog/1.1.1.1/Tue Jan 31 21:27:10 2012//
+/cvo.sh/1.1.1.2/Wed Feb  1 03:13:03 2012//
+/genCommitLog/1.1.1.2/Wed Feb  1 03:13:03 2012//
+/html2man.in/1.1.1.2/Wed Feb  1 03:13:03 2012//
+/mkver.in/1.1.1.2/Wed Feb  1 03:13:03 2012//
+D

@@ -1,0 +1,87 @@
+/ABOUT-NLS/1.1.1.1/Wed Mar 29 21:09:18 2006//
+/AUTHORS/1.1.1.1/Wed Mar 29 21:09:18 2006//
+/COPYING/1.1.1.1/Wed Mar 29 21:09:18 2006//
+/ChangeLog/1.1.1.1/Wed Mar 29 21:09:18 2006//
+/INSTALL/1.1.1.1/Wed Mar 29 21:09:18 2006//
+/Makefile.DOS/1.1.1.1/Wed Mar 29 21:09:24 2006//
+/Makefile.am/1.1.1.1/Wed Mar 29 21:09:18 2006//
+/Makefile.ami/1.1.1.1/Wed Mar 29 21:09:24 2006//
+/NEWS/1.1.1.1/Wed Mar 29 21:09:19 2006//
+/NMakefile/1.1.1.1/Wed Mar 29 21:09:24 2006//
+/README/1.1.1.1/Wed Mar 29 21:09:18 2006//
+/README.Amiga/1.1.1.1/Wed Mar 29 21:09:24 2006//
+/README.DOS/1.1.1.1/Wed Mar 29 21:09:24 2006//
+/README.W32/1.1.1.1/Wed Mar 29 21:09:24 2006//
+/README.customs/1.1.1.1/Wed Mar 29 21:09:24 2006//
+/SCOPTIONS/1.1.1.1/Wed Mar 29 21:09:24 2006//
+/SMakefile/1.1.1.1/Wed Mar 29 21:09:24 2006//
+/acinclude.m4/1.1.1.1/Wed Mar 29 21:09:19 2006//
+/aclocal.m4/1.1.1.1/Wed Mar 29 21:09:19 2006//
+/alloca.c/1.1.1.1/Wed Mar 29 21:09:19 2006//
+/amiga.c/1.1.1.1/Wed Mar 29 21:09:24 2006//
+/amiga.h/1.1.1.1/Wed Mar 29 21:09:24 2006//
+/ar.c/1.1.1.1/Wed Mar 29 21:09:21 2006//
+/arscan.c/1.1.1.1/Wed Mar 29 21:09:21 2006//
+/build.sh.in/1.1.1.1/Wed Mar 29 21:09:18 2006//
+/build_w32.bat/1.1.1.1/Wed Mar 29 21:09:24 2006//
+/commands.c/1.1.1.1/Wed Mar 29 21:09:21 2006//
+/commands.h/1.1.1.1/Wed Mar 29 21:09:18 2006//
+/config.ami/1.1.1.1/Wed Mar 29 21:09:24 2006//
+/config.h-vms/1.1.1.1/Wed Mar 29 21:09:24 2006//
+/config.h.W32/1.1.1.1/Wed Mar 29 21:09:24 2006//
+/config.h.in/1.1.1.1/Wed Mar 29 21:09:19 2006//
+/configh.dos/1.1.1.1/Wed Mar 29 21:09:24 2006//
+/configure/1.1.1.1/Wed Mar 29 21:09:20 2006//
+/configure.bat/1.1.1.1/Wed Mar 29 21:09:24 2006//
+/configure.in/1.1.1.1/Wed Mar 29 21:09:20 2006//
+/debug.h/1.1.1.1/Wed Mar 29 21:09:18 2006//
+/default.c/1.1.1.1/Wed Mar 29 21:09:21 2006//
+/dep.h/1.1.1.1/Wed Mar 29 21:09:18 2006//
+/dir.c/1.1.1.1/Wed Mar 29 21:09:21 2006//
+/dosbuild.bat/1.1.1.1/Wed Mar 29 21:09:24 2006//
+/expand.c/1.1.1.1/Wed Mar 29 21:09:21 2006//
+/file.c/1.1.1.1/Wed Mar 29 21:09:21 2006//
+/filedef.h/1.1.1.1/Wed Mar 29 21:09:18 2006//
+/function.c/1.1.1.1/Wed Mar 29 21:09:21 2006//
+/getloadavg.c/1.1.1.1/Wed Mar 29 21:09:20 2006//
+/getopt.c/1.1.1.1/Wed Mar 29 21:09:21 2006//
+/getopt.h/1.1.1.1/Wed Mar 29 21:09:18 2006//
+/getopt1.c/1.1.1.1/Wed Mar 29 21:09:21 2006//
+/gettext.h/1.1.1.1/Wed Mar 29 21:09:18 2006//
+/hash.c/1.1.1.1/Wed Mar 29 21:09:23 2006//
+/hash.h/1.1.1.1/Wed Mar 29 21:09:18 2006//
+/implicit.c/1.1.1.1/Wed Mar 29 21:09:21 2006//
+/job.c/1.1.1.1/Wed Mar 29 21:09:22 2006//
+/job.h/1.1.1.1/Wed Mar 29 21:09:18 2006//
+/loadavg.c/1.1.1.1/Wed Mar 29 21:09:20 2006//
+/main.c/1.1.1.1/Wed Mar 29 21:09:22 2006//
+/make.1/1.1.1.1/Wed Mar 29 21:09:24 2006//
+/make.h/1.1.1.1/Wed Mar 29 21:09:18 2006//
+/make.lnk/1.1.1.1/Wed Mar 29 21:09:24 2006//
+/makefile.com/1.1.1.1/Wed Mar 29 21:09:24 2006//
+/makefile.vms/1.1.1.1/Wed Mar 29 21:09:24 2006//
+/misc.c/1.1.1.1/Wed Mar 29 21:09:22 2006//
+/read.c/1.1.1.1/Wed Mar 29 21:09:23 2006//
+/readme.vms/1.1.1.1/Wed Mar 29 21:09:24 2006//
+/remake.c/1.1.1.1/Wed Mar 29 21:09:23 2006//
+/remote-cstms.c/1.1.1.1/Wed Mar 29 21:09:23 2006//
+/remote-stub.c/1.1.1.1/Wed Mar 29 21:09:19 2006//
+/rule.c/1.1.1.1/Wed Mar 29 21:09:23 2006//
+/rule.h/1.1.1.1/Wed Mar 29 21:09:18 2006//
+/signame.c/1.1.1.1/Wed Mar 29 21:09:23 2006//
+/subproc.bat/1.1.1.1/Wed Mar 29 21:09:24 2006//
+/variable.c/1.1.1.1/Wed Mar 29 21:09:23 2006//
+/variable.h/1.1.1.1/Wed Mar 29 21:09:18 2006//
+/version.c/1.1.1.1/Wed Mar 29 21:09:23 2006//
+/vmsdir.h/1.1.1.1/Wed Mar 29 21:09:24 2006//
+/vmsfunctions.c/1.1.1.1/Wed Mar 29 21:09:24 2006//
+/vmsify.c/1.1.1.1/Wed Mar 29 21:09:24 2006//
+/vpath.c/1.1.1.1/Wed Mar 29 21:09:23 2006//
+D/config////
+D/doc////
+D/glob////
+D/po////
+D/tests////
+D/w32////
+/Makefile.in/1.2/Sat Apr 22 03:04:32 2006//
+D

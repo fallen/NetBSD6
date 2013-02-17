@@ -1,0 +1,12 @@
+/clock_machdep.c/1.4/Sun May  4 19:43:06 2008//
+/consinit.c/1.1/Fri Sep  1 21:26:18 2006//
+/kloader_machdep.c/1.2/Mon Apr 28 20:23:26 2008//
+/locore.S/1.4/Mon Apr 28 20:23:26 2008//
+/mainbus.c/1.4/Sat Jul  2 03:02:50 2011//
+/intr.c/1.5/Sun Jan 22 03:04:43 2012//
+/landiskreg.h/1.2/Sun Jan 22 03:04:43 2012//
+/bus_dma.c/1.15/Sun Apr  1 03:02:01 2012//
+/machdep.c/1.16/Tue Jun 12 03:01:42 2012//
+/autoconf.c/1.7/Sun Oct 28 03:04:13 2012//
+/shpcic_machdep.c/1.5/Sun Oct 28 03:04:13 2012//
+D

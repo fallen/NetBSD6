@@ -1,0 +1,49 @@
+/ChangeLog.gcj/1.1.1.1/Tue Jun 21 01:23:25 2011//
+/FAQ/1.1.1.1/Tue Jun 21 01:23:23 2011//
+/INDEX/1.1.1.1/Tue Jun 21 01:23:24 2011//
+/Makefile.am/1.1.1.1/Tue Jun 21 01:23:23 2011//
+/Makefile.in/1.1.1.1/Tue Jun 21 01:23:25 2011//
+/README/1.1.1.1/Tue Jun 21 01:23:24 2011//
+/acinclude.m4/1.1.1.1/Tue Jun 21 01:23:25 2011//
+/aclocal.m4/1.1.1.1/Tue Jun 21 01:23:24 2011//
+/adler32.c/1.1.1.1/Tue Jun 21 01:23:24 2011//
+/algorithm.txt/1.1.1.1/Tue Jun 21 01:23:23 2011//
+/compress.c/1.1.1.1/Tue Jun 21 01:23:25 2011//
+/configure/1.1.1.1/Tue Jun 21 01:23:24 2011//
+/configure.ac/1.1.1.1/Tue Jun 21 01:23:24 2011//
+/crc32.c/1.1.1.1/Tue Jun 21 01:23:24 2011//
+/crc32.h/1.1.1.1/Tue Jun 21 01:23:23 2011//
+/deflate.c/1.1.1.1/Tue Jun 21 01:23:25 2011//
+/deflate.h/1.1.1.1/Tue Jun 21 01:23:23 2011//
+/example.c/1.1.1.1/Tue Jun 21 01:23:25 2011//
+/gzio.c/1.1.1.1/Tue Jun 21 01:23:25 2011//
+/infback.c/1.1.1.1/Tue Jun 21 01:23:25 2011//
+/inffast.c/1.1.1.1/Tue Jun 21 01:23:25 2011//
+/inffast.h/1.1.1.1/Tue Jun 21 01:23:25 2011//
+/inffixed.h/1.1.1.1/Tue Jun 21 01:23:23 2011//
+/inflate.c/1.1.1.1/Tue Jun 21 01:23:24 2011//
+/inflate.h/1.1.1.1/Tue Jun 21 01:23:25 2011//
+/inftrees.c/1.1.1.1/Tue Jun 21 01:23:24 2011//
+/inftrees.h/1.1.1.1/Tue Jun 21 01:23:25 2011//
+/make_vms.com/1.1.1.1/Tue Jun 21 01:23:25 2011//
+/minigzip.c/1.1.1.1/Tue Jun 21 01:23:24 2011//
+/trees.c/1.1.1.1/Tue Jun 21 01:23:23 2011//
+/trees.h/1.1.1.1/Tue Jun 21 01:23:24 2011//
+/uncompr.c/1.1.1.1/Tue Jun 21 01:23:23 2011//
+/zconf.h/1.1.1.1/Tue Jun 21 01:23:24 2011//
+/zconf.in.h/1.1.1.1/Tue Jun 21 01:23:24 2011//
+/zlib.3/1.1.1.1/Tue Jun 21 01:23:25 2011//
+/zlib.h/1.1.1.1/Tue Jun 21 01:23:25 2011//
+/zutil.c/1.1.1.1/Tue Jun 21 01:23:25 2011//
+/zutil.h/1.1.1.1/Tue Jun 21 01:23:23 2011//
+D/amiga////
+D/as400////
+D/contrib////
+D/examples////
+D/msdos////
+D/old////
+D/projects////
+D/qnx////
+D/win32////
+/ChangeLog/1.1.1.2/Wed Sep 19 03:01:25 2012//
+D

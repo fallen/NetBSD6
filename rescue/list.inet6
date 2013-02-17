@@ -1,0 +1,4 @@
+#	$NetBSD$
+
+PROG	ping6
+PROG	rtsol

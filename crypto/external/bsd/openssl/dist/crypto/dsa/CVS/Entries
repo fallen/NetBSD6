@@ -1,0 +1,20 @@
+/README/1.1.1.1/Sun Jul 19 23:03:41 2009//
+/dsa_depr.c/1.1.1.1/Sun Jul 19 23:03:42 2009//
+/dsa_prn.c/1.1.1.1/Sun Jul 19 23:03:43 2009//
+/dsagen.c/1.1.1.1/Sun Jul 19 23:03:43 2009//
+/dsatest.c/1.1.1.1/Sun Jul 19 23:03:43 2009//
+/fips186a.txt/1.1.1.1/Sun Jul 19 23:03:43 2009//
+/Makefile/1.1.1.3/Mon Jun  6 03:00:42 2011//
+/dsa_asn1.c/1.1.1.3/Mon Jun  6 03:00:42 2011//
+/dsa_locl.h/1.1.1.2/Mon Jun  6 03:00:42 2011//
+/dsa_ossl.c/1.1.1.2/Mon Jun  6 03:00:42 2011//
+/dsa.h/1.1.1.4/Fri Jul 27 03:01:05 2012//
+/dsa_ameth.c/1.1.1.3/Fri Jul 27 03:01:05 2012//
+/dsa_err.c/1.1.1.3/Fri Jul 27 03:01:05 2012//
+/dsa_gen.c/1.1.1.4/Fri Jul 27 03:01:05 2012//
+/dsa_key.c/1.1.1.2/Fri Jul 27 03:01:05 2012//
+/dsa_lib.c/1.1.1.2/Fri Jul 27 03:01:05 2012//
+/dsa_pmeth.c/1.1.1.4/Fri Jul 27 03:01:05 2012//
+/dsa_sign.c/1.1.1.4/Fri Jul 27 03:01:05 2012//
+/dsa_vrf.c/1.1.1.3/Fri Jul 27 03:01:05 2012//
+D

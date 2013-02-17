@@ -1,0 +1,16 @@
+/memcpy.S/1.1/Tue Dec 20 19:28:51 2005//
+/memmove.S/1.1/Tue Dec 20 19:28:51 2005//
+/strcat.S/1.1/Tue Dec 20 19:28:51 2005//
+/strcmp.S/1.1/Tue Dec 20 19:28:51 2005//
+/strcpy.S/1.1/Tue Dec 20 19:28:51 2005//
+/bcmp.S/1.2/Tue Nov 13 03:03:57 2007//
+/memcmp.S/1.2/Tue Nov 13 03:03:57 2007//
+/strlen.S/1.5/Mon Jul 13 03:01:30 2009//
+/strrchr.S/1.2/Sat Jul 18 03:01:04 2009//
+/ffs.S/1.4/Tue Jul 21 03:01:12 2009//
+/strchr.S/1.6/Tue Jul 21 03:01:12 2009//
+/bzero.S/1.3/Sun Aug  2 03:02:00 2009//
+/memchr.S/1.5/Sun Aug  2 03:02:00 2009//
+/memset.S/1.3/Sun Aug  2 03:02:00 2009//
+/bcopy.S/1.4/Mon Nov 23 03:01:43 2009//
+D

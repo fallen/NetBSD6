@@ -1,0 +1,13 @@
+/ahcireg.h/1.1/Tue Mar 20 08:52:01 2007//
+/if_admswreg.h/1.1/Tue Mar 20 08:52:02 2007//
+/uart.h/1.1/Tue Mar 20 08:52:02 2007//
+/admgpio.c/1.4/Sat Jul  2 03:02:50 2011//
+/uart.c/1.9/Mon Jul 11 03:02:05 2011//
+/admpci.c/1.9/Mon Feb 13 03:02:26 2012//
+/wdc_extio.c/1.8/Wed Aug  1 03:02:47 2012//
+/admwdog.c/1.4/Sun Oct 28 03:04:13 2012//
+/ahci.c/1.9/Sun Oct 28 03:04:13 2012//
+/ahcivar.h/1.4/Sun Oct 28 03:04:13 2012//
+/if_admsw.c/1.11/Sun Oct 28 03:04:13 2012//
+/if_admswvar.h/1.5/Sun Oct 28 03:04:13 2012//
+D

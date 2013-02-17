@@ -1,0 +1,23 @@
+/shlib_version/1.1/Wed Feb  3 15:16:32 2010//
+/ti.c/1.2/Fri Feb  5 03:02:14 2010//
+/tputs.c/1.2/Sat Feb 13 03:05:06 2010//
+/termcap_map.c/1.3/Thu Sep 23 03:05:01 2010//
+/termcap.3/1.6/Tue Mar 15 03:05:08 2011//
+/termcap.h/1.2/Tue Apr 12 03:02:57 2011//
+/setupterm.c/1.3/Tue Oct  4 03:11:36 2011//
+/curterm.c/1.8/Thu Oct  6 03:29:20 2011//
+/genhash/1.8/Thu Nov  3 03:02:59 2011//
+/genterms/1.4/Thu Nov  3 03:02:59 2011//
+/genthash/1.5/Thu Nov  3 03:02:59 2011//
+/termcap.c/1.17/Mon Nov 14 03:03:49 2011//
+/Makefile/1.22/Thu Mar 22 03:02:52 2012//
+/compile.c/1.8/Mon Jun  4 03:01:48 2012//
+/term.c/1.16/Thu Jun  7 03:01:35 2012//
+/Makefile.hash/1.7/Fri Jan 25 03:01:31 2013//
+/term_private.h/1.11/Fri Jan 25 03:01:31 2013//
+/genman/1.5/Sat Jan 26 03:02:30 2013//
+/term.h/1.14/Sat Jan 26 03:02:30 2013//
+/terminfo.3/1.10/Sat Jan 26 03:02:30 2013//
+/terminfo.5.in/1.18/Sat Jan 26 03:02:30 2013//
+/tparm.c/1.14/Sat Jan 26 03:02:30 2013//
+D

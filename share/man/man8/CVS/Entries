@@ -1,0 +1,59 @@
+/MAKEDEV2manpage.sh/1.5/Wed Dec 28 03:54:07 2005//
+/boot.8/1.12/Fri Sep  4 23:29:02 2009//
+/compat_osf1.8/1.12/Wed Apr 30 13:10:57 2008//
+/hpcboot.8/1.5/Tue May 17 13:51:34 2005//
+/nis.8/1.3/Sat Oct 24 12:21:31 2009//
+/pam.8/1.4/Wed Apr 30 13:10:57 2008//
+/wizd.8/1.6/Wed Apr 30 13:10:57 2008//
+D/man8.acorn26////
+D/man8.acorn32////
+D/man8.alpha////
+D/man8.amd64////
+D/man8.amiga////
+D/man8.atari////
+D/man8.cobalt////
+D/man8.dreamcast////
+D/man8.hp300////
+D/man8.hp700////
+D/man8.hpcarm////
+D/man8.hpcmips////
+D/man8.hpcsh////
+D/man8.i386////
+D/man8.mac68k////
+D/man8.macppc////
+D/man8.mvme68k////
+D/man8.next68k////
+D/man8.pmax////
+D/man8.prep////
+D/man8.sgimips////
+D/man8.sparc////
+D/man8.sparc64////
+D/man8.sun2////
+D/man8.sun3////
+D/man8.vax////
+D/man8.x68k////
+/MAKEDEV2manpage.awk/1.13/Tue Mar 23 19:19:03 2010//
+/rc.8/1.36/Sat May 15 03:44:17 2010//
+/intro.8/1.10/Wed Dec 15 03:01:14 2010//
+D/man8.emips////
+D/man8.sandpoint////
+/veriexec.8/1.2/Fri Apr 29 03:01:25 2011//
+/MAKEDEV.8.template/1.20/Sun Aug  7 03:01:50 2011//
+/MAKEDEV.local.8/1.8/Sun Aug  7 03:01:50 2011//
+/compat_30.8/1.9/Wed Sep 14 03:03:44 2011//
+/compat_netbsd32.8/1.9/Wed Sep 14 03:03:44 2011//
+/compat_freebsd.8/1.15/Tue Nov 22 03:03:15 2011//
+/compat_ibcs2.8/1.7/Tue Nov 22 03:03:15 2011//
+/compat_linux.8/1.37/Tue Nov 22 03:03:15 2011//
+/compat_sunos.8/1.20/Tue Nov 22 03:03:15 2011//
+/compat_svr4.8/1.26/Tue Nov 22 03:03:15 2011//
+/compat_ultrix.8/1.20/Tue Nov 22 03:03:15 2011//
+/Makefile/1.102/Wed Feb  1 03:13:34 2012//
+D/man8.evbarm////
+/MAKEDEV.8/1.44/Sun Feb 26 03:04:05 2012//
+/rescue.8/1.7/Sun Apr 22 03:08:06 2012//
+/sysinst.8/1.5/Sat Jul  7 03:01:57 2012//
+/diskless.8/1.31/Sat Sep  1 03:01:54 2012//
+/afterboot.8/1.52/Sat Oct  6 03:06:45 2012//
+/rc.subr.8/1.31/Wed Dec 19 03:05:26 2012//
+D

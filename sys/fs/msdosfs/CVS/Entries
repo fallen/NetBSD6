@@ -1,0 +1,16 @@
+/Makefile/1.1/Thu Dec 26 12:31:32 2002//
+/TODO/1.1/Thu Dec 26 12:31:32 2002//
+/files.msdosfs/1.1/Thu Dec 26 12:31:33 2002//
+/bootsect.h/1.5/Mon Nov  5 03:01:33 2012//
+/bpb.h/1.7/Mon Nov  5 03:01:33 2012//
+/msdosfs_vfsops.c/1.100/Mon Nov  5 03:01:33 2012//
+/msdosfs_denode.c/1.48/Fri Dec 21 03:03:06 2012//
+/msdosfs_vnops.c/1.85/Sat Dec 29 03:02:41 2012//
+/direntry.h/1.6/Sat Jan 26 03:02:36 2013//
+/fat.h/1.8/Sat Jan 26 03:02:36 2013//
+/denode.h/1.23/Sun Jan 27 03:03:17 2013//
+/msdosfs_conv.c/1.9/Sun Jan 27 03:03:17 2013//
+/msdosfs_lookup.c/1.29/Sun Jan 27 03:03:17 2013//
+/msdosfsmount.h/1.19/Sun Jan 27 03:03:17 2013//
+/msdosfs_fat.c/1.28/Mon Jan 28 03:02:31 2013//
+D

@@ -1,0 +1,27 @@
+/__setjmp14.S/1.1/Tue Jun 19 00:25:02 2001//
+/__sigsetjmp14.S/1.1/Tue Jun 19 00:25:02 2001//
+/_setjmp.S/1.1/Tue Jun 19 00:25:02 2001//
+/alloca.S/1.1/Tue Jun 19 00:25:02 2001//
+/fabs.S/1.3/Tue Mar 23 17:11:35 2004//
+/fpclassifyl.c/1.4/Mon Apr 28 20:22:58 2008//
+/fpgetmask.S/1.3/Wed Jun 12 19:17:22 2002//
+/fpgetsticky.S/1.3/Wed Jun 12 19:17:22 2002//
+/fpsetsticky.S/1.5/Tue Mar  9 17:16:13 2004//
+/isfinitel.c/1.3/Mon Apr 28 20:22:58 2008//
+/isinfl.c/1.6/Fri Feb  2 23:19:25 2007//
+/makecontext.c/1.4/Thu Jul 30 20:57:17 2009//
+/nanf.c/1.4/Sun Feb 22 01:34:02 2009//
+/resumecontext.S/1.4/Mon Apr 28 20:22:58 2008//
+/signbitl.c/1.2/Mon Apr 28 20:22:58 2008//
+/swapcontext.S/1.4/Thu Apr 12 12:33:26 2007//
+/_lwp.c/1.7/Fri Feb 25 03:10:44 2011//
+/Makefile.inc/1.16/Sun Mar 27 03:03:11 2011//
+/fpgetprec.S/1.1/Sat Mar 26 19:51:42 2011//
+/fpsetprec.S/1.1/Sat Mar 26 19:51:42 2011//
+/isnanl.c/1.8/Mon Jun  6 03:01:15 2011//
+/infinityl.c/1.4/Tue Jun  7 03:00:55 2011//
+/flt_rounds.S/1.6/Sat Oct  1 03:07:21 2011//
+/fpgetround.S/1.4/Sat Oct  1 03:07:21 2011//
+/fpsetround.S/1.4/Sat Oct  1 03:07:21 2011//
+/fpsetmask.S/1.5/Fri Jan 20 03:03:14 2012//
+D

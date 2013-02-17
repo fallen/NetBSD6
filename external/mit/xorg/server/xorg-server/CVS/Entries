@@ -1,0 +1,34 @@
+/Makefile/1.19/Thu Jun 11 05:43:15 2009//
+/Makefile.serverlib/1.4/Sun Aug 24 13:43:57 2008//
+/Makefile.servermod/1.2/Sun Aug 10 11:56:06 2008//
+D/GL////
+D/XTrap////
+D/Xext////
+D/Xi////
+D/afb////
+D/cfb////
+D/cfb32////
+D/composite////
+D/config////
+D/damageext////
+D/dbe////
+D/dix////
+D/doc////
+D/exa////
+D/fb////
+D/glx////
+D/hw////
+D/include////
+D/mfb////
+D/mi////
+D/miext////
+D/os////
+D/randr////
+D/record////
+D/render////
+D/xfixes////
+D/xkb////
+D/xkbstubs////
+/Makefile.common/1.25/Tue May 15 03:01:54 2012//
+/Makefile.Xserver/1.13/Thu Oct  4 03:02:21 2012//
+D

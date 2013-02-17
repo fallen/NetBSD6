@@ -1,0 +1,19 @@
+/genassym.cf/1.5/Sat Sep 20 18:29:05 2008//
+/hat.c/1.6/Wed Oct 17 19:57:10 2007//
+/hat.h/1.2/Sat Oct  5 17:01:51 2002//
+/i8042reg.h/1.5/Sat Mar 14 14:46:07 2009//
+/kbdreg.h/1.1/Sun Feb 10 01:58:06 2002//
+/ns87307reg.h/1.5/Thu Feb 22 16:50:42 2007//
+/profile.c/1.14/Fri Nov 27 03:23:13 2009//
+/sequoia.h/1.2/Sat Mar 14 14:46:07 2009//
+/shark_fiq.S/1.2/Tue May 20 04:44:52 2003//
+/shark_fiq.h/1.1/Sun Feb 10 01:58:11 2002//
+/i8042.c/1.6/Wed Jul 20 03:01:42 2011//
+/ns87307.c/1.6/Wed Jul 20 03:01:42 2011//
+/sequoia.c/1.12/Wed Jul 20 03:01:42 2011//
+/opms.c/1.24/Wed Jul 27 03:02:49 2011//
+/shark_machdep.c/1.40/Sun Jul 29 03:03:01 2012//
+/consinit.c/1.12/Sun Oct 14 03:02:33 2012//
+/autoconf.c/1.20/Sun Oct 28 03:04:19 2012//
+/scr.c/1.28/Tue Oct 30 03:03:21 2012//
+D

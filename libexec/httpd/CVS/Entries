@@ -1,0 +1,20 @@
+D/debug////
+D/small////
+D/testsuite////
+/Makefile.boot/1.5/Tue May 11 03:03:28 2010//
+D/libbozohttpd////
+D/lua////
+/Makefile/1.12/Tue Sep 21 03:11:09 2010//
+/auth-bozo.c/1.10/Sat Nov 19 03:03:33 2011//
+/cgi-bozo.c/1.20/Sat Nov 19 03:03:33 2011//
+/content-bozo.c/1.7/Sat Nov 19 03:03:33 2011//
+/daemon-bozo.c/1.15/Sat Nov 19 03:03:33 2011//
+/main.c/1.5/Sat Nov 19 03:03:33 2011//
+/tilde-luzah-bozo.c/1.9/Sat Nov 19 03:03:33 2011//
+/ssl-bozo.c/1.15/Thu Mar 15 03:05:58 2012//
+/CHANGES/1.12/Fri Jul 20 03:01:46 2012//
+/bozohttpd.c/1.32/Fri Jul 20 03:01:46 2012//
+/bozohttpd.h/1.23/Fri Jul 20 03:01:46 2012//
+/dir-index-bozo.c/1.15/Fri Jul 20 03:01:46 2012//
+/bozohttpd.8/1.35/Wed Dec  5 03:02:36 2012//
+D

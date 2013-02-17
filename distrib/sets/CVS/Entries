@@ -1,0 +1,27 @@
+/TODO/1.4/Thu Nov 11 14:59:45 2004//
+/attrs/1.1/Thu Jun 12 20:04:00 2003//
+/culldeps/1.6/Sun Jan  8 10:19:07 2006//
+/join.awk/1.3/Wed Apr 30 13:10:49 2008//
+/listpkgs/1.12/Wed Jan  4 13:35:55 2006//
+/makeobsolete/1.31/Sat Dec  5 15:56:25 2009//
+/makeplist/1.20/Wed Dec  2 15:52:14 2009//
+/makesrctars/1.38/Mon Nov 30 16:13:23 2009//
+/makesums/1.16/Sat Sep 19 07:09:54 2009//
+/regpkgset/1.12/Tue Dec  1 15:49:21 2009//
+/syspkgdeps/1.15/Sat Jan 28 19:01:23 2006//
+/versions/1.3/Wed Jun 18 12:40:55 2003//
+D/lists////
+/metalog.subr/1.2/Fri Feb 18 04:37:55 2011//
+/Makefile/1.84/Wed Aug 10 03:01:31 2011//
+/getdirs.awk/1.5/Thu Feb  9 03:01:44 2012//
+/regpkg/1.20/Sun Nov  4 03:00:46 2012//
+/comments/1.18/Mon Nov  5 03:00:37 2012//
+/deps/1.15/Mon Nov  5 03:00:37 2012//
+/descrs/1.19/Mon Nov  5 03:00:37 2012//
+/checkflist/1.43/Tue Jan 15 03:01:16 2013//
+/makeflist/1.77/Tue Jan 15 03:01:16 2013//
+/README/1.12/Thu Jan 17 03:00:46 2013//
+/mkvars.mk/1.8/Tue Jan 29 03:01:21 2013//
+/sets.subr/1.143/Tue Jan 29 03:01:21 2013//
+/maketars/1.80/Fri Feb  8 03:01:25 2013//
+D

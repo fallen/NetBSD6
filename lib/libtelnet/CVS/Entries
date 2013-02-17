@@ -1,0 +1,22 @@
+/auth.h/1.11/Mon Feb  7 03:04:14 2005//
+/forward.c/1.3/Mon Feb  7 03:04:16 2005//
+/key-proto.h/1.6/Mon Feb  7 03:04:18 2005//
+/misc-proto.h/1.10/Mon Feb  7 03:04:18 2005//
+/pk.c/1.4/Sat Feb 19 22:55:35 2005//
+/pk.h/1.2/Sat Feb 19 22:55:35 2005//
+/spx.c/1.7/Wed Apr 20 03:06:56 2005//
+/auth-proto.h/1.15/Tue Mar 21 03:02:16 2006//
+/shlib_version/1.11/Mon Jan 12 03:04:24 2009//
+/enc-proto.h/1.9/Tue Jan 10 03:02:48 2012//
+/encrypt.h/1.9/Tue Jan 10 03:02:48 2012//
+/kerberos5.c/1.19/Tue Jan 10 03:02:48 2012//
+/misc.h/1.9/Tue Jan 10 03:02:48 2012//
+/sra.c/1.11/Tue Jan 10 03:02:48 2012//
+/auth.c/1.21/Thu Mar 22 03:02:52 2012//
+/enc_des.c/1.16/Thu Mar 22 03:02:52 2012//
+/encrypt.c/1.17/Thu Mar 22 03:02:52 2012//
+/genget.c/1.13/Thu Mar 22 03:02:52 2012//
+/getent.c/1.11/Thu Mar 22 03:02:52 2012//
+/misc.c/1.13/Thu Mar 22 03:02:52 2012//
+/Makefile/1.36/Sat Aug 11 03:01:47 2012//
+D

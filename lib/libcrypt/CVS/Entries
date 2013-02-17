@@ -1,0 +1,14 @@
+/util.c/1.1/Fri Jul  2 00:05:23 2004//
+/blowfish.c/1.4/Sun Dec 25 03:03:55 2005//
+/crypt.h/1.4/Sat Oct 28 03:05:01 2006//
+/hmac_sha1.c/1.1/Fri Oct 27 18:22:56 2006//
+/shlib_version/1.6/Mon Jan 12 03:04:21 2009//
+/pw_gensalt.c/1.7/Mon Jan 19 03:08:07 2009//
+/hmac.c/1.3/Tue May 17 03:01:15 2011//
+/crypt.c/1.33/Thu Dec 29 03:02:15 2011//
+/crypt.3/1.27/Sat Mar 24 03:05:04 2012//
+/Makefile/1.24/Sat Aug 11 03:01:46 2012//
+/bcrypt.c/1.17/Fri Aug 31 03:02:01 2012//
+/crypt-sha1.c/1.5/Fri Aug 31 03:02:01 2012//
+/md5crypt.c/1.12/Fri Aug 31 03:02:01 2012//
+D

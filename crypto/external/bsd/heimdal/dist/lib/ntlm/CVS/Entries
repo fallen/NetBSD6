@@ -1,0 +1,15 @@
+/ChangeLog/1.1.1.1/Wed Apr 13 18:15:39 2011//
+/NTMakefile/1.1.1.1/Wed Apr 13 18:15:39 2011//
+/apop.c/1.1.1.1/Wed Apr 13 18:15:39 2011//
+/digest.c/1.1.1.1/Wed Apr 13 18:15:39 2011//
+/heim-auth.h/1.1.1.1/Wed Apr 13 18:15:39 2011//
+/libheimntlm-exports.def/1.1.1.1/Wed Apr 13 18:15:39 2011//
+/libheimntlm-version.rc/1.1.1.1/Wed Apr 13 18:15:39 2011//
+/ntlm.c/1.1.1.1/Wed Apr 13 18:15:39 2011//
+/ntlm_err.et/1.1.1.1/Wed Apr 13 18:15:39 2011//
+/test_commonauth.c/1.1.1.1/Wed Apr 13 18:15:39 2011//
+/test_ntlm.c/1.1.1.1/Wed Apr 13 18:15:39 2011//
+/Makefile.am/1.1.1.2/Fri Apr 15 03:00:38 2011//
+/heimntlm.h/1.1.1.2/Fri Apr 15 03:00:38 2011//
+/version-script.map/1.1.1.2/Fri Apr 15 03:00:38 2011//
+D

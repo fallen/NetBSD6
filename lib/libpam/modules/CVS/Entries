@@ -1,0 +1,25 @@
+D/pam_chroot////
+D/pam_deny////
+D/pam_echo////
+D/pam_exec////
+D/pam_ftpusers////
+D/pam_group////
+D/pam_guest////
+D/pam_krb5////
+D/pam_ksu////
+D/pam_lastlog////
+D/pam_login_access////
+D/pam_nologin////
+D/pam_permit////
+D/pam_radius////
+D/pam_rhosts////
+D/pam_rootok////
+D/pam_securetty////
+D/pam_self////
+D/pam_ssh////
+D/pam_unix////
+D/pam_skey////
+D/pam_afslog////
+/Makefile/1.12/Wed Mar  9 05:13:40 2011//
+/mod.mk/1.11/Sun Jan 29 03:05:30 2012//
+D

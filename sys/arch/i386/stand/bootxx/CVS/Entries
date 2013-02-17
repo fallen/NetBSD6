@@ -1,0 +1,14 @@
+/label.S/1.3/Sun Dec 11 12:17:48 2005//
+D/bootxx_ffsv1////
+D/bootxx_ffsv2////
+D/bootxx_lfsv1////
+D/bootxx_lfsv2////
+D/bootxx_msdos////
+D/bootxx_ustarfs////
+D/bootxx_ext2fs////
+/Makefile/1.14/Thu Dec 30 03:02:42 2010//
+/boot1.c/1.20/Thu Jan  6 03:04:06 2011//
+/bootxx.S/1.10/Thu Jan  6 03:04:06 2011//
+/pbr.S/1.20/Wed Aug 17 03:02:08 2011//
+/Makefile.bootxx/1.43/Sat Aug 11 03:01:55 2012//
+D

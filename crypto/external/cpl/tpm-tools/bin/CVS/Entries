@@ -1,0 +1,28 @@
+/Makefile/1.1/Sat Jan 28 16:04:12 2012//
+/Makefile.inc/1.1/Sat Jan 28 16:04:12 2012//
+/Makefile.prog/1.1/Sat Jan 28 16:04:12 2012//
+D/tpm_changeownerauth////
+D/tpm_clear////
+D/tpm_createek////
+D/tpm_getpubek////
+D/tpm_nvdefine////
+D/tpm_nvinfo////
+D/tpm_nvread////
+D/tpm_nvrelease////
+D/tpm_nvwrite////
+D/tpm_resetdalock////
+D/tpm_restrictpubek////
+D/tpm_restrictsrk////
+D/tpm_revokeek////
+D/tpm_sealdata////
+D/tpm_selftest////
+D/tpm_setactive////
+D/tpm_setclearable////
+D/tpm_setenable////
+D/tpm_setoperatorauth////
+D/tpm_setownable////
+D/tpm_setpresence////
+D/tpm_takeownership////
+D/tpm_unsealdata////
+D/tpm_version////
+D

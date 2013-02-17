@@ -1,0 +1,11 @@
+/NTMakefile/1.1.1.1/Wed Apr 13 18:14:34 2011//
+/config.h.w32/1.1.1.1/Wed Apr 13 18:14:34 2011//
+/crypto-headers.h/1.1.1.1/Wed Apr 13 18:14:34 2011//
+/krb5-types.cross/1.1.1.1/Wed Apr 13 18:14:34 2011//
+D/gssapi////
+D/hcrypto////
+D/kadm5////
+/Makefile.am/1.1.1.2/Fri Apr 15 03:00:37 2011//
+/bits.c/1.1.1.2/Fri Apr 15 03:00:37 2011//
+/heim_threads.h/1.1.1.2/Fri Apr 15 03:00:37 2011//
+D

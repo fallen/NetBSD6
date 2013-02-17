@@ -1,0 +1,19 @@
+/Makefile.am/1.1.1.2/Mon Jan  8 03:29:03 2001//
+/Makefile.in/1.1.1.2/Mon Jan  8 03:29:03 2001//
+/bc.y/1.2/Mon Feb 19 21:07:04 2001//
+/bcdefs.h/1.1.1.1/Mon Jan  8 03:29:05 2001//
+/const.h/1.1.1.1/Mon Jan  8 03:29:05 2001//
+/execute.c/1.1.1.2/Mon Jan  8 03:29:04 2001//
+/fix-libmath_h/1.1.1.2/Mon Jan  8 03:29:05 2001//
+/global.c/1.1.1.2/Mon Jan  8 03:29:04 2001//
+/global.h/1.1.1.1/Mon Jan  8 03:29:05 2001//
+/libmath.b/1.3/Mon Jan  8 04:03:30 2001//
+/libmath.h/1.1.1.2/Mon Jan  8 03:29:05 2001//
+/load.c/1.2/Sun Feb 11 03:25:11 2001//
+/main.c/1.6/Mon Feb 19 21:07:04 2001//
+/proto.h/1.1.1.1/Mon Jan  8 03:29:05 2001//
+/sbc.y/1.1.1.2/Mon Jan  8 03:29:05 2001//
+/scan.l/1.3/Mon Jan  8 04:03:30 2001//
+/storage.c/1.1.1.2/Mon Jan  8 03:29:04 2001//
+/util.c/1.2/Tue Mar 28 19:38:44 2006//
+D

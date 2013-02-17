@@ -1,0 +1,15 @@
+/hd64461gpioreg.h/1.3/Mon Apr 28 20:23:22 2008//
+/hd64461intcreg.h/1.3/Mon Apr 28 20:23:22 2008//
+/hd64461pcmciareg.h/1.4/Mon Apr 28 20:23:22 2008//
+/hd64461pcmciavar.h/1.3/Mon Apr 28 20:23:22 2008//
+/hd64461reg.h/1.4/Mon Apr 28 20:23:22 2008//
+/hd64461uartreg.h/1.5/Mon Apr 28 20:23:22 2008//
+/hd64461uartvar.h/1.6/Mon Apr 28 20:23:22 2008//
+/hd64461videoreg.h/1.4/Mon Apr 28 20:23:22 2008//
+/hd64461var.h/1.5/Fri May 14 04:54:01 2010//
+/hd64461.c/1.24/Wed Jul 20 03:01:40 2011//
+/hd64461_machdep.c/1.6/Wed Jul 20 03:01:40 2011//
+/hd64461uart.c/1.28/Wed Jul 20 03:01:40 2011//
+/hd64461video.c/1.53/Wed Jul 20 03:01:40 2011//
+/hd64461pcmcia.c/1.49/Wed Jul 27 03:02:41 2011//
+D

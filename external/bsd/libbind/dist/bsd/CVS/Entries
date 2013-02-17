@@ -1,0 +1,18 @@
+/strdup.c/1.1.1.1/Sun Apr 12 15:33:26 2009//
+/utimes.c/1.1.1.1/Sun Apr 12 15:33:26 2009//
+/Makefile.in/1.1.1.2/Mon Sep 10 03:00:32 2012//
+/daemon.c/1.1.1.2/Mon Sep 10 03:00:32 2012//
+/ftruncate.c/1.1.1.2/Mon Sep 10 03:00:32 2012//
+/gettimeofday.c/1.1.1.2/Mon Sep 10 03:00:32 2012//
+/mktemp.c/1.1.1.2/Mon Sep 10 03:00:32 2012//
+/putenv.c/1.1.1.2/Mon Sep 10 03:00:32 2012//
+/readv.c/1.1.1.2/Mon Sep 10 03:00:32 2012//
+/setenv.c/1.1.1.2/Mon Sep 10 03:00:32 2012//
+/setitimer.c/1.1.1.2/Mon Sep 10 03:00:32 2012//
+/strcasecmp.c/1.1.1.2/Mon Sep 10 03:00:32 2012//
+/strerror.c/1.1.1.2/Mon Sep 10 03:00:32 2012//
+/strpbrk.c/1.1.1.2/Mon Sep 10 03:00:32 2012//
+/strsep.c/1.1.1.2/Mon Sep 10 03:00:32 2012//
+/strtoul.c/1.1.1.2/Mon Sep 10 03:00:32 2012//
+/writev.c/1.1.1.2/Mon Sep 10 03:00:32 2012//
+D

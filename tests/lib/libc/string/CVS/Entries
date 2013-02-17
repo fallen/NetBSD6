@@ -1,0 +1,19 @@
+/t_strerror.c/1.3/Wed May 11 03:01:14 2011//
+/t_memmem.c/1.2/Fri Jul  8 03:01:31 2011//
+/t_popcount.c/1.4/Fri Jul  8 03:01:31 2011//
+/t_strchr.c/1.1/Thu Jul  7 08:59:33 2011//
+/t_strcpy.c/1.1/Thu Jul  7 08:59:33 2011//
+/t_stresep.c/1.2/Fri Jul  8 03:01:31 2011//
+/t_strrchr.c/1.1/Thu Jul  7 08:59:33 2011//
+/t_swab.c/1.2/Fri Jul  8 03:01:31 2011//
+/t_memcpy.c/1.4/Fri Jul 15 03:04:17 2011//
+/t_memset.c/1.2/Fri Jul 15 03:04:17 2011//
+/t_strcat.c/1.2/Fri Jul 15 03:04:17 2011//
+/t_strlen.c/1.5/Fri Jul 15 03:04:17 2011//
+/Makefile/1.8/Tue Nov 22 03:03:24 2011//
+/t_strcspn.c/1.1/Mon Nov 21 23:50:45 2011//
+/t_strpbrk.c/1.1/Mon Nov 21 23:50:45 2011//
+/t_strspn.c/1.1/Mon Nov 21 23:50:45 2011//
+/t_strcmp.c/1.4/Mon Mar 26 03:02:10 2012//
+/t_memchr.c/1.3/Sat Apr  7 03:02:20 2012//
+D

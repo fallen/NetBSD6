@@ -1,0 +1,20 @@
+#	$NetBSD: std.integrator,v 1.18 2012/12/16 23:47:56 matt Exp $
+#
+# standard NetBSD/integrator options
+
+machine	evbarm arm
+include		"arch/evbarm/conf/std.evbarm"
+
+# Pull in Integrator config definitions.
+include		"arch/evbarm/conf/files.integrator"
+
+options 	EXEC_AOUT
+
+options 	_ARM32_NEED_BUS_DMA_BOUNCE
+
+#options 	ARM32_NEW_VM_LAYOUT	# Not yet ready for prime-time
+
+makeoptions	BOARDTYPE="integrator"
+makeoptions	BOARDMKFRAG="${THISARM}/conf/mk.integrator"
+
+options 	ARM_INTR_IMPL="<arch/evbarm/ifpga/ifpga_intr.h>"

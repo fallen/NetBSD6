@@ -1,0 +1,17 @@
+/ChangeLog/1.1.1.1/Wed Apr 13 18:15:39 2011//
+/NTMakefile/1.1.1.1/Wed Apr 13 18:15:39 2011//
+/otp.c/1.1.1.1/Wed Apr 13 18:15:39 2011//
+/otp_challenge.c/1.1.1.1/Wed Apr 13 18:15:39 2011//
+/otp_db.c/1.1.1.1/Wed Apr 13 18:15:39 2011//
+/otp_md.c/1.1.1.1/Wed Apr 13 18:15:40 2011//
+/otp_parse.c/1.1.1.1/Wed Apr 13 18:15:40 2011//
+/otp_print.c/1.1.1.1/Wed Apr 13 18:15:40 2011//
+/otp_verify.c/1.1.1.1/Wed Apr 13 18:15:40 2011//
+/otptest.c/1.1.1.1/Wed Apr 13 18:15:40 2011//
+/version-script.map/1.1.1.1/Wed Apr 13 18:15:40 2011//
+/Makefile.am/1.1.1.2/Fri Apr 15 03:00:38 2011//
+/otp.h/1.1.1.2/Fri Apr 15 03:00:38 2011//
+/otp_locl.h/1.1.1.2/Fri Apr 15 03:00:38 2011//
+/otp_md.h/1.1.1.2/Fri Apr 15 03:00:38 2011//
+/roken_rename.h/1.1.1.2/Fri Apr 15 03:00:38 2011//
+D

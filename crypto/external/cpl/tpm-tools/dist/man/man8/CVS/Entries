@@ -1,0 +1,23 @@
+/Makefile.am/1.1.1.1/Sat Jan 28 02:57:42 2012//
+/Makefile.in/1.1.1.1/Sat Jan 28 02:57:42 2012//
+/tpm_clear.8/1.1.1.1/Sat Jan 28 02:57:42 2012//
+/tpm_createek.8/1.1.1.1/Sat Jan 28 02:57:41 2012//
+/tpm_getpubek.8/1.1.1.1/Sat Jan 28 02:57:42 2012//
+/tpm_nvdefine.8/1.1.1.1/Sat Jan 28 02:57:41 2012//
+/tpm_nvinfo.8/1.1.1.1/Sat Jan 28 02:57:40 2012//
+/tpm_nvread.8/1.1.1.1/Sat Jan 28 02:57:42 2012//
+/tpm_nvrelease.8/1.1.1.1/Sat Jan 28 02:57:42 2012//
+/tpm_nvwrite.8/1.1.1.1/Sat Jan 28 02:57:41 2012//
+/tpm_resetdalock.8/1.1.1.1/Sat Jan 28 02:57:41 2012//
+/tpm_restrictpubek.8/1.1.1.1/Sat Jan 28 02:57:42 2012//
+/tpm_revokeek.8/1.1.1.1/Sat Jan 28 02:57:42 2012//
+/tpm_selftest.8/1.1.1.1/Sat Jan 28 02:57:40 2012//
+/tpm_setactive.8/1.1.1.1/Sat Jan 28 02:57:41 2012//
+/tpm_setclearable.8/1.1.1.1/Sat Jan 28 02:57:42 2012//
+/tpm_setenable.8/1.1.1.1/Sat Jan 28 02:57:41 2012//
+/tpm_setoperatorauth.8/1.1.1.1/Sat Jan 28 02:57:42 2012//
+/tpm_setownable.8/1.1.1.1/Sat Jan 28 02:57:42 2012//
+/tpm_setpresence.8/1.1.1.1/Sat Jan 28 02:57:41 2012//
+/tpm_takeownership.8/1.1.1.1/Sat Jan 28 02:57:41 2012//
+/tpm_changeownerauth.8/1.2/Sun Jan 29 03:04:17 2012//
+D

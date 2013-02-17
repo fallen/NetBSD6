@@ -1,0 +1,14 @@
+/Makefile.inc/1.4/Tue Dec 15 04:06:43 2009//
+/dummy.c/1.1/Wed Jan  7 00:39:24 2009//
+/ldd.1/1.18/Mon Sep  7 20:06:21 2009//
+D/elf32////
+D/elf32_compat////
+D/elf64////
+/Makefile.elf/1.4/Thu Mar 10 05:07:11 2011//
+/Makefile/1.16/Sat Apr 16 03:01:39 2011//
+D/build////
+/Makefile.common/1.2/Sat Feb 18 03:03:22 2012//
+/ldd.c/1.20/Sun Jul  8 03:02:14 2012//
+/ldd.h/1.7/Sun Jul  8 03:02:14 2012//
+/ldd_elfxx.c/1.6/Sun Jul  8 03:02:14 2012//
+D

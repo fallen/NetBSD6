@@ -1,0 +1,27 @@
+/1.cc/1.1.1.1/Thu Apr 20 10:15:01 2006//
+/2.cc/1.1.1.1/Thu Apr 20 10:15:01 2006//
+/3.cc/1.1.1.1/Thu Apr 20 10:15:01 2006//
+/4.cc/1.1.1.1/Thu Apr 20 10:15:01 2006//
+D/close////
+D/cons////
+D/imbue////
+D/in_avail////
+D/is_open////
+D/open////
+D/overflow////
+D/pbackfail////
+D/sbumpc////
+D/seekoff////
+D/seekpos////
+D/setbuf////
+D/sgetc////
+D/sgetn////
+D/showmanyc////
+D/snextc////
+D/sputbackc////
+D/sputc////
+D/sputn////
+D/sungetc////
+D/sync////
+D/underflow////
+D

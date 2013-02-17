@@ -1,0 +1,22 @@
+#	$NetBSD: std.overo,v 1.5 2012/12/16 23:47:56 matt Exp $
+#
+# standard NetBSD/evbarm for OVERO options
+
+machine	evbarm arm
+include 	"arch/evbarm/conf/std.evbarm"
+
+include		"arch/evbarm/conf/files.overo"
+
+options 	CORTEX_PMC
+options 	__HAVE_FAST_SOFTINTS		# should be in types.h
+#options 	TPIDRPRW_IS_CURLWP
+
+options 	KERNEL_BASE_EXT=0x80000000
+makeoptions	LOADADDRESS="0x80200000"
+makeoptions	BOARDTYPE="overo"
+options 	EVBARM_BOARDTYPE=overo
+makeoptions	BOARDMKFRAG="${THISARM}/conf/mk.gumstix"
+makeoptions	CPPFLAGS+="-I$S/../../../include"
+
+options 	ARM_INTR_IMPL="<arch/arm/omap/omap2_intr.h>"
+options		ARM_GENERIC_TODR

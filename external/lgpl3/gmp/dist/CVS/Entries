@@ -1,0 +1,82 @@
+/.gdbinit/1.1.1.1/Mon Jun 20 05:54:30 2011//
+/AUTHORS/1.1.1.1/Mon Jun 20 05:54:30 2011//
+/COPYING/1.1.1.1/Mon Jun 20 05:54:31 2011//
+/COPYING.LIB/1.1.1.1/Mon Jun 20 05:54:30 2011//
+/ChangeLog/1.1.1.1/Mon Jun 20 05:54:35 2011//
+/INSTALL/1.1.1.1/Mon Jun 20 05:54:33 2011//
+/INSTALL.autoconf/1.1.1.1/Mon Jun 20 05:54:33 2011//
+/Makefile.am/1.1.1.1/Mon Jun 20 05:54:30 2011//
+/NEWS/1.1.1.1/Mon Jun 20 05:54:31 2011//
+/README/1.1.1.1/Mon Jun 20 05:54:33 2011//
+/acinclude.m4/1.1.1.1/Mon Jun 20 05:54:29 2011//
+/aclocal.m4/1.1.1.1/Mon Jun 20 05:54:32 2011//
+/ansi2knr.1/1.1.1.1/Mon Jun 20 05:54:30 2011//
+/ansi2knr.c/1.1.1.1/Mon Jun 20 05:54:33 2011//
+/assert.c/1.1.1.1/Mon Jun 20 05:54:30 2011//
+/compat.c/1.1.1.1/Mon Jun 20 05:54:30 2011//
+/config.in/1.1.1.1/Mon Jun 20 05:54:30 2011//
+/config.sub/1.1.1.1/Mon Jun 20 05:54:30 2011//
+/configfsf.guess/1.1.1.1/Mon Jun 20 05:54:30 2011//
+/configure/1.1.1.1/Mon Jun 20 05:54:37 2011//
+/configure.in/1.1.1.1/Mon Jun 20 05:54:31 2011//
+/dumbmp.c/1.1.1.1/Mon Jun 20 05:54:32 2011//
+/errno.c/1.1.1.1/Mon Jun 20 05:54:33 2011//
+/extract-dbl.c/1.1.1.1/Mon Jun 20 05:54:32 2011//
+/gen-bases.c/1.1.1.1/Mon Jun 20 05:54:31 2011//
+/gen-fac_ui.c/1.1.1.1/Mon Jun 20 05:54:31 2011//
+/gen-fib.c/1.1.1.1/Mon Jun 20 05:54:31 2011//
+/gen-psqr.c/1.1.1.1/Mon Jun 20 05:54:35 2011//
+/gen-trialdivtab.c/1.1.1.1/Mon Jun 20 05:54:30 2011//
+/gmpxx.h/1.1.1.1/Mon Jun 20 05:54:31 2011//
+/install-sh/1.1.1.1/Mon Jun 20 05:54:31 2011//
+/invalid.c/1.1.1.1/Mon Jun 20 05:54:30 2011//
+/libmp.sym/1.1.1.1/Mon Jun 20 05:54:33 2011//
+/longlong.h/1.1.1.1/Mon Jun 20 05:54:37 2011//
+/ltmain.sh/1.1.1.1/Mon Jun 20 05:54:30 2011//
+/memory.c/1.1.1.1/Mon Jun 20 05:54:30 2011//
+/missing/1.1.1.1/Mon Jun 20 05:54:29 2011//
+/mp-h.in/1.1.1.1/Mon Jun 20 05:54:31 2011//
+/mp_bpl.c/1.1.1.1/Mon Jun 20 05:54:37 2011//
+/mp_clz_tab.c/1.1.1.1/Mon Jun 20 05:54:30 2011//
+/mp_dv_tab.c/1.1.1.1/Mon Jun 20 05:54:30 2011//
+/mp_get_fns.c/1.1.1.1/Mon Jun 20 05:54:30 2011//
+/mp_minv_tab.c/1.1.1.1/Mon Jun 20 05:54:33 2011//
+/mp_set_fns.c/1.1.1.1/Mon Jun 20 05:54:30 2011//
+/nextprime.c/1.1.1.1/Mon Jun 20 05:54:35 2011//
+/rand.c/1.1.1.1/Mon Jun 20 05:54:30 2011//
+/randbui.c/1.1.1.1/Mon Jun 20 05:54:33 2011//
+/randclr.c/1.1.1.1/Mon Jun 20 05:54:35 2011//
+/randdef.c/1.1.1.1/Mon Jun 20 05:54:29 2011//
+/randiset.c/1.1.1.1/Mon Jun 20 05:54:33 2011//
+/randlc2s.c/1.1.1.1/Mon Jun 20 05:54:29 2011//
+/randlc2x.c/1.1.1.1/Mon Jun 20 05:54:30 2011//
+/randmt.c/1.1.1.1/Mon Jun 20 05:54:31 2011//
+/randmt.h/1.1.1.1/Mon Jun 20 05:54:33 2011//
+/randmts.c/1.1.1.1/Mon Jun 20 05:54:30 2011//
+/randmui.c/1.1.1.1/Mon Jun 20 05:54:31 2011//
+/rands.c/1.1.1.1/Mon Jun 20 05:54:33 2011//
+/randsd.c/1.1.1.1/Mon Jun 20 05:54:30 2011//
+/randsdui.c/1.1.1.1/Mon Jun 20 05:54:37 2011//
+/tal-debug.c/1.1.1.1/Mon Jun 20 05:54:33 2011//
+/tal-notreent.c/1.1.1.1/Mon Jun 20 05:54:30 2011//
+/tal-reent.c/1.1.1.1/Mon Jun 20 05:54:37 2011//
+/version.c/1.1.1.1/Mon Jun 20 05:54:31 2011//
+/ylwrap/1.1.1.1/Mon Jun 20 05:54:30 2011//
+D/cxx////
+D/demos////
+D/doc////
+D/mpbsd////
+D/mpf////
+D/mpn////
+D/mpq////
+D/mpz////
+D/printf////
+D/scanf////
+D/tests////
+D/tune////
+/gmp-impl.h/1.2/Fri Jun 24 03:01:18 2011//
+/Makefile.in/1.2/Sun Jul  3 03:01:39 2011//
+/config.guess/1.2/Wed Mar 28 03:01:16 2012//
+/gmp-h.in/1.3/Mon Dec 17 03:02:49 2012//
+/configfsf.sub/1.2/Mon Feb  4 03:01:37 2013//
+D

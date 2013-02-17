@@ -1,0 +1,16 @@
+/fdsub.S/1.1/Thu Sep 27 10:03:28 2001//
+/fdvar.h/1.2/Sun Nov 11 05:20:27 2007//
+/parseutils.c/1.2/Sun Nov 11 05:20:27 2007//
+/chdsk.c/1.4/Tue Apr 12 03:03:21 2011//
+/consio.h/1.3/Tue Apr 12 03:03:21 2011//
+/sdcdvar.h/1.2/Tue Apr 12 03:03:21 2011//
+/fd.c/1.7/Mon Jul 18 03:02:03 2011//
+/Makefile/1.29/Sat Oct 13 03:02:36 2012//
+/Makefile.inc/1.2/Sat Oct 13 03:02:36 2012//
+/consio.c/1.10/Sat Oct 13 03:02:36 2012//
+/devopen.c/1.6/Sat Oct 13 03:02:36 2012//
+/libx68k.h/1.6/Sat Oct 13 03:02:37 2012//
+/clock.c/1.2/Fri Nov  2 03:02:59 2012//
+/sdcd.c/1.14/Fri Nov 23 03:02:02 2012//
+/putimage.S/1.5/Mon Nov 26 03:03:28 2012//
+D

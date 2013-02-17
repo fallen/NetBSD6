@@ -1,0 +1,24 @@
+/14340.cc/1.1.1.1/Tue Jun 21 01:24:32 2011//
+/15523.cc/1.1.1.1/Tue Jun 21 01:24:32 2011//
+/18604.cc/1.1.1.1/Tue Jun 21 01:24:32 2011//
+/26412-1.cc/1.1.1.1/Tue Jun 21 01:24:32 2011//
+/26412-2.cc/1.1.1.1/Tue Jun 21 01:24:32 2011//
+/40192.cc/1.1.1.1/Tue Jun 21 01:24:32 2011//
+/check_construct_destroy.cc/1.1.1.1/Tue Jun 21 01:24:32 2011//
+/debug_mode_requires_reallocation-1.cc/1.1.1.1/Tue Jun 21 01:24:32 2011//
+/debug_mode_requires_reallocation-2.cc/1.1.1.1/Tue Jun 21 01:24:32 2011//
+/init-list.cc/1.1.1.1/Tue Jun 21 01:24:32 2011//
+/zero_sized_allocations.cc/1.1.1.1/Tue Jun 21 01:24:32 2011//
+D/bool////
+D/capacity////
+D/cons////
+D/data_access////
+D/element_access////
+D/ext_pointer////
+D/invalidation////
+D/modifiers////
+D/profile////
+D/requirements////
+D/resize////
+D/types////
+D

@@ -1,0 +1,17 @@
+/Makefile.inc/1.1/Tue Apr 29 05:35:08 2003//
+/gzboot.h/1.1/Sat Feb 23 05:41:14 2002//
+/image.S/1.4/Sun Dec 11 12:17:10 2005//
+/srtbegin.S/1.7/Sun Dec 11 12:17:10 2005//
+/version/1.3/Tue Apr 29 05:05:41 2003//
+D/ADI_BRH_flash_0x00140000////
+D/GEMINI_dram_0x01600000////
+D/IQ80310_flash_0x00080000////
+D/IQ80321_flash_0xf0080000////
+D/SMDK2410_flash_0x00000000////
+D/SMDK2800_flash_0x00000000////
+D/SMDK2800_flash_0x00100000////
+D/TS7200_flash_0x60660000////
+/gzboot.c/1.15/Sun Jan 23 03:01:41 2011//
+/Makefile/1.11/Wed Feb  6 03:02:56 2013//
+/Makefile.gzboot/1.22/Thu Feb  7 03:03:04 2013//
+D

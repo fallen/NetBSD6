@@ -1,0 +1,24 @@
+/Makefile.am/1.1.1.1/Mon Jun 20 05:54:37 2011//
+/Makefile.in/1.1.1.1/Mon Jun 20 05:54:37 2011//
+/asprintf.c/1.1.1.1/Mon Jun 20 05:54:37 2011//
+/asprntffuns.c/1.1.1.1/Mon Jun 20 05:54:37 2011//
+/doprnt.c/1.1.1.1/Mon Jun 20 05:54:37 2011//
+/doprntf.c/1.1.1.1/Mon Jun 20 05:54:37 2011//
+/doprnti.c/1.1.1.1/Mon Jun 20 05:54:37 2011//
+/fprintf.c/1.1.1.1/Mon Jun 20 05:54:37 2011//
+/obprintf.c/1.1.1.1/Mon Jun 20 05:54:37 2011//
+/obprntffuns.c/1.1.1.1/Mon Jun 20 05:54:37 2011//
+/obvprintf.c/1.1.1.1/Mon Jun 20 05:54:37 2011//
+/printf.c/1.1.1.1/Mon Jun 20 05:54:37 2011//
+/printffuns.c/1.1.1.1/Mon Jun 20 05:54:37 2011//
+/repl-vsnprintf.c/1.1.1.1/Mon Jun 20 05:54:37 2011//
+/snprintf.c/1.1.1.1/Mon Jun 20 05:54:37 2011//
+/snprntffuns.c/1.1.1.1/Mon Jun 20 05:54:37 2011//
+/sprintf.c/1.1.1.1/Mon Jun 20 05:54:37 2011//
+/sprintffuns.c/1.1.1.1/Mon Jun 20 05:54:37 2011//
+/vasprintf.c/1.1.1.1/Mon Jun 20 05:54:37 2011//
+/vfprintf.c/1.1.1.1/Mon Jun 20 05:54:37 2011//
+/vprintf.c/1.1.1.1/Mon Jun 20 05:54:37 2011//
+/vsnprintf.c/1.1.1.1/Mon Jun 20 05:54:37 2011//
+/vsprintf.c/1.1.1.1/Mon Jun 20 05:54:37 2011//
+D

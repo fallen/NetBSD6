@@ -1,0 +1,50 @@
+/AUTHORS/1.1.1.1/Wed Nov 14 19:47:22 2001//
+/BUGS/1.1.1.1/Wed Nov 14 19:47:37 2001//
+/COPYING/1.1.1.1/Wed Nov 14 19:47:22 2001//
+/ChangeLog/1.1.1.1/Wed Nov 14 19:47:23 2001//
+/ChangeLog.0/1.1.1.1/Wed Nov 14 19:47:26 2001//
+/ChangeLog.1/1.1.1.1/Wed Nov 14 19:47:26 2001//
+/ChangeLog.2/1.1.1.1/Wed Nov 14 19:47:37 2001//
+/GNUmakefile/1.1.1.1/Wed Nov 14 19:47:45 2001//
+/INSTALL/1.1.1.1/Wed Nov 14 19:47:23 2001//
+/INSTALL.txt/1.1.1.1/Wed Nov 14 19:47:37 2001//
+/Makefile.am/1.1.1.1/Wed Nov 14 19:47:23 2001//
+/Makefile.maint/1.1.1.1/Wed Nov 14 19:47:45 2001//
+/NEWS/1.1.1.1/Wed Nov 14 19:47:23 2001//
+/README/1.1.1.1/Wed Nov 14 19:47:22 2001//
+/THANKS/1.1.1.1/Wed Nov 14 19:47:23 2001//
+/TODO/1.1.1.1/Wed Nov 14 19:47:23 2001//
+/acfunctions/1.1.1.1/Wed Nov 14 19:47:38 2001//
+/acfunctions.m4/1.1.1.1/Wed Nov 14 19:47:45 2001//
+/acgeneral.m4/1.2/Wed Nov 14 19:53:26 2001//
+/acheaders/1.1.1.1/Wed Nov 14 19:47:38 2001//
+/acheaders.m4/1.1.1.1/Wed Nov 14 19:47:45 2001//
+/acidentifiers/1.1.1.1/Wed Nov 14 19:47:38 2001//
+/aclang.m4/1.1.1.1/Wed Nov 14 19:47:44 2001//
+/aclibraries/1.1.1.1/Wed Nov 14 19:47:38 2001//
+/aclocal.m4/1.1.1.1/Wed Nov 14 19:47:23 2001//
+/acmakevars/1.1.1.1/Wed Nov 14 19:47:38 2001//
+/acoldnames.m4/1.1.1.1/Wed Nov 14 19:47:41 2001//
+/acprograms/1.1.1.1/Wed Nov 14 19:47:38 2001//
+/acspecific.m4/1.1.1.1/Wed Nov 14 19:47:43 2001//
+/actypes.m4/1.1.1.1/Wed Nov 14 19:47:45 2001//
+/acversion.in/1.1.1.1/Wed Nov 14 19:47:37 2001//
+/acversion.m4/1.1.1.1/Wed Nov 14 19:47:39 2001//
+/autoconf.in/1.3/Wed Nov 14 23:48:33 2001//
+/autoconf.m4/1.1.1.1/Wed Nov 14 19:47:39 2001//
+/autoheader.in/1.1.1.1/Wed Nov 14 19:47:37 2001//
+/autoreconf.in/1.1.1.1/Wed Nov 14 19:47:37 2001//
+/autoscan.in/1.1.1.1/Wed Nov 14 19:47:38 2001//
+/autoupdate.in/1.2/Wed Nov 14 19:53:26 2001//
+/configure/1.3/Wed Nov 14 20:00:40 2001//
+/configure.ac/1.1.1.1/Wed Nov 14 19:47:26 2001//
+/ifnames.in/1.1.1.1/Wed Nov 14 19:47:38 2001//
+/m4sh.m4/1.1.1.1/Wed Nov 14 19:47:39 2001//
+/m4sugar.m4/1.1.1.1/Wed Nov 14 19:47:38 2001//
+D/config////
+D/doc////
+D/m4////
+D/man////
+D/tests////
+/Makefile.in/1.6/Sat Jul 16 03:04:09 2011//
+D

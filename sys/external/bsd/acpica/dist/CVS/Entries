@@ -1,0 +1,21 @@
+D/common////
+D/compiler////
+D/debugger////
+D/disassembler////
+D/dispatcher////
+D/events////
+D/executer////
+D/generate////
+D/hardware////
+D/include////
+D/namespace////
+D/os_specific////
+D/parser////
+D/resources////
+D/tables////
+D/tests////
+D/tools////
+D/utilities////
+/README/1.1.1.2/Wed Jun 29 03:03:05 2011//
+/changes.txt/1.1.1.3/Wed Jun 29 03:03:05 2011//
+D

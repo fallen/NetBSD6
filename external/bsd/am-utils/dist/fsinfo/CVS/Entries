@@ -1,0 +1,19 @@
+/.cvsignore/1.1.1.1/Fri Sep 19 20:07:21 2008//
+/Makefile.am/1.1.1.1/Fri Sep 19 20:07:21 2008//
+/null_gram.y/1.1.1.1/Fri Sep 19 20:07:21 2008//
+/null_lex.l/1.1.1.1/Fri Sep 19 20:07:21 2008//
+/fsi_analyze.c/1.1.1.2/Sat Mar 21 03:09:48 2009//
+/fsi_data.h/1.1.1.2/Sat Mar 21 03:09:48 2009//
+/fsi_dict.c/1.1.1.2/Sat Mar 21 03:09:48 2009//
+/fsi_gram.y/1.1.1.2/Sat Mar 21 03:09:48 2009//
+/fsi_util.c/1.1.1.2/Sat Mar 21 03:09:48 2009//
+/fsinfo.8/1.1.1.2/Sat Mar 21 03:09:48 2009//
+/fsinfo.c/1.1.1.2/Sat Mar 21 03:09:48 2009//
+/fsinfo.h/1.1.1.2/Sat Mar 21 03:09:48 2009//
+/wr_atab.c/1.1.1.2/Sat Mar 21 03:09:48 2009//
+/wr_bparam.c/1.1.1.2/Sat Mar 21 03:09:48 2009//
+/wr_dumpset.c/1.1.1.2/Sat Mar 21 03:09:48 2009//
+/wr_exportfs.c/1.1.1.2/Sat Mar 21 03:09:49 2009//
+/wr_fstab.c/1.1.1.2/Sat Mar 21 03:09:49 2009//
+/fsi_lex.l/1.4/Thu Jun 23 03:00:50 2011//
+D

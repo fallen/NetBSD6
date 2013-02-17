@@ -1,0 +1,12 @@
+/Makefile.in/1.1.1.3/Mon Dec 13 03:52:08 2010//
+/ldif-filter.c/1.1.1.1/Sun Dec 12 15:24:16 2010//
+/slapd-addel.c/1.1.1.3/Mon Dec 13 03:52:08 2010//
+/slapd-bind.c/1.1.1.3/Mon Dec 13 03:52:08 2010//
+/slapd-common.c/1.1.1.3/Mon Dec 13 03:52:08 2010//
+/slapd-common.h/1.1.1.3/Mon Dec 13 03:52:08 2010//
+/slapd-modify.c/1.1.1.3/Mon Dec 13 03:52:08 2010//
+/slapd-modrdn.c/1.1.1.3/Mon Dec 13 03:52:08 2010//
+/slapd-read.c/1.1.1.3/Mon Dec 13 03:52:08 2010//
+/slapd-search.c/1.1.1.3/Mon Dec 13 03:52:09 2010//
+/slapd-tester.c/1.1.1.3/Mon Dec 13 03:52:09 2010//
+D

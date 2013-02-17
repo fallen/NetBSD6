@@ -1,0 +1,24 @@
+/compat11b.h/1.1.1.1/Sat Jan 28 01:36:48 2012//
+/platform.h/1.1.1.1/Sat Jan 28 01:36:47 2012//
+/tcpa_defines.h/1.1.1.1/Sat Jan 28 01:36:48 2012//
+/tcpa_error.h/1.1.1.1/Sat Jan 28 01:36:47 2012//
+/tcpa_struct.h/1.1.1.1/Sat Jan 28 01:36:53 2012//
+/tcpa_typedef.h/1.1.1.1/Sat Jan 28 01:36:54 2012//
+/tcs.h/1.1.1.1/Sat Jan 28 01:36:53 2012//
+/tcs_defines.h/1.1.1.1/Sat Jan 28 01:36:47 2012//
+/tcs_error.h/1.1.1.1/Sat Jan 28 01:36:47 2012//
+/tcs_structs.h/1.1.1.1/Sat Jan 28 01:36:48 2012//
+/tcs_typedef.h/1.1.1.1/Sat Jan 28 01:36:54 2012//
+/tddl_error.h/1.1.1.1/Sat Jan 28 01:36:47 2012//
+/tddlapi_error.h/1.1.1.1/Sat Jan 28 01:36:48 2012//
+/tddli.h/1.1.1.1/Sat Jan 28 01:36:51 2012//
+/tpm.h/1.1.1.1/Sat Jan 28 01:36:54 2012//
+/tpm_error.h/1.1.1.1/Sat Jan 28 01:36:52 2012//
+/tpm_ordinal.h/1.1.1.1/Sat Jan 28 01:36:52 2012//
+/tspi.h/1.1.1.1/Sat Jan 28 01:36:51 2012//
+/tss_defines.h/1.1.1.1/Sat Jan 28 01:36:51 2012//
+/tss_error.h/1.1.1.1/Sat Jan 28 01:36:48 2012//
+/tss_error_basics.h/1.1.1.1/Sat Jan 28 01:36:47 2012//
+/tss_structs.h/1.1.1.1/Sat Jan 28 01:36:47 2012//
+/tss_typedef.h/1.1.1.1/Sat Jan 28 01:36:48 2012//
+D

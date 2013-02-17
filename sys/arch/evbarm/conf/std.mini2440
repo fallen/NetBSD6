@@ -1,0 +1,22 @@
+#	$NetBSD: std.mini2440,v 1.3 2012/12/16 23:47:56 matt Exp $
+#
+# standard NetBSD/evbarm for MINI2440 options
+
+machine	evbarm arm
+include		"arch/evbarm/conf/std.evbarm"
+
+# Config definitions for MINI2440
+include		"arch/evbarm/conf/files.mini2440"
+
+options 	EXEC_AOUT
+
+#options 	ARM32_NEW_VM_LAYOUT	# Not yet ready for prime-time
+
+options		SSCOM_S3C2440
+
+makeoptions	BOARDTYPE="mini2440"
+makeoptions	BOARDMKFRAG="${THISARM}/conf/mk.mini2440"
+makeoptions	KERNEL_BASE_PHYS=0x30200000
+options 	KERNEL_BASE_EXT=0xc0000000
+
+options 	ARM_INTR_IMPL="<arch/arm/s3c2xx0/s3c2440_intr.h>"

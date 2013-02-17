@@ -1,0 +1,29 @@
+/Makefile/1.1/Sat Jul 17 23:43:27 2010//
+/xcb.mk/1.1/Sat Jul 17 23:43:27 2010//
+D/bigreq////
+D/composite////
+D/damage////
+D/dpms////
+D/dri2////
+D/files////
+D/glx////
+D/libxcb////
+D/randr////
+D/record////
+D/render////
+D/res////
+D/screensaver////
+D/shape////
+D/shm////
+D/sync////
+D/xc_misc////
+D/xevie////
+D/xf86dri////
+D/xfixes////
+D/xinerama////
+D/xinput////
+D/xproto////
+D/xtest////
+D/xv////
+D/xvmc////
+D

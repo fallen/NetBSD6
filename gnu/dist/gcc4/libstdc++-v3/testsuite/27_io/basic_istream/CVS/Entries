@@ -1,0 +1,20 @@
+/1.cc/1.1.1.1/Thu Apr 20 10:14:24 2006//
+/2.cc/1.1.1.1/Thu Apr 20 10:14:24 2006//
+/3.cc/1.1.1.1/Thu Apr 20 10:14:24 2006//
+/4.cc/1.1.1.1/Thu Apr 20 10:14:25 2006//
+D/exceptions////
+D/extractors_arithmetic////
+D/extractors_character////
+D/extractors_other////
+D/get////
+D/getline////
+D/ignore////
+D/peek////
+D/putback////
+D/read////
+D/readsome////
+D/seekg////
+D/sentry////
+D/tellg////
+D/ws////
+D

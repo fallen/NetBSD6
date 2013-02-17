@@ -1,0 +1,19 @@
+/ChangeLog/1.1.1.1/Fri Apr 29 15:00:38 2005//
+/Makefile.am/1.1.1.1/Fri Apr 29 15:00:37 2005//
+/Makefile.in/1.1.1.1/Fri Apr 29 15:00:38 2005//
+/Makefile.msvc/1.1.1.1/Fri Apr 29 15:00:38 2005//
+/Makefile.vms/1.1.1.1/Fri Apr 29 15:00:38 2005//
+/atexit.c/1.1.1.1/Fri Apr 29 15:00:38 2005//
+/canonicalize.c/1.1.1.1/Fri Apr 29 15:00:37 2005//
+/error.c/1.1.1.1/Fri Apr 29 15:00:38 2005//
+/error.h/1.1.1.1/Fri Apr 29 15:00:38 2005//
+/getopt.c/1.1.1.1/Fri Apr 29 15:00:38 2005//
+/getopt1.c/1.1.1.1/Fri Apr 29 15:00:38 2005//
+/memmove.c/1.1.1.1/Fri Apr 29 15:00:38 2005//
+/readlink.c/1.1.1.1/Fri Apr 29 15:00:38 2005//
+/relocatable.c/1.1.1.1/Fri Apr 29 15:00:38 2005//
+/setenv.c/1.1.1.1/Fri Apr 29 15:00:38 2005//
+/strerror.c/1.1.1.1/Fri Apr 29 15:00:38 2005//
+/strtoul.c/1.1.1.1/Fri Apr 29 15:00:38 2005//
+/unsetenv.c/1.1.1.1/Fri Apr 29 15:00:38 2005//
+D

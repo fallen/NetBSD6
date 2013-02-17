@@ -1,0 +1,19 @@
+D/libasn1////
+D/libcom_err////
+D/libgssapi////
+D/libhdb////
+D/libheimbase////
+D/libheimntlm////
+D/libhx509////
+D/libipc////
+D/libkadm5clnt////
+D/libkadm5srv////
+D/libkafs////
+D/libkdc////
+D/libkrb5////
+D/libroken////
+D/libsl////
+D/libvers////
+D/libwind////
+/Makefile/1.2/Thu May 26 03:01:03 2011//
+D

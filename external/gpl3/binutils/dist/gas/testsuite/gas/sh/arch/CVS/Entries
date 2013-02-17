@@ -1,0 +1,23 @@
+/arch_expected.txt/1.1.1.1/Tue Aug 18 09:45:16 2009//
+/sh-dsp.s/1.1.1.1/Tue Aug 18 09:45:20 2009//
+/sh.s/1.1.1.1/Tue Aug 18 09:45:21 2009//
+/sh2.s/1.1.1.1/Tue Aug 18 09:45:22 2009//
+/sh2a-nofpu-or-sh3-nommu.s/1.1.1.1/Tue Aug 18 09:45:23 2009//
+/sh2a-nofpu-or-sh4-nommu-nofpu.s/1.1.1.1/Tue Aug 18 09:45:22 2009//
+/sh2a-nofpu.s/1.1.1.1/Tue Aug 18 09:45:19 2009//
+/sh2a-or-sh3e.s/1.1.1.1/Tue Aug 18 09:45:24 2009//
+/sh2a-or-sh4.s/1.1.1.1/Tue Aug 18 09:45:25 2009//
+/sh2a.s/1.1.1.1/Tue Aug 18 09:45:26 2009//
+/sh2e.s/1.1.1.1/Tue Aug 18 09:45:27 2009//
+/sh3-dsp.s/1.1.1.1/Tue Aug 18 09:45:28 2009//
+/sh3-nommu.s/1.1.1.1/Tue Aug 18 09:45:28 2009//
+/sh3.s/1.1.1.1/Tue Aug 18 09:45:29 2009//
+/sh3e.s/1.1.1.1/Tue Aug 18 09:45:29 2009//
+/sh4-nofpu.s/1.1.1.1/Tue Aug 18 09:45:30 2009//
+/sh4-nommu-nofpu.s/1.1.1.1/Tue Aug 18 09:45:24 2009//
+/sh4.s/1.1.1.1/Tue Aug 18 09:45:31 2009//
+/sh4a-nofpu.s/1.1.1.1/Tue Aug 18 09:45:31 2009//
+/sh4a.s/1.1.1.1/Tue Aug 18 09:45:32 2009//
+/sh4al-dsp.s/1.1.1.1/Tue Aug 18 09:45:18 2009//
+/arch.exp/1.1.1.2/Sun Sep 25 03:01:51 2011//
+D

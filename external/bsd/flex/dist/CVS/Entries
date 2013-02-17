@@ -1,0 +1,70 @@
+/ABOUT-NLS/1.1.1.1/Mon Oct 26 00:24:21 2009//
+/AUTHORS/1.1.1.1/Mon Oct 26 00:24:21 2009//
+/COPYING/1.1.1.1/Mon Oct 26 00:24:21 2009//
+/ChangeLog/1.1.1.1/Mon Oct 26 00:24:46 2009//
+/FlexLexer.h/1.1.1.1/Mon Oct 26 00:24:46 2009//
+/INSTALL/1.1.1.1/Mon Oct 26 00:24:48 2009//
+/Makefile.am/1.1.1.1/Mon Oct 26 00:24:48 2009//
+/Makefile.in/1.1.1.1/Mon Oct 26 00:24:49 2009//
+/NEWS/1.1.1.1/Mon Oct 26 00:24:50 2009//
+/ONEWS/1.1.1.1/Mon Oct 26 00:24:54 2009//
+/README/1.1.1.1/Mon Oct 26 00:24:54 2009//
+/README-alpha/1.1.1.1/Mon Oct 26 00:24:54 2009//
+/README.cvs/1.1.1.1/Mon Oct 26 00:24:54 2009//
+/THANKS/1.1.1.1/Mon Oct 26 00:24:54 2009//
+/TODO/1.1.1.1/Mon Oct 26 00:24:55 2009//
+/aclocal.m4/1.1.1.1/Mon Oct 26 00:25:04 2009//
+/autogen.sh/1.1.1.1/Mon Oct 26 00:25:04 2009//
+/buf.c/1.1.1.1/Mon Oct 26 00:25:04 2009//
+/ccl.c/1.1.1.1/Mon Oct 26 00:25:06 2009//
+/compile/1.1.1.1/Mon Oct 26 00:25:06 2009//
+/conf.in/1.1.1.1/Mon Oct 26 00:25:06 2009//
+/config.guess/1.1.1.1/Mon Oct 26 00:25:14 2009//
+/config.rpath/1.1.1.1/Mon Oct 26 00:25:14 2009//
+/config.sub/1.1.1.1/Mon Oct 26 00:25:17 2009//
+/configure/1.1.1.1/Mon Oct 26 00:25:53 2009//
+/configure.in/1.1.1.1/Mon Oct 26 00:25:55 2009//
+/depcomp/1.1.1.1/Mon Oct 26 00:25:20 2009//
+/dfa.c/1.1.1.1/Mon Oct 26 00:25:56 2009//
+/ecs.c/1.1.1.1/Mon Oct 26 00:24:20 2009//
+/filter.c/1.1.1.1/Mon Oct 26 00:26:00 2009//
+/flexint.h/1.1.1.1/Mon Oct 26 00:26:19 2009//
+/gettext.h/1.1.1.1/Mon Oct 26 00:26:23 2009//
+/install-sh/1.1.1.1/Mon Oct 26 00:26:24 2009//
+/missing/1.1.1.1/Mon Oct 26 00:26:27 2009//
+/mkinstalldirs/1.1.1.1/Mon Oct 26 00:26:24 2009//
+/mkskel.sh/1.1.1.1/Mon Oct 26 00:26:27 2009//
+/nfa.c/1.1.1.1/Mon Oct 26 00:26:28 2009//
+/options.c/1.1.1.1/Mon Oct 26 00:26:28 2009//
+/options.h/1.1.1.1/Mon Oct 26 00:26:29 2009//
+/regex.c/1.1.1.1/Mon Oct 26 00:26:41 2009//
+/scanflags.c/1.1.1.1/Mon Oct 26 00:26:55 2009//
+/scanopt.h/1.1.1.1/Mon Oct 26 00:26:56 2009//
+/sym.c/1.1.1.1/Mon Oct 26 00:27:03 2009//
+/tables.h/1.1.1.1/Mon Oct 26 00:27:05 2009//
+/tables_shared.c/1.1.1.1/Mon Oct 26 00:27:05 2009//
+/tables_shared.h/1.1.1.1/Mon Oct 26 00:27:05 2009//
+/tblcmp.c/1.1.1.1/Mon Oct 26 00:27:05 2009//
+/version.h/1.1.1.1/Mon Oct 26 00:27:05 2009//
+D/doc////
+D/examples////
+D/m4////
+D/po////
+D/tests////
+D/tools////
+/flexdef.h/1.2/Tue Oct 27 03:01:13 2009//
+/misc.c/1.2/Tue Oct 27 03:01:13 2009//
+/parse.y/1.2/Tue Oct 27 03:01:13 2009//
+/scanopt.c/1.2/Tue Oct 27 03:01:13 2009//
+/tables.c/1.2/Tue Oct 27 03:01:13 2009//
+/yylex.c/1.2/Tue Oct 27 03:01:13 2009//
+/initparse.h/1.1/Thu Oct 29 17:17:12 2009//
+/initparse.c/1.2/Sat Feb 20 03:37:35 2010//
+/initscan.c/1.5/Sat Feb 20 03:37:35 2010//
+/gen.c/1.6/Wed Apr  7 03:01:51 2010//
+/scan.l/1.3/Thu Apr  8 03:01:15 2010//
+/flex.skl/1.7/Tue Dec 27 03:03:06 2011//
+/main.c/1.3/Tue Dec 27 03:03:07 2011//
+/libmain.c/1.2/Sun Feb 19 03:02:35 2012//
+/libyywrap.c/1.2/Sun Feb 19 03:02:35 2012//
+D

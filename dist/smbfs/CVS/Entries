@@ -1,0 +1,16 @@
+/COPYRIGHT/1.1.1.1/Sun Feb 16 08:15:07 2003//
+/CREDITS/1.1.1.1/Sun Feb 16 08:15:07 2003//
+/FREEBSD-upgrade/1.1.1.1/Sun Feb 16 08:15:07 2003//
+/HISTORY/1.1.1.1/Sun Feb 16 08:15:07 2003//
+/INSTALL/1.1.1.1/Sun Feb 16 08:15:07 2003//
+/Makefile/1.1.1.2/Sun Feb 16 09:19:10 2003//
+/Makefile.inc/1.1.1.2/Sun Feb 16 09:19:10 2003//
+/README/1.1.1.1/Sun Feb 16 08:15:07 2003//
+/config.mk.in/1.1.1.2/Sun Feb 16 09:19:10 2003//
+/configure/1.1.1.1/Sun Feb 16 08:15:07 2003//
+D/examples////
+D/include////
+D/lib////
+D/mount_smbfs////
+D/smbutil////
+D

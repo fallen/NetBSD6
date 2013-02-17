@@ -1,0 +1,23 @@
+/autoconf.c/1.28/Wed Mar 18 10:22:37 2009//
+/conf.c/1.15/Wed Mar 18 16:00:15 2009//
+/consio.c/1.15/Sat Mar 14 14:46:07 2009//
+/consio2.S/1.1/Sun Feb 24 01:04:24 2002//
+/ctu.c/1.8/Wed Mar 18 10:22:37 2009//
+/data.h/1.4/Sat Jul  1 05:55:34 2006//
+/devopen.c/1.16/Sat Mar 14 21:04:16 2009//
+/hp.c/1.9/Wed Mar 18 16:00:15 2009//
+/if_de.c/1.8/Mon Oct 26 19:16:58 2009//
+/if_le.c/1.12/Mon Jan 12 11:32:45 2009//
+/if_qe.c/1.9/Mon Oct 26 19:16:58 2009//
+/if_ze.c/1.17/Mon Oct 26 19:16:58 2009//
+/mfm.c/1.13/Mon Oct 26 19:16:58 2009//
+/ra.c/1.18/Wed Mar 18 16:00:15 2009//
+/rom.c/1.9/Wed Mar 18 16:00:15 2009//
+/tmscp.c/1.8/Tue Mar 17 18:19:15 2009//
+/vaxstand.h/1.8/Sun Dec 11 12:19:30 2005//
+/version/1.6/Sun Dec 11 12:19:30 2005//
+/boot.c/1.31/Sun Jan 23 03:01:48 2011//
+/netio.c/1.16/Thu May 19 03:01:30 2011//
+/if_ni.c/1.9/Mon Jul  4 03:02:43 2011//
+/Makefile/1.40/Tue May 15 03:02:15 2012//
+D

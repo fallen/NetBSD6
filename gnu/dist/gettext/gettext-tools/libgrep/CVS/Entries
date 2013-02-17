@@ -1,0 +1,22 @@
+/ChangeLog/1.1.1.1/Fri Apr 29 15:07:41 2005//
+/Makefile.am/1.1.1.1/Fri Apr 29 15:07:40 2005//
+/Makefile.in/1.1.1.1/Fri Apr 29 15:07:41 2005//
+/Makefile.msvc/1.1.1.1/Fri Apr 29 15:07:51 2005//
+/Makefile.vms/1.1.1.1/Fri Apr 29 15:07:51 2005//
+/dfa.c/1.1.1.1/Fri Apr 29 15:07:44 2005//
+/dfa.h/1.1.1.1/Fri Apr 29 15:07:42 2005//
+/hard-locale.c/1.1.1.1/Fri Apr 29 15:07:44 2005//
+/hard-locale.h/1.1.1.1/Fri Apr 29 15:07:40 2005//
+/kwset.c/1.1.1.1/Fri Apr 29 15:07:42 2005//
+/kwset.h/1.1.1.1/Fri Apr 29 15:07:41 2005//
+/libgrep.h/1.1.1.1/Fri Apr 29 15:07:41 2005//
+/m-common.c/1.1.1.1/Fri Apr 29 15:07:44 2005//
+/m-common.h/1.1.1.1/Fri Apr 29 15:07:44 2005//
+/m-fgrep.c/1.1.1.1/Fri Apr 29 15:07:44 2005//
+/m-regex.c/1.1.1.1/Fri Apr 29 15:07:44 2005//
+/memchr.c/1.1.1.1/Fri Apr 29 15:07:44 2005//
+/regex.c/1.1.1.1/Fri Apr 29 15:07:51 2005//
+/regex.h/1.1.1.1/Fri Apr 29 15:07:45 2005//
+/strdup.c/1.1.1.1/Fri Apr 29 15:07:51 2005//
+/strdup.h/1.1.1.1/Fri Apr 29 15:07:51 2005//
+D

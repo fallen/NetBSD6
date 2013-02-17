@@ -1,0 +1,14 @@
+/quota_nfs.c/1.2/Tue Jan 31 03:04:57 2012//
+/quota_cursor.c/1.6/Thu Feb  2 03:15:35 2012//
+/quota_delete.c/1.4/Thu Feb  2 03:15:35 2012//
+/quota_get.c/1.5/Thu Feb  2 03:15:35 2012//
+/quota_kernel.c/1.4/Wed Feb  1 06:19:05 2012//
+/quota_open.c/1.7/Thu Feb  2 03:15:35 2012//
+/quota_put.c/1.4/Thu Feb  2 03:15:36 2012//
+/quota_schema.c/1.7/Thu Feb  2 03:15:36 2012//
+/quotapvt.h/1.14/Thu Feb  2 03:15:36 2012//
+/shlib_version/1.4/Thu Feb  2 03:15:36 2012//
+/libquota.3/1.5/Tue Feb 14 03:03:55 2012//
+/quota_oldfiles.c/1.9/Sat Feb 25 03:04:11 2012//
+/Makefile/1.10/Thu Mar 22 03:02:45 2012//
+D

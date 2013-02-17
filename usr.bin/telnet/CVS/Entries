@@ -1,0 +1,19 @@
+/README/1.5/Mon Feb 11 00:57:58 2002//
+/defines.h/1.8/Thu Aug  7 11:16:09 2003//
+/general.h/1.6/Thu Aug  7 11:16:09 2003//
+/network.c/1.17/Sat Mar 20 23:26:05 2004//
+/ring.c/1.13/Thu Aug  7 11:16:10 2003//
+/ring.h/1.10/Thu Aug  7 11:16:10 2003//
+/terminal.c/1.15/Sat Feb 19 23:28:41 2005//
+/tn3270.c/1.22/Sat Oct  7 17:27:57 2006//
+/types.h/1.6/Thu Aug  7 11:16:12 2003//
+/authenc.c/1.13/Tue Jan 10 03:03:28 2012//
+/commands.c/1.68/Tue Jan 10 03:03:28 2012//
+/sys_bsd.c/1.33/Tue Jan 10 03:03:28 2012//
+/utilities.c/1.23/Tue Jan 10 03:03:28 2012//
+/externs.h/1.37/Wed Jan 11 03:04:30 2012//
+/telnet.c/1.36/Wed Jan 11 03:04:30 2012//
+/main.c/1.29/Wed Mar 21 03:05:09 2012//
+/telnet.1/1.33/Mon Apr  9 03:02:25 2012//
+/Makefile/1.50/Sat Aug 11 03:02:02 2012//
+D

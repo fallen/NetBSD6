@@ -1,0 +1,13 @@
+D/getaddrinfo////
+/h_nsd_recurse.c/1.2/Thu Jan 13 02:24:51 2011//
+/t_nsdispatch.sh/1.1/Thu Jan 13 01:56:44 2011//
+/t_servent.sh/1.1/Wed Jan 12 17:32:27 2011//
+/h_protoent.c/1.2/Fri Apr  8 03:01:37 2011//
+/h_servent.c/1.2/Fri Apr  8 03:01:37 2011//
+/Makefile.inc/1.1/Sat Jun 11 18:03:18 2011//
+/gen_ether_subr/1.1/Tue Nov  1 22:36:53 2011//
+/t_ether_aton.c/1.1/Tue Nov  1 22:36:53 2011//
+/t_getprotoent.c/1.2/Thu Apr  5 03:09:14 2012//
+/t_protoent.sh/1.2/Tue Sep  4 03:02:46 2012//
+/Makefile/1.7/Sun Sep 16 03:02:20 2012//
+D

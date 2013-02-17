@@ -1,0 +1,12 @@
+D/ldapcompare////
+D/ldapdelete////
+D/ldapexop////
+D/ldapmodify////
+D/ldapmodrdn////
+D/ldappasswd////
+D/ldapsearch////
+D/ldapwhoami////
+/Makefile/1.2/Tue Mar  9 03:02:28 2010//
+/Makefile.inc/1.3/Tue Mar  9 03:02:28 2010//
+D/ldapurl////
+D

@@ -1,0 +1,21 @@
+/BUGS/1.1.1.1/Sun Mar 21 09:49:59 1993//
+/def.h/1.6/Thu Aug  7 09:36:53 2003//
+/pathnames.h/1.4/Thu Aug  7 09:36:54 2003//
+/tunable.c/1.5/Thu Aug  7 09:36:55 2003//
+/tunable.h/1.4/Thu Aug  7 09:36:55 2003//
+D/games////
+/list.c/1.7/Fri Jul  1 03:01:49 2005//
+/atc.6/1.22/Thu Sep 15 03:01:55 2005//
+/include.h/1.9/Thu Jun  8 03:02:57 2006//
+/struct.h/1.6/Thu Jun  8 03:02:57 2006//
+/extern.c/1.11/Thu Aug 13 03:02:47 2009//
+/extern.h/1.16/Thu Aug 13 03:02:47 2009//
+/grammar.y/1.10/Thu Aug 13 03:02:47 2009//
+/graphics.c/1.16/Thu Aug 13 03:02:47 2009//
+/input.c/1.24/Thu Aug 13 03:02:47 2009//
+/log.c/1.21/Thu Aug 13 03:02:47 2009//
+/lex.l/1.8/Fri Oct 30 03:01:16 2009//
+/update.c/1.22/Wed Feb 16 04:40:10 2011//
+/Makefile/1.30/Wed Aug 17 03:01:37 2011//
+/main.c/1.21/Sat Oct 13 03:02:08 2012//
+D

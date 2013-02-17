@@ -1,0 +1,13 @@
+/disksubr.c/1.28/Wed Jan  2 11:48:26 2008//
+/machid.h/1.6/Sun Dec 11 12:18:25 2005//
+/mainbus.c/1.11/Wed Apr  9 15:40:30 2008//
+/clock.c/1.16/Mon Feb 21 04:37:38 2011//
+/cpu.c/1.12/Mon Feb 21 04:37:38 2011//
+/locore_machdep.S/1.16/Mon Feb 21 04:37:38 2011//
+/news3400.c/1.22/Fri Mar 11 03:55:24 2011//
+/news5000.c/1.20/Fri Mar 11 03:55:24 2011//
+/cpu_cons.c/1.13/Sun Jul 29 03:03:00 2012//
+/machdep.c/1.114/Sun Jul 29 03:03:00 2012//
+/bus.c/1.32/Wed Oct  3 03:02:44 2012//
+/autoconf.c/1.37/Sun Oct 14 03:02:33 2012//
+D

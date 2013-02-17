@@ -1,0 +1,17 @@
+/Makefile/1.5/Sun Dec 11 12:20:23 2005//
+/files.sunos32/1.2/Wed Nov 19 18:36:05 2008//
+/sunos32.h/1.13/Thu May 29 14:51:26 2008//
+/sunos32_dirent.h/1.3/Mon Apr 28 20:23:45 2008//
+/sunos32_exec.h/1.10/Wed Nov 19 18:36:05 2008//
+/sunos32_exec_aout.c/1.11/Thu May 29 14:51:26 2008//
+/sunos32_ioctl.c/1.29/Thu May 29 14:51:26 2008//
+/sunos32_mod.c/1.1/Wed Nov 19 18:36:05 2008//
+/syscalls.conf/1.2/Fri Nov  1 21:09:52 2002//
+/sunos32_syscall.h/1.27/Wed Mar  3 03:01:51 2010//
+/sunos32_syscallargs.h/1.26/Wed Mar  3 03:01:51 2010//
+/sunos32_syscalls.c/1.26/Wed Mar  3 03:01:51 2010//
+/sunos32_sysent.c/1.28/Wed Mar  3 03:01:51 2010//
+/syscalls.master/1.21/Wed Mar  3 03:01:51 2010//
+/sunos32_misc.c/1.74/Mon Feb 13 03:02:27 2012//
+/sunos32_exec.c/1.33/Mon Feb 20 03:03:19 2012//
+D

@@ -1,0 +1,25 @@
+/files.fpe/1.2/Fri Nov  3 04:51:51 1995//
+/fpu_add.c/1.7/Sat Mar 14 15:36:09 2009//
+/fpu_arith.h/1.5/Sat Dec 24 22:45:35 2005//
+/fpu_arith_proto.h/1.2/Sat Mar 14 14:46:01 2009//
+/fpu_div.c/1.6/Sat Mar 14 15:36:09 2009//
+/fpu_mul.c/1.6/Sat Mar 14 15:36:09 2009//
+/fpu_sqrt.c/1.6/Sat Mar 14 15:36:09 2009//
+/fpu_subr.c/1.8/Sat Dec 24 20:07:15 2005//
+/fpu_calcea.c/1.26/Tue Jul 19 03:01:30 2011//
+/fpu_exp.c/1.5/Tue Jul 19 03:01:30 2011//
+/fpu_explode.c/1.11/Tue Jul 19 03:01:30 2011//
+/fpu_fmovecr.c/1.14/Tue Jul 19 03:01:30 2011//
+/fpu_fscale.c/1.15/Tue Jul 19 03:01:30 2011//
+/fpu_fstore.c/1.13/Tue Jul 19 03:01:30 2011//
+/fpu_getexp.c/1.5/Tue Jul 19 03:01:30 2011//
+/fpu_implode.c/1.12/Tue Jul 19 03:01:30 2011//
+/fpu_log.c/1.14/Tue Jul 19 03:01:30 2011//
+/fpu_rem.c/1.11/Tue Jul 19 03:01:30 2011//
+/README/1.5/Sun Oct 16 03:02:02 2011//
+/fpu_emulate.c/1.36/Sun Oct 16 03:02:02 2011//
+/fpu_emulate.h/1.19/Sun Oct 16 03:02:02 2011//
+/fpu_hyperb.c/1.6/Sun Oct 16 03:02:02 2011//
+/fpu_trig.c/1.6/Sun Oct 16 03:02:02 2011//
+/fpu_int.c/1.11/Tue Jun 26 03:01:18 2012//
+D

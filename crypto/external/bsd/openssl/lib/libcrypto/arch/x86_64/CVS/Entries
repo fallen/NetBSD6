@@ -1,0 +1,22 @@
+/crypto.inc/1.1/Tue Jul  5 10:42:54 2011//
+/aes.inc/1.4/Tue Jul 26 03:01:23 2011//
+/modes.inc/1.1/Thu Jul 26 19:58:42 2012//
+/rc4.inc/1.2/Fri Jul 27 03:01:06 2012//
+/Makefile/1.6/Sun Aug  5 03:01:25 2012//
+/aes-x86_64.S/1.6/Sun Aug  5 03:01:25 2012//
+/aesni-sha1-x86_64.S/1.3/Sun Aug  5 03:01:25 2012//
+/aesni-x86_64.S/1.6/Sun Aug  5 03:01:25 2012//
+/bsaes-x86_64.S/1.3/Sun Aug  5 03:01:25 2012//
+/cmll-x86_64.S/1.5/Sun Aug  5 03:01:25 2012//
+/ghash-x86_64.S/1.3/Sun Aug  5 03:01:25 2012//
+/md5-x86_64.S/1.3/Sun Aug  5 03:01:25 2012//
+/modexp512-x86_64.S/1.2/Sun Aug  5 03:01:25 2012//
+/rc4-md5-x86_64.S/1.2/Sun Aug  5 03:01:25 2012//
+/rc4-x86_64.S/1.6/Sun Aug  5 03:01:25 2012//
+/sha1-x86_64.S/1.5/Sun Aug  5 03:01:25 2012//
+/sha512-x86_64.S/1.6/Sun Aug  5 03:01:25 2012//
+/uplink-x86_64.S/1.2/Sun Aug  5 03:01:25 2012//
+/vpaes-x86_64.S/1.3/Sun Aug  5 03:01:25 2012//
+/wp-x86_64.S/1.6/Sun Aug  5 03:01:25 2012//
+/x86_64cpuid.S/1.4/Sun Aug  5 03:01:25 2012//
+D

@@ -1,0 +1,15 @@
+/Makefile/1.15/Tue Mar 20 13:01:32 2012//
+/Makefile.xxboot/1.1/Tue Mar 20 13:01:32 2012//
+/conf.c/1.1/Tue Mar 20 13:01:32 2012//
+/consio1.c/1.1/Tue Mar 20 13:01:32 2012//
+/xxboot.ldscript/1.1/Tue Mar 20 13:01:32 2012//
+D/cdboot_cd9660////
+D/xxboot_ffsv1////
+D/xxboot_ffsv2////
+D/xxboot_lfsv1////
+D/xxboot_lfsv2////
+/boot.S/1.3/Sun Nov 18 03:02:34 2012//
+/bootmain.c/1.4/Sun Nov 18 03:02:34 2012//
+/version/1.2/Sun Nov 18 03:02:34 2012//
+/xx.c/1.2/Sun Nov 18 03:02:34 2012//
+D

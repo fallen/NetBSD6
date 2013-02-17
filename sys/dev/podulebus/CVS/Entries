@@ -1,0 +1,27 @@
+/Makefile.podules/1.2/Sun Oct 19 22:05:23 2008//
+/acemidi.c/1.14/Fri Mar 14 15:09:11 2008//
+/acemidireg.h/1.1/Sat Apr 14 20:39:23 2001//
+/dtidereg.h/1.4/Sun Dec 11 12:23:28 2005//
+/files.podulebus/1.17/Sun Oct  1 12:39:35 2006//
+/hcidereg.h/1.1/Wed Jun 13 18:31:43 2001//
+/hcscreg.h/1.1/Sat Jun  2 20:13:51 2001//
+/if_eareg.h/1.3/Fri Jun 15 00:28:01 2001//
+/if_ebreg.h/1.1/Sun Mar 25 01:09:36 2001//
+/if_eireg.h/1.4/Sun Dec 11 12:23:28 2005//
+/oakreg.h/1.1/Tue Dec  4 18:40:14 2001//
+/podule_data.h/1.16/Sun Dec 11 12:23:28 2005//
+/podulebus.h/1.8/Sun Dec 11 12:23:28 2005//
+/podulelist2h.awk/1.4/Sun Dec 11 12:23:28 2005//
+/podules/1.18/Wed Jan 21 14:31:04 2009//
+/podules.h/1.16/Sun Dec 11 12:23:28 2005//
+/powerromreg.h/1.1/Wed Jul  4 15:01:08 2001//
+/sec.c/1.15/Mon May 11 20:13:49 2009//
+/secreg.h/1.1/Sun Oct  1 12:39:35 2006//
+/if_ei.c/1.17/Sat Jun  4 03:01:41 2011//
+/dtide.c/1.28/Wed Aug  1 03:02:55 2012//
+/hcide.c/1.25/Wed Aug  1 03:02:55 2012//
+/if_ea.c/1.17/Thu Oct 11 03:02:51 2012//
+/if_eb.c/1.15/Thu Oct 11 03:02:51 2012//
+/hcsc.c/1.21/Sun Oct 28 03:04:20 2012//
+/oak.c/1.20/Sun Oct 28 03:04:20 2012//
+D

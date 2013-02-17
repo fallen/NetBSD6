@@ -1,0 +1,69 @@
+D/csu////
+D/i18n_module////
+D/libbluetooth////
+D/libbsdmalloc////
+D/libbz2////
+D/libcrypt////
+D/libcurses////
+D/libedit////
+D/libform////
+D/libintl////
+D/libipsec////
+D/libkvm////
+D/liblwres////
+D/libmenu////
+D/libossaudio////
+D/libp2k////
+D/libpam////
+D/libpci////
+D/libpmc////
+D/libposix////
+D/libprop////
+D/libpthread////
+D/libpthread_dbg////
+D/libpuffs////
+D/libradius////
+D/librefuse////
+D/libresolv////
+D/librmt////
+D/librt////
+D/librump////
+D/librumpnet////
+D/librumpuser////
+D/librumpvfs////
+D/libskey////
+D/libss////
+D/librumpdev////
+D/libtelnet////
+D/libukfs////
+D/libusbhid////
+D/libutil////
+D/libwrap////
+D/liby////
+D/libz////
+/bumpversion/1.10/Sat Jul 26 19:24:24 2003//
+/checkoldver/1.3/Wed Apr 30 13:10:50 2008//
+/checkver/1.13/Wed Apr 30 13:10:50 2008//
+/checkvers/1.7/Wed Apr 30 13:10:50 2008//
+D/libc////
+D/libcompat////
+D/libm////
+D/librpcsvc////
+D/libarch////
+D/libterminfo////
+D/libperfuse////
+D/librumpclient////
+D/librumphijack////
+D/libisns////
+D/libnpf////
+D/libdm////
+D/libquota////
+D/libppath////
+D/lua////
+/Makefile.inc/1.7/Thu Mar 22 03:02:39 2012//
+D/libexecinfo////
+D/npf////
+D/libbpfjit////
+/Makefile/1.197/Tue Jan 29 03:02:38 2013//
+D/libc_vfp////
+D

@@ -1,0 +1,17 @@
+/Makefile/1.4/Tue Nov 26 23:30:11 2002//
+/dc21285mem.h/1.2/Sat Jun  9 10:44:11 2001//
+/dc21285reg.h/1.5/Fri Dec 14 11:08:03 2007//
+/footbridge_clock.c/1.26/Tue Jul 21 07:35:55 2009//
+/footbridge_irqhandler.h/1.5/Sun Dec 11 12:16:45 2005//
+/footbridge_machdep.c/1.10/Tue Apr  1 23:19:10 2003//
+D/isa////
+/footbridge_irqhandler.c/1.23/Mon Dec 20 03:01:29 2010//
+/footbridge.h/1.4/Sat Jul  2 03:02:36 2011//
+/footbridgevar.h/1.7/Sat Jul  2 03:02:36 2011//
+/footbridge_com_io.c/1.8/Mon Feb 13 03:02:25 2012//
+/footbridge_io.c/1.21/Mon Feb 13 03:02:25 2012//
+/footbridge_intr.h/1.15/Mon Jun 11 03:03:18 2012//
+/footbridge.c/1.26/Thu Oct 11 03:02:48 2012//
+/footbridge_com.c/1.35/Thu Oct 11 03:02:48 2012//
+/footbridge_pci.c/1.24/Sun Oct 28 03:04:09 2012//
+D

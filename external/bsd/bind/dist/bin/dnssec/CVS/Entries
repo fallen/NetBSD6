@@ -1,0 +1,33 @@
+D/win32////
+/dnssec-revoke.8/1.3/Tue Jun  5 03:01:07 2012//
+/dnssec-revoke.c/1.3/Tue Jun  5 03:01:07 2012//
+/dnssec-revoke.docbook/1.1.1.4/Tue Jun  5 03:01:07 2012//
+/dnssec-revoke.html/1.1.1.5/Tue Jun  5 03:01:07 2012//
+/dnssec-settime.8/1.4/Tue Jun  5 03:01:07 2012//
+/dnssec-settime.docbook/1.1.1.7/Tue Jun  5 03:01:07 2012//
+/dnssec-settime.html/1.1.1.7/Tue Jun  5 03:01:07 2012//
+/dnssec-signzone.8/1.4/Tue Jun  5 03:01:07 2012//
+/dnssec-signzone.docbook/1.1.1.7/Tue Jun  5 03:01:07 2012//
+/dnssec-signzone.html/1.1.1.7/Tue Jun  5 03:01:07 2012//
+/Makefile.in/1.1.1.6/Wed Dec  5 03:01:43 2012//
+/dnssec-dsfromkey.8/1.5/Wed Dec  5 03:01:43 2012//
+/dnssec-dsfromkey.c/1.5/Wed Dec  5 03:01:43 2012//
+/dnssec-dsfromkey.docbook/1.1.1.6/Wed Dec  5 03:01:43 2012//
+/dnssec-dsfromkey.html/1.1.1.7/Wed Dec  5 03:01:43 2012//
+/dnssec-keyfromlabel.8/1.6/Wed Dec  5 03:01:43 2012//
+/dnssec-keyfromlabel.c/1.8/Wed Dec  5 03:01:43 2012//
+/dnssec-keyfromlabel.docbook/1.1.1.9/Wed Dec  5 03:01:43 2012//
+/dnssec-keyfromlabel.html/1.1.1.9/Wed Dec  5 03:01:43 2012//
+/dnssec-keygen.8/1.5/Wed Dec  5 03:01:43 2012//
+/dnssec-keygen.c/1.9/Wed Dec  5 03:01:43 2012//
+/dnssec-keygen.docbook/1.1.1.8/Wed Dec  5 03:01:43 2012//
+/dnssec-keygen.html/1.1.1.8/Wed Dec  5 03:01:43 2012//
+/dnssec-settime.c/1.5/Wed Dec  5 03:01:43 2012//
+/dnssec-signzone.c/1.7/Wed Dec  5 03:01:43 2012//
+/dnssec-verify.8/1.2/Tue Dec  4 23:38:38 2012//
+/dnssec-verify.c/1.2/Tue Dec  4 23:38:38 2012//
+/dnssec-verify.docbook/1.1.1.1/Tue Dec  4 19:21:38 2012//
+/dnssec-verify.html/1.1.1.1/Tue Dec  4 19:21:38 2012//
+/dnssectool.c/1.4/Wed Dec  5 03:01:43 2012//
+/dnssectool.h/1.4/Wed Dec  5 03:01:43 2012//
+D

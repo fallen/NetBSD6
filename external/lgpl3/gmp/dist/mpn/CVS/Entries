@@ -1,0 +1,39 @@
+/Makeasm.am/1.1.1.1/Mon Jun 20 05:54:38 2011//
+/Makefile.am/1.1.1.1/Mon Jun 20 05:54:38 2011//
+/README/1.1.1.1/Mon Jun 20 05:54:38 2011//
+/asm-defs.m4/1.1.1.1/Mon Jun 20 05:54:38 2011//
+/cpp-ccas/1.1.1.1/Mon Jun 20 05:54:38 2011//
+/m4-ccas/1.1.1.1/Mon Jun 20 05:54:38 2011//
+D/a29k////
+D/alpha////
+D/arm////
+D/clipper////
+D/cray////
+D/generic////
+D/i960////
+D/ia64////
+D/lisp////
+D/m68k////
+D/m88k////
+D/minithres////
+D/mips32////
+D/mips64////
+D/ns32k////
+D/pa32////
+D/pa64////
+D/power////
+D/powerpc32////
+D/powerpc64////
+D/pyr////
+D/s390////
+D/sh////
+D/sparc32////
+D/sparc64////
+D/thumb////
+D/vax////
+D/x86////
+D/x86_64////
+D/z8000////
+D/z8000x////
+/Makefile.in/1.2/Thu Sep 15 03:25:18 2011//
+D

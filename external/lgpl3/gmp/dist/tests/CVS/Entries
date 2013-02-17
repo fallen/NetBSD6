@@ -1,0 +1,34 @@
+/Makefile.am/1.1.1.1/Mon Jun 20 05:54:45 2011//
+/Makefile.in/1.1.1.1/Mon Jun 20 05:54:45 2011//
+/amd64call.asm/1.1.1.1/Mon Jun 20 05:54:45 2011//
+/amd64check.c/1.1.1.1/Mon Jun 20 05:54:45 2011//
+/memory.c/1.1.1.1/Mon Jun 20 05:54:45 2011//
+/misc.c/1.1.1.1/Mon Jun 20 05:54:45 2011//
+/refmpf.c/1.1.1.1/Mon Jun 20 05:54:45 2011//
+/refmpn.c/1.1.1.1/Mon Jun 20 05:54:45 2011//
+/refmpq.c/1.1.1.1/Mon Jun 20 05:54:45 2011//
+/refmpz.c/1.1.1.1/Mon Jun 20 05:54:45 2011//
+/spinner.c/1.1.1.1/Mon Jun 20 05:54:45 2011//
+/t-bswap.c/1.1.1.1/Mon Jun 20 05:54:45 2011//
+/t-constants.c/1.1.1.1/Mon Jun 20 05:54:45 2011//
+/t-count_zeros.c/1.1.1.1/Mon Jun 20 05:54:45 2011//
+/t-gmpmax.c/1.1.1.1/Mon Jun 20 05:54:45 2011//
+/t-hightomask.c/1.1.1.1/Mon Jun 20 05:54:45 2011//
+/t-modlinv.c/1.1.1.1/Mon Jun 20 05:54:45 2011//
+/t-parity.c/1.1.1.1/Mon Jun 20 05:54:45 2011//
+/t-popc.c/1.1.1.1/Mon Jun 20 05:54:45 2011//
+/t-sub.c/1.1.1.1/Mon Jun 20 05:54:45 2011//
+/tests.h/1.1.1.1/Mon Jun 20 05:54:45 2011//
+/trace.c/1.1.1.1/Mon Jun 20 05:54:45 2011//
+/x86call.asm/1.1.1.1/Mon Jun 20 05:54:45 2011//
+/x86check.c/1.1.1.1/Mon Jun 20 05:54:45 2011//
+D/cxx////
+D/devel////
+D/misc////
+D/mpbsd////
+D/mpf////
+D/mpn////
+D/mpq////
+D/mpz////
+D/rand////
+D

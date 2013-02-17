@@ -1,0 +1,30 @@
+/ChangeLog/1.1.1.1/Wed Apr 13 18:14:43 2011//
+/NTMakefile/1.1.1.1/Wed Apr 13 18:14:43 2011//
+/gen-oid.pl/1.1.1.1/Wed Apr 13 18:14:43 2011//
+/gssapi_mech.h/1.1.1.1/Wed Apr 13 18:14:43 2011//
+/gsstool.c/1.1.1.1/Wed Apr 13 18:14:43 2011//
+/libgssapi-exports.def/1.1.1.1/Wed Apr 13 18:14:43 2011//
+/libgssapi-version.rc/1.1.1.1/Wed Apr 13 18:14:43 2011//
+/oid.txt/1.1.1.1/Wed Apr 13 18:14:43 2011//
+/test_acquire_cred.c/1.1.1.1/Wed Apr 13 18:14:43 2011//
+/test_common.c/1.1.1.1/Wed Apr 13 18:14:43 2011//
+/test_context.c/1.1.1.1/Wed Apr 13 18:14:44 2011//
+/test_cred.c/1.1.1.1/Wed Apr 13 18:14:44 2011//
+/test_kcred.c/1.1.1.1/Wed Apr 13 18:14:44 2011//
+/test_names.c/1.1.1.1/Wed Apr 13 18:14:44 2011//
+/test_ntlm.c/1.1.1.1/Wed Apr 13 18:14:44 2011//
+/test_oid.c/1.1.1.1/Wed Apr 13 18:14:44 2011//
+D/gssapi////
+D/krb5////
+D/mech////
+D/netlogon////
+D/ntlm////
+D/spnego////
+/Makefile.am/1.1.1.2/Fri Apr 15 03:00:38 2011//
+/gss-commands.in/1.1.1.2/Fri Apr 15 03:00:38 2011//
+/gssapi.h/1.1.1.2/Fri Apr 15 03:00:38 2011//
+/test_common.h/1.1.1.2/Fri Apr 15 03:00:38 2011//
+/version-script.map/1.1.1.2/Fri Apr 15 03:00:38 2011//
+/gss_acquire_cred.3/1.2/Fri Apr 29 03:00:43 2011//
+/gssapi.3/1.3/Fri Apr 29 03:00:43 2011//
+D

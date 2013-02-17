@@ -1,0 +1,32 @@
+/dir.h/1.8/Thu Aug  7 09:05:04 2003//
+/pathnames.h/1.8/Thu Aug  7 09:05:06 2003//
+D/USD.doc////
+/misc.c/1.19/Sun Mar 19 03:01:45 2006//
+/dir.c/1.29/Tue Jul 17 03:03:38 2007//
+/parse.c/1.17/Tue Jul 17 03:03:38 2007//
+/err.c/1.20/Sun Feb 15 03:02:30 2009//
+/exec.c/1.28/Sun Feb 15 03:02:30 2009//
+/exp.c/1.20/Sun Feb 15 03:02:30 2009//
+/sem.c/1.29/Tue Aug 30 03:01:32 2011//
+/file.c/1.29/Sun Sep 25 03:01:24 2011//
+/dol.c/1.28/Thu Nov 10 03:00:47 2011//
+/proc.c/1.35/Thu Nov 10 03:00:47 2011//
+/proc.h/1.13/Thu Nov 10 03:00:47 2011//
+/time.c/1.19/Thu Nov 10 03:00:47 2011//
+/char.c/1.10/Thu Jan 19 03:01:16 2012//
+/char.h/1.9/Thu Jan 19 03:01:16 2012//
+/func.c/1.39/Sat Jun  9 03:00:56 2012//
+/str.c/1.14/Fri Dec 28 03:02:04 2012//
+/alloc.c/1.13/Wed Jan 23 03:00:43 2013//
+/const.c/1.10/Wed Jan 23 03:00:43 2013//
+/csh.1/1.52/Wed Jan 23 03:00:43 2013//
+/glob.c/1.26/Wed Jan 23 03:00:43 2013//
+/init.c/1.11/Wed Jan 23 03:00:43 2013//
+/csh.c/1.45/Thu Jan 24 03:01:06 2013//
+/csh.h/1.25/Thu Jan 24 03:01:06 2013//
+/extern.h/1.28/Thu Jan 24 03:01:06 2013//
+/hist.c/1.19/Thu Jan 24 03:01:06 2013//
+/lex.c/1.29/Thu Jan 24 03:01:06 2013//
+/set.c/1.31/Thu Jan 24 03:01:06 2013//
+/Makefile/1.38/Sat Jan 26 03:01:38 2013//
+D

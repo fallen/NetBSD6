@@ -1,0 +1,26 @@
+/arm-with-iwmmxt.dat/1.1.1.1/Sat Sep 24 20:15:57 2011//
+/arm-with-neon.dat/1.1.1.1/Sat Sep 24 20:15:57 2011//
+/arm-with-vfpv2.dat/1.1.1.1/Sat Sep 24 20:15:57 2011//
+/arm-with-vfpv3.dat/1.1.1.1/Sat Sep 24 20:15:57 2011//
+/mips-linux.dat/1.1.1.1/Sat Sep 24 20:15:57 2011//
+/mips64-linux.dat/1.1.1.1/Sat Sep 24 20:15:57 2011//
+/reg-arm.dat/1.1.1.1/Sat Sep 24 20:15:57 2011//
+/reg-bfin.dat/1.1.1.1/Sat Sep 24 20:15:57 2011//
+/reg-cf.dat/1.1.1.1/Sat Sep 24 20:15:57 2011//
+/reg-cris.dat/1.1.1.1/Sat Sep 24 20:15:57 2011//
+/reg-crisv32.dat/1.1.1.1/Sat Sep 24 20:15:57 2011//
+/reg-ia64.dat/1.1.1.1/Sat Sep 24 20:15:57 2011//
+/reg-m32r.dat/1.1.1.1/Sat Sep 24 20:15:57 2011//
+/reg-m68k.dat/1.1.1.1/Sat Sep 24 20:15:58 2011//
+/reg-sh.dat/1.1.1.1/Sat Sep 24 20:15:58 2011//
+/reg-sparc64.dat/1.1.1.1/Sat Sep 24 20:15:58 2011//
+/reg-spu.dat/1.1.1.1/Sat Sep 24 20:15:58 2011//
+/reg-xtensa.dat/1.1.1.1/Sat Sep 24 20:15:58 2011//
+/regdat.sh/1.1.1.1/Sat Sep 24 20:15:58 2011//
+/regdef.h/1.1.1.1/Sat Sep 24 20:15:58 2011//
+/s390-linux32.dat/1.1.1.1/Sat Sep 24 20:15:57 2011//
+/s390-linux64.dat/1.1.1.1/Sat Sep 24 20:15:58 2011//
+/s390x-linux64.dat/1.1.1.1/Sat Sep 24 20:15:58 2011//
+D/i386////
+D/rs6000////
+D

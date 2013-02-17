@@ -1,0 +1,82 @@
+D/acl////
+D/cacheclean////
+D/checkconf////
+D/checknames////
+D/common////
+D/dialup////
+D/dlv////
+D/dnssec////
+D/forward////
+D/glue////
+D/ixfr////
+D/limits////
+D/lwresd////
+D/masterfile////
+D/masterformat////
+D/notify////
+D/nsupdate////
+D/resolver////
+D/rrsetorder////
+D/sortlist////
+D/stress////
+D/stub////
+D/tkey////
+D/tsig////
+D/unknown////
+D/upforwd////
+D/v6synth////
+D/views////
+D/xfer////
+D/xferquota////
+D/zonechecks////
+D/autosign////
+D/metadata////
+D/pending////
+D/filter-aaaa////
+D/pkcs11////
+D/smartsign////
+D/addzone////
+D/allow_query////
+D/dlz////
+/org.isc.bind.system.plist/1.1.1.1/Tue Feb 15 19:31:07 2011//
+D/dlzexternal////
+D/dns64////
+D/gost////
+D/rpz////
+D/staticstub////
+D/tsiggss////
+D/builtin////
+D/checkzone////
+D/database////
+D/dlvauto////
+D/dname////
+D/logfileconfig////
+D/redirect////
+D/rndc////
+/README/1.1.1.3/Tue Jun  5 03:01:07 2012//
+/ans.pl/1.1.1.2/Tue Jun  5 03:01:07 2012//
+/genzone.sh/1.1.1.5/Tue Jun  5 03:01:07 2012//
+/start.pl/1.1.1.8/Tue Jun  5 03:01:07 2012//
+D/inline////
+/Makefile.in/1.1.1.6/Wed Dec  5 03:01:44 2012//
+/cleanall.sh/1.1.1.4/Wed Dec  5 03:01:44 2012//
+/cleanpkcs11.sh/1.1.1.4/Wed Dec  5 03:01:44 2012//
+/conf.sh.in/1.1.1.9/Wed Dec  5 03:01:44 2012//
+/digcomp.pl/1.1.1.4/Wed Dec  5 03:01:44 2012//
+/ifconfig.sh/1.1.1.6/Wed Dec  5 03:01:44 2012//
+/org.isc.bind.system/1.1.1.3/Wed Dec  5 03:01:44 2012//
+/packet.pl/1.1.1.3/Wed Dec  5 03:01:44 2012//
+/run.sh/1.1.1.5/Wed Dec  5 03:01:44 2012//
+/runall.sh/1.1.1.5/Wed Dec  5 03:01:44 2012//
+/send.pl/1.1.1.5/Wed Dec  5 03:01:44 2012//
+/setup.sh/1.1.1.4/Wed Dec  5 03:01:44 2012//
+/start.sh/1.1.1.4/Wed Dec  5 03:01:44 2012//
+/stop.pl/1.1.1.4/Wed Dec  5 03:01:44 2012//
+/stop.sh/1.1.1.4/Wed Dec  5 03:01:44 2012//
+/testsock.pl/1.1.1.6/Wed Dec  5 03:01:44 2012//
+/testsock6.pl/1.2/Wed Dec  5 03:01:44 2012//
+D/checkds////
+D/ecdsa////
+D/rsabigexponent////
+D/verify////
+D

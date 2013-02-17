@@ -1,0 +1,17 @@
+/qmgr_bounce.c/1.1.1.1/Tue Jun 23 10:08:50 2009//
+/qmgr_defer.c/1.1.1.1/Tue Jun 23 10:08:50 2009//
+/qmgr_enable.c/1.1.1.1/Tue Jun 23 10:08:50 2009//
+/qmgr_entry.c/1.1.1.1/Tue Jun 23 10:08:50 2009//
+/qmgr_error.c/1.1.1.1/Tue Jun 23 10:08:50 2009//
+/qmgr_feedback.c/1.1.1.1/Tue Jun 23 10:08:50 2009//
+/qmgr_move.c/1.1.1.1/Tue Jun 23 10:08:50 2009//
+/qmgr_queue.c/1.1.1.1/Tue Jun 23 10:08:50 2009//
+/qmgr_scan.c/1.1.1.1/Tue Jun 23 10:08:50 2009//
+/qmgr_transport.c/1.1.1.1/Tue Jun 23 10:08:50 2009//
+/qmgr.c/1.1.1.3/Thu Mar  3 05:36:15 2011//
+/qmgr.h/1.1.1.2/Thu Mar  3 05:36:15 2011//
+/qmgr_deliver.c/1.1.1.2/Thu Mar  3 05:36:15 2011//
+/qmgr_message.c/1.1.1.4/Wed Dec 19 03:04:48 2012//
+/Makefile.in/1.1.1.2/Thu Jan  3 03:03:10 2013//
+/qmgr_active.c/1.1.1.3/Thu Jan  3 03:03:10 2013//
+D

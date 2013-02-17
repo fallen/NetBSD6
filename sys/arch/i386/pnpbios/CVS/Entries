@@ -1,0 +1,20 @@
+/TODO/1.1/Sat Dec 28 20:12:24 2002//
+/files.pnpbios/1.17/Sat Dec  9 22:45:26 2006//
+/pckbc_pnpbios.c/1.17/Sun Jun  8 18:35:25 2008//
+/pnpbioscall.S/1.2/Tue Dec 11 23:06:14 2007//
+/pnpbiosreg.h/1.4/Tue Dec 25 18:33:33 2007//
+/pnpbios.c/1.71/Fri Jul  1 03:02:35 2011//
+/pnpbiosvar.h/1.12/Fri Jul  1 03:02:35 2011//
+/atppc_pnpbios.c/1.9/Sat Jul  2 03:02:50 2011//
+/com_pnpbios.c/1.15/Sat Jul  2 03:02:50 2011//
+/ess_pnpbios.c/1.22/Sat Jul  2 03:02:50 2011//
+/lm_pnpbios.c/1.15/Sat Jul  2 03:02:50 2011//
+/lpt_pnpbios.c/1.12/Sat Jul  2 03:02:50 2011//
+/npx_pnpbios.c/1.13/Sat Jul  2 03:02:50 2011//
+/sb_pnpbios.c/1.16/Sat Jul  2 03:02:50 2011//
+/wss_pnpbios.c/1.20/Sat Jul  2 03:02:50 2011//
+/ym_pnpbios.c/1.17/Sat Jul  2 03:02:50 2011//
+/joy_pnpbios.c/1.15/Sun Nov 27 03:03:02 2011//
+/fdc_pnpbios.c/1.17/Fri Feb  3 03:13:04 2012//
+/pciide_pnpbios.c/1.30/Wed Aug  1 03:02:47 2012//
+D
