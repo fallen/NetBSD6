@@ -2903,3 +2903,14 @@ lm32_elf_fdpic_copy_private_bfd_data (bfd *ibfd, bfd *obfd)
 #define bfd_elf32_bfd_copy_private_bfd_data     lm32_elf_fdpic_copy_private_bfd_data
 
 #include "elf32-target.h"
+
+#undef TARGET_BIG_SYM
+#define TARGET_BIG_SYM  bfd_elf32_lm32_netbsd_vec
+#undef TARGET_BIG_NAME
+#define TARGET_BIG_NAME "elf32-lm32-netbsd"
+#undef ELF_OSABI
+#define ELF_OSABI ELFOSABI_NETBSD
+#undef elf32_bed
+#define elf32_bed elf32_lm32_netbsd_bed
+
+#include "elf32-target.h"

@@ -22,7 +22,8 @@ TARGET_ENDIANNESS=	1234
       ${MACHINE_ARCH} == "powerpc64" || \
       ${MACHINE_ARCH} == "sparc" || \
       ${MACHINE_ARCH} == "sparc64" || \
-      ${MACHINE_ARCH:C/^.*eb$/eb/} == "eb"
+      ${MACHINE_ARCH:C/^.*eb$/eb/} == "eb" || \
+      ${MACHINE_ARCH} == "lm32"
 TARGET_ENDIANNESS=	4321
 .endif
 

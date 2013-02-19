@@ -1565,6 +1565,10 @@ iq2000*-*-elf*)
         out_file=iq2000/iq2000.c
         md_file=iq2000/iq2000.md
         ;;
+lm32-*-netbsd*)
+	tm_file="dbxelf.h elfos.h netbsd.h netbsd-elf.h lm32/lm32-netbsd.h ${tm_file}"
+	tmake_file="${tmake_file} lm32/t-lm32 lm32/t-fprules-softfp soft-fp/t-softfp"
+	;;
 lm32-*-elf*)
         tm_file="dbxelf.h elfos.h ${tm_file}"
 	tmake_file="${tmake_file} lm32/t-lm32 lm32/t-fprules-softfp soft-fp/t-softfp"

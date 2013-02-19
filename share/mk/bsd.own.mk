@@ -63,7 +63,8 @@ HAVE_GCC?=    45
     ${MACHINE_ARCH} == "i386" || \
     ${MACHINE_ARCH} == "powerpc" || \
     ${MACHINE_CPU} == "sh3" || \
-    ${MACHINE_ARCH} == "x86_64"
+    ${MACHINE_ARCH} == "x86_64" || \
+    ${MACHINE_ARCH} == "lm32"
 USE_COMPILERCRTSTUFF?=	no
 .endif
 USE_COMPILERCRTSTUFF?=	yes
@@ -74,7 +75,8 @@ HAVE_GDB?=	7
     (${MACHINE_ARCH} == "hppa") || \
     (${MACHINE_ARCH} == "ia64") || \
     (${MACHINE_ARCH} == "mipsel") || (${MACHINE_ARCH} == "mipseb") || \
-    (${MACHINE_ARCH} == "mips64el") || (${MACHINE_ARCH} == "mips64eb")
+    (${MACHINE_ARCH} == "mips64el") || (${MACHINE_ARCH} == "mips64eb") || \
+    (${MACHINE_ARCH} == "lm32")
 HAVE_SSP?=	no
 .else
 HAVE_SSP?=	yes
