@@ -72,6 +72,99 @@ const char line_separator_chars[] = ";";
 const char EXP_CHARS[]            = "eE";
 const char FLT_CHARS[]            = "dD";
 
+/* Helper function for lm32_stringer.  Used to find the end of
+   a string.  */
+
+static unsigned int
+lm32_stringer_aux (char *s)
+{
+  unsigned int c = *s & CHAR_MASK;
+
+  switch (c)
+    {
+    case '\"':
+      c = NOT_A_CHAR;
+      break;
+    default:
+      break;
+    }
+  return c;
+}
+
+/* Handle a .STRING type pseudo-op.  */
+
+static void
+lm32_stringer (int append_zero)
+{
+  char *s, num_buf[4];
+  unsigned int c;
+  int i;
+
+  /* Preprocess the string to handle lm32-specific escape sequences.
+     For example, \xDD where DD is a hexadecimal number should be
+     changed to \OOO where OOO is an octal number.  */
+
+  /* Skip the opening quote.  */
+  s = input_line_pointer + 1;
+
+  while (is_a_char (c = lm32_stringer_aux (s++)))
+    {
+      if (c == '\\')
+	{
+	  c = *s;
+	  switch (c)
+	    {
+	      /* Handle \x<num>.  */
+	    case 'x':
+	      {
+		unsigned int number;
+		int num_digit;
+		char dg;
+		char *s_start = s;
+
+		/* Get past the 'x'.  */
+		s++;
+		for (num_digit = 0, number = 0, dg = *s;
+		     num_digit < 2
+		     && (ISDIGIT (dg) || (dg >= 'a' && dg <= 'f')
+			 || (dg >= 'A' && dg <= 'F'));
+		     num_digit++)
+		  {
+		    if (ISDIGIT (dg))
+		      number = number * 16 + dg - '0';
+		    else if (dg >= 'a' && dg <= 'f')
+		      number = number * 16 + dg - 'a' + 10;
+		    else
+		      number = number * 16 + dg - 'A' + 10;
+
+		    s++;
+		    dg = *s;
+		  }
+		if (num_digit > 0)
+		  {
+		    switch (num_digit)
+		      {
+		      case 1:
+			sprintf (num_buf, "%02o", number);
+			break;
+		      case 2:
+			sprintf (num_buf, "%03o", number);
+			break;
+		      }
+		    for (i = 0; i <= num_digit; i++)
+		      s_start[i] = num_buf[i];
+		  }
+		break;
+	      }
+	    /* This might be a "\"", skip over the escaped char.  */
+	    default:
+	      s++;
+	      break;
+	    }
+	}
+    }
+  stringer (8 + append_zero);
+}
 /* Target specific assembly directives.  */
 
 const pseudo_typeS md_pseudo_table[] =
@@ -81,6 +174,7 @@ const pseudo_typeS md_pseudo_table[] =
   { "hword",   cons,                2 },
   { "word",    cons,                4 },
   { "dword",   cons,                8 },
+  { "stringz", lm32_stringer,         1},
   {(char *)0 , (void(*)(int))0,     0}
 };
 
