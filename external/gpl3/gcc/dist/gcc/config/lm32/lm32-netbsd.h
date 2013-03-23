@@ -96,19 +96,6 @@ Boston, MA 02111-1307, USA.  */
 /* Use the default.  */
 #undef TARGET_ASM_GLOBALIZE_LABEL
 
-/* FIXME: Hacked from the <elfos.h> one so that we avoid multiple
-   labels in a function declaration (since pa.c seems determined to do
-   it differently)  */
-
-#undef ASM_DECLARE_FUNCTION_NAME
-#define ASM_DECLARE_FUNCTION_NAME(FILE, NAME, DECL)		\
-  do								\
-    {								\
-      ASM_OUTPUT_TYPE_DIRECTIVE (FILE, NAME, "function");	\
-      ASM_DECLARE_RESULT (FILE, DECL_RESULT (DECL));		\
-    }								\
-  while (0)
-
 /* NetBSD always uses gas.  */
 #undef TARGET_GAS
 #define TARGET_GAS 1
