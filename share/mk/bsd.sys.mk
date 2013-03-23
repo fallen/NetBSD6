@@ -114,6 +114,10 @@ FFLAGS+=	-mieee
 CFLAGS+=	-Wa,-Av8plus
 .endif
 
+.if ${MACHINE_ARCH} == "lm32" && ${MACHINE} == "milkymist"
+CFLAGS+= -mbarrel-shift-enabled -mmultiply-enabled -mdivide-enabled -msign-extend-enabled
+.endif
+
 .if !defined(NOGCCERROR)
 .if (${MACHINE_ARCH} == "mips64el") || (${MACHINE_ARCH} == "mips64eb")
 CPUFLAGS+=	-Wa,--fatal-warnings
