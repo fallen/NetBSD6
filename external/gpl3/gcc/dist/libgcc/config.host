@@ -365,6 +365,10 @@ lm32-*-elf*|lm32-*-rtems*)
         extra_parts="crtbegin.o crtend.o crti.o crtn.o"
         tmake_file="lm32/t-lm32 lm32/t-elf t-softfp"
 	;;
+lm32-*-netbsd*)
+        extra_parts="crtbegin.o crtend.o crti.o crtn.o"
+        tmake_file="lm32/t-lm32 lm32/t-elf t-softfp"
+	;;
 lm32-*-uclinux*)
         extra_parts="crtbegin.o crtend.o crtbeginS.o crtendS.o crtbeginT.o"
         tmake_file="lm32/t-lm32 lm32/t-uclinux t-softfp"
