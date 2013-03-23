@@ -1,0 +1,9 @@
+LM32 port TODO:
+
+- add some libkern features
+- add crtstuff in libcsu
+- verify frame.h
+- make _spl() functions less nazi (don't mask all IRQs when it's not necessary)
+- make sure it's fine to hardwire CLKF_USERMOD to 0 or 1 (this and the following one seem to be used for statistics purposes only)
+- make sure it's fine to hardwire CLKF_INTR to 0 or 1
+- Do I need to implement cpu_did_resched() ?
