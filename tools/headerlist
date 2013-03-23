@@ -74,7 +74,6 @@
 ./iyonix/include/elf_machdep.h
 ./landisk/include/disklabel.h
 ./landisk/include/elf_machdep.h
-./lm32/include/disklabel.h
 ./lm32/include/elf_machdep.h
 ./luna68k/include/disklabel.h
 ./luna68k/include/elf_machdep.h
@@ -83,6 +82,8 @@
 ./mac68k/include/elf_machdep.h
 ./macppc/include/disklabel.h
 ./macppc/include/elf_machdep.h
+./milkymist/include/disklabel.h
+./milkymist/include/elf_machdep.h
 ./mips/include/elf_machdep.h
 ./mipsco/include/disklabel.h
 ./mipsco/include/elf_machdep.h

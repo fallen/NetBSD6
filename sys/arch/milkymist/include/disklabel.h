@@ -30,8 +30,8 @@
  * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef _LM32_DISKLABEL_H_
-#define _LM32_DISKLABEL_H_
+#ifndef _MILKYMIST_DISKLABEL_H_
+#define _MILKYMIST_DISKLABEL_H_
 
 #define LABELUSESMBR		1	/* use MBR partitionning */
 #define	LABELSECTOR		1	/* sector containing label */
@@ -45,13 +45,13 @@
  * This maintains backward compatibility with device nodes created before
  * MAXPARTITIONS was increased.
  */
-#define __LM32_MAXDISKS	((1 << 20) / MAXPARTITIONS)
-#define DISKUNIT(dev)	((minor(dev) / OLDMAXPARTITIONS) % __LM32_MAXDISKS)
+#define __MILKYMIST_MAXDISKS	((1 << 20) / MAXPARTITIONS)
+#define DISKUNIT(dev)	((minor(dev) / OLDMAXPARTITIONS) % __MILKYMIST_MAXDISKS)
 #define DISKPART(dev)	((minor(dev) % OLDMAXPARTITIONS) + \
-    ((minor(dev) / (__LM32_MAXDISKS * OLDMAXPARTITIONS)) * OLDMAXPARTITIONS))
+    ((minor(dev) / (__MILKYMIST_MAXDISKS * OLDMAXPARTITIONS)) * OLDMAXPARTITIONS))
 #define	DISKMINOR(unit, part) \
     (((unit) * OLDMAXPARTITIONS) + ((part) % OLDMAXPARTITIONS) + \
-     ((part) / OLDMAXPARTITIONS) * (__LM32_MAXDISKS * OLDMAXPARTITIONS))
+     ((part) / OLDMAXPARTITIONS) * (__MILKYMIST_MAXDISKS * OLDMAXPARTITIONS))
 
 /* Pull in MBR partition definitions. */
 #if HAVE_NBTOOL_CONFIG_H
@@ -72,4 +72,4 @@ struct cpu_disklabel {
 };
 #endif
 
-#endif /* _LM32_DISKLABEL_H_ */
+#endif /* _MILKYMIST_DISKLABEL_H_ */

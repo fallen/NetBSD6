@@ -1,0 +1,14 @@
+machine milkymist lm32
+
+maxusers 16
+
+options HZ=100
+file-system PROCFS
+file-system TMPFS
+file-system PTYFS
+file-system KERNFS
+file-system FDESC
+
+config netbsd root on ? type ?
+
+mainbus0 at root
