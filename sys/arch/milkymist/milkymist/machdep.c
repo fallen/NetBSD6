@@ -111,21 +111,21 @@ milkymist_startup(void)
 	memset(edata, 0, end - edata);
 
 	/* Initialize CPU ops. */
-	sh_cpu_init(CPU_ARCH_SH4, CPU_PRODUCT_7750);
+	lm32_cpu_init();
 
 	/* Console */
 	consinit();
 
 	/* Load memory to UVM */
 	physmem = atop(IOM_RAM_SIZE);
-	kernend = atop(round_page(SH3_P1SEG_TO_PHYS(end)));
+	kernend = atop(round_page(end));
 	uvm_page_physload(
 		kernend, atop(IOM_RAM_BEGIN + IOM_RAM_SIZE),
 		kernend, atop(IOM_RAM_BEGIN + IOM_RAM_SIZE),
 		VM_FREELIST_DEFAULT);
 
 	/* Initialize proc0 u-area */
-	sh_proc0_init();
+	lm32_proc0_init();
 
 	/* Initialize pmap and start to address translation */
 	pmap_bootstrap();
@@ -166,7 +166,7 @@ cpu_startup(void)
 
 	strcpy(cpu_model, "LatticeMico32\n");
 
-	sh_startup();
+	lm32_startup();
 }
 
 SYSCTL_SETUP(sysctl_machdep_setup, "sysctl machdep subtree setup")

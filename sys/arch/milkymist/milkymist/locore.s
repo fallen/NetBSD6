@@ -119,7 +119,7 @@ _crt0:
 	mv      r1, r2
 	mvi     r2, 0
 	mvi     r3, 0
-	bi      main
+	bi      milkymist_startup
 
 .save_all:
 	addi    sp, sp, -56
