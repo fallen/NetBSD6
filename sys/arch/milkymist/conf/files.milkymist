@@ -1,0 +1,22 @@
+#
+#
+
+maxpartitions 16
+
+maxusers 2 8 64
+
+device	mainbus {}
+attach	mainbus at root
+
+device	cpu
+attach	cpu at mainbus
+
+# timers
+device	timer
+attach	timer at mainbus
+file	arch/milkymist/dev/timer.c
+
+# serial port
+device	uart: tty
+attach	uart at mainbus
+file	arch/milkymist/dev/uart.c		uart needs-flag

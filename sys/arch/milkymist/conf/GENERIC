@@ -1,5 +1,6 @@
-machine milkymist lm32
+include "arch/milkymist/conf/std.milkymist"
 
+options INCLUDE_CONFIG_FILE # embed config file in kernel binary
 maxusers 16
 
 options HZ=100
@@ -10,5 +11,3 @@ file-system KERNFS
 file-system FDESC
 
 config netbsd root on ? type ?
-
-mainbus0 at root
