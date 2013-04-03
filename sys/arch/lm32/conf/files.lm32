@@ -1,9 +1,2 @@
 include "arch/lm32/conf/majors.lm32"
 
-maxpartitions 8
-
-define mainbus {}
-device mainbus
-attach mainbus at root
-
-file arch/lm32/mainbus.c mainbus
