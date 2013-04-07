@@ -510,6 +510,8 @@ __ffsSI2 (UWtype u)
   return count + 1;
 }
 #endif
+
+#if 0
 DWtype __muldi3 (DWtype u, DWtype v)
 {
   const DWunion uu = {.ll = u};
@@ -521,6 +523,7 @@ DWtype __muldi3 (DWtype u, DWtype v)
 
   return w.ll;
 }
+#endif
 #if (defined (L_udivdi3) || defined (L_divdi3) || \
      defined (L_umoddi3) || defined (L_moddi3))
 #if defined (sdiv_qrnnd)
@@ -1066,6 +1069,7 @@ __moddi3 (DWtype u, DWtype v)
 }
 #endif
 
+#if 0
 UDWtype
 __umoddi3 (UDWtype u, UDWtype v)
 {
@@ -1075,12 +1079,16 @@ __umoddi3 (UDWtype u, UDWtype v)
 
   return w;
 }
+#endif
 
+#if 0
 UDWtype
 __udivdi3 (UDWtype n, UDWtype d)
 {
   return __udivmoddi4 (n, d, (UDWtype *) 0);
 }
+#endif
+
 #ifdef L_cmpdi2
 cmp_return_type
 __cmpdi2 (DWtype a, DWtype b)

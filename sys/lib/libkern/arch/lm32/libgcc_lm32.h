@@ -47,9 +47,9 @@ SItype __divsi3 (SItype a, SItype b);
 SItype __modsi3 (SItype a, SItype b);
 USItype __udivsi3 (USItype a, USItype b);
 USItype __umodsi3 (USItype a, USItype b);
-DWtype __muldi3 (DWtype u, DWtype v);
-//DWtype __moddi3 (DWtype u, DWtype v);
-//UDWtype __udivmoddi4 (UDWtype n, UDWtype d, UDWtype *rp);
+extern DWtype __muldi3 (DWtype u, DWtype v);
+extern UDWtype __umoddi3 (UDWtype, UDWtype);
+extern UDWtype __udivdi3 (UDWtype, UDWtype);
 
 // big endian
 struct DWstruct {
