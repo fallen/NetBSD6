@@ -52,8 +52,6 @@ struct kmutex {
 #define	mtx_ipl 			u.s.mtxs_ipl
 #define	mtx_lock			u.s.mtxs_lock
 
-#define __HAVE_MUTEX_STUBS		1
-#define __HAVE_SPIN_MUTEX_STUBS		1
 #define	__HAVE_SIMPLE_MUTEXES		1
 
 /*
