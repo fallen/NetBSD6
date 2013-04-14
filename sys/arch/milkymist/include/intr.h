@@ -37,7 +37,8 @@
 #define _MACHINE_INTR_H_
 
 #include <lm32/intr.h>
-#include <lm32/cpu.h>
+#include <machine/cpu.h>
+#include <lib/libkern/libkern.h>
 
 /* Define the various Interrupt Priority Levels */
 
@@ -89,6 +90,8 @@ typedef struct {
 	ipl_t  _ipl;
 } ipl_cookie_t;
 
+ipl_t _splraise(ipl_t level);
+
 static inline ipl_cookie_t
 makeiplcookie(ipl_t ipl)
 {
@@ -98,33 +101,6 @@ makeiplcookie(ipl_t ipl)
 
 #define LM32_CSR_PSW_IE_SHIFT (0x0)
 #define LM32_CSR_PSW_IE (1 << LM32_CSR_PSW_IE_SHIFT)
-
-
-static inline ipl_t _splraise(ipl_t level)
-{
-	struct cpu_info *ci = curcpu();
-	ipl_t olevel;
-	int psw;
-
-	if (ci->ci_current_ipl == level)
-		return level;
-	olevel = ci->ci_current_ipl;
-
-//	KASSERT(level < NIPL);
-
-	ci->ci_current_ipl = max(level, olevel);
-
-	asm volatile("rcsr %0, PSW" : "=r"(psw) :: );
-
-	if (level == IPL_NONE)
-		psw |= LM32_CSR_PSW_IE;
-	else
-		psw &= ~(LM32_CSR_PSW_IE);
-
-	asm volatile("wcsr PSW, %0" :: "r"(psw) : );
-
-	return olevel;
-}
 
 static inline int
 splraiseipl(ipl_cookie_t icookie)

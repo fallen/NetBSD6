@@ -7,3 +7,16 @@ LM32 port TODO:
 - make sure it's fine to hardwire CLKF_USERMOD to 0 or 1 (this and the following one seem to be used for statistics purposes only)
 - make sure it's fine to hardwire CLKF_INTR to 0 or 1
 - Do I need to implement cpu_did_resched() ?
+- implement copyin/copyout/copyinstr
+  - amd64: sys/arch/amd64/amd64/copy.S:ENTRY(copyout)
+  - arm: sys/arch/arm/arm/bcopyinout_xscale.S:ENTRY(copyout)
+  - hppa: sys/arch/hppa/hppa/copy.S: * copyin/copyout, fuword/suword, etc.
+  - i386: sys/arch/i386/i386/copy.S:ENTRY(copyout)
+  - ia64: sys/arch/ia64/ia64/support.S:ENTRY(copyoutstr, 4)
+  - m68k: sys/arch/m68k/060sp/dist/os.s:_copyout: | sys/arch/m68k/m68k/copy.s:ENTRY(copyout)
+  - ppc: sys/arch/powerpc/booke/copyout.c
+  - sh3: sys/arch/sh3/sh3/locore_subr.S:ENTRY(copyout)
+  - sparc: sys/arch/sparc/sparc/locore.s:ENTRY(copyout)
+  - sparc64: sys/arch/sparc64/sparc64/copy.S:ENTRY(copyout)
+  - usermod: sys/arch/usermode/usermode/copy.c
+  - vax: sys/arch/vax/boot/boot/if_le.c: copyout(void *f, int dest, int len)

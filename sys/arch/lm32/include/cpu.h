@@ -51,6 +51,8 @@
 #include <machine/frame.h>
 #include <machine/pte.h>
 
+#define	curcpu()			(&cpu_info_store)
+
 #include <sys/cpu_data.h>
 #include <sys/evcnt.h>
 #include <sys/device_if.h> /* for device_t */
@@ -68,6 +70,7 @@ struct cpu_info {
 	cpuid_t	ci_cpuid;
 	device_t ci_dev;		/* pointer to our device */
 	int ci_current_ipl;
+	struct lwp *ci_curlwp;		/* current owner of the processor */
 	struct cpu_info *ci_self;	/* self-pointer */
 	void	*ci_tlog_base;		/* Trap log base */
 	int32_t ci_tlog_offset;		/* Trap log current offset */
@@ -114,7 +117,6 @@ extern struct cpu_info cpu_info_primary;
 extern struct cpu_info *cpu_info_list;
 
 extern struct cpu_info cpu_info_store;
-#define	curcpu()			(&cpu_info_store)
 
 /*
  * definitions of cpu-dependent requirements

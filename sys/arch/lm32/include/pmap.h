@@ -17,4 +17,7 @@ __CTASSERT(sizeof(struct vm_page_md) == sizeof(uintptr_t)*5);
 #define pmap_pte_set(p, n)		do { *(p) = (n); } while (0)
 #define pmap_pte_flush()		/* nothing */
 
+void tlbflush(void);
+void pmap_load(void);
+
 #endif /* !_LM32_PMAP_H_ */

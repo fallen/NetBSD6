@@ -92,6 +92,8 @@
 #define	NENTRY(y)	_ENTRY(_C_LABEL(y))
 #define	ASENTRY(y)	_ENTRY(_ASM_LABEL(y)) _PROF_PROLOGUE
 
+#define CPUVAR(off) _C_LABEL(cpu_info_store)+__CONCAT(CPU_INFO_,off)
+
 #define SET_ENTRY_SIZE(y) \
 	.size	_C_LABEL(y), . - _C_LABEL(y)
 

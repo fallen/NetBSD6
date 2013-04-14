@@ -24,6 +24,7 @@ Boston, MA 02111-1307, USA.  */
   do						\
     {						\
       NETBSD_OS_CPP_BUILTINS_ELF();             \
+      builtin_define ("__NO_LEADING_UNDERSCORES__");\
     }						\
   while (0)
 

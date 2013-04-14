@@ -1,2 +1,4 @@
 include "arch/lm32/conf/majors.lm32"
 
+file 	arch/lm32/lm32/pmap.c
+file 	arch/lm32/lm32/copy.c

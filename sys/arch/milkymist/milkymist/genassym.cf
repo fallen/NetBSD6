@@ -34,7 +34,9 @@
 
 include <machine/pte.h>
 include <machine/vmparam.h>
-
+include <machine/types.h>
+include <sys/cpu.h>
+#include <sys/lwp.h>
 
 # general constants
 define	PAGE_SIZE	PAGE_SIZE
@@ -47,3 +49,11 @@ define	PG_RO		PG_RO
 define	PG_RW		PG_RW
 define	PG_PROT		PG_PROT
 define	PG_FRAME	PG_FRAME
+
+
+define	CPU_INFO_SELF		offsetof(struct cpu_info, ci_self)
+define	CPU_INFO_CURLWP		offsetof(struct cpu_info, ci_curlwp)
+
+
+define	L_NOPREEMPT		offsetof(struct lwp, l_nopreempt)
+define	L_DOPREEMPT		offsetof(struct lwp, l_dopreempt)
