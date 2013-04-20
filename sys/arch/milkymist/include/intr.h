@@ -40,19 +40,6 @@
 #include <machine/cpu.h>
 #include <lib/libkern/libkern.h>
 
-/* Define the various Interrupt Priority Levels */
-
-/* Hardware Interrupt Priority Levels are not mutually exclusive. */
-
-#define	IPL_NONE	0
-#define	IPL_SOFTCLOCK	1
-#define	IPL_SOFTBIO	1
-#define	IPL_SOFTNET	1
-#define	IPL_SOFTSERIAL	1
-#define	IPL_VM		1
-#define	IPL_SCHED	1
-#define IPL_HIGH	1
-#define NIPL		2
 
 #define USB_IRQ 		(0x00008000)
 #define IR_IRQ 			(0x00004000)
