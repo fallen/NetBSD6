@@ -2,6 +2,12 @@
  * COPYRIGHT (C) 2013 Yann Sionneau <yann.sionneau@gmail.com>
  */
 
+#include <lm32/pmap.h>
+#include <sys/types.h>
+#include <lm32/cpu.h>
+#include <sys/systm.h>
+#include <uvm/uvm_map.h>
+#include <uvm/uvm_extern.h>
 void tlbflush(void)
 {
 	/* flush DTLB */
@@ -13,6 +19,13 @@ void tlbflush(void)
 	asm volatile("xor r11, r11, r11\n\t"
 		     "ori r11, r11, 0x2\n\t"
 		     "wcsr tlbvaddr, r11" ::: "r11");	
+}
+
+void
+pmap_reference(pmap_t pmap)
+{
+
+	pmap->pm_refcnt++;
 }
 
 /*
@@ -32,7 +45,6 @@ pmap_load(void)
 	struct pmap *pmap, *oldpmap;
 	struct lwp *l;
 	struct pcb *pcb;
-	cpuid_t cid;
 	uint64_t ncsw;
 
 	kpreempt_disable();
@@ -55,18 +67,6 @@ pmap_load(void)
 	pcb = lwp_getpcb(l);
 
 	if (pmap == oldpmap) {
-		if (!pmap_reactivate(pmap)) {
-			u_int gen = uvm_emap_gen_return();
-
-			/*
-			 * pmap has been changed during deactivated.
-			 * our tlb may be stale.
-			 */
-
-			tlbflush();
-			uvm_emap_update(gen);
-		}
-
 		ci->ci_want_pmapload = 0;
 		kpreempt_enable();
 		return;
@@ -78,21 +78,11 @@ pmap_load(void)
 
 	pmap_reference(pmap);
 
-	cid = cpu_index(ci);
-	kcpuset_atomic_clear(oldpmap->pm_cpus, cid);
-	kcpuset_atomic_clear(oldpmap->pm_kernel_cpus, cid);
-
-	KASSERT(!kcpuset_isset(pmap->pm_cpus, cid));
-	KASSERT(!kcpuset_isset(pmap->pm_kernel_cpus, cid));
-
 	/*
 	 * Mark the pmap in use by this CPU.  Again, we must synchronize
 	 * with TLB shootdown interrupts, so set the state VALID first,
 	 * then register us for shootdown events on this pmap.
 	 */
-	ci->ci_tlbstate = TLBSTATE_VALID;
-	kcpuset_atomic_set(pmap->pm_cpus, cid);
-	kcpuset_atomic_set(pmap->pm_kernel_cpus, cid);
 	ci->ci_pmap = pmap;
 
 
