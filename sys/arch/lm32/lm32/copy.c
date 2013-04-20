@@ -10,6 +10,7 @@
 
 void do_pmap_load(void);
 int copyout(const void *kaddr, void *uaddr, size_t len);
+int copyin(const void *uaddr, void *kaddr, size_t len);
 
 void do_pmap_load(void)
 {
@@ -28,6 +29,40 @@ void do_pmap_load(void)
 
 	} while (curcpu()->ci_want_pmapload != 0);
 
+}
+
+int copyin(const void *uaddr, void *kaddr, size_t len)
+{
+	const uint32_t *uaddr_32 = uaddr;
+	const uint8_t *uaddr_8 = uaddr;
+	uint32_t *kaddr_32 = kaddr;
+	uint8_t *kaddr_8 = kaddr;
+	int count;
+
+	if ( curcpu()->ci_want_pmapload )
+		do_pmap_load();
+
+	kaddr_8 += len;
+	if ((size_t)kaddr_8 < len)
+		return EFAULT;
+	if ((size_t)uaddr_8 > VM_MAXUSER_ADDRESS)
+		return EFAULT;
+
+	count = len;
+	count >>= 2;     /* count = count / 4 */
+	while ( count-- > 0)
+		*kaddr_32++ = *uaddr_32++;
+
+	count = len & 0x3;  /* test if it is a multiple of 4 */
+	if (count == 0)
+		return 0;
+
+	kaddr_8 = (uint8_t *)kaddr + len - count;
+
+	while (count-- > 0)
+		*kaddr_8++ = *uaddr_8++;
+
+	return 0;
 }
 
 int copyout(const void *kaddr, void *uaddr, size_t len)
