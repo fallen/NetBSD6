@@ -69,8 +69,8 @@ int copyout(const void *kaddr, void *uaddr, size_t len)
 {
 	uint32_t *uaddr_32 = uaddr;
 	uint8_t *uaddr_8 = uaddr;
-	uint32_t *kaddr_32 = uaddr;
-	uint8_t *kaddr_8 = uaddr;
+	const uint32_t *kaddr_32 = kaddr;
+	const uint8_t *kaddr_8 = kaddr;
 	int count;
 
 	if ( curcpu()->ci_want_pmapload )
