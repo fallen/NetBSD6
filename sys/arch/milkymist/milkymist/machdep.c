@@ -67,11 +67,6 @@
 #include <sys/cdefs.h>
 __KERNEL_RCSID(0, "$NetBSD: machdep.c,v 1.43 2012/06/11 16:27:08 tsutsui Exp $");
 
-#include "opt_memsize.h"
-#include "scif.h"
-#include "opt_kloader.h"
-#include "opt_modular.h"
-
 #include <sys/param.h>
 #include <sys/systm.h>
 #include <sys/kernel.h>
@@ -83,12 +78,9 @@ __KERNEL_RCSID(0, "$NetBSD: machdep.c,v 1.43 2012/06/11 16:27:08 tsutsui Exp $")
 #include <sys/module.h>
 
 #include <machine/intr.h>
-#include <machine/kloader.h>
 #include <machine/pcb.h>
 
 #include <dev/cons.h>
-
-#include "ksyms.h"
 
 /* the following is used externally (sysctl_hw) */
 char machine[] = MACHINE;
@@ -97,9 +89,14 @@ char machine_arch[] = MACHINE_ARCH;
 
 /* Our exported CPU info; we can have only one. */
 struct cpu_info cpu_info_store;
+static struct pcb lwp0pcb;
 
 void main(void) __attribute__((__noreturn__));
 void milkymist_startup(void) __attribute__((__noreturn__));
+void lm32_lwp0_init(void);
+
+#define IOM_RAM_BEGIN (0x40000000)
+#define IOM_RAM_SIZE (0x08000000) /* 128 MB of DDR SDRAM on the Milkymist One */
 
 void
 milkymist_startup(void)
@@ -111,21 +108,21 @@ milkymist_startup(void)
 	memset(edata, 0, end - edata);
 
 	/* Initialize CPU ops. */
-	lm32_cpu_init();
+//	lm32_cpu_init();
 
 	/* Console */
 	consinit();
 
 	/* Load memory to UVM */
 	physmem = atop(IOM_RAM_SIZE);
-	kernend = atop(round_page(end));
+	kernend = atop(round_page((unsigned int)end));
 	uvm_page_physload(
 		kernend, atop(IOM_RAM_BEGIN + IOM_RAM_SIZE),
 		kernend, atop(IOM_RAM_BEGIN + IOM_RAM_SIZE),
 		VM_FREELIST_DEFAULT);
 
 	/* Initialize proc0 u-area */
-	lm32_proc0_init();
+	lm32_lwp0_init();
 
 	/* Initialize pmap and start to address translation */
 	pmap_bootstrap();
@@ -140,12 +137,22 @@ milkymist_startup(void)
 
 	/* Jump to main */
 	__asm volatile(
-		"jmp	@%0;"
-		"mov	%1, sp"
-		:: "r"(main),"r"(lwp0.l_md.md_pcb->pcb_sf.sf_r7_bank));
+		"b	%0"
+		:: "r"(main));
 	/* NOTREACHED */
 	while (1)
 		;
+}
+
+void lm32_lwp0_init(void)
+{
+	struct cpu_info *ci = curcpu();
+
+	lwp0.l_cpu = ci;
+
+	memset(&lwp0pcb, 0, sizeof(lwp0pcb));
+	uvm_lwp_setuarea(&lwp0, (vaddr_t) &lwp0pcb);
+
 }
 
 void
@@ -166,7 +173,7 @@ cpu_startup(void)
 
 	strcpy(cpu_model, "LatticeMico32\n");
 
-	lm32_startup();
+//	lm32_startup();
 }
 
 SYSCTL_SETUP(sysctl_machdep_setup, "sysctl machdep subtree setup")
@@ -226,8 +233,8 @@ cpu_reboot(int howto, char *bootstr)
 	splhigh();
 
 	/* Do a dump if requested. */
-	if ((howto & (RB_DUMP | RB_HALT)) == RB_DUMP)
-		dumpsys();
+//	if ((howto & (RB_DUMP | RB_HALT)) == RB_DUMP)
+//		dumpsys();
 
  haltsys:
 	doshutdownhooks();
@@ -255,42 +262,3 @@ cpu_reboot(int howto, char *bootstr)
 		;
 	/*NOTREACHED*/
 }
-
-void
-intc_intr(int ssr, int spc, int ssp)
-{
-	struct intc_intrhand *ih;
-	int s, evtcode;
-
-	curcpu()->ci_data.cpu_nintr++;
-
-	evtcode = _reg_read_4(SH4_INTEVT);
-
-	ih = EVTCODE_IH(evtcode);
-	KDASSERT(ih->ih_func);
-	/*
-	 * On entry, all interrrupts are disabled, and exception is enabled.
-	 * Enable higher level interrupt here.
-	 */
-	s = _cpu_intr_resume(ih->ih_level);
-
-	if (evtcode == SH_INTEVT_TMU0_TUNI0) {	/* hardclock */
-		struct clockframe cf;
-		cf.spc = spc;
-		cf.ssr = ssr;
-		cf.ssp = ssp;
-		(*ih->ih_func)(&cf);
-	} else {
-		(*ih->ih_func)(ih->ih_arg);
-	}
-}
-
-#ifdef MODULAR
-/*
- * Push any modules loaded by the bootloader etc.
- */
-void
-module_init_md(void)
-{
-}
-#endif

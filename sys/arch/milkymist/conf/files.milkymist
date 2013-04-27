@@ -22,5 +22,6 @@ attach	uart at mainbus
 file	arch/milkymist/dev/uart.c		uart needs-flag
 
 file	arch/milkymist/milkymist/intr.c
+file	arch/milkymist/milkymist/machdep.c
 
 include "arch/milkymist/conf/majors.milkymist"
