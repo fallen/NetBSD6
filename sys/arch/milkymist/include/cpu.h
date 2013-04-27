@@ -7,4 +7,6 @@ extern struct cpu_info cpu_info_store;
 
 #include <lm32/cpu.h>
 
+#define CPU_CONSDEV 1
+
 #endif

@@ -41,7 +41,7 @@
 #include <sys/mutex.h>
 
 
-#define	PAGE_SHIFT	12
+#define	PAGE_SHIFT	(12)
 #define	PAGE_SIZE	(1 << PAGE_SHIFT)
 #define	PAGE_MASK	(PAGE_SIZE - 1)
 
@@ -103,5 +103,7 @@
 #define	VM_NFREELIST		2
 #define	VM_FREELIST_FIRST16	1
 #define	VM_FREELIST_DEFAULT	0
+
+#define lm32_ptob(x)  ((uint32_t)(x) << PGSHIFT)
 
 #endif /* _LM32_VMPARAM_H_ */
