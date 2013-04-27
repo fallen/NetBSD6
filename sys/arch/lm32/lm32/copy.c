@@ -11,6 +11,8 @@
 void do_pmap_load(void);
 int copyout(const void *kaddr, void *uaddr, size_t len);
 int copyin(const void *uaddr, void *kaddr, size_t len);
+int copyinstr(const void *from, void *to, size_t max_len, size_t *len_copied);
+int copystr(const void *kfaddr, void *kdaddr, size_t maxlen, size_t *done);
 
 void do_pmap_load(void)
 {
@@ -97,4 +99,89 @@ int copyout(const void *kaddr, void *uaddr, size_t len)
 		*uaddr_8++ = *kaddr_8++;
 
 	return 0;
+}
+
+int copyinstr(const void *from, void *to, size_t max_len, size_t *len_copied)
+{
+	const char *from_8 = (const char *)from;
+	char *to_8 = (char *)to;
+	int ret = 0;
+	size_t maxlen_temp = max_len;
+
+	if ( curcpu()->ci_want_pmapload )
+		do_pmap_load();
+
+	if ((size_t)from > VM_MAXUSER_ADDRESS) /* to be checked, jump if carry ? */
+	{
+		ret = EFAULT;
+		goto copyinstr_return;
+	}
+
+	if (max_len > VM_MAXUSER_ADDRESS - (size_t)from)
+		max_len = VM_MAXUSER_ADDRESS - (size_t)from;
+
+	maxlen_temp++;
+
+	do
+	{
+		if (--maxlen_temp == 0)
+		{
+			ret = 1;
+			break;
+		}
+		*to_8++ = *from_8;
+	} while (*from_8++ != '\0');
+
+
+	if (ret)
+	{
+		if (VM_MAXUSER_ADDRESS >= (size_t)from_8)
+			ret = EFAULT;
+		else
+			ret = ENAMETOOLONG;
+	}
+	else
+	{
+		maxlen_temp--; 
+		ret = 0;
+	}
+
+copyinstr_return:
+	if (NULL != len_copied)
+		*len_copied = max_len - maxlen_temp;
+
+	return ret;
+}
+
+
+int copystr(const void *kfaddr, void *kdaddr, size_t maxlen, size_t *done)
+{
+	const char *from_8 = kfaddr;
+	char *to_8 = kdaddr;
+	size_t maxlen_temp = maxlen;
+	int ret = 0;
+
+	from_8--;
+	maxlen_temp++;
+
+	do
+	{
+		if (--maxlen_temp == 0)
+		{
+			ret = ENAMETOOLONG;
+			break;
+		}
+		*to_8++ = *from_8;
+	} while (*from_8++ != '\0');
+
+	if (ret == 0)
+	{
+		maxlen_temp--;
+	} else
+		ret = ENAMETOOLONG;
+
+	if (NULL != done)
+		*done = maxlen - maxlen_temp;
+
+	return ret;
 }
