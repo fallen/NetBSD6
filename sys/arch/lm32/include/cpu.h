@@ -61,6 +61,22 @@
 struct intrsource;
 struct pmap;
 
+#define lm32_dcache_invalidate() do { \
+					asm volatile("wcsr DCC, r0"); \
+				} while(0);
+
+#define lm32_icache_invalidate() do { \
+					asm volatile("wcsr ICC, r0\n" \
+						     "nop\n" \
+						     "nop\n" \
+						     "nop\n" \
+						     "nop\n"); \
+				} while(0);
+
+
+void lm32_dtlb_invalidate_line(vaddr_t vaddr);
+void lm32_itlb_invalidate_line(vaddr_t vaddr);
+
 /*
  * a bunch of this belongs in cpuvar.h; move it later..
  */
