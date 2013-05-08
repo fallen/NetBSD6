@@ -80,38 +80,28 @@ typedef uint32_t pt_entry_t;		/* PTE */
  * now we define various for playing with virtual addresses
  */
 
-#define	PG_FRAME	0xfffff000	/* page frame mask */
-#define	PG_LGFRAME	0xffc00000	/* large (4MB) page frame mask */
+#define	PG_FRAME	(0xfffff000)	/* page frame mask */
 
+/* software emulated bits */
 
-#define L1_SHIFT 	12
-#define L2_SHIFT 	21
+#define PG_WIRED		(1 << 11)
+#define PG_NOCACHE		(1 << 10)
+#define PG_WRITE_COMBINE	(1 << 9)
+#define PG_WRITE_BACK		(1 << 8)
+#define PG_NOCACHE_OVR		(1 << 7)
+#define PG_D			(1 << 6)
+
+/* hardware managed bits */
+#define PG_RO			(1 << 1) /* Page read only */
+
+#define PG_PR_MASK		(1 << 1) /* Page protection mask */
+
+#define L1_SHIFT 	(12)
+#define L2_SHIFT 	(21)
 #define	NBPD_L1		(1ULL << L1_SHIFT) /* # bytes mapped by L1 ent (4K) */
 #define	NBPD_L2		(1ULL << L2_SHIFT) /* # bytes mapped by L2 ent (2MB) */
 
-#define L1_MASK 	0x001ff000
+#define L1_MASK 	(0x001ff000)
 
-/*
- * here we define the bits of the PDE/PTE, as described above:
- *
- * XXXCDC: need to rename these (PG_u == ugly).
- */
-
-#define	PG_V		0x00000001	/* valid entry */
-#define	PG_RO		0x00000000	/* read-only page */
-#define	PG_RW		0x00000002	/* read-write page */
-#define	PG_u		0x00000004	/* user accessible page */
-#define	PG_PROT		0x00000806	/* all protection bits */
-#define PG_WT		0x00000008	/* write through */
-#define	PG_N		0x00000010	/* non-cacheable */
-#define	PG_U		0x00000020	/* has been used */
-#define	PG_M		0x00000040	/* has been modified */
-#define PG_PAT		0x00000080	/* PAT (on pte) */
-#define PG_PS		0x00000080	/* 4MB page size (2MB for PAE) */
-#define PG_G		0x00000100	/* global, don't TLB flush */
-#define PG_AVAIL1	0x00000200	/* ignored by hardware */
-#define PG_AVAIL2	0x00000400	/* ignored by hardware */
-#define PG_AVAIL3	0x00000800	/* ignored by hardware */
-#define PG_LGPAT	0x00001000	/* PAT on large pages */
 
 #endif /* _LM32_PTE_H_ */

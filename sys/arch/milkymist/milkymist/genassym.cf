@@ -44,10 +44,7 @@ define	USRSTACK	USRSTACK
 
 
 # pte bits
-define	PG_V		PG_V
 define	PG_RO		PG_RO
-define	PG_RW		PG_RW
-define	PG_PROT		PG_PROT
 define	PG_FRAME	PG_FRAME
 
 
