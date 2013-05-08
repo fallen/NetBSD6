@@ -20,3 +20,7 @@ LM32 port TODO:
   - sparc64: sys/arch/sparc64/sparc64/copy.S:ENTRY(copyout)
   - usermod: sys/arch/usermode/usermode/copy.c
   - vax: sys/arch/vax/boot/boot/if_le.c: copyout(void *f, int dest, int len)
+
+- Decide what to do with SH_HAS_VIRTUAL_ALIAS stuff
+  - It seems that as long as total_cache_size <= page size (with total_cache_size = line size * number of sets * cache associativity)
+    there is no cache aliasing issue
