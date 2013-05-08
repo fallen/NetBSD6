@@ -63,7 +63,7 @@ struct pmap;
 
 #define lm32_dcache_invalidate() do { \
 					asm volatile("wcsr DCC, r0"); \
-				} while(0);
+				} while(0)
 
 #define lm32_icache_invalidate() do { \
 					asm volatile("wcsr ICC, r0\n" \
@@ -71,11 +71,47 @@ struct pmap;
 						     "nop\n" \
 						     "nop\n" \
 						     "nop\n"); \
-				} while(0);
+				} while(0)
 
+#define lm32_itlb_invalidate_line(vaddr) do { \
+						vaddr_t ___va = vaddr | 0x20; \
+						asm volatile ("wcsr tlbvaddr, %0" :: "r"(___va) : ); \
+				} while(0)
 
-void lm32_dtlb_invalidate_line(vaddr_t vaddr);
-void lm32_itlb_invalidate_line(vaddr_t vaddr);
+#define lm32_dtlb_invalidate_line(vaddr) do { \
+						vaddr_t ___va = vaddr | 0x21; \
+						asm volatile ("wcsr tlbvaddr, %0" :: "r"(___va) : ); \
+				} while(0)
+
+#define lm32_tlb_invalidate_line(vaddr) do { \
+						lm32_itlb_invalidate_line(vaddr); \
+						lm32_dtlb_invalidate_line(vaddr); \
+					} while(0)
+
+#define lm32_itlb_update(va, pa) do { \
+					asm volatile	("wcsr tlbvaddr, %0" :: "r"(va) : ); \
+					asm volatile	("wcsr tlbpaddr, %0" :: "r"(pa) : ); \
+				} while (0)
+
+#define lm32_dtlb_update(va, pa) do { \
+					asm volatile	("ori %0, %0, 1\n\t" \
+							 "wcsr tlbvaddr, %0" :: "r"(va) : ); \
+					asm volatile	("ori %0, %0, 1\n\t" \
+							 "wcsr tlbpaddr, %0" :: "r"(pa) : ); \
+				} while (0)
+
+static inline void lm32_mmu_start(void)
+{
+	unsigned int old_psw;
+	asm volatile("rcsr %0, PSW\n\t"
+		     "ori %0, %0, 72\n\t"
+		     "wcsr PSW, %0" : "=&r"(old_psw) :: );
+}
+
+#define __ways 1
+#define __cache_size 256
+#define __cache_line_size 16
+
 
 /*
  * a bunch of this belongs in cpuvar.h; move it later..
