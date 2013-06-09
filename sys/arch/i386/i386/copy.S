@@ -434,11 +434,11 @@ NENTRY(copystr_efault)
 NENTRY(copystr_fault)
 copystr_return:
 	/* Set *lencopied and return %eax. */
-	movl	20(%esp),%ecx
-	subl	%edx,%ecx
 	movl	24(%esp),%edx
 	testl	%edx,%edx
 	jz	8f
+	movl	20(%esp),%ecx
+	subl	%edx,%ecx
 	movl	%ecx,(%edx)
 
 8:	popl	%edi
@@ -478,11 +478,11 @@ ENTRY(copystr)
 	movl	$ENAMETOOLONG,%eax
 
 6:	/* Set *lencopied and return %eax. */
-	movl	20(%esp),%ecx
-	subl	%edx,%ecx
 	movl	24(%esp),%edx
 	testl	%edx,%edx
 	jz	7f
+	movl	20(%esp),%ecx
+	subl	%edx,%ecx
 	movl	%ecx,(%edx)
 
 7:	popl	%edi
