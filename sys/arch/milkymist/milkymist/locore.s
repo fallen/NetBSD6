@@ -35,9 +35,9 @@ _reset_handler:
 	mvhi	r1, hi(_reset_handler)
 	ori	r1, r1, lo(_reset_handler)
 	wcsr	EBA, r1
-	calli	_sdram_init
 	xor	r2, r2, r2
 	bi	_crt0
+	nop
 
 _breakpoint_handler:
 	bi _breakpoint_handler
