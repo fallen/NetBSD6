@@ -92,7 +92,7 @@ _divide_by_zero_handler:
 _interrupt_handler:
 	sw      (sp+0), ra
 	calli   .save_all
-	calli   isr
+	calli   __isr
 	bi      .restore_all_and_eret
 	nop
 	nop

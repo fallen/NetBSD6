@@ -33,5 +33,17 @@ static __inline void _set_irq_mask(int mask)
 	__asm volatile ("wcsr IM, %0" :: "r"(mask) : );
 }
 
+static __inline void _ack_irq(unsigned int irq)
+{
+	unsigned int __ip;
+	asm volatile("rcsr %0, IP\n\t"
+		     "or %0, %0, %1\n\t"
+		     "wcsr IP, %0" : "=&r"(__ip) : "r"(irq) : );
+}
+
+void lm32_intrhandler_register(int irqmask, int (*func)(void *));
+void init_irqhandlers_array(void);
+unsigned int lm32_dispatch_irq(unsigned int irq_pending_mask, void *arg);
+
 #endif
 #endif

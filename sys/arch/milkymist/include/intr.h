@@ -72,6 +72,13 @@ static __inline void _mask_irq(int irq_mask)
 	_set_irq_mask( old_mask & ~(irq_mask) );
 }
 
+static __inline void _unmask_irq(int irq_mask)
+{
+	int old_mask = _get_irq_mask();
+	_set_irq_mask( old_mask & irq_mask);
+}
+
+
 typedef int ipl_t;
 typedef struct {
 	ipl_t  _ipl;
@@ -96,6 +103,7 @@ splraiseipl(ipl_cookie_t icookie)
 	return _splraise(icookie._ipl);
 }
 
-#include <machine/irqhandler.h>
+//#include <machine/irqhandler.h>
+void __isr(void);
 
 #endif	/* _MACHINE_INTR_H */
