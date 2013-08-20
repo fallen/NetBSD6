@@ -10,4 +10,6 @@ file-system PTYFS
 file-system KERNFS
 file-system FDESC
 
+pseudo-device	pty			# pseudo-terminals
+
 config netbsd root on ? type ?

@@ -44,6 +44,7 @@
 #define _MACHINE_IRQHANDLER_H_
 
 #include <sys/evcnt.h>
+#include <lm32/intr.h>
 
 /* Define the IRQ bits */
 
@@ -68,24 +69,9 @@
 #define IRQ_INSTRUCT	-1
 #define NIRQS		0x10 // 16 IRQs
 
-typedef struct irqhandler {
-	int (*ih_func)(void *arg);	/* handler function */
-	void *ih_arg;			/* Argument to handler */
-	int ih_level;			/* Interrupt level */
-	int ih_num;			/* Interrupt number (for accounting) */
-	u_int ih_flags;			/* Interrupt flags */
-	u_int ih_maskaddr;		/* mask address for expansion cards */
-	u_int ih_maskbits;		/* interrupt bit for expansion cards */
-	struct irqhandler *ih_next;	/* next handler */
-	struct evcnt ih_ev;		/* evcnt structure */
-	int (*ih_realfunc)(void *arg);	/* XXX real handler function */
-	void *ih_realarg;
-} irqhandler_t;
-
 #ifdef _KERNEL
 extern u_int irqmasks[NIPL];
-extern irqhandler_t *irqhandlers[NIRQS];
-
+typedef struct irqhandler irqhandler_t;
 void irq_init(void);
 int irq_claim(int, irqhandler_t *, const char *group, const char *name);
 int irq_release(int, irqhandler_t *);

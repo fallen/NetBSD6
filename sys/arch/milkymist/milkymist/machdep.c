@@ -79,6 +79,7 @@ __KERNEL_RCSID(0, "$NetBSD: machdep.c,v 1.43 2012/06/11 16:27:08 tsutsui Exp $")
 
 #include <machine/intr.h>
 #include <machine/pcb.h>
+#include <machine/uart.h>
 
 #include <dev/cons.h>
 
@@ -158,13 +159,16 @@ void lm32_lwp0_init(void)
 void
 consinit(void)
 {
-	static int initted;
+	static int initted = 0;
 
 	if (initted)
 		return;
 	initted = 1;
 
-	cninit();
+	if (milkymist_uart_cnattach())
+	{
+		panic("Cannot init Milkymist serial console");
+	}
 }
 
 void

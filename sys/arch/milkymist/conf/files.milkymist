@@ -7,6 +7,7 @@ maxusers 2 8 64
 
 device	mainbus {}
 attach	mainbus at root
+file	arch/milkymist/milkymist/mainbus.c
 
 device	cpu
 attach	cpu at mainbus
@@ -23,5 +24,7 @@ file	arch/milkymist/dev/uart.c		uart needs-flag
 
 file	arch/milkymist/milkymist/intr.c
 file	arch/milkymist/milkymist/machdep.c
+file	arch/milkymist/milkymist/autoconf.c
+file	arch/milkymist/milkymist/clock.c
 
 include "arch/milkymist/conf/majors.milkymist"
