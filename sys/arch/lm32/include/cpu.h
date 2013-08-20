@@ -182,8 +182,6 @@ extern struct cpu_info cpu_info_store;
 #define CPU_STOP(_ci)	        	((_ci)->ci_func->stop(_ci))
 #define CPU_START_CLEANUP(_ci)		((_ci)->ci_func->cleanup(_ci))
 
-#define aston(l, why)		((l)->l_md.md_astpending |= (why))
-
 void cpu_boot_secondary_processors(void);
 void cpu_init_idle_lwps(void);
 void cpu_init_msrs(struct cpu_info *, bool);
@@ -206,13 +204,16 @@ struct clockframe {
 #define CLKF_USERMODE(framep) (0)
 #define CLKF_PC(framep) ((framep)->tf_pc)
 #define CLKF_INTR(framep) (0)
+#define	aston(l)		do { (l)->l_md.md_astpending = 1; } while(0)
 
-/*
- * Give a profiling tick to the current process when the user profiling
- * buffer pages are invalid.  On the i386, request an ast to send us
- * through trap(), marking the proc as needing a profiling tick.
- */
-extern void	cpu_need_proftick(struct lwp *l);
+#define cpu_need_proftick(l)      do { (l)->l_pflag |= LP_OWEUPC; aston(l); } while (0)
+
+#define	cpu_need_resched(ci, flags)					\
+do {									\
+	ci->ci_want_resched = 1;					\
+	if (curlwp != ci->ci_data.cpu_idlelwp)				\
+		aston(curlwp);						\
+} while (/*CONSTCOND*/0)
 
 /*
  * Notify the LWP l that it has a signal pending, process as soon as
@@ -223,18 +224,18 @@ extern void	cpu_signotify(struct lwp *);
 /*
  * We need a machine-independent name for this.
  */
-extern void (*delay_func)(unsigned int);
+void delay_func(unsigned int);
 struct timeval;
 
-#define	DELAY(x)		(*delay_func)(x)
-#define delay(x)		(*delay_func)(x)
+#define	DELAY(x)		delay_func(x)
+#define delay(x)		delay_func(x)
 
 extern int cputype;
 extern int cpuid_level;
 extern int cpu_class;
 
-extern void (*lm32_cpu_idle)(void);
-#define	cpu_idle() (*lm32_cpu_idle)()
+void lm32_cpu_idle(void);
+#define	cpu_idle() lm32_cpu_idle()
 
 /* machdep.c */
 void	dumpconf(void);

@@ -40,7 +40,7 @@
 struct mdlwp {
 	volatile int md_flags;
 	volatile int md_astpending;
-	struct trapframe *md_utf;		/* user trampframe */
+	struct trapframe md_utf;		/* user trampframe */
 };
 
 struct trapframe;
@@ -53,7 +53,12 @@ struct mdproc {
 //#define	LWP0_CPU_INFO	&cpu_info[0] 
 #define	LWP0_MD_INITIALIZER {	\
 		.md_flags = 0, \
-		.md_utf = (void *)0xdeadbeef, \
+		.md_utf = { \
+			.tf_regs = { .r_regs = { 0 }, \
+				.r_ra = 0, \
+				.r_ea = 0, \
+				.r_ba = 0, \
+				.r_pc = 0} } \
 	}
 #endif /* _KERNEL */
 

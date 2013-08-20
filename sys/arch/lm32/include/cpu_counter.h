@@ -38,7 +38,8 @@ uint64_t	cpu_counter(void);
 uint64_t	cpu_counter_serializing(void);
 uint32_t	cpu_counter32(void);
 uint64_t	cpu_frequency(struct cpu_info *);
-int		cpu_hascounter(void);
+//int		cpu_hascounter(void);
+#define		cpu_hascounter()	(0)
 
 #endif	/* _KERNEL */
 

@@ -49,6 +49,7 @@ struct reg {
 	int	r_ra;
 	int	r_ea;
 	int 	r_ba;
+	int	r_pc;
 };
 
 /*

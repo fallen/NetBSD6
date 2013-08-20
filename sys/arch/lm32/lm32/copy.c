@@ -185,3 +185,9 @@ int copystr(const void *kfaddr, void *kdaddr, size_t maxlen, size_t *done)
 
 	return ret;
 }
+
+int copyoutstr(const void *from, void *to, size_t maxlen, size_t *done)
+{
+	return 0;
+	//TODO
+}

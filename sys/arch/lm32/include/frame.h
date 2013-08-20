@@ -71,6 +71,8 @@
 #include <lm32/signal.h>
 #include <sys/ucontext.h>
 #include <sys/siginfo.h>
+#include <lm32/reg.h>
+
 /*
  * New-style signal frame
  */
@@ -83,7 +85,9 @@ struct sigframe_siginfo {
 	ucontext_t	sf_uc;		/* actual saved ucontext */
 };
 
-
+struct trapframe {
+	struct reg tf_regs;
+};
 
 void *getframe(struct lwp *, int, int *);
 void buildcontext(struct lwp *, int, void *, void *);

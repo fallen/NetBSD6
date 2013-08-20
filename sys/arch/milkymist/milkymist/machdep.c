@@ -86,7 +86,7 @@ __KERNEL_RCSID(0, "$NetBSD: machdep.c,v 1.43 2012/06/11 16:27:08 tsutsui Exp $")
 /* the following is used externally (sysctl_hw) */
 char machine[] = MACHINE;
 char machine_arch[] = MACHINE_ARCH;
-
+char cpu_model[30];
 
 /* Our exported CPU info; we can have only one. */
 struct cpu_info cpu_info_store;
@@ -196,6 +196,12 @@ SYSCTL_SETUP(sysctl_machdep_setup, "sysctl machdep subtree setup")
 		       CTL_MACHDEP, CPU_CONSDEV, CTL_EOL);
 }
 
+void cpu_reset(void)
+{
+	asm volatile("rcsr r11, EBA\n\t"
+		     "b r11" ::: "r11" );
+}
+
 void
 cpu_reboot(int howto, char *bootstr)
 {
@@ -265,4 +271,14 @@ cpu_reboot(int howto, char *bootstr)
 	for(;;)
 		;
 	/*NOTREACHED*/
+}
+
+void lm32_cpu_idle(void)
+{
+	asm volatile("nop");
+}
+
+void
+cpu_dumpconf(void)
+{
 }

@@ -2,6 +2,10 @@ include "arch/lm32/conf/majors.lm32"
 
 file 	arch/lm32/lm32/pmap.c
 file 	arch/lm32/lm32/copy.c
+file	arch/lm32/lm32/cpu.c
+file	arch/lm32/lm32/syscall.c
+file	arch/lm32/lm32/process_machdep.c
 file	arch/lm32/lm32/interrupt.c
 file    arch/lm32/lm32/lock_stubs.S
+file	arch/lm32/lm32/locore_subr.S
 file	dev/cons.c
