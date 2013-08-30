@@ -91,9 +91,6 @@ ENTRY(cpu_switchto)
 	sw	(sp+4), r2
 	addi	sp, sp, 8
 	lw	r2, (r2+(L_MD_REGS+MD_UTF+TF_REGS+R_PC))
-/*	lw	r2, (r2+MD_UTF)
-	lw	r2, (r2+TF_REGS)
-	lw	r2, (r2+R_PC)*/
 	lw	r1, (sp+4)
 	lw	r1, (r1+L_PROC)
 
