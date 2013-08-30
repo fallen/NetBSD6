@@ -39,6 +39,8 @@
 struct pcb {
 	struct pmap *pcb_pm;	/* pmap of our vmspace */
 	register_t pcb_sp;	/* saved SP */
+	register_t pcb_ra;	/* saved RA */
+	register_t pcb_fp;	/* saved FP */
 	int pcb_flags;
 };
 

@@ -35,8 +35,10 @@
 include <machine/pte.h>
 include <machine/vmparam.h>
 include <machine/types.h>
+include <machine/pcb.h>
 include <sys/cpu.h>
 #include <sys/lwp.h>
+include <sys/proc.h>
 
 # general constants
 define	PAGE_SIZE	PAGE_SIZE
@@ -51,6 +53,20 @@ define	PG_FRAME	PG_FRAME
 define	CPU_INFO_SELF		offsetof(struct cpu_info, ci_self)
 define	CPU_INFO_CURLWP		offsetof(struct cpu_info, ci_curlwp)
 
+define	PCB_RA			offsetof(struct pcb, pcb_ra)
+define	PCB_FP			offsetof(struct pcb, pcb_fp)
+define	PCB_SP			offsetof(struct pcb, pcb_sp)
 
 define	L_NOPREEMPT		offsetof(struct lwp, l_nopreempt)
 define	L_DOPREEMPT		offsetof(struct lwp, l_dopreempt)
+define	L_PCB			offsetof(struct lwp, l_addr)
+define	L_MD_REGS		offsetof(struct lwp, l_md)
+define	L_PROC			offsetof(struct lwp, l_proc)
+
+define	MD_UTF			offsetof(struct mdlwp, md_utf)
+
+define	TF_REGS			offsetof(struct trapframe, tf_regs)
+
+define	R_PC			offsetof(struct reg, r_pc)
+
+define	P_RASLIST		offsetof(struct proc, p_raslist)

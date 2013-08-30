@@ -54,6 +54,14 @@
 #endif
 #define	_ASM_LABEL(x)	x
 
+#ifdef __STDC__
+# define __CONCAT(x,y)	x ## y
+# define __STRING(x)	#x
+#else
+# define __CONCAT(x,y)	x/**/y
+# define __STRING(x)	"x"
+#endif
+
 /* let kernels and others override entrypoint alignment */
 #ifndef _ALIGN_TEXT
 # define _ALIGN_TEXT .align 2
@@ -92,7 +100,15 @@
 #define	NENTRY(y)	_ENTRY(_C_LABEL(y))
 #define	ASENTRY(y)	_ENTRY(_ASM_LABEL(y)) _PROF_PROLOGUE
 
-#define CPUVAR(off) _C_LABEL(cpu_info_store)+__CONCAT(CPU_INFO_,off)
+#define SET_CPUVAR(off,reg) \
+	mvhi	r25, hi(_C_LABEL(cpu_info_store)) ; \
+	ori	r25, r25, lo(_C_LABEL(cpu_info_store)) ; \
+	lw	reg, (r25+__CONCAT(CPU_INFO_,off))
+
+#define GET_CPUVAR(reg,off) \
+	mvhi	r25, hi(_C_LABEL(cpu_info_store)) ; \
+	ori	r25, r25, lo(_C_LABEL(cpu_info_store)) ; \
+	sw	(r25+__CONCAT(CPU_INFO_,off)), reg
 
 #define SET_ENTRY_SIZE(y) \
 	.size	_C_LABEL(y), . - _C_LABEL(y)
