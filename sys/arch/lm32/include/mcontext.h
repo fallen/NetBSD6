@@ -49,7 +49,7 @@
 /*
  * General register state
  */
-#define _NGREG		29
+#define _NGREG		32
 typedef	int		__greg_t;
 typedef	__greg_t	__gregset_t[_NGREG];
 
@@ -82,6 +82,9 @@ typedef	__greg_t	__gregset_t[_NGREG];
 #define _REG_FP		26
 #define _REG_SP		27
 #define _REG_RA		28
+#define _REG_EA		29
+#define _REG_BA		30
+#define _REG_PC		31
 
 typedef struct {
 	__gregset_t	__gregs;

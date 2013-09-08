@@ -55,9 +55,6 @@ struct mdproc {
 		.md_flags = 0, \
 		.md_utf = { \
 			.tf_regs = { .r_regs = { 0 }, \
-				.r_ra = 0, \
-				.r_ea = 0, \
-				.r_ba = 0, \
 				.r_pc = 0} } \
 	}
 #endif /* _KERNEL */

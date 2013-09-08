@@ -1,8 +1,7 @@
-/*	$NetBSD: reg.h,v 1.18 2011/02/08 20:20:16 rmind Exp $	*/
-
 /*
  * Copyright (c) 1988 University of Utah.
  * Copyright (c) 1982, 1986, 1990 The Regents of the University of California.
+ * Copyright (c) 2013 Yann Sionneau <yann.sionneau@gmail.com>
  * All rights reserved.
  *
  * This code is derived from software contributed to Berkeley by
@@ -45,10 +44,7 @@
  * Register set accessible via /proc/$pid/reg and ptrace()
  */
 struct reg {
-	int	r_regs[28];	/* R1-R28 , R0 is always 0 */
-	int	r_ra;
-	int	r_ea;
-	int 	r_ba;
+	int	r_regs[31];	/* R1-R31 , R0 is always 0 */
 	int	r_pc;
 };
 
@@ -83,12 +79,18 @@ struct reg {
 #define	R24	(23)
 #define	R25	(24)
 #define	R26	(25)
+#define	R_GP	(R26)
 #define	R27	(26)
+#define	R_FP	R27
 #define	R28	(27)
+#define	R_SP	R28
 
-#define	RA	(28)
-#define	EA	(29)
-#define	BA	(30)
+#define	R29	(28)
+#define	R_RA	R29
+#define	R30 	(29)
+#define	R_EA	R30
+#define	R31	(30)
+#define	R_BA	R31
 
 #ifdef _KERNEL
 

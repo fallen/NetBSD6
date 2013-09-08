@@ -87,6 +87,7 @@ struct sigframe_siginfo {
 
 struct trapframe {
 	struct reg tf_regs;
+	int	tf_pc;
 };
 
 void *getframe(struct lwp *, int, int *);

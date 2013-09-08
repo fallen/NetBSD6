@@ -154,6 +154,7 @@ struct cpu_info {
 	char *ci_doubleflt_stack;
 	char *ci_ddbipi_stack;
 	volatile int	ci_want_resched;
+	int		ci_idepth;
 };
 
 
