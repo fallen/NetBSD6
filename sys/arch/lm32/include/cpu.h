@@ -220,7 +220,7 @@ do {									\
  * Notify the LWP l that it has a signal pending, process as soon as
  * possible.
  */
-extern void	cpu_signotify(struct lwp *);
+#define		cpu_signotify(l)	aston(l)
 
 /*
  * We need a machine-independent name for this.

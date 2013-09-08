@@ -8,6 +8,7 @@ file	arch/lm32/lm32/process_machdep.c
 file	arch/lm32/lm32/interrupt.c
 file	arch/lm32/lm32/vm_machdep.c
 file	arch/lm32/lm32/procfs_machdep.c
+file	arch/lm32/lm32/sig_machdep.c
 file    arch/lm32/lm32/lock_stubs.S
 file	arch/lm32/lm32/locore_subr.S
 file	dev/cons.c
