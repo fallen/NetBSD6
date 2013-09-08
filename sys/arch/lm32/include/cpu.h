@@ -297,4 +297,8 @@ struct disklist {
 		int ni_biosmatches[MAX_BIOSDISKS]; /* indices in dl_biosdisks */
 	} dl_nativedisks[1];			   /* actually longer */
 };
+
+#define	LM32_TF_R1(tf)	tf->tf_regs.r_regs[R1]
+#define	LM32_TF_R2(tf)	tf->tf_regs.r_regs[R2]
+
 #endif /* !_LM32_CPU_H_ */
