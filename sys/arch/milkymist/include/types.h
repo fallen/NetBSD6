@@ -6,6 +6,5 @@
 #include <lm32/types.h>
 
 #define	__GENERIC_SOFT_INTERRUPTS_ALL_LEVELS
-#define	__HAVE_MM_MD_READWRITE
 
 #endif

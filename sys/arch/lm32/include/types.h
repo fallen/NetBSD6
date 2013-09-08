@@ -91,7 +91,6 @@ typedef	volatile unsigned char		__cpu_simple_lock_t;
 #define	__HAVE_OLD_DISKLABEL
 #define	__HAVE_CPU_LWP_SETPRIVATE
 #define	__HAVE_INTR_CONTROL
-#define	__HAVE_MM_MD_OPEN
 #define	__HAVE___LWP_GETPRIVATE_FAST
 
 #if defined(_KERNEL)
