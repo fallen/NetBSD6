@@ -102,11 +102,12 @@ void lm32_lwp0_init(void);
 void
 milkymist_startup(void)
 {
-	extern char edata[], end[];
-	paddr_t kernend;
+//	extern char edata[], end[];
+	extern char _end[];
+	paddr_t phys_kernend;
 
 	/* Clear bss */
-	memset(edata, 0, end - edata);
+//	memset(edata, 0, end - edata);
 
 	/* Initialize CPU ops. */
 //	lm32_cpu_init();
@@ -115,13 +116,17 @@ milkymist_startup(void)
 	consinit();
 
 	/* Load memory to UVM */
+	printf("IOM_RAM_SIZE == %d\n", (int)IOM_RAM_SIZE);
 	physmem = atop(IOM_RAM_SIZE);
-	kernend = atop(round_page((unsigned int)end));
-	uvm_page_physload(
-		kernend, atop(IOM_RAM_BEGIN + IOM_RAM_SIZE),
-		kernend, atop(IOM_RAM_BEGIN + IOM_RAM_SIZE),
-		VM_FREELIST_DEFAULT);
+	phys_kernend = atop(round_page((unsigned int)kern_virt_to_phy(_end)));
+	printf("phys_kernend == 0x%08X\n", (int)phys_kernend);
 
+	uvm_setpagesize();
+	uvm_page_physload(
+		phys_kernend, atop(IOM_RAM_BEGIN + IOM_RAM_SIZE) - 2 * PAGE_SIZE,
+		phys_kernend, atop(IOM_RAM_BEGIN + IOM_RAM_SIZE) - 2 * PAGE_SIZE,
+		VM_FREELIST_DEFAULT);
+	printf("uvm_page_physload DONE\n");
 	/* Initialize proc0 u-area */
 	lm32_lwp0_init();
 

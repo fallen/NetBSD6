@@ -67,8 +67,15 @@ STATIC bool __pmap_map_change(pmap_t, vaddr_t, paddr_t, vm_prot_t,
 
 void pmap_bootstrap(void)
 {
+	int msgbuf;
 	/* Steal msgbuf area */
-	initmsgbuf((void *)uvm_pageboot_alloc(MSGBUFSIZE), MSGBUFSIZE);
+
+	msgbuf = uvm_pageboot_alloc(MSGBUFSIZE);
+	initmsgbuf((void *)kern_phy_to_virt(msgbuf), MSGBUFSIZE);
+
+	printf("pmap_bootstrap();\n");
+	printf("initmsgbuf(0x%08X, %d);\n", (unsigned int)kern_phy_to_virt(msgbuf), MSGBUFSIZE);
+
 
 	avail_start = ptoa(VM_PHYSMEM_PTR(0)->start);
 	avail_end = ptoa(VM_PHYSMEM_PTR(vm_nphysseg - 1)->end);
@@ -81,7 +88,8 @@ void pmap_bootstrap(void)
 	/* Mask all interrupt */
 	asm volatile("wcsr IM, r0"); // IM = 0;
 	/* Enable MMU */
-	lm32_mmu_start();
+//	lm32_mmu_start();
+	
 }
 
 vaddr_t
@@ -120,8 +128,8 @@ pmap_steal_memory(vsize_t size, vaddr_t *vstart, vaddr_t *vend)
 			VM_PHYSMEM_PTR_SWAP(j, j + 1);
 	}
 
-	va = pa;
-	memset((void *)va, 0, size);
+	va = pa; //wtf??
+	memset((void *)((unsigned int)va - 0x40000000 + 0xc0000000), 0, size);
 
 	return (va);
 }
@@ -130,7 +138,7 @@ vaddr_t
 pmap_growkernel(vaddr_t maxkvaddr)
 {
 	int i, n;
-
+	printf("pmap_growkernel(0x%08X)\n", (int)maxkvaddr);
 	if (maxkvaddr <= __pmap_kve)
 		return (__pmap_kve);
 
@@ -244,9 +252,9 @@ pmap_load(void)
 	ci->ci_pmap = pmap;
 
 
-	u_int gen = uvm_emap_gen_return();
+//	u_int gen = uvm_emap_gen_return();
 	cpu_load_pmap(pmap, oldpmap);
-	uvm_emap_update(gen);
+//	uvm_emap_update(gen);
 
 	ci->ci_want_pmapload = 0;
 
@@ -578,6 +586,9 @@ void pmap_kenter_pa(vaddr_t va, paddr_t pa, vm_prot_t prot, u_int flags)
 
 	pte = __pmap_kpte_lookup(va);
 
+	if (pte == NULL)
+		panic("help! pte is NULL\n");
+
 	KDASSERT(*pte == 0);
 	*pte = entry;
 
@@ -615,12 +626,14 @@ void pmap_kremove(vaddr_t va, vsize_t len)
 
 void pmap_copy_page(paddr_t src, paddr_t dst)
 {
+	printf("pmap_copy_page(0x%08X, 0x%08X)\n", (int)src, (int)dst);
 	memcpy((void *)dst, (void *)src, PAGE_SIZE);
 }
 
 void pmap_zero_page(paddr_t phys)
 {
-	memset((void *)phys, 0, PAGE_SIZE);
+	printf("pmap_zero_page(0x%08X)\n", (int)phys);
+	memset((void *)kern_phy_to_virt(phys), 0, PAGE_SIZE);
 }
 
 void pmap_page_protect(struct vm_page *pg, vm_prot_t prot)
@@ -943,4 +956,9 @@ __pmap_pte_alloc(pmap_t pmap, vaddr_t va)
 	pmap->pm_ptp[__PMAP_PTP_INDEX(va)] = ptp;
 
 	return (ptp + __PMAP_PTP_OFSET(va));
+}
+
+void cpu_load_pmap(struct pmap *new, struct pmap *old)
+{
+	printf("cpu_load_pmap()\n");
 }

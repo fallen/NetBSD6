@@ -46,6 +46,7 @@
 
 #include <machine/pmap.h>
 #include <machine/pcb.h>
+#include <machine/userret.h>
 
 #include <uvm/uvm.h>
 
@@ -128,7 +129,7 @@ cpu_intr_p(void)
 int
 mm_md_physacc(paddr_t pa, vm_prot_t prot)
 {
-	extern phys_ram_seg_t mem_clusters[VM_PHYSSEG_MAX];
+/*	extern phys_ram_seg_t mem_clusters[VM_PHYSSEG_MAX];
 	extern int mem_cluster_cnt;
 	int i;
 
@@ -142,6 +143,8 @@ mm_md_physacc(paddr_t pa, vm_prot_t prot)
 	}
 	return kauth_authorize_machdep(kauth_cred_get(),
 	    KAUTH_MACHDEP_UNMANAGEDMEM, NULL, NULL, NULL, NULL);
+*/
+	return 0;
 }
 
 void
@@ -252,4 +255,21 @@ int
 cpu_mcontext_validate(struct lwp *l, const mcontext_t *mcp)
 {
 	return 0;
+}
+
+/* 
+ * startlwp: start of a new LWP.
+ */
+void
+startlwp(void *arg)
+{
+	ucontext_t *uc = arg;
+	lwp_t *l = curlwp;
+	int error;
+
+	error = cpu_setmcontext(l, &uc->uc_mcontext, uc->uc_flags);
+	KASSERT(error == 0);
+
+	kmem_free(uc, sizeof(ucontext_t));
+	userret(l);
 }

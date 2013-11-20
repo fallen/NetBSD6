@@ -14,6 +14,7 @@ USE_SSP?=	no
 ## (1) port identification
 ##
 LM32=		$S/arch/lm32
+MILKYMIST=	$S/arch/milkymist
 GENASSYM_CONF=	${LM32}/lm32/genassym.cf
 
 ##

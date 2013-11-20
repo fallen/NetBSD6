@@ -57,6 +57,7 @@ struct pmap {
 #define pmap_pte2pa(a)			((a) & PG_FRAME)
 #define pmap_pte_set(p, n)		do { *(p) = (n); } while (0)
 #define pmap_pte_flush()		/* nothing */
+#define pmap_copy(DP,SP,D,L,S)		/* nothing */
 
 #define	PVH_REFERENCED		1
 #define	PVH_MODIFIED		2

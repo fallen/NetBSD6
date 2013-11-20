@@ -27,6 +27,25 @@
 .section    .text, "ax", @progbits
 .global _start
 .type _start,@function
+.global start
+.type start,@function
+
+start:
+_bootstrap:
+	xor	r0, r0, r0
+	wcsr	IE, r0
+;	mvhi	r1, hi(_reset_handler - _bootstrap)
+;	ori	r1, r1, lo(_reset_handler)
+	mvhi	r1, 0x4000
+	ori	r1, r1, 0x100
+	wcsr	EBA, r1
+	xor	r2, r2, r2
+	bi	_crt0
+	nop
+
+_memory_store_area:
+
+.org 0x100
 _start:
 kernel_text:
 _reset_handler:
@@ -99,6 +118,57 @@ _interrupt_handler:
 	nop
 	nop
 
+_syscall_handler:
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+
+_itlb_miss_handler:
+	bi	_fake_itlb_miss_handler
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+
+_dtlb_miss_handler:
+	bi	_fake_dtlb_miss_handler
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+
+_dtlb_fault_handler:
+	rcsr	r0, TLBPADDR
+	ori	r0, r0, 1
+	wcsr	TLBPADDR, r0
+	xor	r0, r0, r0 /* restore r0 to 0 */
+	eret
+	nop
+	nop
+	nop
+
+
+_privilege_fault_handler:
+	eret
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+	nop
+
 macaddress:
 	.byte 0x10
 	.byte 0xe2
@@ -111,15 +181,122 @@ macaddress:
 	.byte 0x00
 	.byte 0x00
 
+_fake_itlb_miss_handler:
+	mvhi	r0, 0x4000
+	ori	r0, r0, lo(_memory_store_area)
+	sw	(r0+0), r1
+	sw	(r0+4), r2
+	xor	r0, r0, r0 /* restore r0 to 0 */
+	rcsr	r1, TLBPADDR
+	mvhi	r2, 0xc000
+	sub	r1, r1, r2
+	mvhi	r2, 0x4000
+	add	r1, r1, r2
+	wcsr	TLBPADDR, r1
+	mvhi	r0, 0x4000
+	ori	r0, r0, lo(_memory_store_area)
+	lw	r1, (r0+0)
+	lw	r2, (r0+4)
+	xor	r0, r0, r0 /* restore r0 to 0 */
+	eret
+
+_fake_dtlb_miss_handler:
+	mvhi	r0, 0x4000
+	ori	r0, r0, lo(_memory_store_area)
+	sw	(r0+0), r1
+	sw	(r0+4), r2
+	xor	r0, r0, r0 /* restore r0 to 0 */
+	rcsr	r1, TLBPADDR
+	mvhi	r2, 0xc000
+	sub	r1, r1, r2
+	mvhi	r2, 0x4000
+	add	r1, r1, r2
+	ori	r1, r1, 1
+	wcsr	TLBPADDR, r1
+	mvhi	r0, 0x4000
+	ori	r0, r0, lo(_memory_store_area)
+	lw	r1, (r0+0)
+	lw	r2, (r0+4)
+	xor	r0, r0, r0 /* restore r0 to 0 */
+	eret
+
+_real_tlb_miss_handler:
+	mvhi	r0, 0x4000
+	ori	r0, r0, lo(_memory_store_area)
+	sw	(r0+0), r1
+	sw	(r0+4), r2
+	sw	(r0+8), r3
+	sw	(r0+12), r4
+	sw	(r0+16), r5
+	sw	(r0+20), r6
+	sw	(r0+24), r7
+	sw	(r0+28), r8
+	sw	(r0+32), r9
+	sw	(r0+36), r10
+	sw	(r0+40), ea
+	sw	(r0+44), ba
+	sw	(r0+48), ra
+	xor	r0, r0, r0 /* restore r0 value to 0 */
+
+	// HOW TO CALL this function???!!
+	mvhi	r1, hi(_phy_do_real_tlb_miss_handling)
+	ori	r1, r1, lo(_phy_do_real_tlb_miss_handling)
+/*	mvhi	r2, 0xc000
+	sub	r1, r1, r2
+	addi	r1, r1, 0x4000 */
+	call	r1
+
+	mvhi	r0, 0x4000
+	ori	r0, r0, lo(_memory_store_area)
+	lw	r1, (r0+0)
+	lw	r2, (r0+4)
+	lw	r3, (r0+8)
+	lw	r4, (r0+12)
+	lw	r5, (r0+16)
+	lw	r6, (r0+20)
+	lw	r7, (r0+24)
+	lw	r8, (r0+28)
+	lw	r9, (r0+32)
+	lw	r10, (r0+36)
+	lw	ea, (r0+40)
+	lw	ba, (r0+44)
+	lw	ra, (r0+48)
+	xor	r0, r0, r0 /* restore r0 value to 0 */
+	eret
+
 _crt0:
+	/* activate ITLB and DTLB */
+	mvi	r1, 0x48
+	wcsr 	PSW, r1
+
 	/* stack and global pointers 
          * should be initialized
          * by bootloader/BIOS
          */
+	/* Setup stack and global pointer */
+	mvhi    sp, hi(_fstack)
+	ori     sp, sp, lo(_fstack)
+	mvhi    gp, hi(_gp)
+	ori     gp, gp, lo(_gp)
+
+	/* Clear BSS */
+	mvhi    r1, hi(_fbss)
+	ori     r1, r1, lo(_fbss)
+	mvhi    r3, hi(_ebss)
+	ori     r3, r3, lo(_ebss)
+.clearBSS:
+	be      r1, r3, .callMain
+	sw      (r1+0), r0
+	addi    r1, r1, 4
+	bi      .clearBSS
+
+.callMain:	
 	mv      r1, r2
 	mvi     r2, 0
 	mvi     r3, 0
-	bi      milkymist_startup
+	mvhi	r4, hi(milkymist_startup)
+	ori	r4, r4, lo(milkymist_startup)
+	b	r4
 
 .save_all:
 	addi    sp, sp, -56

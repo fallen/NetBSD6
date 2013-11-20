@@ -1,0 +1,107 @@
+OUTPUT_FORMAT("elf32-lm32")
+ENTRY(_start)
+
+__DYNAMIC = 0;
+
+MEMORY {
+	sdram : ORIGIN = 0xc0000000, LENGTH = 0x8000000
+}
+
+SECTIONS
+{
+	.text 0xc0000000 : AT ( 0x40000000 )
+	{
+		_ftext = .;
+		*(.text .stub .text.* .gnu.linkonce.t.*)
+		_etext = .;
+	} > sdram
+
+	.rodata ADDR(.text) + SIZEOF(.text) : AT ( LOADADDR(.text) + SIZEOF(.text) )
+	{
+		. = ALIGN(4);
+		_frodata = .;
+		*(.rodata .rodata.* .gnu.linkonce.r.* link_set_*)
+		*(.rodata1)
+		_erodata = .;
+	} > sdram
+
+	link_set_modules ADDR(.rodata) + SIZEOF(.rodata) : AT (LOADADDR(.rodata) + SIZEOF(.rodata) )
+	{
+		__start_link_set_modules = .;
+		*(link_set_modules);
+		__stop_link_set_modules = .;
+	}
+
+	link_set_domains ADDR(link_set_modules) + SIZEOF(link_set_modules) : AT (LOADADDR(link_set_modules) + SIZEOF(link_set_modules) )
+	{
+		__start_link_set_domains = .;
+		*(link_set_domains);
+		__stop_link_set_domains = .;
+	}
+
+	link_set_bufq_strats ADDR(link_set_domains) + SIZEOF(link_set_domains) : AT (LOADADDR(link_set_domains) + SIZEOF(link_set_domains) )
+	{
+		__start_link_set_bufq_strats = .;
+		*(link_set_bufq_strats);
+		__stop_link_set_bufq_strats = .;
+	}
+
+	link_set_evcnts ADDR(link_set_bufq_strats) + SIZEOF(link_set_bufq_strats) : AT (LOADADDR(link_set_bufq_strats) + SIZEOF(link_set_bufq_strats) )
+	{
+		__start_link_set_evcnts = .;
+		*(link_set_evcnts);
+		__stop_link_set_evcnts = .;
+	}
+
+	link_set_prop_linkpools ADDR(link_set_evcnts) + SIZEOF(link_set_evcnts) : AT (LOADADDR(link_set_evcnts) + SIZEOF(link_set_evcnts) )
+	{
+		__start_link_set_prop_linkpools = .;
+		*(link_set_prop_linkpools);
+		__stop_link_set_prop_linkpools = .;
+	}
+	
+	link_set_sysctl_funcs ADDR(link_set_prop_linkpools) + SIZEOF(link_set_prop_linkpools) : AT (LOADADDR(link_set_prop_linkpools) + SIZEOF(link_set_prop_linkpools) )
+	{
+		__start_link_set_sysctl_funcs = .;
+		*(link_set_sysctl_funcs);
+		__stop_link_set_sysctl_funcs = .;
+	}
+
+	link_set_dkwedge_methods ADDR(link_set_sysctl_funcs) + SIZEOF(link_set_sysctl_funcs) : AT (LOADADDR(link_set_sysctl_funcs) + SIZEOF(link_set_sysctl_funcs) )
+	{
+		__start_link_set_dkwedge_methods = .;
+		*(link_set_dkwedge_methods);
+		__stop_link_set_dkwedge_methods = .;
+	}
+
+	/* We shouldn't have a .data section, however the GNU crapchain whines if we don't */
+	.data ADDR(link_set_dkwedge_methods) + SIZEOF(link_set_dkwedge_methods) : AT ( LOADADDR(link_set_dkwedge_methods) + SIZEOF(link_set_dkwedge_methods) )
+	{
+		. = ALIGN(4);
+		_fdata = .;
+		*(.data .data.* .gnu.linkonce.d.*)
+		*(.data1)
+		_gp = ALIGN(16);
+		*(.sdata .sdata.* .gnu.linkonce.s.*)
+		_edata = .;
+	} > sdram
+
+	.bss ADDR(.data) + SIZEOF(.data) : AT ( LOADADDR(.data) + SIZEOF(.data) )
+	{
+		. = ALIGN(4);
+		_fbss = .;
+		*(.dynsbss)
+		*(.sbss .sbss.* .gnu.linkonce.sb.*)
+		*(.scommon)
+		*(.dynbss)
+		*(.bss .bss.* .gnu.linkonce.b.*)
+		*(COMMON)
+		. = ALIGN(4);
+		_ebss = .;
+		_end = .;
+	} > sdram
+}
+
+PROVIDE(_phys_fdata = LOADADDR(.data));
+PROVIDE(_fstack = ORIGIN(sdram) + LENGTH(sdram) - 4);
+PROVIDE(_phy_do_real_tlb_miss_handling = _do_real_tlb_miss_handling - 0xc0000000 + 0x40000000);

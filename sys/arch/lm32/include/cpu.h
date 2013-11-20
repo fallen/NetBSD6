@@ -112,6 +112,8 @@ static inline void lm32_mmu_start(void)
 #define __cache_size 256
 #define __cache_line_size 16
 
+#define kern_virt_to_phy(x)	((paddr_t)(x - 0xc0000000 + 0x40000000))
+#define kern_phy_to_virt(x)	((vaddr_t)(x - 0x40000000 + 0xc0000000))
 
 /*
  * a bunch of this belongs in cpuvar.h; move it later..

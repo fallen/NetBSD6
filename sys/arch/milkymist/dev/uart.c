@@ -41,10 +41,17 @@ static int milkymist_com_cngetc(dev_t dev)
 	return 1;
 }
 
-//TODO: implement com_cnputc
+#define UART_STAT_THRE (0x1)
+
 static void milkymist_com_cnputc(dev_t dev, int c)
 {
-
+	int s;
+	volatile unsigned int *uart_rxtx_buff = (volatile unsigned int *)0xe0000000;
+	volatile unsigned int *uart_stat = (volatile unsigned int *)0xe0000008;
+	s = splhigh();
+	while (!(UART_STAT_THRE & *uart_stat));
+	*uart_rxtx_buff = c;
+	splx(s);
 }
 
 //TODO:implement com_cnpollc

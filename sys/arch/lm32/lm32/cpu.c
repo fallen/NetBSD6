@@ -46,3 +46,14 @@ void delay_func(unsigned int n)
 	unsigned int i = n;
 	while(i-- > 0);
 }
+
+void _do_real_tlb_miss_handling(void);
+
+void _do_real_tlb_miss_handling(void)
+{
+	struct pmap *map;
+	struct cpu_info *ci = (struct cpu_info *)((unsigned int)(curcpu() - 0xc0000000 + 0x40000000));
+
+	map = ci->ci_pmap;
+	// TODO FIXME: do something in here...
+}
