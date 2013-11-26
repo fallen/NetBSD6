@@ -43,7 +43,7 @@ struct krwlock {
 #define	RW_RECEIVE(rw)			/* nothing */
 #define	RW_GIVE(rw)			/* nothing */
 
-#define	RW_CAS(p, o, n)			(atomic_cas_uint((p), (o), (n)) == (o))
+#define	RW_CAS(p, o, n)			(atomic_cas_ptr((p), (o), (n)) == (o))
 
 #endif	/* __RWLOCK_PRIVATE */
 

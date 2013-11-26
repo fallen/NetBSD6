@@ -68,10 +68,10 @@ struct kmutex {
 #define	MUTEX_GIVE(mtx)			/* nothing */
 
 #define	MUTEX_CAS(p, o, n)		\
-    (_atomic_cas_ulong((volatile unsigned long *)(p), (o), (n)) == (o))
+    (_atomic_cas_ptr((volatile void *)(p), (o), (n)) == (o))
 
-unsigned long	_atomic_cas_ulong(volatile unsigned long *,
-    unsigned long, unsigned long);
+void*	_atomic_cas_ptr(volatile void *,
+    void *, void *);
 
 #endif	/* __MUTEX_PRIVATE */
 
