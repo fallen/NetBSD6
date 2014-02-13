@@ -1,11 +1,8 @@
-/*	$NetBSD: mutex.h,v 1.6 2009/04/24 17:49:51 ad Exp $	*/
+/*	$NetBSD: cpuset.h,v 1.1 2011/06/05 16:52:25 matt Exp $	*/
 
 /*-
- * Copyright (c) 2002, 2006, 2009 The NetBSD Foundation, Inc.
+ * Copyright (c) 2004 The NetBSD Foundation, Inc.
  * All rights reserved.
- *
- * This code is derived from software contributed to The NetBSD Foundation
- * by Jason R. Thorpe and Andrew Doran.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions
@@ -29,50 +26,32 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef _LM32_MUTEX_H_
-#define	_LM32_MUTEX_H_
+#ifndef _LM32_CPUSET_H_
+#define	_LM32_CPUSET_H_
 
-struct kmutex {
-	union {
-		volatile uintptr_t	mtxa_owner;
-#ifdef __MUTEX_PRIVATE
-		struct {
-			volatile uint8_t	mtxs_dummy;
-			ipl_cookie_t		mtxs_ipl;
-                        __cpu_simple_lock_t	mtxs_lock;
-			volatile uint8_t	mtxs_unused;
-		} s;
-#endif
-	} u;
-};
+#include <sys/atomic.h>
 
-#ifdef __MUTEX_PRIVATE
+#define	CPUSET_SINGLE(cpu)		((__cpuset_t)1U << (cpu))
 
-#define	mtx_owner 			u.mtxa_owner
-#define	mtx_ipl 			u.s.mtxs_ipl
-#define	mtx_lock			u.s.mtxs_lock
+#define	CPUSET_ADD(set, cpu)		atomic_or_32(&(set), CPUSET_SINGLE(cpu))
+#define	CPUSET_DEL(set, cpu)		atomic_and_32(&(set), ~CPUSET_SINGLE(cpu))
+#define	CPUSET_ADDSET(set1, set2)	atomic_or_32(&(set1), (set2))
+#define	CPUSET_DELSET(set1, set2)	atomic_and_32(&(set1), ~(set2))
 
-#define	__HAVE_SIMPLE_MUTEXES		1
+#define	CPUSET_EXCEPT(set, cpu)		((set) & ~CPUSET_SINGLE(cpu))
 
-/*
- * MUTEX_RECEIVE: technically, no memory barrier is required
- * as 'ret' implies a load fence.  However we need this to
- * handle a bug with some Opteron revisions.  See patch.c,
- * lock_stubs.S.
- */
-#define	MUTEX_RECEIVE(mtx)		membar_consumer()
+#define	CPUSET_HAS_P(set, cpu)		((set) & CPUSET_SINGLE(cpu))
+#define	CPUSET_INTERSECTS_P(set1, set2)	((set1) & (set2))
+#define	CPUSET_NEXT(set)		(ffs(set) - 1)
 
-/*
- * MUTEX_GIVE: no memory barrier required, as _lock_cas() will take care of it.
- */
-#define	MUTEX_GIVE(mtx)			/* nothing */
+#define CPUSET_NULLSET			((__cpuset_t)0)
+#define	CPUSET_EMPTY_P(set)		((set) == (__cpuset_t)0)
+#define	CPUSET_EQUAL_P(set1, set2)	((set1) == (set2))
+#define	CPUSET_CLEAR(set)		((set) = (__cpuset_t)0)
+#define	CPUSET_ASSIGN(set1, set2)	((set1) = (set2))
+#define	CPUSET_MERGE(set1, set2)	((set1) |= (set2))
+#define	CPUSET_REMOVE(set1, set2)	((set1) & ~(set2))
+#define	CPUSET_SUBSET(set1, set2)	((set1) & (set2))
+#define	CPUSET_INVERT(set)		(~(set))
 
-#define	MUTEX_CAS(p, o, n)		\
-    (_atomic_cas_ptr((volatile void *)(p), (void *)(o), (void *)(n)) == (o))
-
-int	_atomic_cas_ptr(volatile void *,
-    void *, void *);
-
-#endif	/* __MUTEX_PRIVATE */
-
-#endif /* _LM32_MUTEX_H_ */
+#endif /* _LM32_CPUSET_H_ */

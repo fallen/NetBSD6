@@ -311,52 +311,54 @@ main(void)
 	evcnt_init();
 
 	uvm_init();
+
 	kcpuset_sysinit();
-
+  printf("> Kcpuset sysinit\n");
 	prop_kern_init();
-
+  printf("> prop_kern_init\n");
 #if ((NKSYMS > 0) || (NDDB > 0) || (NMODULAR > 0))
 	ksyms_init();
 #endif
 	kprintf_init();
-
+  printf("> kprintf init\n");
 	percpu_init();
-
+  printf("> percpu init\n");
 	/* Initialize lock caches. */
 	mutex_obj_init();
+  printf("> mutex_obj init\n");
 	rw_obj_init();
-
+  printf("> rw_obj init\n");
 	/* Passive serialization. */
 	pserialize_init();
-
+  printf("> pserialize init\n");
 	/* Initialize the extent manager. */
 	extent_init();
-
+  printf("> extent init\n");
 	/* Do machine-dependent initialization. */
 	cpu_startup();
-
+  printf("> cpu startup\n");
 	/* Initialize the sysctl subsystem. */
 	sysctl_init();
-
+  printf("> sysctl init\n");
 	/* Initialize callouts, part 1. */
 	callout_startup();
-
+  printf("> callout startup\n");
 	/* Initialize the kernel authorization subsystem. */
 	kauth_init();
-
+  printf("> kauth init\n");
 	secmodel_init();
-
+  printf("> secmodel init\n");
 	spec_init();
-
+  printf("> spec init\n");
 	/*
 	 * Set BPF op vector.  Can't do this in bpf attach, since
 	 * network drivers attach before bpf.
 	 */
 	bpf_setops();
-
+  printf("> bpf_setops\n");
 	/* Start module system. */
 	module_init();
-
+  printf("> module init\n");
 	/*
 	 * Initialize the kernel authorization subsystem and start the
 	 * default security model, if any. We need to do this early
@@ -366,7 +368,7 @@ main(void)
 	 * any process is created, specifically proc0.
 	 */
 	module_init_class(MODULE_CLASS_SECMODEL);
-
+  printf("> module init class secmodel\n");
 	/* Initialize the buffer cache */
 	bufinit();
 

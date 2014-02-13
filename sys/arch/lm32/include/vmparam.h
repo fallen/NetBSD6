@@ -40,7 +40,6 @@
 #include <sys/tree.h>
 #include <sys/mutex.h>
 
-
 #define	PAGE_SHIFT	(12)
 #define	PAGE_SIZE	(1 << PAGE_SHIFT)
 #define	PAGE_MASK	(PAGE_SIZE - 1)
@@ -79,7 +78,7 @@
 #define VM_MIN_ADDRESS		((vaddr_t)0)
 #define	VM_MAXUSER_ADDRESS	((vaddr_t)(0x7FFFF000))
 #define	VM_MAX_ADDRESS		VM_MAXUSER_ADDRESS
-#define	VM_MIN_KERNEL_ADDRESS	((vaddr_t)(0xc0000000))
+#define	VM_MIN_KERNEL_ADDRESS	((vaddr_t)(0xc0000000+IOM_RAM_SIZE))
 #define	VM_MAX_KERNEL_ADDRESS	((vaddr_t)(0xe0000000))
 
 /*
@@ -97,11 +96,10 @@
 /* virtual sizes (bytes) for various kernel submaps */
 #define VM_PHYS_SIZE		(USRIOSIZE*PAGE_SIZE)
 
-#define VM_PHYSSEG_STRAT	VM_PSTRAT_BIGFIRST
+#define VM_PHYSSEG_STRAT	VM_PSTRAT_RANDOM
 
-#define	VM_PHYSSEG_MAX		32	/* 1 "hole" + 31 free lists */
-#define	VM_NFREELIST		2
-#define	VM_FREELIST_FIRST16	1
+#define	VM_PHYSSEG_MAX		1 /* memory is only one big contiguous segment */
+#define	VM_NFREELIST		1
 #define	VM_FREELIST_DEFAULT	0
 
 #define lm32_ptob(x)  ((uint32_t)(x) << PGSHIFT)

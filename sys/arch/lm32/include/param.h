@@ -46,7 +46,7 @@
 #define	UPAGES		4
 #define	NBPG		(1 << PGSHIFT)	/* Page size */
 #define	PGOFSET		(NBPG - 1)
-
+#define PMAP_SEGTABSIZE (1 << (32 - PGSHIFT - 10))
 #define	DEV_BSHIFT	9		/* log2(DEV_BSIZE) */
 #define	DEV_BSIZE	(1 << DEV_BSHIFT)
 #define	BLKDEV_IOSIZE	NBPG

@@ -50,16 +50,18 @@
  */
 #include <machine/frame.h>
 #include <machine/pte.h>
-
 #define	curcpu()			(&cpu_info_store)
 
-#include <sys/cpu_data.h>
+#ifdef _KERNEL
+#include <machine/intr.h>
 #include <sys/evcnt.h>
 #include <sys/device_if.h> /* for device_t */
+#endif
 
+#include <sys/cpu_data.h>
 
 struct intrsource;
-struct pmap;
+//struct pmap;
 
 #define lm32_dcache_invalidate() do { \
 					asm volatile("wcsr DCC, r0"); \
@@ -112,8 +114,22 @@ static inline void lm32_mmu_start(void)
 #define __cache_size 256
 #define __cache_line_size 16
 
-#define kern_virt_to_phy(x)	((paddr_t)(x - 0xc0000000 + 0x40000000))
-#define kern_phy_to_virt(x)	((vaddr_t)(x - 0x40000000 + 0xc0000000))
+#define kern_virt_to_phy(x)	((paddr_t)((paddr_t)x - 0xc0000000 + 0x40000000))
+#define kern_phy_to_virt(x)	((vaddr_t)((vaddr_t)x - 0x40000000 + 0xc0000000))
+#define kern_phy_to_virt_ramwindow(x) ((vaddr_t)((vaddr_t)x - 0x40000000 + 0xc0000000))
+
+#define PSW_IE_IE (0x1)
+#define PSW_IE_EIE (0x2)
+#define PSW_IE_BIE (0x4)
+#define PSW_ITLBE (0x8)
+#define PSW_EITLBE (0x10)
+#define PSW_BITLBE (0x20)
+#define PSW_DTLBE (0x40)
+#define PSW_EDTLBE (0x80)
+#define PSW_BDTLBE (0x100)
+#define PSW_USR (0x200)
+#define PSW_EUSR (0x400)
+#define PSW_BUSR (0x800)
 
 /*
  * a bunch of this belongs in cpuvar.h; move it later..
@@ -128,12 +144,17 @@ struct cpu_info {
 	struct cpu_info *ci_self;	/* self-pointer */
 	void	*ci_tlog_base;		/* Trap log base */
 	int32_t ci_tlog_offset;		/* Trap log current offset */
+	uint32_t ci_pmap_asid_cur;
+#define	ci_pmap_kern_segtab	ci_pmap_segtabs[0]
+#define	ci_pmap_user_segtab	ci_pmap_segtabs[1]
+	union pmap_segtab *ci_pmap_segtabs[2];
+	struct pmap_tlb_info *ci_tlb_info;
 
 	/*
 	 * Private members.
 	 */
 	struct evcnt ci_tlb_evcnt;	/* tlb shootdown counter */
-	struct pmap *ci_pmap;		/* current pmap */
+	struct pmap *ci_curpm;		/* current pmap */
 	int ci_want_pmapload;		/* pmap_load() is needed */
 	int ci_curldt;		/* current LDT descriptor */
 	int ci_nintrhand;	/* number of H/W interrupt handlers */

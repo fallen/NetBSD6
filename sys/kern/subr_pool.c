@@ -2202,7 +2202,7 @@ pool_cache_get_paddr(pool_cache_t pc, int flags, paddr_t *pap)
 	pcg_t *pcg;
 	void *object;
 	int s;
-
+	printf("pool_cache_get_paddr()\n");
 	KASSERTMSG((!cpu_intr_p() && !cpu_softintr_p()) ||
 	    (pc->pc_pool.pr_ipl != IPL_NONE || cold || panicstr != NULL),
 	    "pool '%s' is IPL_NONE, but called from interrupt context\n",
@@ -2231,6 +2231,9 @@ pool_cache_get_paddr(pool_cache_t pc, int flags, paddr_t *pap)
 			cc->cc_hits++;
 			splx(s);
 			FREECHECK_OUT(&pc->pc_freecheck, object);
+      if (object == 0x0)
+        panic("object is NULL");
+			printf("Returning object 0x%08X\n", (int)object);
 			return object;
 		}
 
@@ -2251,10 +2254,13 @@ pool_cache_get_paddr(pool_cache_t pc, int flags, paddr_t *pap)
 		 * no more objects are available, it will return false.
 		 * Otherwise, we need to retry.
 		 */
+		printf("trying slow path");
 		if (!pool_cache_get_slow(cc, s, &object, pap, flags))
 			break;
 	}
-
+  if (object == 0x0)
+    panic("object is NULL");
+	printf("Returning object 0x%08X\n", (int)object);
 	return object;
 }
 
@@ -2264,7 +2270,7 @@ pool_cache_put_slow(pool_cache_cpu_t *cc, int s, void *object)
 	pcg_t *pcg, *cur;
 	uint64_t ncsw;
 	pool_cache_t pc;
-
+	printf("pool_cache_put_slow()\n");
 	KASSERT(cc->cc_current->pcg_avail == cc->cc_current->pcg_size);
 	KASSERT(cc->cc_previous->pcg_avail == cc->cc_previous->pcg_size);
 

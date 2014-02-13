@@ -137,8 +137,11 @@ uvm_pager_init(void)
 	 */
 
 	sva = 0;
+	printf("allocating a pager_map...\n");
+	printf("pager_map_size = %d\n", (int)pager_map_size);
 	pager_map = uvm_km_suballoc(kernel_map, &sva, &eva, pager_map_size, 0,
 	    false, NULL);
+	printf("DONE.\n");
 	mutex_init(&pager_map_wanted_lock, MUTEX_DEFAULT, IPL_NONE);
 	pager_map_wanted = false;
 

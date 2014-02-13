@@ -381,6 +381,7 @@ uvm_page_init(vaddr_t *kvm_startp, vaddr_t *kvm_endp)
 		seg = VM_PHYSMEM_PTR(lcv);
 		freepages += (seg->end - seg->start);
 	}
+	printf("Registered %d freepages in uvm\n", (int)freepages);
 
 	/*
 	 * Let MD code initialize the number of colors, or default

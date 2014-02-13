@@ -72,6 +72,8 @@ typedef unsigned long	vsize_t;
 
 typedef int		pmc_evid_t;
 typedef __uint64_t	pmc_ctr_t;
+typedef __uint32_t tlb_asid_t;
+typedef volatile __uint32_t __cpuset_t;
 typedef int		register_t;
 #define	PRIxREGISTER	"x"
 

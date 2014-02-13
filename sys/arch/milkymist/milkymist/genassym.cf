@@ -32,6 +32,13 @@
 #
 
 
+include <sys/bitops.h>
+include <sys/param.h>
+include <uvm/uvm_extern.h>
+include <machine/frame.h>
+include <machine/psl.h>
+include <machine/pmap.h>
+include <machine/trap.h>
 include <machine/pte.h>
 include <machine/vmparam.h>
 include <machine/types.h>

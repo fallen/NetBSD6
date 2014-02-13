@@ -76,6 +76,7 @@ __KERNEL_RCSID(0, "$NetBSD: machdep.c,v 1.43 2012/06/11 16:27:08 tsutsui Exp $")
 #include <sys/ksyms.h>
 #include <sys/device.h>
 #include <sys/module.h>
+#include <sys/msgbuf.h>
 
 #include <machine/intr.h>
 #include <machine/pcb.h>
@@ -96,16 +97,15 @@ void main(void) __attribute__((__noreturn__));
 void milkymist_startup(void) __attribute__((__noreturn__));
 void lm32_lwp0_init(void);
 
-#define IOM_RAM_BEGIN (0x40000000)
-#define IOM_RAM_SIZE (0x08000000) /* 128 MB of DDR SDRAM on the Milkymist One */
+phys_ram_seg_t availmemr[1];
 
+paddr_t phys_kernend;
+paddr_t msgbuf_paddr;
 void
 milkymist_startup(void)
 {
 //	extern char edata[], end[];
 	extern char _end[];
-	paddr_t phys_kernend;
-
 	/* Clear bss */
 //	memset(edata, 0, end - edata);
 
@@ -115,23 +115,32 @@ milkymist_startup(void)
 	/* Console */
 	consinit();
 
-	/* Load memory to UVM */
-	printf("IOM_RAM_SIZE == %d\n", (int)IOM_RAM_SIZE);
-	physmem = atop(IOM_RAM_SIZE);
-	phys_kernend = atop(round_page((unsigned int)kern_virt_to_phy(_end)));
-	printf("phys_kernend == 0x%08X\n", (int)phys_kernend);
+  printf("_end == %#lx\n", (long unsigned int)_end);
+	phys_kernend = round_page((unsigned int)kern_virt_to_phy(_end));
+  printf("phys_kernend == %#lx\n", phys_kernend);
+  availmemr[0].start = IOM_RAM_BEGIN;
+  availmemr[0].size = IOM_RAM_SIZE;
+  
+  msgbuf_paddr = (uintptr_t)(phys_kernend);
+  phys_kernend += round_page(MSGBUFSIZE);
+	printf(" msgbuf=%p", (void *)msgbuf_paddr);
+  initmsgbuf((void *)msgbuf_paddr, round_page(MSGBUFSIZE));
+	printf(" msgbuf=%p", (void *)msgbuf_paddr);
 
 	uvm_setpagesize();
-	uvm_page_physload(
-		phys_kernend, atop(IOM_RAM_BEGIN + IOM_RAM_SIZE) - 2 * PAGE_SIZE,
-		phys_kernend, atop(IOM_RAM_BEGIN + IOM_RAM_SIZE) - 2 * PAGE_SIZE,
-		VM_FREELIST_DEFAULT);
-	printf("uvm_page_physload DONE\n");
 	/* Initialize proc0 u-area */
 	lm32_lwp0_init();
 
+  availmemr[0].start += (phys_kernend - IOM_RAM_BEGIN);
+  availmemr[0].size -= (phys_kernend - IOM_RAM_BEGIN + 2*NBPG);
+  /* 2*NBPG are reserved for kernel stack at the end of
+   * physical memory */
+
 	/* Initialize pmap and start to address translation */
-	pmap_bootstrap();
+	pmap_bootstrap(phys_kernend, availmemr);
+	printf("IOM_RAM_SIZE == %d\n", (int)IOM_RAM_SIZE);
+	printf("phys_kernend == %#lx\n", (long unsigned int)phys_kernend);
+
 
 	/* Debugger. */
 #if defined(KGDB) && (NSCIF > 0)

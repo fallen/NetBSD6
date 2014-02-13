@@ -97,13 +97,13 @@ uvm_init(void)
 	 */
 
 	uvm_page_init(&kvm_start, &kvm_end);
-
+	printf("Page sub-system initialized.\n");
 	/*
 	 * Init the map sub-system.
 	 */
 
 	uvm_map_init();
-
+	printf("Map sub-system initialized\n");
 	/*
 	 * Setup the kernel's virtual memory data structures.  This includes
 	 * setting up the kernel_map/kernel_object.
@@ -111,21 +111,25 @@ uvm_init(void)
 	 */
 
 	uao_init();
+	printf("uao initialized\n");
 	uvm_km_bootstrap(kvm_start, kvm_end);
+	printf("kernel memory allocators bootstraped\n");
 
 	/*
 	 * Setup uvm_map caches and init the amap.
 	 */
 
 	uvm_map_init_caches();
+	printf("uvm_map caches setup\n");
 	uvm_amap_init();
-
+	printf("amap initialized\n");
 	/*
 	 * Init the pmap module.  The pmap module is free to allocate
 	 * memory for its private use (e.g. pvlists).
 	 */
 
 	pmap_init();
+	printf("pmap module initialized\n");
 
 	/*
 	 * Make kernel memory allocators ready for use.
@@ -133,7 +137,7 @@ uvm_init(void)
 	 */
 
 	uvm_km_init();
-
+	printf("kernel memory allocators are ready for use\n");
 #ifdef DEBUG
 	debug_init();
 #endif
@@ -143,19 +147,19 @@ uvm_init(void)
 	 */
 
 	uvm_pager_init();
-
+	printf("Pagers and pager_map are initialized\n");
 	/*
 	 * Initialize the uvm_loan() facility.
 	 */
 
 	uvm_loan_init();
-
+  printf("Uvm loan initialized\n");
 	/*
 	 * Init emap subsystem.
 	 */
 
 	uvm_emap_sysinit();
-
+  printf("Uvm emap sysinit\n");
 	/*
 	 * The VM system is now up!  Now that kmem is up we can resize the
 	 * <obj,off> => <page> hash table for general use and enable paging
@@ -164,20 +168,24 @@ uvm_init(void)
 
 	uao_create(VM_MAX_KERNEL_ADDRESS - VM_MIN_KERNEL_ADDRESS,
 	    UAO_FLAG_KERNSWAP);
-
+  printf("Uao created\n");
 	uvmpdpol_reinit();
-
+  printf("Uvmpdpol reinit\n");
 	/*
 	 * Init anonymous memory systems.
 	 */
 
 	uvm_anon_init();
-
+  printf("Uvm anon init\n");
 	uvm_uarea_init();
-
+  printf("Uvm uarea init\n");
 	/*
 	 * Init readahead mechanism.
 	 */
 
 	uvm_ra_init();
+  printf("Uvm ra init\n");
+
+  printf("UVM INIT [DONE]\n");
+
 }

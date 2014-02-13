@@ -3,6 +3,8 @@ include "arch/milkymist/conf/std.milkymist"
 options INCLUDE_CONFIG_FILE # embed config file in kernel binary
 maxusers 16
 
+options KERNHIST_PRINT
+options KERNHIST
 options HZ=100
 file-system PROCFS
 file-system TMPFS

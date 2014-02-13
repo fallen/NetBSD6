@@ -397,7 +397,8 @@ pmap_steal_memory(vsize_t size, vaddr_t *vstartp, vaddr_t *vendp)
 
 	size = round_page(size);
 	npgs = atop(size);
-
+  printf("size == %08X ; vstartp == %08X ; vendp == %08X\n", (unsigned int)size, (unsigned int)vstartp, (unsigned int)vendp);
+  printf("vm_nphysseg == %d\n", vm_nphysseg);
 	for (u_int bank = 0; bank < vm_nphysseg; bank++) {
 		struct vm_physseg * const seg = VM_PHYSMEM_PTR(bank);
 		if (uvm.page_init_done == true)
@@ -431,7 +432,9 @@ pmap_steal_memory(vsize_t size, vaddr_t *vstartp, vaddr_t *vendp)
 				    sizeof(*seg) * (vm_nphysseg - bank));
 		}
 
+    printf("We want to return %d pages from PA %#lx\n", npgs, pa);
 		va = pmap_md_map_poolpage(pa, size);
+    printf("PA %#lx is mapped to VA %#lx\n", pa, va);
 		memset((void *)va, 0, size);
 		return va;
 	}

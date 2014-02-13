@@ -2,6 +2,7 @@
 #include <sys/cpu.h>
 #include <lm32/reg.h>
 #include <sys/exec.h>
+#include <lm32/pmap.h>
 
 void
 cpu_intr_redistribute(void)
@@ -47,13 +48,48 @@ void delay_func(unsigned int n)
 	while(i-- > 0);
 }
 
-void _do_real_tlb_miss_handling(void);
+void _do_real_tlb_miss_handling(unsigned long int, unsigned long int);
 
-void _do_real_tlb_miss_handling(void)
+/* During this function, TLBs are ON, we must take great care when manipulating pointers */
+void _do_real_tlb_miss_handling(unsigned long int vpfn, unsigned long int vaddr)
 {
 	struct pmap *map;
-	struct cpu_info *ci = (struct cpu_info *)((unsigned int)(curcpu() - 0xc0000000 + 0x40000000));
+	struct cpu_info *ci = curcpu();
+  pmap_segtab_t *st;
+  pt_entry_t *ptp;
+  pt_entry_t pte;
+  unsigned int psw;
+  unsigned int paddr;
 
-	map = ci->ci_pmap;
-	// TODO FIXME: do something in here...
+  asm volatile("rcsr %0, PSW" : "=r"(psw) :: );
+
+  if (!(psw & PSW_EUSR))
+  {
+    if ( (vaddr < VM_MIN_KERNEL_ADDRESS + IOM_RAM_SIZE + (1 << PGSHIFT)-1 ) && (vaddr >= VM_MIN_KERNEL_ADDRESS) )
+    {
+      paddr = vpfn - VM_MIN_KERNEL_ADDRESS + IOM_RAM_BEGIN;
+      asm volatile("wcsr TLBPADDR, %0" :: "r"(paddr) : );
+      goto return_to_exception_handler;
+    }
+  }
+
+  map = ci->ci_curpm;
+  st = map->pm_segtab;
+  ptp = st->seg_tab[vaddr >> SEGSHIFT];
+  if (ptp == NULL)
+    panic("[ptp] non mapped address !\n");
+
+  pte = ptp[vaddr >> PGSHIFT];
+
+  if (pte == 0)
+    panic("[pte] non mapped address !\n");
+
+  asm volatile("wcsr TLBPADDR, %0" :: "r"(pte) : );
+
+return_to_exception_handler:
+  psw = PSW_DTLBE | PSW_ITLBE; /* clear *USR, EDTLBE and IDTLBE flags */
+  asm volatile(
+               "mv ea, ra\n\t"
+               "eret"
+              );
 }

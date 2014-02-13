@@ -23,6 +23,8 @@
  * SUCH DAMAGE.
  */
 
+#include <lm32/asm.h>
+
 /* Exception handlers - Must be 32 bytes long. */
 .section    .text, "ax", @progbits
 .global _start
@@ -34,18 +36,20 @@ start:
 _bootstrap:
 	xor	r0, r0, r0
 	wcsr	IE, r0
-;	mvhi	r1, hi(_reset_handler - _bootstrap)
-;	ori	r1, r1, lo(_reset_handler)
+/*mvhi	r1, hi(_reset_handler - _bootstrap)
+	ori	r1, r1, lo(_reset_handler) */
 	mvhi	r1, 0x4000
-	ori	r1, r1, 0x100
+	ori	r1, r1, 0x200
 	wcsr	EBA, r1
 	xor	r2, r2, r2
 	bi	_crt0
 	nop
 
 _memory_store_area:
+.word _memory_store_area - start + 0x40000000 +8
 
-.org 0x100
+.org 0x200
+
 _start:
 kernel_text:
 _reset_handler:
@@ -128,7 +132,7 @@ _syscall_handler:
 	nop
 	nop
 
-_itlb_miss_handler:
+_ENTRY(_itlb_miss_handler)
 	bi	_fake_itlb_miss_handler
 	nop
 	nop
@@ -138,7 +142,7 @@ _itlb_miss_handler:
 	nop
 	nop
 
-_dtlb_miss_handler:
+_ENTRY(_dtlb_miss_handler)
 	bi	_fake_dtlb_miss_handler
 	nop
 	nop
@@ -148,7 +152,7 @@ _dtlb_miss_handler:
 	nop
 	nop
 
-_dtlb_fault_handler:
+_ENTRY(_dtlb_fault_handler)
 	rcsr	r0, TLBPADDR
 	ori	r0, r0, 1
 	wcsr	TLBPADDR, r0
@@ -181,17 +185,98 @@ macaddress:
 	.byte 0x00
 	.byte 0x00
 
-_fake_itlb_miss_handler:
+_ENTRY(_fake_itlb_miss_handler)
 	mvhi	r0, 0x4000
 	ori	r0, r0, lo(_memory_store_area)
+  lw  r0, (r0+0)
+	sw	(r0+0), r1
+	sw	(r0+4), r2
+  lw  r1, (r0+-4) /* r1 = memory_store_area.first_jump_to_vaddr_done */
+	xor	r0, r0, r0 /* restore r0 to 0 */
+  be  r1, r0, 1f
+
+  rcsr r1, TLBPADDR
+
+  mvhi r2, 0xffff
+  ori r2, r2, 0xf000
+  and r1, r1, r2 /* r1 &= ~(PG_MASK) */  
+  mvhi r2, 0xc000
+  sub r1, r1, r2
+  mvhi r2, 0x4000
+  add r1, r1, r2
+ 
+  wcsr TLBPADDR, r1
+
+	mvhi	r0, 0x4000
+	ori	r0, r0, lo(_memory_store_area)
+  lw  r0, (r0+0)
+	lw	r1, (r0+0)
+	lw	r2, (r0+4)
+	xor	r0, r0, r0 /* restore r0 to 0 */
+  eret
+
+1:
+  mvhi r1, 0x4000
+  sub ea, ea, r1
+  mvhi r1, 0xc000
+  add ea, ea, r1
+	mvhi	r0, 0x4000
+	ori	r0, r0, lo(_memory_store_area)
+  ori r2, r2, 0x42
+  lw  r0, (r0+0)
+	sw	(r0+-4), r2 /* memory_store_area.first_jump_to_vaddr_done = true */
+	lw	r1, (r0+0)
+	lw	r2, (r0+4)
+	xor	r0, r0, r0 /* restore r0 to 0 */
+  eret
+
+_ENTRY(_fake_dtlb_miss_handler)
+	mvhi	r0, 0x4000
+	ori	r0, r0, lo(_memory_store_area)
+  lw  r0, (r0+0)
 	sw	(r0+0), r1
 	sw	(r0+4), r2
 	xor	r0, r0, r0 /* restore r0 to 0 */
+
+  rcsr r1, TLBPADDR
+
+  mvhi r2, 0xffff
+  ori r2, r2, 0xf000
+  and r1, r1, r2 /* r1 &= ~(PG_MASK) */  
+  mvhi r2, 0xc000
+  sub r1, r1, r2
+  mvhi r2, 0x4000
+  add r1, r1, r2
+  ori r1, r1, 1 /* writting to DTLB */ 
+  wcsr TLBPADDR, r1
+
+	mvhi	r0, 0x4000
+	ori	r0, r0, lo(_memory_store_area)
+  lw  r0, (r0+0)
+	lw	r1, (r0+0)
+	lw	r2, (r0+4)
+	xor	r0, r0, r0 /* restore r0 to 0 */
+  eret
+
+#if 0
+/* We keep the old wrong fake tlb miss handlers
+ * just in case ...
+ */
+_fake_itlb_miss_handler:
+	mvhi	r0, 0x4000
+	ori	r0, r0, lo(_memory_store_area)
+  lw  r0, (r0+0)
+	sw	(r0+0), r1
+	sw	(r0+4), r2
+  lw  r1, (r0+42) /* r1 = memory_store_area.first_jump_to_vaddr_done */
+	xor	r0, r0, r0 /* restore r0 to 0 */
+  be  r1, r0, 1f
 	rcsr	r1, TLBPADDR
 	mvhi	r2, 0xc000
 	sub	r1, r1, r2
 	mvhi	r2, 0x4000
 	add	r1, r1, r2
+2:
 	wcsr	TLBPADDR, r1
 	mvhi	r0, 0x4000
 	ori	r0, r0, lo(_memory_store_area)
@@ -199,10 +284,27 @@ _fake_itlb_miss_handler:
 	lw	r2, (r0+4)
 	xor	r0, r0, r0 /* restore r0 to 0 */
 	eret
+1:
+	rcsr	r1, TLBPADDR
+	mvhi	r0, 0x4000
+	ori	r0, r0, lo(_memory_store_area)
+  ori r2, r2, 0x42
+	sw	(r0+42), r2 /* memory_store_area.first_jump_to_vaddr_done = true */
+	xor	r0, r0, r0 /* restore r0 to 0 */
+	mvhi	r2, 0x4000
+  sub  r1, r1, r2
+  mvhi  r2, 0xc000
+  add  r1, r1, r2
+  wcsr TLBVADDR, r1
+  rcsr r1, TLBPADDR
+  wcsr r1, TLBPADDR
+  
+  bi 2b /* jump back to complete itlb miss handler */
 
 _fake_dtlb_miss_handler:
 	mvhi	r0, 0x4000
 	ori	r0, r0, lo(_memory_store_area)
+  lw  r0, (r0+0)
 	sw	(r0+0), r1
 	sw	(r0+4), r2
 	xor	r0, r0, r0 /* restore r0 to 0 */
@@ -220,9 +322,12 @@ _fake_dtlb_miss_handler:
 	xor	r0, r0, r0 /* restore r0 to 0 */
 	eret
 
-_real_tlb_miss_handler:
+#endif
+
+_ENTRY(_real_tlb_miss_handler)
 	mvhi	r0, 0x4000
 	ori	r0, r0, lo(_memory_store_area)
+  lw  r0, (r0+0)
 	sw	(r0+0), r1
 	sw	(r0+4), r2
 	sw	(r0+8), r3
@@ -236,18 +341,58 @@ _real_tlb_miss_handler:
 	sw	(r0+40), ea
 	sw	(r0+44), ba
 	sw	(r0+48), ra
+  rcsr r3, PSW
+  sw  (r0+52), r3
 	xor	r0, r0, r0 /* restore r0 value to 0 */
+  /* now update memory_store_area in case of nested tlb miss */
+  mvhi r1, hi(0x4000)
+  ori r1, r1, lo(_memory_store_area)
+  lw r2, (r1+0)
+  addi r2, r0, 56
+  sw (r1+0), r2
 
-	// HOW TO CALL this function???!!
-	mvhi	r1, hi(_phy_do_real_tlb_miss_handling)
-	ori	r1, r1, lo(_phy_do_real_tlb_miss_handling)
-/*	mvhi	r2, 0xc000
-	sub	r1, r1, r2
-	addi	r1, r1, 0x4000 */
-	call	r1
+  rcsr r1, TLBVADDR
+  rcsr r2, TLBPADDR
+  andi r3, r3, 0x400
+  bne r3, r0, we_come_from_user_space
+  mvhi r3, hi(0xc800)
+  cmpgeu r4, r1, r3
+  bne r4, r0, out_of_ram_window
+  mvhi r3, hi(0xc000)
+  cmpgu r4, r3, r1
+  bne r4, r0, out_of_ram_window
+  mvhi r3, hi(0xc000)
+  sub r1, r1, r3
+  mvhi r3, hi(0x4000)
+  add r1, r1, r3
+  wcsr TLBPADDR, r1
+  bi 1f /* let's return to what we were doing */
 
+we_come_from_user_space:
+out_of_ram_window:
+	mvhi	ea, hi(_do_real_tlb_miss_handling) /* function we want to call */
+	ori	ea, ea, lo(_do_real_tlb_miss_handling)
+  mvhi ra, hi(1f)                          /* where we want to return back to */
+  ori ra, ra, lo(1f)
+  rcsr r3, PSW
+  ori r3, r3, 0x90 /* PSW_EDTLBE | PSW_EITLBE */
+  xor r4, r4, r4
+  ori r4, r4, 0x400 /* r4 = PSW_EUSR */
+  not r4, r4        /* r4 = ~(r4)    */
+  and r3, r3, r4    /* r3 &= ~PSW_EUSR */
+  /* we then use eret as a trick to call _do_real_tlb_miss_handling
+  * with TLB ON */
+  eret
+
+1:
 	mvhi	r0, 0x4000
 	ori	r0, r0, lo(_memory_store_area)
+  lw r1, (r0+0)
+  addi r1, r1, -56
+  sw (r0+0), r1
+  addi r0, r1, 56
+	lw	r1, (r0+52)
+  wcsr PSW, r1
 	lw	r1, (r0+0)
 	lw	r2, (r0+4)
 	lw	r3, (r0+8)
@@ -265,14 +410,19 @@ _real_tlb_miss_handler:
 	eret
 
 _crt0:
+  mvhi  r1, hi(_memory_store_area)
+  ori r1, r1, lo(_memory_store_area)
+  lw  r2, (r1+0)
+  addi  r2, r2, 4
+  sw (r1+0), r2
 	/* activate ITLB and DTLB */
 	mvi	r1, 0x48
 	wcsr 	PSW, r1
 
 	/* stack and global pointers 
-         * should be initialized
-         * by bootloader/BIOS
-         */
+   * should be initialized
+   * by bootloader/BIOS
+   */
 	/* Setup stack and global pointer */
 	mvhi    sp, hi(_fstack)
 	ori     sp, sp, lo(_fstack)

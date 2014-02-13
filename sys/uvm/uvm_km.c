@@ -257,7 +257,7 @@ uvm_km_bootstrap(vaddr_t start, vaddr_t end)
 	vaddr_t base = VM_MIN_KERNEL_ADDRESS;
 	struct uvm_map_args args;
 	int error;
-
+	printf("uvm_km_bootstrap(start=%"PRIxVADDR" end=%#"PRIxVADDR, start, end);
 	UVMHIST_FUNC(__func__); UVMHIST_CALLED(maphist);
 	UVMHIST_LOG(maphist, "start=%"PRIxVADDR" end=%#"PRIxVADDR,
 	    start, end, 0,0);
@@ -265,7 +265,7 @@ uvm_km_bootstrap(vaddr_t start, vaddr_t end)
 	kmeminit_nkmempages();
 	kmemsize = (vsize_t)nkmempages * PAGE_SIZE;
 	kmem_arena_small = kmemsize < 64 * 1024 * 1024;
-
+	printf("kmemsize=%#"PRIxVSIZE, kmemsize);
 	UVMHIST_LOG(maphist, "kmemsize=%#"PRIxVSIZE, kmemsize, 0,0,0);
 
 	/*
@@ -325,7 +325,7 @@ uvm_km_bootstrap(vaddr_t start, vaddr_t end)
 	 */
 
 	kernel_map = &kernel_map_store;
-
+	printf("kernel_map = &kernel_map_store == 0x%08X\n", (int)kernel_map);
 	pool_subsystem_init();
 
 	kmem_arena = vmem_init(&kmem_arena_store, "kmem",
@@ -346,6 +346,7 @@ uvm_km_bootstrap(vaddr_t start, vaddr_t end)
 
 	vmem_subsystem_init(kmem_arena);
 
+	printf("kmem vmem created (base=%#"PRIxVADDR", size=%#"PRIxVSIZE, kmembase, kmemsize);
 	UVMHIST_LOG(maphist, "kmem vmem created (base=%#"PRIxVADDR
 	    ", size=%#"PRIxVSIZE, kmembase, kmemsize, 0,0);
 
@@ -397,12 +398,13 @@ uvm_km_suballoc(struct vm_map *map, vaddr_t *vmin /* IN/OUT */,
 	/*
 	 * first allocate a blank spot in the parent map
 	 */
-
+	printf("Calling uvm_map...\n");
 	if (uvm_map(map, vmin, size, NULL, UVM_UNKNOWN_OFFSET, 0,
 	    UVM_MAPFLAG(UVM_PROT_ALL, UVM_PROT_ALL, UVM_INH_NONE,
 	    UVM_ADV_RANDOM, mapflags)) != 0) {
 		panic("%s: unable to allocate space in parent map", __func__);
 	}
+	printf("uvm_map DONE\n");
 
 	/*
 	 * set VM bounds (vmin is filled in by uvm_map)
