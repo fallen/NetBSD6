@@ -54,40 +54,29 @@ void _do_real_tlb_miss_handling(unsigned long int, unsigned long int);
 void _do_real_tlb_miss_handling(unsigned long int vpfn, unsigned long int vaddr)
 {
 	struct pmap *map;
-	struct cpu_info *ci = curcpu();
+	struct cpu_info *ci;
   pmap_segtab_t *st;
   pt_entry_t *ptp;
   pt_entry_t pte;
   unsigned int psw;
-  unsigned int paddr;
 
-  asm volatile("rcsr %0, PSW" : "=r"(psw) :: );
-
-  if (!(psw & PSW_EUSR))
-  {
-    if ( (vaddr < VM_MIN_KERNEL_ADDRESS + IOM_RAM_SIZE + (1 << PGSHIFT)-1 ) && (vaddr >= VM_MIN_KERNEL_ADDRESS) )
-    {
-      paddr = vpfn - VM_MIN_KERNEL_ADDRESS + IOM_RAM_BEGIN;
-      asm volatile("wcsr TLBPADDR, %0" :: "r"(paddr) : );
-      goto return_to_exception_handler;
-    }
-  }
-
+  ci = curcpu();
   map = ci->ci_curpm;
   st = map->pm_segtab;
   ptp = st->seg_tab[vaddr >> SEGSHIFT];
+
   if (ptp == NULL)
     panic("[ptp] non mapped address !\n");
 
-  pte = ptp[vaddr >> PGSHIFT];
+  pte = ptp[(vaddr & L2_MASK) >> PGSHIFT];
 
   if (pte == 0)
     panic("[pte] non mapped address !\n");
 
   asm volatile("wcsr TLBPADDR, %0" :: "r"(pte) : );
 
-return_to_exception_handler:
   psw = PSW_DTLBE | PSW_ITLBE; /* clear *USR, EDTLBE and IDTLBE flags */
+  asm volatile ("wcsr PSW, %0" :: "r"(psw) : );
   asm volatile(
                "mv ea, ra\n\t"
                "eret"
