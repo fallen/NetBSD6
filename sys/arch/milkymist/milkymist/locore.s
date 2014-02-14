@@ -395,7 +395,7 @@ out_of_ram_window:
   lw r1, (r0+0)
   addi r1, r1, -56
   sw (r0+0), r1
-  addi r0, r1, 56
+  addi r0, r1, 0 /* we cannot use 'mv' when r0 != 0 */
 	lw	r1, (r0+52)
   wcsr PSW, r1
 	lw	r1, (r0+0)
