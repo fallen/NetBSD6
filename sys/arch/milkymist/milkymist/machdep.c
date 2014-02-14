@@ -130,6 +130,7 @@ milkymist_startup(void)
 	uvm_setpagesize();
 	/* Initialize proc0 u-area */
 	lm32_lwp0_init();
+  curcpu()->ci_curpm = pmap_kernel();
 
   availmemr[0].start += (phys_kernend - IOM_RAM_BEGIN);
   availmemr[0].size -= (phys_kernend - IOM_RAM_BEGIN + 2*NBPG);
