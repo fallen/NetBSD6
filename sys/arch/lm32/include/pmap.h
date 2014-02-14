@@ -60,6 +60,7 @@ pmap_md_vca_remove(struct vm_page *pg, vaddr_t va)
 #define	SEGSHIFT	(PGSHIFT + PGSHIFT - 2)
 #define SEGOFSET	((1 << SEGSHIFT) - 1)
 #define	NBSEG		(NBPG*NPTEPG)
+#define L2_MASK (0x003ff000)
 
 #define	PMAP_INVALID_SEGTAB_ADDRESS	((pmap_segtab_t *)0xfeeddead)
 

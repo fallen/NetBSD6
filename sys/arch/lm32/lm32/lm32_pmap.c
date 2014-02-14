@@ -202,7 +202,6 @@ void pmap_bootstrap(paddr_t kernend, phys_ram_seg_t *avail)
   /* Map the kernel text and data to kernel virtual address space 
    * by filling in the page table pages with page table elements
    */
-  #define L2_MASK (0x003ff000)
 
   // No need to fill page table for the kernel text and data in theory
   // since the kernel is loaded in the ram window 
