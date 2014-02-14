@@ -348,7 +348,7 @@ _ENTRY(_real_tlb_miss_handler)
   mvhi r1, 0x4000
   ori r1, r1, lo(_memory_store_area)
   lw r2, (r1+0)
-  addi r2, r0, 56
+  addi r2, r2, 56
   sw (r1+0), r2
 
   rcsr r1, TLBVADDR
