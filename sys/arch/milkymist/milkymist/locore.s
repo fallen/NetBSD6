@@ -345,7 +345,7 @@ _ENTRY(_real_tlb_miss_handler)
   sw  (r0+52), r3
 	xor	r0, r0, r0 /* restore r0 value to 0 */
   /* now update memory_store_area in case of nested tlb miss */
-  mvhi r1, hi(0x4000)
+  mvhi r1, 0x4000
   ori r1, r1, lo(_memory_store_area)
   lw r2, (r1+0)
   addi r2, r0, 56
@@ -355,15 +355,15 @@ _ENTRY(_real_tlb_miss_handler)
   rcsr r2, TLBPADDR
   andi r3, r3, 0x400
   bne r3, r0, we_come_from_user_space
-  mvhi r3, hi(0xc800)
+  mvhi r3, 0xc800
   cmpgeu r4, r1, r3
   bne r4, r0, out_of_ram_window
-  mvhi r3, hi(0xc000)
+  mvhi r3, 0xc000
   cmpgu r4, r3, r1
   bne r4, r0, out_of_ram_window
-  mvhi r3, hi(0xc000)
+  mvhi r3, 0xc000
   sub r1, r1, r3
-  mvhi r3, hi(0x4000)
+  mvhi r3, 0x4000
   add r1, r1, r3
   wcsr TLBPADDR, r1
   bi 1f /* let's return to what we were doing */
