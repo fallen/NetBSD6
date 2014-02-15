@@ -39,7 +39,7 @@ _bootstrap:
 /*mvhi	r1, hi(_reset_handler - _bootstrap)
 	ori	r1, r1, lo(_reset_handler) */
 	mvhi	r1, 0x4000
-	ori	r1, r1, 0x200
+	ori	r1, r1, lo(_start)
 	wcsr	EBA, r1
 	xor	r2, r2, r2
 	bi	_crt0
