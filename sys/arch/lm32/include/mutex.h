@@ -34,23 +34,25 @@
 
 struct kmutex {
 	union {
-		volatile uintptr_t	mtxa_owner;
 #ifdef __MUTEX_PRIVATE
 		struct {
-			volatile uint8_t	mtxs_dummy;
-			ipl_cookie_t		mtxs_ipl;
-                        __cpu_simple_lock_t	mtxs_lock;
-			volatile uint8_t	mtxs_unused;
-		} s;
+			volatile uintptr_t	mtxm_owner;
+			ipl_cookie_t		mtxm_ipl;
+			__cpu_simple_lock_t	mtxm_lock;
+		} m;
 #endif
+		struct {
+			uintptr_t		mtxp_a;
+			uint32_t		mtxp_b[2];
+		} p;
 	} u;
 };
 
 #ifdef __MUTEX_PRIVATE
 
-#define	mtx_owner 			u.mtxa_owner
-#define	mtx_ipl 			u.s.mtxs_ipl
-#define	mtx_lock			u.s.mtxs_lock
+#define	mtx_owner	u.m.mtxm_owner
+#define	mtx_ipl		u.m.mtxm_ipl
+#define	mtx_lock	u.m.mtxm_lock
 
 #define	__HAVE_SIMPLE_MUTEXES		1
 
