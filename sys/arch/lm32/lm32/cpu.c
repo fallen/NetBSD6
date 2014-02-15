@@ -66,12 +66,12 @@ void _do_real_tlb_miss_handling(unsigned long int vpfn, unsigned long int vaddr)
   ptp = st->seg_tab[vaddr >> SEGSHIFT];
 
   if (ptp == NULL)
-    panic("[ptp] non mapped address !\n");
+    panic("[ptp %#lx] Trying to access non mapped address %#lx !\n", (unsigned long)ptp, vaddr);
 
   pte = ptp[(vaddr & L2_MASK) >> PGSHIFT];
 
   if (pte == 0)
-    panic("[pte] non mapped address !\n");
+    panic("[pte] Trying to access non mapped address %#lx !\n", vaddr);
 
   asm volatile("wcsr TLBPADDR, %0" :: "r"(pte) : );
 
