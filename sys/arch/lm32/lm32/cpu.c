@@ -73,6 +73,9 @@ void _do_real_tlb_miss_handling(unsigned long int vpfn, unsigned long int vaddr)
   if (pte == 0)
     panic("[pte] Trying to access non mapped address %#lx !\n", vaddr);
 
+  if (vpfn & 1) // if we came from a DTLB miss, we refresh DTLB
+    pte |= 1;
+
   asm volatile("wcsr TLBPADDR, %0" :: "r"(pte) : );
 
   psw = PSW_DTLBE | PSW_ITLBE; /* clear *USR, EDTLBE and IDTLBE flags */
