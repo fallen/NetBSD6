@@ -7,27 +7,35 @@
 
 // TODO: implement suword
 ENTRY(suword)
+ret
 
 // TODO: implement susword
 ENTRY(susword)
+ret
 
 // TODO: implement suswintr
 ENTRY(suswintr)
+ret
 
 // TODO: implement subyte
 ENTRY(subyte)
+ret
 
 // TODO: implement fuswintr
 ENTRY(fuswintr)
-
-// TODO: implement kcopy
-ENTRY(kcopy)
+ret
 
 // TODO: implement setjmp
 ENTRY(setjmp)
+ret
 
 // TODO: implement longjmp
 ENTRY(longjmp)
+ret
+
+// TODO: implement setfault
+ENTRY(setfault)
+ret
 
 /*
  * struct lwp *cpu_switchto(struct lwp *oldlwp, struct *newlwp,

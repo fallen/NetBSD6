@@ -36,16 +36,24 @@
 #include <lm32/types.h>
 #include <lm32/frame.h>
 
+struct faultbuf {
+  register_t fb_sp;
+  register_t fb_psw;
+};
+
 struct pcb {
 	struct pmap *pcb_pm;	/* pmap of our vmspace */
 	register_t pcb_sp;	/* saved SP */
 	register_t pcb_ra;	/* saved RA */
 	register_t pcb_fp;	/* saved FP */
 	int pcb_flags;
+	struct faultbuf *pcb_onfault;	/* For use during copyin/copyout */
 };
 
 struct md_coredump {
 	struct registers frame;
 };
+
+int setfault(struct faultbuf *);
 
 #endif	/* _LM32_PCB_H_ */
