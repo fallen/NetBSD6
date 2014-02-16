@@ -32,8 +32,8 @@ paddr_t	pmap_md_direct_mapped_vaddr_to_paddr(vaddr_t);
 bool	pmap_md_io_vaddr_p(vaddr_t);
 void pmap_bootstrap(paddr_t, phys_ram_seg_t *);
 void	pmap_md_init(void);
-#define POOL_PHYSTOV(pa)  ((vaddr_t)(paddr_t)(pa))
-#define	POOL_VTOPHYS(va)	((paddr_t)(vaddr_t)(va))
+#define POOL_PHYSTOV(pa)  ((vaddr_t)(paddr_t)(pa) - 0x40000000 + 0xc0000000)
+#define	POOL_VTOPHYS(va)	((paddr_t)(vaddr_t)(va) - 0xc0000000 + 0x40000000)
 
 #ifdef __PMAP_PRIVATE
 /*
