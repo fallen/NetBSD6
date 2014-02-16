@@ -149,6 +149,7 @@ struct cpu_info {
 #define	ci_pmap_user_segtab	ci_pmap_segtabs[1]
 	union pmap_segtab *ci_pmap_segtabs[2];
 	struct pmap_tlb_info *ci_tlb_info;
+  struct cpu_softc *ci_softc;
 
 	/*
 	 * Private members.
@@ -177,7 +178,8 @@ struct cpu_info {
 	char *ci_doubleflt_stack;
 	char *ci_ddbipi_stack;
 	volatile int	ci_want_resched;
-	int		ci_idepth;
+  int		ci_idepth;
+	volatile int ci_cpl;
 };
 
 

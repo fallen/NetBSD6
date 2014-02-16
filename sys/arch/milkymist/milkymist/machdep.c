@@ -81,6 +81,7 @@ __KERNEL_RCSID(0, "$NetBSD: machdep.c,v 1.43 2012/06/11 16:27:08 tsutsui Exp $")
 #include <machine/intr.h>
 #include <machine/pcb.h>
 #include <machine/uart.h>
+#include <lm32/cpuvar.h>
 
 #include <dev/cons.h>
 
@@ -101,6 +102,13 @@ phys_ram_seg_t availmemr[1];
 
 paddr_t phys_kernend;
 paddr_t msgbuf_paddr;
+
+struct cpu_softc cpu_softc[] = {
+  [0] = {
+    .cpu_ci = curcpu(),
+  }
+};
+
 void
 milkymist_startup(void)
 {
@@ -131,6 +139,10 @@ milkymist_startup(void)
 	/* Initialize proc0 u-area */
 	lm32_lwp0_init();
   curcpu()->ci_curpm = pmap_kernel();
+  curcpu()->ci_tlb_info = &pmap_tlb0_info;
+  curcpu()->ci_softc = &cpu_softc[0];
+  curcpu()->ci_cpl = IPL_HIGH;
+  curcpu()->ci_idepth = -1;
 
   availmemr[0].start += (phys_kernend - IOM_RAM_BEGIN);
   availmemr[0].size -= (phys_kernend - IOM_RAM_BEGIN + 2*NBPG);
@@ -165,9 +177,10 @@ void lm32_lwp0_init(void)
 	struct cpu_info *ci = curcpu();
 
 	lwp0.l_cpu = ci;
-
 	memset(&lwp0pcb, 0, sizeof(lwp0pcb));
 	uvm_lwp_setuarea(&lwp0, (vaddr_t) &lwp0pcb);
+
+  ci->ci_curlwp = &lwp0;
 
 }
 
