@@ -129,7 +129,6 @@ void pmap_bootstrap(paddr_t kernend, phys_ram_seg_t *avail)
   pmap_limits.avail_start = vm_physmem[0].start << PGSHIFT;
   pmap_limits.avail_end = vm_physmem[0].end << PGSHIFT;
   kmeminit_nkmempages();
-  printf("got there\n");
 
 	/* Get size of buffer cache and set an upper limit */
 	buf_setvalimit((VM_MAX_KERNEL_ADDRESS - VM_MIN_KERNEL_ADDRESS) / 8);
@@ -146,7 +145,7 @@ void pmap_bootstrap(paddr_t kernend, phys_ram_seg_t *avail)
 	    + NBPG * shminfo.shmall
 #endif
 	    + NBPG * nkmempages) >> SEGSHIFT;
-  printf("kv_nsegtabs == %#lx\n", kv_nsegtabs);
+//  printf("kv_nsegtabs == %#lx\n", kv_nsegtabs);
 
 	/*
 	 * Initialize `FYI' variables.	Note we're relying on
@@ -156,8 +155,8 @@ void pmap_bootstrap(paddr_t kernend, phys_ram_seg_t *avail)
 	 */
 	pmap_limits.avail_start = vm_physmem[0].start << PGSHIFT;
 	pmap_limits.avail_end = vm_physmem[0].end << PGSHIFT;
-  printf("pmap_limist.avail_start == %#lx\n", pmap_limits.avail_start);
-  printf("pmap_limist.avail_end == %#lx\n", pmap_limits.avail_end);
+//  printf("pmap_limist.avail_start == %#lx\n", pmap_limits.avail_start);
+//  printf("pmap_limist.avail_end == %#lx\n", pmap_limits.avail_end);
 	const size_t max_nsegtabs =
 	    (pmap_round_seg(VM_MAX_KERNEL_ADDRESS)
 		- pmap_trunc_seg(VM_MIN_KERNEL_ADDRESS)) / NBSEG;
@@ -173,12 +172,12 @@ void pmap_bootstrap(paddr_t kernend, phys_ram_seg_t *avail)
 	 * Now actually allocate the kernel PTE array (must be done
 	 * after virtual_end is initialized).
 	 */
-  printf("avail[0].start == %#llx\n", avail[0].start);
+//  printf("avail[0].start == %#llx\n", avail[0].start);
 	const vaddr_t kv_segtabs = kern_phy_to_virt(avail[0].start);
 //	KASSERT(kv_segtabs == kernend);
 	KASSERT(avail[0].size >= NBPG * kv_nsegtabs);
-	printf(" kv_nsegtabs=%#"PRIxVSIZE, kv_nsegtabs);
-	printf(" kv_segtabs=%#"PRIxVADDR"\n", kv_segtabs);
+//	printf(" kv_nsegtabs=%#"PRIxVSIZE, kv_nsegtabs);
+//	printf(" kv_segtabs=%#"PRIxVADDR"\n", kv_segtabs);
 	avail[0].start += NBPG * kv_nsegtabs;
 	avail[0].size -= NBPG * kv_nsegtabs;
 	kernend += NBPG * kv_nsegtabs;
@@ -187,15 +186,15 @@ void pmap_bootstrap(paddr_t kernend, phys_ram_seg_t *avail)
 	 * an extra page for the segment table and allows the user/kernel
 	 * access to be common.
 	 */
-  printf("stp->segtab == %p\n", stp->seg_tab);
+//  printf("stp->segtab == %p\n", stp->seg_tab);
 	pt_entry_t **ptp = &stp->seg_tab[kern_phy_to_virt(IOM_RAM_BEGIN) >> SEGSHIFT];
-  printf("ptp == %p\n", ptp);
+//  printf("ptp == %p\n", ptp);
 	pt_entry_t *ptep = (void *)kv_segtabs;
-  printf("ptep == %p\n", ptep);
+//  printf("ptep == %p\n", ptep);
 	memset(ptep, 0, NBPG * kv_nsegtabs);
-  printf("ptp == %p\n", ptp);
+//  printf("ptp == %p\n", ptp);
 	for (size_t i = 0; i < kv_nsegtabs; i++, ptep += NPTEPG) {
-    printf("*0x%08x = 0x%08x\n", (unsigned int)ptp, (unsigned int)ptep);
+//    printf("*0x%08x = 0x%08x\n", (unsigned int)ptp, (unsigned int)ptep);
 		*ptp++ = ptep;
 	}
 
@@ -209,7 +208,7 @@ void pmap_bootstrap(paddr_t kernend, phys_ram_seg_t *avail)
   pt_entry_t *pte = (pt_entry_t *)kv_segtabs;
   for (size_t i = kern_phy_to_virt(IOM_RAM_BEGIN); i < kern_phy_to_virt(kernend) ; i += NBPG)
   {
-    printf("pte == %p ; pte[%d](%p) = 0x%08x\n", pte, (i & L2_MASK) >> PGSHIFT, &pte[(i & L2_MASK) >> PGSHIFT], (unsigned int)(kern_virt_to_phy(i) | PTE_xX | PTE_xW));
+//    printf("pte == %p ; pte[%d](%p) = 0x%08x\n", pte, (i & L2_MASK) >> PGSHIFT, &pte[(i & L2_MASK) >> PGSHIFT], (unsigned int)(kern_virt_to_phy(i) | PTE_xX | PTE_xW));
     pte[(i & L2_MASK) >> PGSHIFT] = kern_virt_to_phy(i) | PTE_xX | PTE_xW;
   }
 
@@ -218,7 +217,7 @@ void pmap_bootstrap(paddr_t kernend, phys_ram_seg_t *avail)
 		atop(kernend), atop(avail[0].start + avail[0].size) - 2 * PAGE_SIZE,
 		atop(kernend), atop(avail[0].start + avail[0].size) - 2 * PAGE_SIZE,
 		VM_FREELIST_DEFAULT);
-  printf("vm_nphysseg == %d\n", vm_nphysseg);
+//  printf("vm_nphysseg == %d\n", vm_nphysseg);
 
   pool_init(&pmap_pmap_pool, PMAP_SIZE, 0, 0, 0, "pmappl",
     &pool_allocator_nointr, IPL_NONE);
@@ -235,14 +234,14 @@ void pmap_bootstrap(paddr_t kernend, phys_ram_seg_t *avail)
 
   asm volatile("nop");
   int ok = 0;
-  printf("stp->seg_tab == %p\n", stp->seg_tab);
-  printf("0x%08x >> SEGSHIFT == 0x%08x\n", (unsigned int)VM_MIN_KERNEL_ADDRESS, (unsigned int)(VM_MIN_KERNEL_ADDRESS >> SEGSHIFT));
+//  printf("stp->seg_tab == %p\n", stp->seg_tab);
+//  printf("0x%08x >> SEGSHIFT == 0x%08x\n", (unsigned int)VM_MIN_KERNEL_ADDRESS, (unsigned int)(VM_MIN_KERNEL_ADDRESS >> SEGSHIFT));
   for (size_t i = VM_MIN_KERNEL_ADDRESS ; i+NBPG < VM_MAX_KERNEL_ADDRESS ; i+= NBPG)
   {
     pt_entry_t *uart_pte = stp->seg_tab[i >> SEGSHIFT];
     if (uart_pte == NULL)
     {
-      printf("L1 ptp page not allocated %d\n", i >> SEGSHIFT);
+//      printf("L1 ptp page not allocated %d\n", i >> SEGSHIFT);
       vaddr_t new_ptp = uvm_pageboot_alloc(NBPG);
       stp->seg_tab[i >> SEGSHIFT] = (pt_entry_t *)new_ptp;
       i -= NBPG;
@@ -250,19 +249,18 @@ void pmap_bootstrap(paddr_t kernend, phys_ram_seg_t *avail)
     }
     if (uart_pte[(i & L2_MASK) >> PGSHIFT] != 0)
     {
-      printf("uart_pte = %p, addr 0x%08x is already mapped. uart_pte[%d] == 0x%08x\n", uart_pte, (unsigned int)i, (i & L2_MASK) >> PGSHIFT, (unsigned int)uart_pte[(i & L2_MASK) >> PGSHIFT]);
+//      printf("uart_pte = %p, addr 0x%08x is already mapped. uart_pte[%d] == 0x%08x\n", uart_pte, (unsigned int)i, (i & L2_MASK) >> PGSHIFT, (unsigned int)uart_pte[(i & L2_MASK) >> PGSHIFT]);
       continue;
     } else  {
-      printf("uart_pte[%d] = 0xe0000000\n", (i & L2_MASK) >> PGSHIFT);
-      printf("uart_base_vaddr = 0x%08x\n", i);
+//      printf("uart_pte[%d] = 0xe0000000\n", (i & L2_MASK) >> PGSHIFT);
+//      printf("uart_base_vaddr = 0x%08x\n", i);
       uart_pte[(i & L2_MASK) >> PGSHIFT] = 0xe0000001;
       uart_base_vaddr = i;
       ok = 1;
       break;
     }
   }
-  asm volatile("nop");
-  asm volatile("nop");
+
   if (!ok)
     panic("Could not map uart to kernel virtual memory!\n");
 
@@ -273,12 +271,12 @@ void pmap_bootstrap(paddr_t kernend, phys_ram_seg_t *avail)
   *itlb_miss_handler = branch_to_real_tlb_handler_opcode;
 
   lm32_icache_invalidate();
-  printf("We mapped paddr 0xe0000000 (uart_base_paddr) to vaddr 0x%08x", (unsigned int) uart_base_vaddr);
+//  printf("We mapped paddr 0xe0000000 (uart_base_paddr) to vaddr 0x%08x", (unsigned int) uart_base_vaddr);
 
 }
 void tlbflush(void)
 {
-	printf("tlbflush()\n");
+//	printf("tlbflush()\n");
 	/* flush DTLB */
 	asm volatile("xor r11, r11, r11\n\t"
 		     "ori r11, r11, 0x3\n\t"
