@@ -20,7 +20,7 @@ SECTIONS
 	{
 		. = ALIGN(4);
 		_frodata = .;
-		*(.rodata .rodata.* .gnu.linkonce.r.* link_set_*)
+		*(.rodata .rodata.* .gnu.linkonce.r.*)
 		*(.rodata1)
 		_erodata = .;
 	} > sdram
