@@ -236,7 +236,7 @@ void pmap_bootstrap(paddr_t kernend, phys_ram_seg_t *avail)
   int ok = 0;
 //  printf("stp->seg_tab == %p\n", stp->seg_tab);
 //  printf("0x%08x >> SEGSHIFT == 0x%08x\n", (unsigned int)VM_MIN_KERNEL_ADDRESS, (unsigned int)(VM_MIN_KERNEL_ADDRESS >> SEGSHIFT));
-  for (size_t i = VM_MIN_KERNEL_ADDRESS ; i+NBPG < VM_MAX_KERNEL_ADDRESS ; i+= NBPG)
+  for (size_t i = 0xc0000000 + IOM_RAM_SIZE ; i+NBPG < VM_MAX_KERNEL_ADDRESS ; i+= NBPG)
   {
     pt_entry_t *uart_pte = stp->seg_tab[i >> SEGSHIFT];
     if (uart_pte == NULL)

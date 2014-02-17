@@ -78,7 +78,7 @@
 #define VM_MIN_ADDRESS		((vaddr_t)0)
 #define	VM_MAXUSER_ADDRESS	((vaddr_t)(0x7FFFF000))
 #define	VM_MAX_ADDRESS		VM_MAXUSER_ADDRESS
-#define	VM_MIN_KERNEL_ADDRESS	((vaddr_t)(0xc0000000+IOM_RAM_SIZE))
+#define	VM_MIN_KERNEL_ADDRESS	((vaddr_t)(0xc0000000+IOM_RAM_SIZE+0x3000))
 #define	VM_MAX_KERNEL_ADDRESS	((vaddr_t)(0xe0000000))
 
 /*
