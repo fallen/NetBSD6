@@ -40,6 +40,8 @@ static int mainbus_print(void *, const char *);
 
 static struct mainbus_attach_args mainbusdevs[] = {
 	{ "cpu" },
+  { "clock" },
+  { "timer" },
 	{ NULL }	/* terminator */
 };
 

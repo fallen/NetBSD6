@@ -22,10 +22,14 @@ device	uart: tty
 attach	uart at mainbus
 file	arch/milkymist/dev/uart.c		uart needs-flag
 
+# clock
+device clock
+attach clock at mainbus
+file arch/milkymist/milkymist/clock.c
+
 file	arch/milkymist/milkymist/intr.c
 file	arch/milkymist/milkymist/machdep.c
 file 	arch/milkymist/milkymist/sys_machdep.c
 file	arch/milkymist/milkymist/autoconf.c
-file	arch/milkymist/milkymist/clock.c
 
 include "arch/milkymist/conf/majors.milkymist"

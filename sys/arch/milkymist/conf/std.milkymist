@@ -8,5 +8,5 @@ include		"arch/lm32/conf/std.lm32"	# lm32 standard options
 
 mainbus0 at root
 timer0 at mainbus0
-timer1 at mainbus0
 uart0 at mainbus0
+clock0 at mainbus0

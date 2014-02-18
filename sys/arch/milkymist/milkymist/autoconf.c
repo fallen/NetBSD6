@@ -37,11 +37,20 @@ __KERNEL_RCSID(0, "$NetBSD: autoconf.c,v 1.10 2012/07/29 18:05:40 ysionneau Exp 
 void
 cpu_configure(void)
 {
+  unsigned int psw;
 	/* Start configuration */
 	splhigh();
-
+  printf("configuring mainbus\n");
 	if (config_rootfound("mainbus", NULL) == NULL)
 		panic("no mainbus found");
+  printf("Turning on interrupts !\n");
+
+  asm volatile("rcsr %0, PSW" : "=r"(psw) :: );
+  psw |= PSW_IE_IE;
+  asm volatile("wcsr PSW, %0" :: "r"(psw) : );
+
+  psw = 1;
+  asm volatile("wcsr IE, %0" :: "r"(psw) : );
 
 	/* Configuration is finished, turn on interrupts. */
 	spl0();
