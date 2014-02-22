@@ -143,6 +143,7 @@ milkymist_startup(void)
   curcpu()->ci_softc = &cpu_softc[0];
   curcpu()->ci_cpl = IPL_HIGH;
   curcpu()->ci_idepth = -1;
+  pmap_tlb_info_init(&pmap_tlb0_info);
 
   availmemr[0].start += (phys_kernend - IOM_RAM_BEGIN);
   availmemr[0].size -= (phys_kernend - IOM_RAM_BEGIN + 2*NBPG);
