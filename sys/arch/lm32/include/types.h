@@ -77,7 +77,7 @@ typedef volatile __uint32_t __cpuset_t;
 typedef int		register_t;
 #define	PRIxREGISTER	"x"
 
-typedef	volatile unsigned char		__cpu_simple_lock_t;
+typedef	volatile unsigned int		__cpu_simple_lock_t;
 
 /* __cpu_simple_lock_t used to be a full word. */
 #define	__CPU_SIMPLE_LOCK_PAD

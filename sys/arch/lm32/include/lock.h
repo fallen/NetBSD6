@@ -36,6 +36,8 @@
 #ifndef _LM32_LOCK_H_
 #define	_LM32_LOCK_H_
 
+#include <sys/atomic.h>
+
 static __inline int
 __SIMPLELOCK_LOCKED_P(__cpu_simple_lock_t *__ptr)
 {
@@ -68,20 +70,10 @@ __cpu_simple_lock_set(__cpu_simple_lock_t *__ptr)
 	*__ptr = __SIMPLELOCK_LOCKED;
 }
 
-static __inline void
-__cpu_simple_lock(__cpu_simple_lock_t *alp)
-{
-	
-	__asm volatile(
-		"1:	bne	r0,%0,1b \n"
-		: "=m" (*alp));
-}
-
 static __inline int
 __cpu_simple_lock_try(__cpu_simple_lock_t *alp)
 {
-	register int __rv;
-
+/*	register int __rv;
 	__asm volatile(
 		"	xor	%1,%1,%1     \n"
 		"	ori	%1,%1,0x0001 \n"
@@ -91,6 +83,26 @@ __cpu_simple_lock_try(__cpu_simple_lock_t *alp)
 		: "=r" (*alp), "=r" (__rv));
 
 	return (__rv);
+*/
+ 
+    return atomic_cas_uint(alp, __SIMPLELOCK_UNLOCKED, __SIMPLELOCK_LOCKED) ==
+            __SIMPLELOCK_UNLOCKED; 
+
+}
+
+static __inline void
+__cpu_simple_lock(__cpu_simple_lock_t *alp)
+{
+/*	
+	  asm volatile(
+		  "1:	lw r2, (%0+0)\n\t"
+      "bne	r0, r2, 1b"
+		  :: "r"(alp) : "r2" );
+*/
+  while (!__cpu_simple_lock_try(alp)) {
+    while (*alp == __SIMPLELOCK_LOCKED)
+      /* spin */;
+  }
 }
 
 static __inline void
