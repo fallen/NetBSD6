@@ -91,7 +91,7 @@ static int
 clock_intr(void *arg)
 {
 
-	printf("clock ticked!\n");
+//	printf("clock ticked!\n");
 	_ack_irq(TIMER0_IRQ);
 	return 1;
 }
@@ -120,11 +120,15 @@ cpu_initclocks(void)
 	/* register interrupt handler */
 	lm32_intrhandler_register(sc->sc_intr, clock_intr);
 
-	/* Enable interrupts from timer 1 */
+	/* Enable interrupts from timer 0 */
+	_ack_irq(TIMER0_IRQ);
 	milkymist_timer0_enable_irq();
+ 
+  /* load current value of the timer */
+  write_to_csr(sc->base_vaddr, CSR_TIMER0_COUNTER, 0);
 
 	/* load max value of the timer */
   write_to_csr(sc->base_vaddr, CSR_TIMER0_COMPARE, TIMER0_MAX_VALUE);
 	/* start the timer */
-  write_to_csr(sc->base_vaddr, CSR_TIMER0_CONTROL, TIMER_ENABLE);
+  write_to_csr(sc->base_vaddr, CSR_TIMER0_CONTROL, TIMER_ENABLE | TIMER_AUTORESTART);
 }

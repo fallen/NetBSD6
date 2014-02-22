@@ -31,11 +31,9 @@ ipl_t _splraise(ipl_t level)
 	return olevel;
 }
 
-void __isr(void)
+void __isr(unsigned int irq_pending_mask, unsigned int return_address)
 {
-	unsigned int irq_pending_mask;
 
-	asm volatile("rcsr %0, IP" : "=r"(irq_pending_mask) :: );
 
 //TODO: make sure we pass trapframe as argument to irq and lm32_dispatch_irq
 	lm32_dispatch_irq(irq_pending_mask, NULL);

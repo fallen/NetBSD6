@@ -104,6 +104,6 @@ splraiseipl(ipl_cookie_t icookie)
 }
 
 //#include <machine/irqhandler.h>
-void __isr(void);
+void __isr(unsigned int, unsigned int);
 
 #endif	/* _MACHINE_INTR_H */
