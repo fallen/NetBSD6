@@ -33,9 +33,19 @@ ipl_t _splraise(ipl_t level)
 
 void __isr(unsigned int irq_pending_mask, unsigned int return_address)
 {
+ unsigned int psw;
 
 
 //TODO: make sure we pass trapframe as argument to irq and lm32_dispatch_irq
 	lm32_dispatch_irq(irq_pending_mask, NULL);
+
+  /* return to _real_interrupt_handler with mmu OFF */
+  psw = PSW_DTLBE | PSW_ITLBE;
+  asm volatile("wcsr PSW, %0" :: "r"(psw) : );
+  asm volatile(
+              "mv ea, %0\n\t"
+              "eret"
+              :: "r"(return_address)
+              : );
 
 }

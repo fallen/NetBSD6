@@ -113,10 +113,10 @@ _divide_by_zero_handler:
 	nop
 
 _interrupt_handler:
-	sw      (sp+0), ra
-	calli   .save_all
-	calli   __isr
-	bi      .restore_all_and_eret
+  bi _real_interrupt_handler
+	nop
+	nop
+	nop
 	nop
 	nop
 	nop
@@ -258,6 +258,120 @@ _ENTRY(_fake_dtlb_miss_handler)
 	xor	r0, r0, r0 /* restore r0 to 0 */
   eret
 
+_ENTRY(_real_interrupt_handler)
+	mvhi	r0, 0x4000
+	ori	r0, r0, lo(_memory_store_area)
+  lw  r0, (r0+0)
+	sw	(r0+0), r1
+	sw	(r0+4), r2
+	sw	(r0+8), r3
+	sw	(r0+12), r4
+	sw	(r0+16), r5
+	sw	(r0+20), r6
+	sw	(r0+24), r7
+	sw	(r0+28), r8
+	sw	(r0+32), r9
+	sw	(r0+36), r10
+	sw	(r0+40), r11
+	sw	(r0+44), r12
+	sw	(r0+48), r13
+	sw	(r0+52), r14
+	sw	(r0+56), r15
+	sw	(r0+60), r16
+	sw	(r0+64), r17
+	sw	(r0+68), r18
+	sw	(r0+72), r19
+	sw  (r0+76), r20
+	sw  (r0+80), r21
+  sw  (r0+84), r22
+  sw  (r0+88), r23
+  sw  (r0+92), r24
+  sw  (r0+96), r25
+  sw  (r0+100), gp
+  sw  (r0+104), fp
+  sw  (r0+108), sp
+	sw  (r0+112), ea
+	sw  (r0+116), ba
+	sw  (r0+120), ra
+  rcsr r3, PSW
+  sw  (r0+124), r3
+  rcsr r3, IE
+  sw  (r0+128), r3
+	xor	r0, r0, r0 /* restore r0 value to 0 */
+  /* now update memory_store_area in case of nested tlb miss */
+  mvhi r1, 0x4000
+  ori r1, r1, lo(_memory_store_area)
+  lw r2, (r1+0)
+  addi r2, r2, 132
+  sw (r1+0), r2
+
+  rcsr r1, IP
+	mvhi	ea, hi(__isr) /* function we want to call */
+	ori	ea, ea, lo(__isr)
+  mvhi r2, hi(1f)                          /* where we want to return back to */
+  ori r2, r2, lo(1f)
+  mvhi  r3, 0xc000
+  sub r2, r2, r3
+  mvhi r3, 0x4000
+  add r2, r2, r3
+  rcsr r3, PSW
+  ori r3, r3, 0x90 /* PSW_EDTLBE | PSW_EITLBE */
+  xor r4, r4, r4
+  ori r4, r4, 0x400 /* r4 = PSW_EUSR */
+  not r4, r4        /* r4 = ~(r4)    */
+  and r3, r3, r4    /* r3 &= ~PSW_EUSR */
+  wcsr PSW, r3
+  wcsr IE, r0
+  /* we then use eret as a trick to call __isr
+  * with TLB ON and interrupts off */
+  eret
+  
+
+1:
+	mvhi	r0, 0x4000
+	ori	r0, r0, lo(_memory_store_area)
+  lw r1, (r0+0)
+  addi r1, r1, -132
+  sw (r0+0), r1
+  addi r0, r1, 0 /* we cannot use 'mv' when r0 != 0 */
+	lw	r1, (r0+124)
+  wcsr PSW, r1
+	lw	r1, (r0+128)
+  wcsr IE, r1
+	lw	r1, (r0+0)
+	lw	r2, (r0+4)
+	lw	r3, (r0+8)
+	lw	r4, (r0+12)
+	lw	r5, (r0+16)
+	lw	r6, (r0+20)
+	lw	r7, (r0+24)
+	lw	r8, (r0+28)
+	lw	r9, (r0+32)
+	lw	r10, (r0+36)
+	lw	r11, (r0+40)
+	lw	r12, (r0+44)
+	lw	r13, (r0+48)
+	lw	r14, (r0+52)
+	lw	r15, (r0+56)
+	lw	r16, (r0+60)
+	lw	r17, (r0+64)
+	lw	r18, (r0+68)
+	lw	r19, (r0+72)
+	lw	r20, (r0+76)
+	lw	r21, (r0+80)
+	lw	r22, (r0+84)
+	lw	r23, (r0+88)
+	lw	r24, (r0+92)
+	lw	r25, (r0+96)
+	lw	gp, (r0+100)
+	lw	fp, (r0+104)
+  lw  sp, (r0+108)
+	lw	ea, (r0+112)
+	lw	ba, (r0+116)
+	lw	ra, (r0+120)
+	xor	r0, r0, r0 /* restore r0 value to 0 */
+  eret
+
 #if 0
 /* We keep the old wrong fake tlb miss handlers
  * just in case ...
@@ -361,12 +475,14 @@ _ENTRY(_real_tlb_miss_handler)
 	sw  (r0+120), ra
   rcsr r3, PSW
   sw  (r0+124), r3
+  rcsr r3, IE
+  sw  (r0+128), r3
 	xor	r0, r0, r0 /* restore r0 value to 0 */
   /* now update memory_store_area in case of nested tlb miss */
   mvhi r1, 0x4000
   ori r1, r1, lo(_memory_store_area)
   lw r2, (r1+0)
-  addi r2, r2, 128
+  addi r2, r2, 132
   sw (r1+0), r2
 
   rcsr r1, TLBVADDR
@@ -403,6 +519,7 @@ out_of_ram_window:
   not r4, r4        /* r4 = ~(r4)    */
   and r3, r3, r4    /* r3 &= ~PSW_EUSR */
   wcsr PSW, r3
+  wcsr IE, r0
   /* we then use eret as a trick to call _do_real_tlb_miss_handling
   * with TLB ON */
   eret
@@ -411,11 +528,13 @@ out_of_ram_window:
 	mvhi	r0, 0x4000
 	ori	r0, r0, lo(_memory_store_area)
   lw r1, (r0+0)
-  addi r1, r1, -128
+  addi r1, r1, -132
   sw (r0+0), r1
   addi r0, r1, 0 /* we cannot use 'mv' when r0 != 0 */
 	lw	r1, (r0+124)
   wcsr PSW, r1
+	lw	r1, (r0+128)
+  wcsr IE, r1
 	lw	r1, (r0+0)
 	lw	r2, (r0+4)
 	lw	r3, (r0+8)
