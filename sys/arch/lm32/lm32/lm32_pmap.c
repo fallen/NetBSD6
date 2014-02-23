@@ -318,7 +318,7 @@ pmap_load(void)
 	ncsw = l->l_ncsw;
 
 	/* should be able to take ipis. */
-	KASSERT(ci->ci_ilevel < IPL_HIGH); 
+	KASSERT(ci->ci_current_ipl < IPL_HIGH); 
 
 	KASSERT(l != NULL);
 	pmap = vm_map_pmap(&l->l_proc->p_vmspace->vm_map);
@@ -437,4 +437,22 @@ pmap_md_io_vaddr_p(vaddr_t va)
 {
 	return va >= pmap_limits.avail_end
 	    && !(VM_MIN_KERNEL_ADDRESS <= va && va < VM_MAX_KERNEL_ADDRESS);
+}
+
+bool
+pmap_md_tlb_check_entry(void *ctx, vaddr_t va, tlb_asid_t asid, pt_entry_t pte)
+{
+	pmap_t pm = ctx;
+
+	const pt_entry_t * const ptep = pmap_pte_lookup(pm, va);
+	KASSERT(ptep != NULL);
+	pt_entry_t xpte = *ptep;
+	xpte &= ~((xpte & (PTE_UNSYNCED|PTE_UNMODIFIED)) << 1);
+	xpte ^= xpte & (PTE_UNSYNCED|PTE_UNMODIFIED|PTE_WIRED);
+
+	KASSERTMSG(pte == xpte,
+	    "pm=%p va=%#"PRIxVADDR" asid=%u: TLB pte (%#x) != real pte (%#x/%#x)",
+	    pm, va, asid, pte, xpte, *ptep);
+
+	return true;
 }

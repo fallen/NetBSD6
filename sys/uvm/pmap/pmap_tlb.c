@@ -864,6 +864,23 @@ pmap_tlb_asid_release_all(struct pmap *pm)
 #endif /* MULTIPROCESSOR */
 }
 
+tlb_asid_t
+tlb_get_asid(void)
+{
+  unsigned int asid;
+  unsigned int psw;
+
+  asm volatile("rcsr %0, PSW" : "=r"(psw) :: );
+
+  asid = psw & 0x1F000;
+  return asid;
+}
+
+void tlb_walk(void *ctx, bool (*func)(void *, vaddr_t, tlb_asid_t, pt_entry_t))
+{
+
+}
+
 void
 pmap_tlb_asid_check(void)
 {
