@@ -68,7 +68,7 @@ pmap_zero_page(paddr_t pa)
 	vaddr_t va = pmap_md_map_poolpage(pa, NBPG);
 	dcache_zero_page(va);
 
-	KASSERT(!VM_PAGEMD_EXECPAGE_P(VM_PAGE_TO_MD(PHYS_TO_VM_PAGE(va))));
+	KASSERT(!VM_PAGEMD_EXECPAGE_P(VM_PAGE_TO_MD(PHYS_TO_VM_PAGE(pa))));
 	pmap_md_unmap_poolpage(va, NBPG);
 }
 
