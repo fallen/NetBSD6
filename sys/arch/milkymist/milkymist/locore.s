@@ -504,21 +504,22 @@ _ENTRY(_real_tlb_miss_handler)
 
 we_come_from_user_space:
 out_of_ram_window:
+  mv  r3, ea /* ea is passed as 3rd argument to _do_real_tlb_miss_handling */
 	mvhi	ea, hi(_do_real_tlb_miss_handling) /* function we want to call */
 	ori	ea, ea, lo(_do_real_tlb_miss_handling)
   mvhi ra, hi(1f)                          /* where we want to return back to */
   ori ra, ra, lo(1f)
-  mvhi  r3, 0xc000
-  sub ra, ra, r3
-  mvhi r3, 0x4000
-  add ra, ra, r3
-  rcsr r3, PSW
-  ori r3, r3, 0x90 /* PSW_EDTLBE | PSW_EITLBE */
-  xor r4, r4, r4
-  ori r4, r4, 0x400 /* r4 = PSW_EUSR */
-  not r4, r4        /* r4 = ~(r4)    */
-  and r3, r3, r4    /* r3 &= ~PSW_EUSR */
-  wcsr PSW, r3
+  mvhi  r4, 0xc000
+  sub ra, ra, r4
+  mvhi r4, 0x4000
+  add ra, ra, r4
+  rcsr r4, PSW
+  ori r4, r4, 0x90 /* PSW_EDTLBE | PSW_EITLBE */
+  xor r5, r5, r5
+  ori r5, r5, 0x400 /* r4 = PSW_EUSR */
+  not r5, r5        /* r4 = ~(r4)    */
+  and r4, r4, r5    /* r3 &= ~PSW_EUSR */
+  wcsr PSW, r4
   wcsr IE, r0
   /* we then use eret as a trick to call _do_real_tlb_miss_handling
   * with TLB ON */

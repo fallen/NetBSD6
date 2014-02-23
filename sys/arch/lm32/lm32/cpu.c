@@ -48,10 +48,10 @@ void delay_func(unsigned int n)
 	while(i-- > 0);
 }
 
-void _do_real_tlb_miss_handling(unsigned long int, unsigned long int);
+void _do_real_tlb_miss_handling(unsigned long int, unsigned long int, unsigned long int);
 
 /* During this function, TLBs are ON, we must take great care when manipulating pointers */
-void _do_real_tlb_miss_handling(unsigned long int vpfn, unsigned long int vaddr)
+void _do_real_tlb_miss_handling(unsigned long int vpfn, unsigned long int vaddr, unsigned long int ea)
 {
 	struct pmap *map;
 	struct cpu_info *ci;
@@ -66,12 +66,12 @@ void _do_real_tlb_miss_handling(unsigned long int vpfn, unsigned long int vaddr)
   ptp = st->seg_tab[vaddr >> SEGSHIFT];
 
   if (ptp == NULL)
-    panic("[ptp %#lx] Trying to access non mapped address %#lx !\n", (unsigned long)ptp, vaddr);
+    panic("[ptp %#lx] Trying to access non mapped address %#lx from PC=%#lx!\n", (unsigned long)ptp, vaddr, ea);
 
   pte = ptp[(vaddr & L2_MASK) >> PGSHIFT];
 
   if (pte == 0)
-    panic("[pte] Trying to access non mapped address %#lx !\n", vaddr);
+    panic("[pte] Trying to access non mapped address %#lx from PC=%#lx!\n", vaddr, ea);
 
   if (vpfn & 1) // if we came from a DTLB miss, we refresh DTLB
     pte |= 1;
