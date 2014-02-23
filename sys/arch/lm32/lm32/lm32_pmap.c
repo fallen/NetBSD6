@@ -212,10 +212,10 @@ void pmap_bootstrap(paddr_t kernend, phys_ram_seg_t *avail)
     pte[(i & L2_MASK) >> PGSHIFT] = kern_virt_to_phy(i) | PTE_xX | PTE_xW;
   }
 
-  printf("uvm_page_physload(%#lx, %#lx, %#lx, %#lx, %d);\n", atop(kernend), atop(avail[0].start + avail[0].size) - 2 * PAGE_SIZE, atop(kernend), atop(avail[0].start + avail[0].size) - 2 * PAGE_SIZE, VM_FREELIST_DEFAULT);
+  printf("uvm_page_physload(%#lx, %#lx, %#lx, %#lx, %d);\n", atop(kernend), atop(avail[0].start + avail[0].size) - 2, atop(kernend), atop(avail[0].start + avail[0].size) - 2, VM_FREELIST_DEFAULT);
 	uvm_page_physload(
-		atop(kernend), atop(avail[0].start + avail[0].size) - 2 * PAGE_SIZE,
-		atop(kernend), atop(avail[0].start + avail[0].size) - 2 * PAGE_SIZE,
+		atop(kernend), atop(avail[0].start + avail[0].size) - 2,
+		atop(kernend), atop(avail[0].start + avail[0].size) - 2,
 		VM_FREELIST_DEFAULT);
 //  printf("vm_nphysseg == %d\n", vm_nphysseg);
 
