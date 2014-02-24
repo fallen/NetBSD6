@@ -73,8 +73,12 @@ void _do_real_tlb_miss_handling(unsigned long int vpfn, unsigned long int vaddr,
   if (pte == 0)
     panic("[pte] Trying to access non mapped address %#lx from PC=%#lx!\n", vaddr, ea);
 
+  // FIXME: for now all pages are mapped read-write because tlb fault handler is dummy
   if (vpfn & 1) // if we came from a DTLB miss, we refresh DTLB
-    pte |= 1;
+  {
+    pte |= 1; // indicate we want to refresh DTLB
+    pte &= ~(0x2); // clear the read-only bit from PTE
+  }
 
   asm volatile("wcsr TLBPADDR, %0" :: "r"(pte) : );
 
