@@ -49,9 +49,6 @@ cpu_configure(void)
   psw |= PSW_IE_IE;
   asm volatile("wcsr PSW, %0" :: "r"(psw) : );
 
-  psw = 1;
-  asm volatile("wcsr IE, %0" :: "r"(psw) : );
-
 	/* Configuration is finished, turn on interrupts. */
 	spl0();
 }

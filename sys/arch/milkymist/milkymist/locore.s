@@ -35,7 +35,7 @@
 start:
 _bootstrap:
 	xor	r0, r0, r0
-	wcsr	IE, r0
+  wcsr  PSW, r0
 /*mvhi	r1, hi(_reset_handler - _bootstrap)
 	ori	r1, r1, lo(_reset_handler) */
 	mvhi	r1, 0x4000
@@ -54,7 +54,7 @@ _start:
 kernel_text:
 _reset_handler:
 	xor	r0, r0, r0
-	wcsr	IE, r0
+	wcsr	PSW, r0
 	mvhi	r1, hi(_reset_handler)
 	ori	r1, r1, lo(_reset_handler)
 	wcsr	EBA, r1
@@ -295,14 +295,12 @@ _ENTRY(_real_interrupt_handler)
 	sw  (r0+120), ra
   rcsr r3, PSW
   sw  (r0+124), r3
-  rcsr r3, IE
-  sw  (r0+128), r3
 	xor	r0, r0, r0 /* restore r0 value to 0 */
   /* now update memory_store_area in case of nested tlb miss */
   mvhi r1, 0x4000
   ori r1, r1, lo(_memory_store_area)
   lw r2, (r1+0)
-  addi r2, r2, 132
+  addi r2, r2, 128
   sw (r1+0), r2
 
   rcsr r1, IP
@@ -321,7 +319,6 @@ _ENTRY(_real_interrupt_handler)
   not r4, r4        /* r4 = ~(r4)    */
   and r3, r3, r4    /* r3 &= ~PSW_EUSR */
   wcsr PSW, r3
-  wcsr IE, r0
   /* we then use eret as a trick to call __isr
   * with TLB ON and interrupts off */
   eret
@@ -331,13 +328,11 @@ _ENTRY(_real_interrupt_handler)
 	mvhi	r0, 0x4000
 	ori	r0, r0, lo(_memory_store_area)
   lw r1, (r0+0)
-  addi r1, r1, -132
+  addi r1, r1, -128
   sw (r0+0), r1
   addi r0, r1, 0 /* we cannot use 'mv' when r0 != 0 */
 	lw	r1, (r0+124)
   wcsr PSW, r1
-	lw	r1, (r0+128)
-  wcsr IE, r1
 	lw	r1, (r0+0)
 	lw	r2, (r0+4)
 	lw	r3, (r0+8)
@@ -475,14 +470,12 @@ _ENTRY(_real_tlb_miss_handler)
 	sw  (r0+120), ra
   rcsr r3, PSW
   sw  (r0+124), r3
-  rcsr r3, IE
-  sw  (r0+128), r3
 	xor	r0, r0, r0 /* restore r0 value to 0 */
   /* now update memory_store_area in case of nested tlb miss */
   mvhi r1, 0x4000
   ori r1, r1, lo(_memory_store_area)
   lw r2, (r1+0)
-  addi r2, r2, 132
+  addi r2, r2, 128
   sw (r1+0), r2
 
   rcsr r1, TLBVADDR
@@ -520,7 +513,6 @@ out_of_ram_window:
   not r5, r5        /* r4 = ~(r4)    */
   and r4, r4, r5    /* r3 &= ~PSW_EUSR */
   wcsr PSW, r4
-  wcsr IE, r0
   /* we then use eret as a trick to call _do_real_tlb_miss_handling
   * with TLB ON */
   eret
@@ -529,13 +521,11 @@ out_of_ram_window:
 	mvhi	r0, 0x4000
 	ori	r0, r0, lo(_memory_store_area)
   lw r1, (r0+0)
-  addi r1, r1, -132
+  addi r1, r1, -128
   sw (r0+0), r1
   addi r0, r1, 0 /* we cannot use 'mv' when r0 != 0 */
 	lw	r1, (r0+124)
   wcsr PSW, r1
-	lw	r1, (r0+128)
-  wcsr IE, r1
 	lw	r1, (r0+0)
 	lw	r2, (r0+4)
 	lw	r3, (r0+8)
