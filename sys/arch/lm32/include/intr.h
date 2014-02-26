@@ -14,10 +14,10 @@
 #define		IPL_SOFTBIO	1
 #define		IPL_SOFTNET	1
 #define		IPL_SOFTSERIAL	1
-#define		IPL_VM		1
-#define		IPL_SCHED	1
-#define		IPL_HIGH	1
-#define		NIPL		2
+#define		IPL_VM		2
+#define		IPL_SCHED	3
+#define		IPL_HIGH	4
+#define		NIPL		5
 
 static __inline int _get_irq_mask(void)
 {
