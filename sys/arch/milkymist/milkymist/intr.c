@@ -10,7 +10,6 @@ ipl_t _splraise(ipl_t level)
 	struct cpu_info *ci = curcpu();
 	ipl_t olevel;
 	int psw;
-	int ie;
 
 	if (ci->ci_current_ipl == level)
 		return level;
@@ -21,20 +20,13 @@ ipl_t _splraise(ipl_t level)
 	ci->ci_current_ipl = max(level, olevel);
 
 	asm volatile("rcsr %0, PSW" : "=r"(psw) :: );
-	asm volatile("rcsr %0, IE" : "=r"(ie) :: );
 
 	if (level == IPL_NONE)
-	{
 		psw |= LM32_CSR_PSW_IE;
-		ie |= 1;
-	} else {
+	else
 		psw &= ~(LM32_CSR_PSW_IE);
-		ie &= ~1;
-	}
 
 	asm volatile("wcsr PSW, %0" :: "r"(psw) : );
-	// FIXME: This will not be needed anymore when Qemu will shadow IE to PSW.
-	asm volatile("wcsr IE, %0" :: "r"(ie) : );
 
 	return olevel;
 }
