@@ -62,6 +62,33 @@ void
 cpu_lwp_fork(struct lwp *l1, struct lwp *l2, void *stack, size_t stacksize,
     void (*func)(void *), void *arg)
 {
+	/*
+	 * If l1 != curlwp && l1 == &lwp0, we're creating a kernel thread.
+	 */
+	KASSERT(l1 == curlwp || l1 == &lwp0);
+
+	struct pcb * const pcb1 = lwp_getpcb(l1);
+	struct pcb * const pcb2 = lwp_getpcb(l2);
+
+  (void)(pcb1);
+
+  memset(pcb2, 0, sizeof(*pcb2));
+
+	const vaddr_t uv = uvm_lwp_getuarea(l2);
+	struct trapframe * const tf = (struct trapframe *)(uv + USPACE) - 1;
+	l2->l_md.md_utf = tf;
+	*tf = *l1->l_md.md_utf;
+
+
+	/*
+	 * Set up internal defs in PCB. This matches the "fake" CALLS frame
+	 * that were constructed earlier.
+	 */
+	pcb2->pcb_onfault = NULL;
+  pcb2->pcb_regs[_REG_SP] = (register_t)tf;
+  pcb2->pcb_regs[_REG_R1] = (register_t)arg;
+  pcb2->pcb_regs[_REG_R2] = (register_t)func;
+  pcb2->pcb_regs[_REG_RA] = (register_t)lwp_trampoline;
 }
 
 /*
@@ -150,7 +177,7 @@ mm_md_physacc(paddr_t pa, vm_prot_t prot)
 void
 cpu_getmcontext(struct lwp *l, mcontext_t *mcp, unsigned int *flags)
 {
-	const struct trapframe *tf = &l->l_md.md_utf;
+	const struct trapframe *tf = l->l_md.md_utf;
 	__greg_t *gr = mcp->__gregs;
 	__greg_t ras_pc;
 
@@ -197,7 +224,7 @@ cpu_getmcontext(struct lwp *l, mcontext_t *mcp, unsigned int *flags)
 int
 cpu_setmcontext(struct lwp *l, const mcontext_t *mcp, unsigned int flags)
 {
-	struct trapframe *tf = &l->l_md.md_utf;
+	struct trapframe *tf = l->l_md.md_utf;
 	const __greg_t *gr = mcp->__gregs;
 	struct proc *p = l->l_proc;
 	int error;

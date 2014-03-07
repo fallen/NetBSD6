@@ -32,7 +32,7 @@ setregs(struct lwp *l, struct exec_package *pack, vaddr_t stack)
 	struct reg *regs;
 	int i;
 
-	regs = &l->l_md.md_utf.tf_regs;
+	regs = &l->l_md.md_utf->tf_regs;
 	for (i = R1 ; i <= R27 ; i++)
 		regs->r_regs[i] = 0;
 

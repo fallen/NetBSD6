@@ -46,6 +46,7 @@ include <machine/pcb.h>
 include <sys/cpu.h>
 #include <sys/lwp.h>
 include <sys/proc.h>
+include <lm32/mcontext.h>
 
 # general constants
 define	PAGE_SIZE	PAGE_SIZE
@@ -56,13 +57,41 @@ define	USRSTACK	USRSTACK
 define	PG_RO		PG_RO
 define	PG_FRAME	PG_FRAME
 
+define  _REG_R1 _REG_R1
+define  _REG_R2 _REG_R2
+define  _REG_R3 _REG_R3
+define  _REG_R4 _REG_R4
+define  _REG_R5 _REG_R5
+define  _REG_R6 _REG_R6
+define  _REG_R7 _REG_R7
+define  _REG_R8 _REG_R8
+define  _REG_R9 _REG_R9
+define  _REG_R10 _REG_R10
+define  _REG_R11 _REG_R11
+define  _REG_R12 _REG_R12
+define  _REG_R13 _REG_R13
+define  _REG_R14 _REG_R14
+define  _REG_R15 _REG_R15
+define  _REG_R16 _REG_R16
+define  _REG_R17 _REG_R17
+define  _REG_R18 _REG_R18
+define  _REG_R19 _REG_R19
+define  _REG_R20 _REG_R20
+define  _REG_R21 _REG_R21
+define  _REG_R22 _REG_R22
+define  _REG_R23 _REG_R23
+define  _REG_R24 _REG_R24
+define  _REG_R25 _REG_R25
+define  _REG_GP _REG_GP
+define  _REG_FP _REG_FP
+define  _REG_SP _REG_SP
+define  _REG_RA _REG_RA
+define  _REG_EA _REG_EA
+define  _REG_BA _REG_RA
 
 define	CPU_INFO_SELF		offsetof(struct cpu_info, ci_self)
 define	CPU_INFO_CURLWP		offsetof(struct cpu_info, ci_curlwp)
 
-define	PCB_RA			offsetof(struct pcb, pcb_ra)
-define	PCB_FP			offsetof(struct pcb, pcb_fp)
-define	PCB_SP			offsetof(struct pcb, pcb_sp)
 
 define	L_NOPREEMPT		offsetof(struct lwp, l_nopreempt)
 define	L_DOPREEMPT		offsetof(struct lwp, l_dopreempt)

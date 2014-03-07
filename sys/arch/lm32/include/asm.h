@@ -100,12 +100,12 @@
 #define	NENTRY(y)	_ENTRY(_C_LABEL(y))
 #define	ASENTRY(y)	_ENTRY(_ASM_LABEL(y)) _PROF_PROLOGUE
 
-#define SET_CPUVAR(off,reg) \
+#define GET_CPUVAR(reg,off) \
 	mvhi	r25, hi(_C_LABEL(cpu_info_store)) ; \
 	ori	r25, r25, lo(_C_LABEL(cpu_info_store)) ; \
 	lw	reg, (r25+__CONCAT(CPU_INFO_,off))
 
-#define GET_CPUVAR(reg,off) \
+#define SET_CPUVAR(off,reg) \
 	mvhi	r25, hi(_C_LABEL(cpu_info_store)) ; \
 	ori	r25, r25, lo(_C_LABEL(cpu_info_store)) ; \
 	sw	(r25+__CONCAT(CPU_INFO_,off)), reg

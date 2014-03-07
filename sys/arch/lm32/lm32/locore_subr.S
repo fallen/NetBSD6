@@ -37,6 +37,14 @@ ret
 ENTRY(setfault)
 ret
 
+ENTRY(lwp_trampoline)
+
+calli _C_LABEL(lwp_startup)
+
+call r2
+
+eret
+
 /*
  * struct lwp *cpu_switchto(struct lwp *oldlwp, struct *newlwp,
  *			    bool returning)
@@ -52,28 +60,52 @@ ret
  * r3: returning
  */
 ENTRY(cpu_switchto)
-	addi 	sp, sp, -16
-	sw	(sp+0), fp
-	sw	(sp+4), ra
-	sw	(sp+8), r11
-	sw	(sp+12), r12
-	ori	fp, r0, 16
-	add	fp, sp, sp
+	addi 	sp, sp, -12
+	sw	(sp+0), ra
+	sw	(sp+4), r11
+	sw	(sp+8), r12
 
 	/* Save old context. */
 	lw	r11, (r1+L_PCB)
-	sw	(r11+PCB_SP), sp
-	sw	(r11+PCB_FP), fp
-	sw	(r11+PCB_RA), ra
+  sw  (r11+_REG_R1), r1
+  sw  (r11+_REG_R2), r2
+  sw  (r11+_REG_R3), r3
+  sw  (r11+_REG_R4), r4
+  sw  (r11+_REG_R5), r5
+  sw  (r11+_REG_R6), r6
+  sw  (r11+_REG_R7), r7
+  sw  (r11+_REG_R8), r8
+  sw  (r11+_REG_R9), r9
+  sw  (r11+_REG_R10), r10
+  sw  (r11+_REG_R12), r12
+  sw  (r11+_REG_R13), r13
+  sw  (r11+_REG_R14), r14
+  sw  (r11+_REG_R15), r15
+  sw  (r11+_REG_R16), r16
+  sw  (r11+_REG_R17), r17
+  sw  (r11+_REG_R18), r18
+  sw  (r11+_REG_R19), r19
+  sw  (r11+_REG_R20), r20
+  sw  (r11+_REG_R21), r21
+  sw  (r11+_REG_R22), r22
+  sw  (r11+_REG_R23), r23
+  sw  (r11+_REG_R24), r24
+  sw  (r11+_REG_R25), r25
+  sw  (r11+_REG_GP), r26
+  sw  (r11+_REG_FP), r27
+  sw  (r11+_REG_SP), r28
+  sw  (r11+_REG_RA), r29
+  sw  (r11+_REG_EA), r30
+  sw  (r11+_REG_BA), r31
+
+  lw  r12,  (sp+4) /* load r11 to r12 */
+  sw  (r11+_REG_R11), r12 /* save r11 as well */
 
 	/* Switch to newlwp's stack. */
 1:	lw	r12, (r2+L_PCB)
-	lw	ra, (r12+PCB_RA)
-	lw	fp, (r12+PCB_FP)
-	lw	sp, (r12+PCB_SP)
 
 	/* Set curlwp. */
-	SET_CPUVAR(CURLWP,r12)
+	SET_CPUVAR(CURLWP,r2)
 
 	/* Skip the rest if returning to a pinned LWP. */
 	bne	r3, r0, 4f /* branch if r3 != 0 */
@@ -86,11 +118,49 @@ ENTRY(cpu_switchto)
 	
 	/* Return to the new LWP, returning 'oldlwp' in r1. */
 4:
-	lw	r12, (sp+12)
-	lw	r11, (sp+8)
-	lw	ra, (sp+4)
-	lw	fp, (sp+0)
-	addi	sp, sp, 16
+
+  /* restore new LWP registers */
+  
+	lw	r11, (r2+L_PCB)
+  lw  r1, (r11+_REG_R1)
+  lw  r2, (r11+_REG_R2)
+  lw  r3, (r11+_REG_R3)
+  lw  r4, (r11+_REG_R4)
+  lw  r5, (r11+_REG_R5)
+  lw  r6, (r11+_REG_R6)
+  lw  r7, (r11+_REG_R7)
+  lw  r8, (r11+_REG_R8)
+  lw  r9, (r11+_REG_R9)
+  lw  r10, (r11+_REG_R10)
+  lw  r12, (r11+_REG_R12)
+  lw  r13, (r11+_REG_R13)
+  lw  r14, (r11+_REG_R14)
+  lw  r15, (r11+_REG_R15)
+  lw  r16, (r11+_REG_R16)
+  lw  r17, (r11+_REG_R17)
+  lw  r18, (r11+_REG_R18)
+  lw  r19, (r11+_REG_R19)
+  lw  r20, (r11+_REG_R20)
+  lw  r21, (r11+_REG_R21)
+  lw  r22, (r11+_REG_R22)
+  lw  r23, (r11+_REG_R23)
+  lw  r24, (r11+_REG_R24)
+  lw  r25, (r11+_REG_R25)
+  lw  gp, (r11+_REG_GP)
+  lw  fp, (r11+_REG_FP)
+  lw  sp, (r11+_REG_SP)
+  lw  ra, (r11+_REG_RA)
+  lw  ea, (r11+_REG_EA)
+  lw  ba, (r11+_REG_BA)
+
+  mv  r0, r11
+  lw  r11, (r0+_REG_R11) /* restore r11 as well */
+  xor r0, r0, r0
+
+	lw	r12, (sp+8)
+	lw	r11, (sp+4)
+	lw	ra, (sp+0)
+  addi sp, sp, 12
 	ret
 
 	/* Check for restartable atomic sequence (RAS). */

@@ -45,7 +45,7 @@ void *
 getframe(struct lwp *l, int sig, int *onstack)
 {
 	struct proc * const p = l->l_proc;
-	struct trapframe * const tf = &l->l_md.md_utf;
+	struct trapframe * const tf = l->l_md.md_utf;
  
 	/* Do we need to jump onto the signal stack? */
 	*onstack = (l->l_sigstk.ss_flags & (SS_DISABLE | SS_ONSTACK)) == 0
@@ -64,7 +64,7 @@ sendsig_siginfo(const ksiginfo_t *ksi, const sigset_t *mask)
 	struct lwp * const l = curlwp;
 	struct proc * const p = l->l_proc;
 	struct sigacts * const sa = p->p_sigacts;
-	struct trapframe * const tf = &l->l_md.md_utf;
+	struct trapframe * const tf = l->l_md.md_utf;
 	int onstack, error;
 	const int signo = ksi->ksi_signo;
 	struct sigframe_siginfo *sf = getframe(l, signo, &onstack);

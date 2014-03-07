@@ -109,6 +109,8 @@ struct cpu_softc cpu_softc[] = {
   }
 };
 
+struct trapframe utf0;
+
 void
 milkymist_startup(void)
 {
@@ -180,7 +182,7 @@ void lm32_lwp0_init(void)
 	lwp0.l_cpu = ci;
 	memset(&lwp0pcb, 0, sizeof(lwp0pcb));
 	uvm_lwp_setuarea(&lwp0, (vaddr_t) &lwp0pcb);
-
+  lwp0.l_md.md_utf = &utf0;
   ci->ci_curlwp = &lwp0;
 
 }

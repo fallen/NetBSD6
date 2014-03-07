@@ -21,7 +21,7 @@ void
 child_return(void *arg)
 {
 	struct lwp * const l = arg;
-	struct trapframe * const tf = &l->l_md.md_utf;
+	struct trapframe * const tf = l->l_md.md_utf;
 
 	tf->tf_regs.r_regs[R1] = 0; // set return value to 0 as the result of fork() for the child
 	ktrsysret(SYS_fork, 0, 0);
