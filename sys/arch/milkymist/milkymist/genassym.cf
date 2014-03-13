@@ -96,6 +96,7 @@ define	CPU_INFO_CURLWP		offsetof(struct cpu_info, ci_curlwp)
 define	L_NOPREEMPT		offsetof(struct lwp, l_nopreempt)
 define	L_DOPREEMPT		offsetof(struct lwp, l_dopreempt)
 define	L_PCB			offsetof(struct lwp, l_addr)
+define	PCB_REGS			offsetof(struct pcb, pcb_regs)
 define	L_MD_REGS		offsetof(struct lwp, l_md)
 define	L_PROC			offsetof(struct lwp, l_proc)
 
