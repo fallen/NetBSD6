@@ -87,7 +87,7 @@ define  _REG_FP _REG_FP
 define  _REG_SP _REG_SP
 define  _REG_RA _REG_RA
 define  _REG_EA _REG_EA
-define  _REG_BA _REG_RA
+define  _REG_BA _REG_BA
 
 define	CPU_INFO_SELF		offsetof(struct cpu_info, ci_self)
 define	CPU_INFO_CURLWP		offsetof(struct cpu_info, ci_curlwp)

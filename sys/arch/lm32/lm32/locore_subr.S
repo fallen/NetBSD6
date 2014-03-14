@@ -41,6 +41,14 @@ ENTRY(lwp_trampoline)
 
 calli _C_LABEL(lwp_startup)
 
+mvhi r11, hi(_C_LABEL(curlwp))
+ori r11, r11, lo(_C_LABEL(curlwp))
+lw r11, (r11+0)
+lw r11, (r11+L_PCB)
+lw r1, (r11+PCB_REGS+4*_REG_R1)
+lw r2, (r11+PCB_REGS+4*_REG_R2)
+lw r11, (r11+PCB_REGS+4*_REG_R11)
+
 call r2
 
 eret
@@ -64,6 +72,8 @@ ENTRY(cpu_switchto)
 	sw	(sp+0), ra
 	sw	(sp+4), r11
 	sw	(sp+8), r12
+
+  be r1, r0, 1f
 
 	/* Save old context. */
 	lw	r11, (r1+L_PCB)
@@ -105,7 +115,13 @@ ENTRY(cpu_switchto)
 1:	lw	r12, (r2+L_PCB)
 
 	/* Set curlwp. */
+#ifndef MULTIPROCESSOR
+  mvhi r25, hi(_C_LABEL(curlwp))
+  ori  r25, r25, lo(_C_LABEL(curlwp))
+  sw   (r25+0), r2
+#else
 	SET_CPUVAR(CURLWP,r2)
+#endif
 
 	/* Skip the rest if returning to a pinned LWP. */
 	bne	r3, r0, 4f /* branch if r3 != 0 */
@@ -122,8 +138,6 @@ ENTRY(cpu_switchto)
   /* restore new LWP registers */
   
 	lw	r11, (r2+L_PCB)
-  lw  r1, (r11+PCB_REGS+4*_REG_R1)
-  lw  r2, (r11+PCB_REGS+4*_REG_R2)
   lw  r3, (r11+PCB_REGS+4*_REG_R3)
   lw  r4, (r11+PCB_REGS+4*_REG_R4)
   lw  r5, (r11+PCB_REGS+4*_REG_R5)

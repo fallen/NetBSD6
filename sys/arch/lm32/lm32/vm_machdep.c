@@ -74,16 +74,13 @@ cpu_lwp_fork(struct lwp *l1, struct lwp *l2, void *stack, size_t stacksize,
 
   memset(pcb2, 0, sizeof(*pcb2));
 
+  *pcb2 = *pcb1;
+
 	const vaddr_t uv = uvm_lwp_getuarea(l2);
 	struct trapframe * const tf = (struct trapframe *)(uv + USPACE) - 1;
 	l2->l_md.md_utf = tf;
 	*tf = *l1->l_md.md_utf;
 
-
-	/*
-	 * Set up internal defs in PCB. This matches the "fake" CALLS frame
-	 * that were constructed earlier.
-	 */
 	pcb2->pcb_onfault = NULL;
   pcb2->pcb_regs[_REG_SP] = (register_t)tf;
   pcb2->pcb_regs[_REG_R1] = (register_t)arg;
