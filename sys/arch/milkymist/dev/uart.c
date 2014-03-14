@@ -35,13 +35,26 @@ uart_attach(device_t parent, device_t self, void *aux)
 	aprint_normal("\n");
 }
 
+#define UART_STAT_RX_EVT (0x2)
+#define UART_STAT_THRE (0x1)
+
 //TODO: implement com_cngetc
 static int milkymist_com_cngetc(dev_t dev)
 {
-	return 1;
+  volatile unsigned int *uart_rxtx_buff = (volatile unsigned int *)uart_base_vaddr;
+  volatile unsigned int *uart_stat = (volatile unsigned int *)uart_base_vaddr + 2;
+  int s;
+  int c;
+
+  s = splhigh();
+  while ( !(*uart_stat & UART_STAT_RX_EVT));
+  c = *uart_rxtx_buff;
+  *uart_stat = UART_STAT_RX_EVT;
+  splx(s);
+
+  return c;
 }
 
-#define UART_STAT_THRE (0x1)
 unsigned int uart_base_vaddr = kern_phy_to_virt(0xe0000000);
 
 static void milkymist_com_cnputc(dev_t dev, int c)
