@@ -32,6 +32,7 @@ struct registers {
 	int 	tf_ra;
 	int 	tf_ea;
 	int 	tf_ba;
+	int	tf_psw;
 };
 
 

@@ -7,7 +7,8 @@
 
 struct irqhandler {
 	unsigned int mask;
-	int (*irq_handler)(void *);
+	int (*irq_handler)(struct trapframe *, void *);
+	void *arg;
 };
 
 struct irqhandler irqhandlers[32];
@@ -17,7 +18,7 @@ void init_irqhandlers_array(void)
 	memset(irqhandlers, 0, sizeof(irqhandlers));
 }
 
-unsigned int lm32_dispatch_irq(unsigned int irq_pending_mask, void *arg)
+unsigned int lm32_dispatch_irq(unsigned int irq_pending_mask, struct trapframe *tf)
 {
 	unsigned int i;
 	int s;
@@ -28,7 +29,7 @@ unsigned int lm32_dispatch_irq(unsigned int irq_pending_mask, void *arg)
 		    && (irqhandlers[i].irq_handler != NULL))
 		{
 			s = spl0();
-			if (irqhandlers[i].irq_handler(arg))
+			if (irqhandlers[i].irq_handler(tf, irqhandlers[i].arg))
 			{
 				splx(s);
 				return 1;
@@ -41,7 +42,7 @@ unsigned int lm32_dispatch_irq(unsigned int irq_pending_mask, void *arg)
 	return 0;
 }
 
-void lm32_intrhandler_register(int irqmask, int (*func)(void *))
+void lm32_intrhandler_register(int irqmask, int (*func)(struct trapframe *, void *), void *arg)
 {
 	unsigned int i;
 	for (i = 0 ; i < 32 ; i++)
@@ -50,6 +51,7 @@ void lm32_intrhandler_register(int irqmask, int (*func)(void *))
 		{
 			irqhandlers[i].mask = irqmask;
 			irqhandlers[i].irq_handler = func;
+			irqhandlers[i].arg = arg;
 			return;
 		}
 	}

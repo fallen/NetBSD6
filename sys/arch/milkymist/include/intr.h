@@ -104,6 +104,6 @@ splraiseipl(ipl_cookie_t icookie)
 }
 
 //#include <machine/irqhandler.h>
-void __isr(unsigned int, unsigned int);
+void __isr(unsigned int, unsigned int, struct trapframe *);
 
 #endif	/* _MACHINE_INTR_H */

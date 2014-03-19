@@ -224,11 +224,11 @@ void cpu_kick(struct cpu_info *);
  */
 struct clockframe {
 	struct registers cf_if;
-	int tf_pc;
+	int cf_pc;
 };
 
-#define CLKF_USERMODE(framep) (0)
-#define CLKF_PC(framep) ((framep)->tf_pc)
+#define CLKF_USERMODE(framep) ((framep)->cf_if.tf_psw & PSW_EUSR)
+#define CLKF_PC(framep) ((framep)->cf_pc)
 #define CLKF_INTR(framep) (0)
 #define	aston(l)		do { (l)->l_md.md_astpending = 1; } while(0)
 

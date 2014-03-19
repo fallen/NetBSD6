@@ -300,6 +300,7 @@ _ENTRY(_real_interrupt_handler)
   mvhi r1, 0x4000
   ori r1, r1, lo(_memory_store_area)
   lw r2, (r1+0)
+  mv r5, r2
   addi r2, r2, 128
   sw (r1+0), r2
 
@@ -315,6 +316,7 @@ _ENTRY(_real_interrupt_handler)
   xor r3, r3, r3
   ori r3, r3, 0x90 /* PSW_EDTLBE | PSW_EITLBE */
   wcsr PSW, r3
+  mv r3, r5 /* arg3 is trapframe */
   /* we then use eret as a trick to call __isr
   * with TLB ON and interrupts off */
   eret
