@@ -36,7 +36,6 @@ void __isr(unsigned int irq_pending_mask, unsigned int return_address, struct tr
  unsigned int psw;
 
 
-//TODO: make sure we pass trapframe as argument to irq and lm32_dispatch_irq
 	lm32_dispatch_irq(irq_pending_mask, tf);
 
   /* return to _real_interrupt_handler with mmu OFF */

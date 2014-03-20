@@ -107,6 +107,8 @@ typedef uint32_t pt_entry_t;		/* PTE */
 
 #define L1_MASK 	(0x001ff000)
 
+#define PTE_CACHE_INHIBIT (1 << 2)
+
 #define PTE_M (1 << 3)
 #define PTE_G (1 << 4)
 #define PTE_xR (1 << 5)
@@ -219,25 +221,25 @@ pte_prot_bits(struct vm_page_md *mdpg, vm_prot_t prot)
 static inline pt_entry_t
 pte_ionocached_bits(void)
 {
-	return PTE_I|PTE_G;
+	return PTE_CACHE_INHIBIT;
 }
 
 static inline pt_entry_t
 pte_iocached_bits(void)
 {
-	return PTE_G;
+	return 0;
 }
 
 static inline pt_entry_t
 pte_nocached_bits(void)
 {
-	return PTE_M|PTE_I;
+	return PTE_CACHE_INHIBIT;
 }
 
 static inline pt_entry_t
 pte_cached_bits(void)
 {
-	return PTE_M;
+	return 0; /* by default mapping is cached */
 }
 
 static inline pt_entry_t

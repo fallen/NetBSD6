@@ -42,14 +42,15 @@ tlb_update_addr(vaddr_t va, tlb_asid_t asid, pt_entry_t pte, bool insert_p)
 {
   va &= ~((1 << 12)-1); /* remove any in-page offset bit */
   va |= asid << 7;
-  // FIXME: fix conditions and OR with one for the correct TLB
-  if (/* pte & PROT_EXECUTE*/1)
+  // FIXME: fix conditions for DTLB
+  if ( pte & PTE_xX )
   {
     asm volatile("wcsr TLBVADDR, %0" :: "r"(va) : );
     asm volatile("wcsr TLBPADDR, %0" :: "r"(pte) : );
   }
   if (/* pte & PROT_READ*/ 1)
   {
+    pte |= 1;
     asm volatile("wcsr TLBVADDR, %0" :: "r"(va) : );
     asm volatile("wcsr TLBPADDR, %0" :: "r"(pte) : );
   }
