@@ -123,7 +123,7 @@ cpu_initclocks(void)
 	/* using 88 MHz cpu clock source */
 
 	/* register interrupt handler */
-	lm32_intrhandler_register(sc->sc_intr, clock_intr, sc);
+	lm32_intrhandler_register(TIMER0_IRQ, clock_intr, sc);
 
 	/* Enable interrupts from timer 0 */
 	_ack_irq(TIMER0_IRQ);
