@@ -35,11 +35,14 @@
 
 #include <lm32/types.h>
 #include <lm32/frame.h>
-
+/*
 struct faultbuf {
   register_t fb_sp;
   register_t fb_psw;
 };
+*/
+
+#define faultbuf trapframe
 
 struct pcb {
 	struct pmap *pcb_pm;	/* pmap of our vmspace */

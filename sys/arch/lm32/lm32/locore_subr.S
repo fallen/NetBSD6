@@ -33,8 +33,54 @@ ret
 ENTRY(longjmp)
 ret
 
-// TODO: implement setfault
+/* setfault(struct trapframe *tf) */
+/* actually arg1 is faultframe but on lm32 it's the same as trapframe */
 ENTRY(setfault)
+addi sp, sp, -4
+sw (sp+0), r25
+
+mvhi r25, hi(_C_LABEL(curlwp))
+ori r25, r25, lo(_C_LABEL(curlwp))
+lw r25, (r25+0)
+lw r25, (r25+L_PCB)
+sw (r25+PCB_ONFAULT), r1
+
+lw r25, (sp+0)
+
+sw (r1+4*_REG_R1), r1
+sw (r1+4*_REG_R2), r2
+sw (r1+4*_REG_R3), r3
+sw (r1+4*_REG_R4), r4
+sw (r1+4*_REG_R5), r5
+sw (r1+4*_REG_R6), r6
+sw (r1+4*_REG_R7), r7
+sw (r1+4*_REG_R8), r8
+sw (r1+4*_REG_R9), r9
+sw (r1+4*_REG_R10), r10
+sw (r1+4*_REG_R11), r11
+sw (r1+4*_REG_R12), r12
+sw (r1+4*_REG_R13), r13
+sw (r1+4*_REG_R14), r14
+sw (r1+4*_REG_R15), r15
+sw (r1+4*_REG_R16), r16
+sw (r1+4*_REG_R17), r17
+sw (r1+4*_REG_R18), r18
+sw (r1+4*_REG_R19), r19
+sw (r1+4*_REG_R20), r20
+sw (r1+4*_REG_R21), r21
+sw (r1+4*_REG_R22), r22
+sw (r1+4*_REG_R23), r23
+sw (r1+4*_REG_R24), r24
+sw (r1+4*_REG_R25), r25
+sw (r1+4*_REG_GP), gp
+sw (r1+4*_REG_FP), fp
+sw (r1+4*_REG_SP), sp
+sw (r1+4*_REG_RA), ra
+sw (r1+4*_REG_EA), ea
+sw (r1+4*_REG_BA), ba
+
+xor r1, r1, r1
+addi sp, sp, 4
 ret
 
 ENTRY(lwp_trampoline)
