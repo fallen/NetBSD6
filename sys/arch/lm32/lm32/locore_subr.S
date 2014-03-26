@@ -147,12 +147,12 @@ ENTRY(cpu_switchto)
   sw  (r11+PCB_REGS+4*_REG_R23), r23
   sw  (r11+PCB_REGS+4*_REG_R24), r24
   sw  (r11+PCB_REGS+4*_REG_R25), r25
-  sw  (r11+PCB_REGS+4*_REG_GP), r26
-  sw  (r11+PCB_REGS+4*_REG_FP), r27
-  sw  (r11+PCB_REGS+4*_REG_SP), r28
-  sw  (r11+PCB_REGS+4*_REG_RA), r29
-  sw  (r11+PCB_REGS+4*_REG_EA), r30
-  sw  (r11+PCB_REGS+4*_REG_BA), r31
+  sw  (r11+PCB_REGS+4*_REG_GP), gp
+  sw  (r11+PCB_REGS+4*_REG_FP), fp
+  sw  (r11+PCB_REGS+4*_REG_SP), sp
+  sw  (r11+PCB_REGS+4*_REG_RA), ra
+  sw  (r11+PCB_REGS+4*_REG_EA), ea
+  sw  (r11+PCB_REGS+4*_REG_BA), ba
 
   lw  r12,  (sp+4) /* load r11 to r12 */
   sw  (r11+ PCB_REGS + 4*_REG_R11), r12 /* save r11 as well */
