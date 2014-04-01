@@ -14,6 +14,8 @@ file-system TMPFS
 file-system PTYFS
 file-system KERNFS
 file-system FDESC
+file-system FFS
+file-system MFS
 
 pseudo-device	pty			# pseudo-terminals
 

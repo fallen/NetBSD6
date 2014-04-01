@@ -1,0 +1,8 @@
+#	GENERIC_MFS -- GENERIC kernel with installation-sized
+#	ramdisk
+#
+
+include "arch/milkymist/conf/GENERIC"
+include "arch/milkymist/conf/MFS"
+
+options BOOTHOWTO=RB_SINGLE

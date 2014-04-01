@@ -32,4 +32,7 @@ file	arch/milkymist/milkymist/machdep.c
 file 	arch/milkymist/milkymist/sys_machdep.c
 file	arch/milkymist/milkymist/autoconf.c
 
+# Memory Disk for install floppy
+file	dev/md_root.c			memory_disk_hooks & md
+
 include "arch/milkymist/conf/majors.milkymist"
