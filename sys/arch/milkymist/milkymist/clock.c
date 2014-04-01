@@ -93,7 +93,7 @@ clock_intr(struct trapframe *tf, void *arg)
 	struct clockframe cf;
 //	printf("clock ticked!\n");
 
-	memcpy(&cf, tf, sizeof(cf));
+	memcpy(&cf, (void *)kern_phy_to_virt_ramwindow(tf), sizeof(cf));
 
 	_ack_irq(TIMER0_IRQ);
 	hardclock(&cf);
