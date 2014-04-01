@@ -104,4 +104,3 @@ SECTIONS
 
 PROVIDE(_phys_fdata = LOADADDR(.data));
 PROVIDE(_fstack = ORIGIN(sdram) + LENGTH(sdram) - 4);
-PROVIDE(_phy_do_real_tlb_miss_handling = _do_real_tlb_miss_handling - 0xc0000000 + 0x40000000);

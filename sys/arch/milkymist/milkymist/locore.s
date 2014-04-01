@@ -24,6 +24,7 @@
  */
 
 #include <lm32/asm.h>
+#include "assym.h"
 
 /* Exception handlers - Must be 32 bytes long. */
 .section    .text, "ax", @progbits
@@ -429,21 +430,44 @@ _ENTRY(_real_tlb_miss_handler)
 
 we_come_from_user_space:
 out_of_ram_window:
-  mv  r3, ea /* ea is passed as 3rd argument to _do_real_tlb_miss_handling */
-	mvhi	ea, hi(_do_real_tlb_miss_handling) /* function we want to call */
-	ori	ea, ea, lo(_do_real_tlb_miss_handling)
-  mvhi ra, hi(1f)                          /* where we want to return back to */
-  ori ra, ra, lo(1f)
-  mvhi  r4, 0xc000
-  sub ra, ra, r4
-  mvhi r4, 0x4000
-  add ra, ra, r4
-  xor r4, r4, r4
-  ori r4, r4, 0x90 /* PSW_EDTLBE | PSW_EITLBE */
-  wcsr PSW, r4
-  /* we then use eret as a trick to call _do_real_tlb_miss_handling
-  * with TLB ON */
-  eret
+  mvhi r4, hi(_C_LABEL(cpu_info_store))
+  ori  r4, r4, lo(_C_LABEL(cpu_info_store))
+  lw   r4, (r4+CPU_INFO_CURPM)
+  lw   r4, (r4+PM_SEGTAB) /* r4 = curcpu()->ci_pm->pm_segtab; */
+  srui  r5, r1, SEGSHIFT
+  sli  r5, r5, 2
+  add  r6, r4, r5
+  lw   r7, (r6+0) /* ptp = pm_segtab[vaddr >> PGSHIFT]; */
+  be   r7, r0, panic_ptp
+
+  /* translate the ptp from virt to phy */
+  mvhi r10, 0xc000
+  sub  r7, r7, r10
+  mvhi r10, 0x4000
+  add  r7, r7, r10
+
+  mvhi r11, hi(L2_MASK)
+  ori  r11, r11, lo(L2_MASK)
+  and  r8, r1, r11
+  srui  r8, r8, PGSHIFT
+  sli   r8, r8, 2
+  add  r8, r8, r7
+  lw   r9, (r8+0) /* pte = ptp[(vaddr & L2_MASK) >> PGSHIFT] ; */
+
+  be  r9, r0, panic_pte
+
+/* TODO: check for PTE_xX,PTE_xR, PTE_xW before assigning the rights */
+/* for now all mappings are read-write-execute */
+
+  andi r2, r1, 1  /* if (vpfn & 1) { */
+  be   r2, r0, not_a_dtlb_miss
+  ori  r9, r9, 1 /* pte |= 1; meaning we refresh DTLB */
+  mvhi r2, 0xffff
+  ori  r2, r2, 0xfffd
+  and r9, r9, r2 /* pte &= ~(2); clearing Read-Only bit */
+
+not_a_dtlb_miss: /* } */
+  wcsr TLBPADDR, r9
 
 1:
 	mvhi	r0, 0x4000
@@ -487,6 +511,12 @@ out_of_ram_window:
 	lw	ra, (r0+120)
 	xor	r0, r0, r0 /* restore r0 value to 0 */
 	eret
+
+panic_ptp:
+  calli panic
+
+panic_pte:
+  calli panic
 
 _crt0:
   mvhi  r1, hi(_memory_store_area)

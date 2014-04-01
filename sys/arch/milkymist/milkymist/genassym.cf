@@ -89,9 +89,15 @@ define  _REG_RA _REG_RA
 define  _REG_EA _REG_EA
 define  _REG_BA _REG_BA
 
+define SEGSHIFT SEGSHIFT
+define PGSHIFT PGSHIFT
+define L2_MASK L2_MASK
+
 define	CPU_INFO_SELF		offsetof(struct cpu_info, ci_self)
 define	CPU_INFO_CURLWP		offsetof(struct cpu_info, ci_curlwp)
+define  CPU_INFO_CURPM    offsetof(struct cpu_info, ci_curpm)
 
+define  PM_SEGTAB         offsetof(struct pmap, pm_segtab)
 
 define	L_NOPREEMPT		offsetof(struct lwp, l_nopreempt)
 define	L_DOPREEMPT		offsetof(struct lwp, l_dopreempt)
