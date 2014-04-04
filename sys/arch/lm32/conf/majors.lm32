@@ -1,0 +1,5 @@
+#
+# Device majors for lm32
+#
+
+device-major	md		char 18  block 18	md
