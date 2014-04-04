@@ -519,7 +519,7 @@ panic_pte:
   calli panic
 
 _crt0:
-  mvhi  r1, hi(_memory_store_area)
+  mvhi  r1, 0x4000
   ori r1, r1, lo(_memory_store_area)
   lw  r2, (r1+0)
   addi  r2, r2, 4
