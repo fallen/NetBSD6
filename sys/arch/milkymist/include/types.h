@@ -1,7 +1,7 @@
-/*	$NetBSD: types.h,v 1.23 2011/06/12 03:35:39 rmind Exp $	*/
+/*	$NetBSD: $	*/
 
-#ifndef _MACHINE_TYPES_H_
-#define	_MACHINE_TYPES_H_
+#ifndef _MILKYMIST_TYPES_H_
+#define	_MILKYMIST_TYPES_H_
 
 #include <lm32/types.h>
 

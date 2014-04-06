@@ -1,3 +1,8 @@
+/*	$NetBSD: $	*/
+
+#include <sys/cdefs.h>
+__KERNEL_RCSID(0, "$NetBSD: $");
+
 #include <lm32/cpu.h>
 #include <sys/cpu.h>
 #include <lm32/reg.h>

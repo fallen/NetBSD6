@@ -1,4 +1,4 @@
-/*	$NetBSD: trap.h,v 1.11 2011/02/08 20:20:16 rmind Exp $	*/
+/*	$NetBSD: $	*/
 
 /*
  * Copyright (c) 1988 University of Utah.

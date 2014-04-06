@@ -1,4 +1,4 @@
-/*	$NetBSD: proc.h,v 1.12 2011/06/05 16:52:25 matt Exp $	*/
+/*	$NetBSD: $	*/
 
 /*-
  * Copyright (C) 1995, 1996 Wolfgang Solfrank.

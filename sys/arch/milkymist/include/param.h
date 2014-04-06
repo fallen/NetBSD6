@@ -1,4 +1,4 @@
-/*	$NetBSD: param.h,v 1.20 2012/09/23 22:31:38 mrg Exp $	*/
+/*	$NetBSD: $	*/
 
 /*-
  * Copyright (C) 1995, 1996 Wolfgang Solfrank.

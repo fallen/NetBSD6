@@ -1,4 +1,4 @@
-/*	$NetBSD: int_const.h,v 1.3 2010/05/29 17:33:57 tnozaki Exp $	*/
+/*	$NetBSD: $	*/
 
 /*-
  * Copyright (c) 2001 The NetBSD Foundation, Inc.

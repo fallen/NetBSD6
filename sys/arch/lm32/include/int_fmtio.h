@@ -1,4 +1,4 @@
-/*	$NetBSD: int_fmtio.h,v 1.7 2008/04/28 20:23:24 martin Exp $	*/
+/*	$NetBSD: $	*/
 
 /*-
  * Copyright (c) 2001 The NetBSD Foundation, Inc.

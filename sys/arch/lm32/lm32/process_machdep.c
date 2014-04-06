@@ -1,5 +1,10 @@
-#include <sys/param.h>
+/*	$NetBSD: $	*/
+
 #include <sys/cdefs.h>
+__KERNEL_RCSID(0, "$NetBSD: $");
+
+#include <sys/types.h>
+#include <sys/param.h>
 #include <sys/cpu.h>
 #include <sys/proc.h>
 #include <sys/ptrace.h>

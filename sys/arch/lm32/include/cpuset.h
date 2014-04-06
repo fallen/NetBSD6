@@ -1,4 +1,4 @@
-/*	$NetBSD: cpuset.h,v 1.1 2011/06/05 16:52:25 matt Exp $	*/
+/*	$NetBSD: $	*/
 
 /*-
  * Copyright (c) 2004 The NetBSD Foundation, Inc.

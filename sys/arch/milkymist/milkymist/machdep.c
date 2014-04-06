@@ -1,4 +1,4 @@
-/*	$NetBSD: machdep.c,v 1.43 2012/06/11 16:27:08 tsutsui Exp $	*/
+/*	$NetBSD: $	*/
 
 /*-
  * Copyright (c) 1996, 1997, 1998, 2002 The NetBSD Foundation, Inc.
@@ -65,7 +65,7 @@
  */
 
 #include <sys/cdefs.h>
-__KERNEL_RCSID(0, "$NetBSD: machdep.c,v 1.43 2012/06/11 16:27:08 tsutsui Exp $");
+__KERNEL_RCSID(0, "$NetBSD: $");
 
 #include <sys/param.h>
 #include <sys/systm.h>

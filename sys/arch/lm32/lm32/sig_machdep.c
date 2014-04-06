@@ -1,3 +1,4 @@
+/*	$NetBSD: $	*/
 /*-
  * Copyright (C) 2013 Yann Sionneau <yann.sionneau@gmail.com>
  * All rights reserved.
@@ -28,6 +29,7 @@
  */
 
 #include <sys/cdefs.h>			/* RCS ID & Copyright macro defns */
+__KERNEL_RCSID(0, "$NetBSD: $");
 
 #include <sys/param.h>
 #include <sys/cpu.h>

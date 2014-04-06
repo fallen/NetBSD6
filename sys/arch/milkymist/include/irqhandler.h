@@ -1,4 +1,4 @@
-/*	$NetBSD: irqhandler.h,v 1.5 2008/04/27 18:58:47 matt Exp $	*/
+/*	$NetBSD: $	*/
 
 /*
  * Copyright (c) 1994-1996 Mark Brinicombe.
@@ -40,8 +40,8 @@
  * Created      : 30/09/94
  */
 
-#ifndef _MACHINE_IRQHANDLER_H_
-#define _MACHINE_IRQHANDLER_H_
+#ifndef _MILKYMIST_IRQHANDLER_H_
+#define _MILKYMIST_IRQHANDLER_H_
 
 #include <sys/evcnt.h>
 #include <lm32/intr.h>
@@ -85,6 +85,5 @@ void enable_irq(int);
 
 #define IRQ_FLAG_ACTIVE 0x00000001	/* This is the active handler in list */
 
-#endif	/* _MACHINE_IRQHANDLER_H_ */
+#endif	/* _MILKYMIST_IRQHANDLER_H_ */
 
-/* End of irqhandler.h */

@@ -1,6 +1,11 @@
+/*	$NetBSD: $	*/
+
 /*
  * COPYRIGHT (C) 2013 Yann Sionneau <yann.sionneau@gmail.com>
  */
+
+#include <sys/cdefs.h>
+__KERNEL_RCSID(0, "$NetBSD: $");
 
 #include <lm32/cpu.h>
 #include <lm32/pmap.h>

@@ -1,4 +1,4 @@
-/*	$NetBSD: ptrace.h,v 1.8 2008/01/25 12:03:36 skrll Exp $	*/
+/*	$NetBSD: $	*/
 
 /*
  * Copyright (c) 1993 Christopher G. Demetriou

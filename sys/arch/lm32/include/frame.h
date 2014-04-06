@@ -1,4 +1,4 @@
-/*	$NetBSD: frame.h,v 1.35 2012/02/19 21:06:11 rmind Exp $	*/
+/*	$NetBSD: $	*/
 
 /*-
  * Copyright (c) 1998 The NetBSD Foundation, Inc.

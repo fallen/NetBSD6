@@ -1,7 +1,8 @@
-/*	$NetBSD: psl.h,v 1.21 2005/12/11 12:16:36 christos Exp $	*/
+/*	$NetBSD: $	*/
 
-#ifndef _MACHINE_PSL_H_
-#define _MACHINE_PSL_H_
+#ifndef _MILKYMIST_PSL_H_
+#define _MILKYMIST_PSL_H_
+
 #include <lm32/psl.h>
 #include <milkymist/intr.h>
 

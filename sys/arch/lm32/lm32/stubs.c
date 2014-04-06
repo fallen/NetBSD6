@@ -1,5 +1,6 @@
-#include <sys/cdefs.h>
+/*	$NetBSD: $	*/
 
+#include <sys/cdefs.h>
 __KERNEL_RCSID(0, "$NetBSD: booke_stubs.c,v 1.9 2011/06/30 00:52:58 matt Exp $");
 
 #include <sys/param.h>

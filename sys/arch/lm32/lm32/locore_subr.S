@@ -1,3 +1,4 @@
+/*	$NetBSD: $	*/
 /*
  * COPYRIGHT (C) 2013 Yann Sionneau <yann.sionneau@gmail.com>
  */

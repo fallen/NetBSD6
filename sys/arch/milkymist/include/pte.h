@@ -1,3 +1,3 @@
-/*	$NetBSD: pte.h,v 1.20 2007/10/17 19:53:26 garbled Exp $	*/
+/*	$NetBSD: $	*/
 
 #include <lm32/pte.h>

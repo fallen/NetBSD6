@@ -1,4 +1,8 @@
+/*	$NetBSD: $	*/
+
 #include <sys/cdefs.h>
+__KERNEL_RCSID(0, "$NetBSD: $");
+
 #include <sys/param.h>
 #include <sys/mount.h>
 #include <sys/syscallargs.h>

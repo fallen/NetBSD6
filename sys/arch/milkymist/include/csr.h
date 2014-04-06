@@ -1,5 +1,5 @@
-#ifndef _MACHINE_CSR_H_
-#define _MACHINE_CSR_H_
+#ifndef _MILKYMIST_CSR_H_
+#define _MILKYMIST_CSR_H_
 
 void milkymist_write_csr(int addr, int value);
 int milkymist_read_csr(int addr);

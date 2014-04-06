@@ -1,4 +1,4 @@
-/*	$NetBSD: signal.h,v 1.20 2008/11/19 22:59:56 cegger Exp $	*/
+/*	$NetBSD: $	*/
 
 /*
  * Copyright (C) 1995, 1996 Wolfgang Solfrank.

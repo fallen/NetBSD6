@@ -1,7 +1,8 @@
-/*	$NetBSD: pmap.h,v 1.38 2011/06/20 21:45:16 matt Exp $	*/
+/*	$NetBSD: $	*/
 
 #ifndef _LM32_PMAP_H_
 #define _LM32_PMAP_H_
+
 #include <sys/resource.h>
 #include <sys/kcore.h>
 

@@ -1,4 +1,4 @@
-/* 	$NetBSD: intr.h,v 1.9 2010/06/13 02:11:22 tsutsui Exp $	*/
+/* 	$NetBSD: $	*/
 
 /*
  * Copyright (c) 1997 Mark Brinicombe.
@@ -33,8 +33,8 @@
  * SUCH DAMAGE.
  */
 
-#ifndef _MACHINE_INTR_H_
-#define _MACHINE_INTR_H_
+#ifndef _MILKYMIST_INTR_H_
+#define _MILKYMIST_INTR_H_
 
 #include <lm32/intr.h>
 #include <machine/cpu.h>
@@ -106,4 +106,4 @@ splraiseipl(ipl_cookie_t icookie)
 //#include <machine/irqhandler.h>
 void __isr(unsigned int, unsigned int, struct trapframe *);
 
-#endif	/* _MACHINE_INTR_H */
+#endif	/* _MILKYMIST_INTR_H */

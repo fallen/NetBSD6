@@ -1,4 +1,4 @@
-/*	$NetBSD: pte.h,v 1.27 2011/02/01 20:09:08 chuck Exp $	*/
+/*	$NetBSD: $	*/
 
 /*
  * Copyright (c) 2001 Wasabi Systems, Inc.

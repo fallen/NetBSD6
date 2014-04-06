@@ -1,3 +1,5 @@
+/*	$NetBSD: $	*/
+
 /*
  * LatticeMico32 C startup code.
  *

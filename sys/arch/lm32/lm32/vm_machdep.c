@@ -1,3 +1,4 @@
+/*	$NetBSD: $	*/
 /*
  * Copyright (c) 1999-2004 Michael Shalayeff
  * Copyright (c) 2013 Yann Sionneau <yann.sionneau@gmail.com>
@@ -26,6 +27,7 @@
  */
 
 #include <sys/cdefs.h>
+__KERNEL_RCSID(0, "$NetBSD: $");
 
 #include <sys/param.h>
 #include <sys/systm.h>

@@ -1,3 +1,3 @@
-/*	$NetBSD: pcb.h,v 1.17 2007/10/17 19:53:25 garbled Exp $	*/
+/*	$NetBSD: $	*/
 
 #include <lm32/pcb.h>
