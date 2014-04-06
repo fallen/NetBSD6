@@ -1,4 +1,4 @@
-# $NetBSD: std.lm32,v 1.33 2012/09/27 18:28:55 ysionneau Exp $
+# $NetBSD: $
 #
 # standard, required NetBSD/milkymist 'options'
 
@@ -6,7 +6,3 @@ machine milkymist lm32
 include		"conf/std"			# MI standard options
 include		"arch/lm32/conf/std.lm32"	# lm32 standard options
 
-mainbus0 at root
-timer0 at mainbus0
-uart0 at mainbus0
-clock0 at mainbus0

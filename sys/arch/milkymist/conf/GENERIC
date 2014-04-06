@@ -1,6 +1,9 @@
+# $NetBSD: $
+
 include "arch/milkymist/conf/std.milkymist"
 
 options INCLUDE_CONFIG_FILE # embed config file in kernel binary
+
 maxusers 16
 
 options KERNHIST_PRINT
@@ -19,6 +22,11 @@ file-system FDESC
 file-system FFS
 file-system MFS
 
-pseudo-device	pty			# pseudo-terminals
-
 config netbsd root on ? type ?
+
+mainbus0 at root
+timer0 at mainbus0
+uart0 at mainbus0
+clock0 at mainbus0
+
+pseudo-device	pty			# pseudo-terminals
