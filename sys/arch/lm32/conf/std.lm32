@@ -1,0 +1,7 @@
+#	$NetBSD: $
+#
+# standard NetBSD/lm32 options
+
+options 	EXEC_ELF32
+options 	EXEC_SCRIPT
+

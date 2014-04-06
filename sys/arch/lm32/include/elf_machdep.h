@@ -2,14 +2,14 @@
 
 #define	ELF32_MACHDEP_ENDIANNESS	ELFDATA2MSB
 #define	ELF32_MACHDEP_ID_CASES						\
-		case EM_LM32:						\
+		case EM_LATTICEMICO32:						\
 			break;
 
 #define	ELF64_MACHDEP_ENDIANNESS	XXX	/* break compilation */
 #define	ELF64_MACHDEP_ID_CASES						\
 		/* no 64-bit ELF machine types supported */
 
-#define	ELF32_MACHDEP_ID		EM_LM32
+#define	ELF32_MACHDEP_ID		EM_LATTICEMICO32
 
 #define ARCH_ELFSIZE		32	/* MD native binary size */
 
