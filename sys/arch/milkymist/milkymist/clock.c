@@ -93,12 +93,12 @@ static __inline void milkymist_timer0_disable_irq(void)
  *Handle the hardclock interrupt.
  */
 static int
-clock_intr(struct trapframe *tf, void *arg)
+clock_intr(void *arg)
 {
 	struct clockframe cf;
 //	printf("clock ticked!\n");
 
-	memcpy(&cf, (void *)kern_phy_to_virt_ramwindow(tf), sizeof(cf));
+	memcpy(&cf, (void *)kern_phy_to_virt_ramwindow(arg), sizeof(cf));
 
 	_ack_irq(TIMER0_IRQ);
 	hardclock(&cf);
@@ -128,7 +128,7 @@ cpu_initclocks(void)
 	/* using 88 MHz cpu clock source */
 
 	/* register interrupt handler */
-	lm32_intrhandler_register(TIMER0_IRQ, clock_intr, sc);
+	lm32_intrhandler_register(TIMER0_IRQ, clock_intr, NULL);
 
 	/* Enable interrupts from timer 0 */
 	_ack_irq(TIMER0_IRQ);

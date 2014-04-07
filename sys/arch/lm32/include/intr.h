@@ -42,7 +42,7 @@ static __inline void _ack_irq(unsigned int irq)
 		     "wcsr IP, %0" : "=&r"(__ip) : "r"(irq) : );
 }
 
-void lm32_intrhandler_register(int irqmask, int (*func)(struct trapframe *, void *), void *arg);
+void lm32_intrhandler_register(int irqmask, int (*func)(void *), void *arg);
 void init_irqhandlers_array(void);
 unsigned int lm32_dispatch_irq(unsigned int irq_pending_mask, struct trapframe *tf);
 

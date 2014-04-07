@@ -11,7 +11,7 @@ __KERNEL_RCSID(0, "$NetBSD: $");
 
 struct irqhandler {
 	unsigned int mask;
-	int (*irq_handler)(struct trapframe *, void *);
+	int (*irq_handler)(void *);
 	void *arg;
 };
 
@@ -24,17 +24,16 @@ void init_irqhandlers_array(void)
 
 unsigned int lm32_dispatch_irq(unsigned int irq_pending_mask, struct trapframe *tf)
 {
+	struct irqhandler *ih;
 	unsigned int i;
 	int s;
 
-	for (i = 0 ; i < 32 ; i++)
-	{
-		if ((irq_pending_mask & irqhandlers[i].mask)
-		    && (irqhandlers[i].irq_handler != NULL))
-		{
+	for (i = 0 ; i < 32 ; i++) {
+		ih = &irqhandlers[i];
+		if ((irq_pending_mask & ih->mask) &&
+		    (ih->irq_handler != NULL)) {
 			s = spl0();
-			if (irqhandlers[i].irq_handler(tf, irqhandlers[i].arg))
-			{
+			if (ih->irq_handler((ih->arg == NULL) ? tf : ih->arg)) {
 				splx(s);
 				return 1;
 			}
@@ -46,13 +45,11 @@ unsigned int lm32_dispatch_irq(unsigned int irq_pending_mask, struct trapframe *
 	return 0;
 }
 
-void lm32_intrhandler_register(int irqmask, int (*func)(struct trapframe *, void *), void *arg)
+void lm32_intrhandler_register(int irqmask, int (*func)(void *), void *arg)
 {
 	unsigned int i;
-	for (i = 0 ; i < 32 ; i++)
-	{
-		if (irqhandlers[i].irq_handler == NULL)
-		{
+	for (i = 0 ; i < 32 ; i++) {
+		if (irqhandlers[i].irq_handler == NULL) {
 			irqhandlers[i].mask = irqmask;
 			irqhandlers[i].irq_handler = func;
 			irqhandlers[i].arg = arg;
