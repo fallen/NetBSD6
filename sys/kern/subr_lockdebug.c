@@ -726,7 +726,7 @@ lockdebug_dump(lockdebug_t *ld, void (*pr)(const char *, ...)
 	    (long)ld->ld_initaddr);
 
 	if (ld->ld_lockops->lo_type == LOCKOPS_CV) {
-		(*pr)(" interlock: %#018lx\n", ld->ld_locked);
+		(*pr)(" interlock: %#018lx\n", (long unsigned int)ld->ld_locked);
 	} else {
 		(*pr)("\n"
 		    "shared holds : %18u exclusive: %18u\n"
