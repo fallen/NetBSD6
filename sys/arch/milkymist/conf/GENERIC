@@ -12,7 +12,6 @@ options HZ=100
 options LOCKDEBUG
 options DEBUG
 options DIAGNOSTIC
-options FFS_EI			# FFS Endian Independent support
 
 file-system PROCFS
 file-system TMPFS

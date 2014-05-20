@@ -417,6 +417,10 @@ _ENTRY(_real_tlb_miss_handler)
   rcsr r2, TLBPADDR
   andi r3, r3, 0x400
   bne r3, r0, we_come_from_user_space
+  mvhi r3, 0xffff
+  ori r3, r3, 0xf07f /* r3 = ~(TLBVADDR_ASID_MASK); */
+  and r1, r1, r3
+  wcsr TLBVADDR, r1
   mvhi r3, 0xc800
   cmpgeu r4, r1, r3
   bne r4, r0, out_of_ram_window
@@ -439,37 +443,23 @@ out_of_ram_window:
   srui  r5, r1, SEGSHIFT
   sli  r5, r5, 2
   add  r6, r4, r5
-  lw   r7, (r6+0) /* ptp = pm_segtab[vaddr >> PGSHIFT]; */
-  be   r7, r0, panic_ptp
 
-  /* translate the ptp from virt to phy */
-  mvhi r10, 0xc000
-  sub  r7, r7, r10
-  mvhi r10, 0x4000
-  add  r7, r7, r10
+  calli check_page_table
+  be  r1, r0, 1f
+  rcsr  r7, PSW
+  andi  r7, r7, PSW_USR
+  bne    r7, r0, goto_panic
+  mvhi r4, hi(_C_LABEL(cpu_info_store))
+  ori  r4, r4, lo(_C_LABEL(cpu_info_store))
+  lw   r4, (r4+CPU_INFO_USER_SEGTAB) /* r4 = curcpu()->ci_pmap_user_segtab; */
 
-  mvhi r11, hi(L2_MASK)
-  ori  r11, r11, lo(L2_MASK)
-  and  r8, r1, r11
-  srui  r8, r8, PGSHIFT
-  sli   r8, r8, 2
-  add  r8, r8, r7
-  lw   r9, (r8+0) /* pte = ptp[(vaddr & L2_MASK) >> PGSHIFT] ; */
+  calli check_page_table
+  be  r1, r0, 1f
 
-  be  r9, r0, panic_pte
-
-/* TODO: check for PTE_xX,PTE_xR, PTE_xW before assigning the rights */
-/* for now all mappings are read-write-execute */
-
-  andi r2, r1, 1  /* if (vpfn & 1) { */
-  be   r2, r0, not_a_dtlb_miss
-  ori  r9, r9, 1 /* pte |= 1; meaning we refresh DTLB */
-  mvhi r2, 0xffff
-  ori  r2, r2, 0xfffd
-  and r9, r9, r2 /* pte &= ~(2); clearing Read-Only bit */
-
-not_a_dtlb_miss: /* } */
-  wcsr TLBPADDR, r9
+goto_panic:
+  mvhi  r1, hi(page_fault_panic_str)
+  ori   r1, r1, lo(page_fault_panic_str)
+  calli panic
 
 1:
 	mvhi	r0, 0x4000
@@ -514,11 +504,46 @@ not_a_dtlb_miss: /* } */
 	xor	r0, r0, r0 /* restore r0 value to 0 */
 	eret
 
-panic_ptp:
-  calli panic
+check_page_table:
+  lw   r7, (r6+0) /* ptp = pm_segtab[vaddr >> PGSHIFT]; */
+  be   r7, r0, ptp_not_found
 
-panic_pte:
-  calli panic
+  /* translate the ptp from virt to phy */
+  mvhi r10, 0xc000
+  sub  r7, r7, r10
+  mvhi r10, 0x4000
+  add  r7, r7, r10
+
+  mvhi r11, hi(L2_MASK)
+  ori  r11, r11, lo(L2_MASK)
+  and  r8, r1, r11
+  srui  r8, r8, PGSHIFT
+  sli   r8, r8, 2
+  add  r8, r8, r7
+  lw   r9, (r8+0) /* pte = ptp[(vaddr & L2_MASK) >> PGSHIFT] ; */
+
+  be  r9, r0, pte_not_found
+
+/* TODO: check for PTE_xX,PTE_xR, PTE_xW before assigning the rights */
+/* for now all mappings are read-write-execute */
+
+  andi r2, r1, 1  /* if (vpfn & 1) { */
+  be   r2, r0, not_a_dtlb_miss
+  ori  r9, r9, 1 /* pte |= 1; meaning we refresh DTLB */
+  mvhi r2, 0xffff
+  ori  r2, r2, 0xfffd
+  and r9, r9, r2 /* pte &= ~(2); clearing Read-Only bit */
+
+not_a_dtlb_miss: /* } */
+  wcsr TLBPADDR, r9
+  xor r1, r1, r1 /* r1 = EXIT_SUCCESS */
+  ret
+
+ptp_not_found:
+pte_not_found:
+  mvi r1, 1 /* r1 = EXIT_FAILURE */
+  ret
+
 
 _crt0:
   mvhi  r1, 0x4000
@@ -594,3 +619,7 @@ _crt0:
 	lw      ba, (sp+52)
 	addi    sp, sp, 56
 	eret
+
+.section    .rodata, "a", @progbits
+page_fault_panic_str:
+.asciz "ptp or pte not found"

@@ -57,11 +57,3 @@ tlb_update_addr(vaddr_t va, tlb_asid_t asid, pt_entry_t pte, bool insert_p)
   }
   return true;
 }
-
-void tlb_set_asid(tlb_asid_t) __stub;
-
-void
-tlb_set_asid(tlb_asid_t asid)
-{
-  //FIXME: TBD
-}

@@ -460,3 +460,17 @@ pmap_md_tlb_check_entry(void *ctx, vaddr_t va, tlb_asid_t asid, pt_entry_t pte)
 
 	return true;
 }
+
+#define PSW_ASID_MASK (0x1F000)
+
+void
+tlb_set_asid(tlb_asid_t asid)
+{
+  unsigned int psw;
+
+  asm volatile("rcsr %0, PSW" : "=r"(psw) :: );
+
+  psw |= (asid << 12) & PSW_ASID_MASK;
+
+  asm volatile("wcsr PSW, %0" :: "r"(psw) : );
+}

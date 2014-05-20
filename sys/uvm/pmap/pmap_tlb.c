@@ -873,8 +873,9 @@ tlb_get_asid(void)
   asm volatile("rcsr %0, PSW" : "=r"(psw) :: );
 
   asid = psw & 0x1F000;
-  return asid;
+  return curcpu()->ci_pmap_asid_cur;
 }
+
 
 void tlb_walk(void *ctx, bool (*func)(void *, vaddr_t, tlb_asid_t, pt_entry_t))
 {
