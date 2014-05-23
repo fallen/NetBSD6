@@ -415,7 +415,7 @@ _ENTRY(_real_tlb_miss_handler)
 
   rcsr r1, TLBVADDR
   rcsr r2, TLBPADDR
-  andi r3, r3, 0x400
+  andi r3, r3, PSW_EUSR /* r3 &= PSW_EUSR */
   bne r3, r0, we_come_from_user_space
   mvhi r3, 0xffff
   ori r3, r3, 0xf07f /* r3 = ~(TLBVADDR_ASID_MASK); */
@@ -440,21 +440,24 @@ out_of_ram_window:
   ori  r4, r4, lo(_C_LABEL(cpu_info_store))
   lw   r4, (r4+CPU_INFO_CURPM)
   lw   r4, (r4+PM_SEGTAB) /* r4 = curcpu()->ci_pm->pm_segtab; */
-  srui  r5, r1, SEGSHIFT
+  srui r5, r1, SEGSHIFT
   sli  r5, r5, 2
   add  r6, r4, r5
 
   calli check_page_table
-  be  r1, r0, 1f
+  be  r2, r0, 1f
   rcsr  r7, PSW
-  andi  r7, r7, PSW_USR
-  bne    r7, r0, goto_panic
+  andi  r7, r7, PSW_EUSR
+  bne   r7, r0, goto_panic
   mvhi r4, hi(_C_LABEL(cpu_info_store))
   ori  r4, r4, lo(_C_LABEL(cpu_info_store))
   lw   r4, (r4+CPU_INFO_USER_SEGTAB) /* r4 = curcpu()->ci_pmap_user_segtab; */
+  srui r5, r1, SEGSHIFT
+  sli  r5, r5, 2
+  add  r6, r4, r5
 
   calli check_page_table
-  be  r1, r0, 1f
+  be  r2, r0, 1f
 
 goto_panic:
   mvhi  r1, hi(page_fault_panic_str)
@@ -505,7 +508,7 @@ goto_panic:
 	eret
 
 check_page_table:
-  lw   r7, (r6+0) /* ptp = pm_segtab[vaddr >> PGSHIFT]; */
+  lw   r7, (r6+0) /* ptp = pm_segtab[vaddr >> SEGSHIFT]; */
   be   r7, r0, ptp_not_found
 
   /* translate the ptp from virt to phy */
@@ -536,12 +539,12 @@ check_page_table:
 
 not_a_dtlb_miss: /* } */
   wcsr TLBPADDR, r9
-  xor r1, r1, r1 /* r1 = EXIT_SUCCESS */
+  xor r2, r2, r2 /* r2 = EXIT_SUCCESS */
   ret
 
 ptp_not_found:
 pte_not_found:
-  mvi r1, 1 /* r1 = EXIT_FAILURE */
+  mvi r2, 1 /* r2 = EXIT_FAILURE */
   ret
 
 
