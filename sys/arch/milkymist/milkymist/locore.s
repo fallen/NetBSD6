@@ -434,7 +434,6 @@ _ENTRY(_real_tlb_miss_handler)
   wcsr TLBPADDR, r1
   bi 1f /* let's return to what we were doing */
 
-we_come_from_user_space:
 out_of_ram_window:
   mvhi r4, hi(_C_LABEL(cpu_info_store))
   ori  r4, r4, lo(_C_LABEL(cpu_info_store))
@@ -446,9 +445,8 @@ out_of_ram_window:
 
   calli check_page_table
   be  r2, r0, 1f
-  rcsr  r7, PSW
-  andi  r7, r7, PSW_EUSR
-  bne   r7, r0, goto_panic
+
+we_come_from_user_space:
   mvhi r4, hi(_C_LABEL(cpu_info_store))
   ori  r4, r4, lo(_C_LABEL(cpu_info_store))
   lw   r4, (r4+CPU_INFO_USER_SEGTAB) /* r4 = curcpu()->ci_pmap_user_segtab; */
