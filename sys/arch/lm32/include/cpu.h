@@ -156,7 +156,6 @@ struct cpu_info {
 	 */
 	struct evcnt ci_tlb_evcnt;	/* tlb shootdown counter */
 	struct pmap *ci_curpm;		/* current pmap */
-	int ci_want_pmapload;		/* pmap_load() is needed */
 	int ci_curldt;		/* current LDT descriptor */
 	int ci_nintrhand;	/* number of H/W interrupt handlers */
 	uint64_t ci_scratch;

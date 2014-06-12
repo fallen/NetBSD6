@@ -314,15 +314,16 @@ pmap_load(void)
 	kpreempt_disable();
  retry:
 	ci = curcpu();
-	if (!ci->ci_want_pmapload) {
-		kpreempt_enable();
-		return;
-	}
+#ifdef MULTIPROCESSOR
 	l = ci->ci_curlwp;
+#else
+  l = curlwp;
+#endif
 	ncsw = l->l_ncsw;
 
 	/* should be able to take ipis. */
-	KASSERT(ci->ci_current_ipl < IPL_HIGH); 
+//FIXME: Do we really need this assert?
+//	KASSERT(ci->ci_current_ipl < IPL_HIGH); 
 
 	KASSERT(l != NULL);
 	pmap = vm_map_pmap(&l->l_proc->p_vmspace->vm_map);
@@ -331,7 +332,6 @@ pmap_load(void)
 	pcb = lwp_getpcb(l);
 
 	if (pmap == oldpmap) {
-		ci->ci_want_pmapload = 0;
 		kpreempt_enable();
 		return;
 	}
@@ -354,7 +354,6 @@ pmap_load(void)
 	cpu_load_pmap(pmap, oldpmap);
 //	uvm_emap_update(gen);
 
-	ci->ci_want_pmapload = 0;
 
 	/*
 	 * we're now running with the new pmap.  drop the reference

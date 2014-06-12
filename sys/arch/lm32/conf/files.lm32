@@ -14,6 +14,7 @@ file	arch/lm32/lm32/sig_machdep.c
 file  arch/lm32/lm32/lock_stubs.S
 file	arch/lm32/lm32/locore_subr.S
 file  arch/lm32/lm32/kcopy.c
+file  arch/lm32/lm32/trap.c
 file	dev/cons.c
 file	uvm/pmap/pmap.c
 file	uvm/pmap/pmap_segtab.c

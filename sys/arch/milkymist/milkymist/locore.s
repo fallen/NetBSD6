@@ -435,6 +435,7 @@ _ENTRY(_real_tlb_miss_handler)
   bi 1f /* let's return to what we were doing */
 
 out_of_ram_window:
+  rcsr r1, TLBVADDR
   mvhi r4, hi(_C_LABEL(cpu_info_store))
   ori  r4, r4, lo(_C_LABEL(cpu_info_store))
   lw   r4, (r4+CPU_INFO_CURPM)
@@ -457,10 +458,22 @@ we_come_from_user_space:
   calli check_page_table
   be  r2, r0, 1f
 
-goto_panic:
-  mvhi  r1, hi(page_fault_panic_str)
-  ori   r1, r1, lo(page_fault_panic_str)
-  calli panic
+goto_trap:
+  mvhi	r2, 0x4000
+  ori	r2, r2, lo(_memory_store_area)
+  lw r2, (r2+0)
+  mvhi ea, hi(lm32_trap)
+  ori  ea, ea, lo(lm32_trap)
+  xor r3, r3, r3
+  ori r3, r3, 0x92 /* EDTLBE | EITLBE | EIE */
+  wcsr PSW, r3
+  mvhi r4, 0xc000
+  mvhi r3, hi(1f)
+  ori  r3, r3, lo(1f)
+  sub  r3, r3, r4
+  mvhi r4, 0x4000
+  add r3, r3, r4
+  eret
 
 1:
 	mvhi	r0, 0x4000

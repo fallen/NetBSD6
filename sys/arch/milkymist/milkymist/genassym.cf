@@ -90,6 +90,7 @@ define  _REG_EA _REG_EA
 define  _REG_BA _REG_BA
 
 define PSW_USR PSW_USR
+define PSW_EUSR PSW_EUSR
 
 define SEGSHIFT SEGSHIFT
 define PGSHIFT PGSHIFT

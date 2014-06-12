@@ -146,6 +146,8 @@ milkymist_startup(void)
   curcpu()->ci_cpl = IPL_HIGH;
   curcpu()->ci_idepth = -1;
   pmap_tlb_info_init(&pmap_tlb0_info);
+  //FIXME: for MULTIPROCESSOR, should put cache line size instead of 0
+  pmap_pvlist_lock_init(0);
 
   availmemr[0].start += (phys_kernend - IOM_RAM_BEGIN);
   availmemr[0].size -= (phys_kernend - IOM_RAM_BEGIN + 2*NBPG);
