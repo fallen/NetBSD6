@@ -50,6 +50,7 @@
  */
 #include <machine/frame.h>
 #include <machine/pte.h>
+#define	curlwp                          (curcpu()->ci_curlwp)
 #define	curcpu()			(&cpu_info_store)
 
 #ifdef _KERNEL

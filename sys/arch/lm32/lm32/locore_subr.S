@@ -40,9 +40,9 @@ ENTRY(setfault)
 addi sp, sp, -4
 sw (sp+0), r25
 
-mvhi r25, hi(_C_LABEL(curlwp))
-ori r25, r25, lo(_C_LABEL(curlwp))
-lw r25, (r25+0)
+mvhi r25, hi(_C_LABEL(cpu_info_store))
+ori r25, r25, lo(_C_LABEL(cpu_info_store))
+lw r25, (r25+CPU_INFO_CURLWP)
 lw r25, (r25+L_PCB)
 sw (r25+PCB_ONFAULT), r1
 
@@ -88,9 +88,9 @@ ENTRY(lwp_trampoline)
 
 calli _C_LABEL(lwp_startup)
 
-mvhi r11, hi(_C_LABEL(curlwp))
-ori r11, r11, lo(_C_LABEL(curlwp))
-lw r11, (r11+0)
+mvhi r11, hi(_C_LABEL(cpu_info_store))
+ori r11, r11, lo(_C_LABEL(cpu_info_store))
+lw r11, (r11+CPU_INFO_CURLWP)
 lw r11, (r11+L_PCB)
 lw r1, (r11+PCB_REGS+4*_REG_R1)
 lw r2, (r11+PCB_REGS+4*_REG_R2)
@@ -162,13 +162,7 @@ ENTRY(cpu_switchto)
 1:	lw	r12, (r2+L_PCB)
 
 	/* Set curlwp. */
-#ifndef MULTIPROCESSOR
-  mvhi r25, hi(_C_LABEL(curlwp))
-  ori  r25, r25, lo(_C_LABEL(curlwp))
-  sw   (r25+0), r2
-#else
 	SET_CPUVAR(CURLWP,r2)
-#endif
 
 	/* Skip the rest if returning to a pinned LWP. */
 	bne	r3, r0, 4f /* branch if r3 != 0 */
