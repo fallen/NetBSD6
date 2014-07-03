@@ -13,28 +13,10 @@ __KERNEL_RCSID(0, "$NetBSD: $");
 #include <sys/lwp.h>
 #include <sys/errno.h>
 
-void do_pmap_load(void);
 int copyout(const void *kaddr, void *uaddr, size_t len);
 int copyin(const void *uaddr, void *kaddr, size_t len);
 int copyinstr(const void *from, void *to, size_t max_len, size_t *len_copied);
 int copystr(const void *kfaddr, void *kdaddr, size_t maxlen, size_t *done);
-
-void do_pmap_load(void)
-{
-	struct lwp *current_lwp = curcpu()->ci_curlwp;
-
-  current_lwp->l_nopreempt++;
-  pmap_load();
-  current_lwp->l_nopreempt--;
-
-  if (current_lwp->l_nopreempt == 0)
-  {
-    if (current_lwp->l_dopreempt != 0)
-      kpreempt(0);
-  }
-
-
-}
 
 int copyin(const void *uaddr, void *kaddr, size_t len)
 {
@@ -43,8 +25,6 @@ int copyin(const void *uaddr, void *kaddr, size_t len)
 	uint32_t *kaddr_32 = kaddr;
 	uint8_t *kaddr_8 = kaddr;
 	int count;
-
-  do_pmap_load();
 
 	kaddr_8 += len;
 	if ((size_t)kaddr_8 < len)
@@ -77,8 +57,6 @@ int copyout(const void *kaddr, void *uaddr, size_t len)
 	const uint8_t *kaddr_8 = kaddr;
 	int count;
 
-  do_pmap_load();
-
 	uaddr_8 += len;
 	if ((size_t)uaddr_8 < len) /* is it correct as an overflow condition ? */
 		return EFAULT;
@@ -108,8 +86,6 @@ int copyinstr(const void *from, void *to, size_t max_len, size_t *len_copied)
 	char *to_8 = (char *)to;
 	int ret = 0;
 	size_t maxlen_temp = max_len;
-
-  do_pmap_load();
 
 	if ((size_t)from > VM_MAXUSER_ADDRESS) /* to be checked, jump if carry ? */
 	{

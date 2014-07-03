@@ -438,8 +438,7 @@ out_of_ram_window:
 	rcsr	r1, TLBVADDR
 	mvhi	r4, hi(_C_LABEL(cpu_info_store))
 	ori	r4, r4, lo(_C_LABEL(cpu_info_store))
-	lw	r4, (r4+CPU_INFO_CURPM)
-	lw	r4, (r4+PM_SEGTAB) /* r4 = curcpu()->ci_pm->pm_segtab; */
+	lw	r4, (r4+CPU_INFO_KERNEL_SEGTAB)
 	srui	r5, r1, SEGSHIFT
 	sli	r5, r5, 2
 	add	r6, r4, r5

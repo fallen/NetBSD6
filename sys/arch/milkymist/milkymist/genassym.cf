@@ -100,6 +100,7 @@ define	CPU_INFO_SELF		offsetof(struct cpu_info, ci_self)
 define	CPU_INFO_CURLWP		offsetof(struct cpu_info, ci_curlwp)
 define  CPU_INFO_CURPM    offsetof(struct cpu_info, ci_curpm)
 
+define CPU_INFO_KERNEL_SEGTAB offsetof(struct cpu_info, ci_pmap_kern_segtab)
 define CPU_INFO_USER_SEGTAB offsetof(struct cpu_info, ci_pmap_user_segtab)
 
 define  PM_SEGTAB         offsetof(struct pmap, pm_segtab)
