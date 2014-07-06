@@ -112,6 +112,9 @@ define	PCB_REGS			offsetof(struct pcb, pcb_regs)
 define  PCB_ONFAULT offsetof(struct pcb, pcb_onfault)
 define	L_MD_REGS		offsetof(struct lwp, l_md)
 define	L_PROC			offsetof(struct lwp, l_proc)
+define	P_VMSPACE		offsetof(struct proc, p_vmspace)
+define	VM_MAP			offsetof(struct vmspace, vm_map)
+define	VM_MAP_PMAP		offsetof(struct vm_map, pmap)
 
 define	MD_UTF			offsetof(struct mdlwp, md_utf)
 

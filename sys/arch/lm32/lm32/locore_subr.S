@@ -164,6 +164,12 @@ ENTRY(cpu_switchto)
 	/* Set curlwp. */
 	SET_CPUVAR(CURLWP, r2)
 
+	/* Set cpu_info_store.ci_curpm to newlwp->l_proc->p_vmspace->vm_map.pmap*/
+	lw	r4, (r2+L_PROC)
+	lw	r4, (r4+P_VMSPACE)
+	lw	r4, (r4+VM_MAP+VM_MAP_PMAP)
+	SET_CPUVAR(CURPM, r4)
+
 	/* Skip the rest if returning to a pinned LWP. */
 	bne	r3, r0, 4f /* branch if r3 != 0 */
 
