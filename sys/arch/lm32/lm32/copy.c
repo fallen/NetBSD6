@@ -25,6 +25,7 @@ int copyin(const void *uaddr, void *kaddr, size_t len)
 	uint32_t *kaddr_32 = kaddr;
 	uint8_t *kaddr_8 = kaddr;
 	int count;
+	uint8_t remainder;
 
 	kaddr_8 += len;
 	if ((size_t)kaddr_8 < len)
@@ -41,7 +42,9 @@ int copyin(const void *uaddr, void *kaddr, size_t len)
 	if (count == 0)
 		return 0;
 
-	kaddr_8 = (uint8_t *)kaddr + len - count;
+	remainder = len - count;
+	kaddr_8 -= count;
+	uaddr_8 += remainder;
 
 	while (count-- > 0)
 		*kaddr_8++ = *uaddr_8++;
@@ -56,6 +59,7 @@ int copyout(const void *kaddr, void *uaddr, size_t len)
 	const uint32_t *kaddr_32 = kaddr;
 	const uint8_t *kaddr_8 = kaddr;
 	int count;
+	uint8_t remainder;
 
 	uaddr_8 += len;
 	if ((size_t)uaddr_8 < len) /* is it correct as an overflow condition ? */
@@ -72,7 +76,9 @@ int copyout(const void *kaddr, void *uaddr, size_t len)
 	if (count == 0)
 		return 0;
 
-	uaddr_8 = (uint8_t *)uaddr + len - count;
+	remainder = len - count;
+	uaddr_8 -= count;
+	kaddr_8 += remainder;
 
 	while (count-- > 0)
 		*uaddr_8++ = *kaddr_8++;
