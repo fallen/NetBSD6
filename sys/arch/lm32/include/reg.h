@@ -46,8 +46,7 @@
  * Register set accessible via /proc/$pid/reg and ptrace()
  */
 struct reg {
-	int	r_regs[31];	/* R1-R31 , R0 is always 0 */
-	int	r_pc;
+	int	r_regs[32];	/* R1-R31 + PC, R0 is always 0 */
 };
 
 /*
@@ -93,7 +92,7 @@ struct reg {
 #define	R_EA	R30
 #define	R31	(30)
 #define	R_BA	R31
-
+#define R_PC	(31)
 #ifdef _KERNEL
 
 struct lwp;

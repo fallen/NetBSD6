@@ -41,7 +41,7 @@ setregs(struct lwp *l, struct exec_package *pack, vaddr_t stack)
 	for (i = R1 ; i <= R27 ; i++)
 		regs->r_regs[i] = 0;
 
-	regs->r_pc = pack->ep_entry;
+	regs->r_regs[R_PC] = pack->ep_entry; // PC
 	regs->r_regs[R28] = stack; // R28: stack pointer
 }
 

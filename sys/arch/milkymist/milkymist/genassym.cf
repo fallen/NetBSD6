@@ -88,6 +88,7 @@ define  _REG_SP _REG_SP
 define  _REG_RA _REG_RA
 define  _REG_EA _REG_EA
 define  _REG_BA _REG_BA
+define  _REG_PC _REG_PC
 
 define PSW_USR PSW_USR
 define PSW_EUSR PSW_EUSR
@@ -110,7 +111,8 @@ define	L_DOPREEMPT		offsetof(struct lwp, l_dopreempt)
 define	L_PCB			offsetof(struct lwp, l_addr)
 define	PCB_REGS			offsetof(struct pcb, pcb_regs)
 define  PCB_ONFAULT offsetof(struct pcb, pcb_onfault)
-define	L_MD_REGS		offsetof(struct lwp, l_md)
+define	L_MD			offsetof(struct lwp, l_md)
+define	L_MD_UTF		offsetof(struct lwp, l_md.md_utf)
 define	L_PROC			offsetof(struct lwp, l_proc)
 define	P_VMSPACE		offsetof(struct proc, p_vmspace)
 define	VM_MAP			offsetof(struct vmspace, vm_map)
@@ -119,7 +121,5 @@ define	VM_MAP_PMAP		offsetof(struct vm_map, pmap)
 define	MD_UTF			offsetof(struct mdlwp, md_utf)
 
 define	TF_REGS			offsetof(struct trapframe, tf_regs)
-
-define	R_PC			offsetof(struct reg, r_pc)
 
 define	P_RASLIST		offsetof(struct proc, p_raslist)

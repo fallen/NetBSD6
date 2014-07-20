@@ -72,11 +72,11 @@ cpu_lwp_fork(struct lwp *l1, struct lwp *l2, void *stack, size_t stacksize,
 	struct pcb * const pcb1 = lwp_getpcb(l1);
 	struct pcb * const pcb2 = lwp_getpcb(l2);
 
-  (void)(pcb1);
+	(void)(pcb1);
 
-  memset(pcb2, 0, sizeof(*pcb2));
+	memset(pcb2, 0, sizeof(*pcb2));
 
-  *pcb2 = *pcb1;
+	*pcb2 = *pcb1;
 
 	const vaddr_t uv = uvm_lwp_getuarea(l2);
 	struct trapframe * const tf = (struct trapframe *)(uv + USPACE) - 1;
@@ -84,10 +84,10 @@ cpu_lwp_fork(struct lwp *l1, struct lwp *l2, void *stack, size_t stacksize,
 	*tf = *l1->l_md.md_utf;
 
 	pcb2->pcb_onfault = NULL;
-  pcb2->pcb_regs[_REG_SP] = (register_t)tf;
-  pcb2->pcb_regs[_REG_R1] = (register_t)arg;
-  pcb2->pcb_regs[_REG_R2] = (register_t)func;
-  pcb2->pcb_regs[_REG_RA] = (register_t)lwp_trampoline;
+	pcb2->pcb_regs[_REG_SP] = (register_t)tf;
+	pcb2->pcb_regs[_REG_R1] = (register_t)arg;
+	pcb2->pcb_regs[_REG_R2] = (register_t)func;
+	pcb2->pcb_regs[_REG_RA] = (register_t)lwp_trampoline;
 }
 
 /*

@@ -88,15 +88,57 @@ ENTRY(lwp_trampoline)
 
 	calli	_C_LABEL(lwp_startup)
 
-	mvhi	r11, hi(_C_LABEL(cpu_info_store))
-	ori	r11, r11, lo(_C_LABEL(cpu_info_store))
-	lw	r11, (r11+CPU_INFO_CURLWP)
+	GET_CPUVAR(r11, CURLWP)
 	lw	r11, (r11+L_PCB)
 	lw	r1, (r11+PCB_REGS+4*_REG_R1)
 	lw	r2, (r11+PCB_REGS+4*_REG_R2)
+	lw	r25, (r11+PCB_REGS+4*_REG_R25) /* R25 is overwritten by GET_CPUVAR */
 	lw	r11, (r11+PCB_REGS+4*_REG_R11)
 
 	call	r2
+
+/* from this point, we return to user space.
+ * setregs has been called to set all regs to 0 and pc to entry point */
+
+	GET_CPUVAR(r1, CURLWP)
+	lw	r1, (r1+L_MD_UTF)
+	lw	r3, (r1+TF_REGS+4*_REG_R3)
+	lw	r4, (r1+TF_REGS+4*_REG_R4)
+	lw	r5, (r1+TF_REGS+4*_REG_R5)
+	lw	r6, (r1+TF_REGS+4*_REG_R6)
+	lw	r7, (r1+TF_REGS+4*_REG_R7)
+	lw	r8, (r1+TF_REGS+4*_REG_R8)
+	lw	r9, (r1+TF_REGS+4*_REG_R9)
+	lw	r10, (r1+TF_REGS+4*_REG_R10)
+	lw	r11, (r1+TF_REGS+4*_REG_R11)
+	lw	r12, (r1+TF_REGS+4*_REG_R12)
+	lw	r13, (r1+TF_REGS+4*_REG_R13)
+	lw	r14, (r1+TF_REGS+4*_REG_R14)
+	lw	r15, (r1+TF_REGS+4*_REG_R15)
+	lw	r16, (r1+TF_REGS+4*_REG_R16)
+	lw	r17, (r1+TF_REGS+4*_REG_R17)
+	lw	r18, (r1+TF_REGS+4*_REG_R18)
+	lw	r19, (r1+TF_REGS+4*_REG_R19)
+	lw	r20, (r1+TF_REGS+4*_REG_R20)
+	lw	r21, (r1+TF_REGS+4*_REG_R21)
+	lw	r22, (r1+TF_REGS+4*_REG_R22)
+	lw	r23, (r1+TF_REGS+4*_REG_R23)
+	lw	r24, (r1+TF_REGS+4*_REG_R24)
+	lw	r25, (r1+TF_REGS+4*_REG_R25)
+	lw	gp, (r1+TF_REGS+4*_REG_GP)
+	lw	fp, (r1+TF_REGS+4*_REG_FP)
+	lw	sp, (r1+TF_REGS+4*_REG_SP)
+	lw	ra, (r1+TF_REGS+4*_REG_RA)
+	lw	ea, (r1+TF_REGS+4*_REG_PC)
+	lw	ba, (r1+TF_REGS+4*_REG_BA)
+
+	/* set PSW.EUSR bit: PSW |= PSW_EUSR;  */
+	rcsr	r2, PSW
+	ori	r2, r2, PSW_EUSR
+	wcsr	PSW, r2
+
+	lw	r2, (r1+TF_REGS+4*_REG_R2)
+	lw	r1, (r1+TF_REGS+4*_REG_R1)
 	eret
 
 /*
@@ -228,15 +270,19 @@ ENTRY(cpu_switchto)
 	sw	(sp+0), r1
 	sw	(sp+4), r2
 	addi	sp, sp, 8
-	lw	r2, (r2+(L_MD_REGS+MD_UTF+TF_REGS+R_PC))
+	lw	r2, (r2+L_MD_UTF)
+	lw	r2, (r2+TF_REGS+4*_REG_PC)
 	lw	r1, (sp+4)
 	lw	r1, (r1+L_PROC)
 
 	/* call ras_lookup(newlwp->l_proc, newlwp.md_regs.md_utf.tf_regs.r_pc); */
 	calli	_C_LABEL(ras_lookup)
 
+	lw	r2, (sp+4)
+
 	/* save return value in tf_regs.r_pc */
-	sw	(r2+R_PC), r1
+	lw	r2, (r2+L_MD_UTF)
+	sw	(r2+TF_REGS+4*_REG_PC), r1
 
 	lw	r2, (sp+4)
 	lw	r1, (sp+0)

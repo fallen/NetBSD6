@@ -438,6 +438,10 @@ out_of_ram_window:
 	rcsr	r1, TLBVADDR
 	mvhi	r4, hi(_C_LABEL(cpu_info_store))
 	ori	r4, r4, lo(_C_LABEL(cpu_info_store))
+	mvhi	r5, 0xc000
+	sub	r4, r4, r5
+	mvhi	r5, 0x4000
+	add	r4, r4, r5
 	lw	r4, (r4+CPU_INFO_KERNEL_SEGTAB)
 	srui	r5, r1, SEGSHIFT
 	sli	r5, r5, 2
@@ -449,6 +453,10 @@ out_of_ram_window:
 we_come_from_user_space:
 	mvhi	r4, hi(_C_LABEL(cpu_info_store))
 	ori	r4, r4, lo(_C_LABEL(cpu_info_store))
+	mvhi	r5, 0xc000
+	sub	r4, r4, r5
+	mvhi	r5, 0x4000
+	add	r4, r4, r5
 	lw	r4, (r4+CPU_INFO_USER_SEGTAB) /* r4 = curcpu()->ci_pmap_user_segtab; */
 	srui	r5, r1, SEGSHIFT
 	sli	r5, r5, 2
@@ -518,6 +526,10 @@ goto_trap:
 	eret
 
 check_page_table:
+	mvhi	r5, 0xc000
+	sub	r6, r6, r5
+	mvhi	r5, 0x4000
+	add	r6, r6, r5
 	lw	r7, (r6+0) /* ptp = pm_segtab[vaddr >> SEGSHIFT]; */
 	be	r7, r0, ptp_not_found
 	
