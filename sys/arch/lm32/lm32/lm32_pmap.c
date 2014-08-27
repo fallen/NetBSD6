@@ -469,6 +469,7 @@ tlb_set_asid(tlb_asid_t asid)
 
   asm volatile("rcsr %0, PSW" : "=r"(psw) :: );
 
+  psw &= ~PSW_ASID_MASK; // clear previous ASID
   psw |= (asid << 12) & PSW_ASID_MASK;
 
   asm volatile("wcsr PSW, %0" :: "r"(psw) : );
