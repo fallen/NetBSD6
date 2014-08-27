@@ -51,7 +51,8 @@ include <lm32/mcontext.h>
 # general constants
 define	PAGE_SIZE	PAGE_SIZE
 define	USRSTACK	USRSTACK
-
+define	VM_PROT_EXECUTE	VM_PROT_EXECUTE
+define	VM_PROT_READ	VM_PROT_READ
 
 # pte bits
 define	PG_RO		PG_RO

@@ -297,14 +297,14 @@ _ENTRY(_real_interrupt_handler)
 	sw	(r0+116), ba
 	sw	(r0+120), ra
 	rcsr	r3, PSW
-	sw	(r0+124), r3
+	sw	(r0+128), r3
 	xor	r0, r0, r0 /* restore r0 value to 0 */
   /* now update memory_store_area in case of nested tlb miss */
 	mvhi	r1, 0x4000
 	ori	r1, r1, lo(_memory_store_area)
 	lw	r2, (r1+0)
 	mv	r5, r2
-	addi	r2, r2, 128
+	addi	r2, r2, 132
 	sw	(r1+0), r2
 
 	rcsr	r1, IP
@@ -329,10 +329,10 @@ _ENTRY(_real_interrupt_handler)
 	mvhi	r0, 0x4000
 	ori	r0, r0, lo(_memory_store_area)
 	lw	r1, (r0+0)
-	addi	r1, r1, -128
+	addi	r1, r1, -132
 	sw	(r0+0), r1
 	addi	r0, r1, 0 /* we cannot use 'mv' when r0 != 0 */
-	lw	r1, (r0+124)
+	lw	r1, (r0+128)
 	wcsr	PSW, r1
 	lw	r1, (r0+0)
 	lw	r2, (r0+4)
@@ -404,13 +404,13 @@ _ENTRY(_real_tlb_miss_handler)
 	sw	(r0+116), ba
 	sw	(r0+120), ra
 	rcsr	r3, PSW
-	sw	(r0+124), r3
+	sw	(r0+128), r3
 	xor	r0, r0, r0 /* restore r0 value to 0 */
 	/* now update memory_store_area in case of nested tlb miss */
 	mvhi	r1, 0x4000
 	ori	r1, r1, lo(_memory_store_area)
 	lw	r2, (r1+0)
-	addi	r2, r2, 128
+	addi	r2, r2, 132
 	sw	(r1+0), r2
 	
 	rcsr	r1, TLBVADDR
@@ -469,8 +469,9 @@ goto_trap:
 	mvhi	r2, 0x4000
 	ori	r2, r2, lo(_memory_store_area)
 	lw	r2, (r2+0)
-	mvhi	ea, hi(lm32_trap)
-	ori	ea, ea, lo(lm32_trap)
+	addi	r2, r2, -132
+	mvhi	ea, hi(_C_LABEL(lm32_trap))
+	ori	ea, ea, lo(_C_LABEL(lm32_trap))
 	xor	r3, r3, r3
 	ori	r3, r3, 0x92 /* EDTLBE | EITLBE | EIE */
 	wcsr	PSW, r3
@@ -480,16 +481,30 @@ goto_trap:
 	sub	r3, r3, r4
 	mvhi	r4, 0x4000
 	add	r3, r3, r4
+	rcsr	r4, TLBVADDR
+	andi	r4, r4, 1
+	be	r4, r0, itlb_fault
+
+	/* FIXME: is it a read or a write issue?
+	 * for now let's pretend it's a READ
+	 */
+	mvi	r4, VM_PROT_READ
+	bi	trapping
+
+itlb_fault:
+	mvi	r4, VM_PROT_EXECUTE
+
+trapping:
 	eret
 
 1:
 	mvhi	r0, 0x4000
 	ori	r0, r0, lo(_memory_store_area)
 	lw	r1, (r0+0)
-	addi	r1, r1, -128
+	addi	r1, r1, -132
 	sw	(r0+0), r1
 	addi	r0, r1, 0 /* we cannot use 'mv' when r0 != 0 */
-	lw	r1, (r0+124)
+	lw	r1, (r0+128)
 	wcsr	PSW, r1
 	lw	r1, (r0+0)
 	lw	r2, (r0+4)
