@@ -212,7 +212,7 @@ cpu_getmcontext(struct lwp *l, mcontext_t *mcp, unsigned int *flags)
 	gr[_REG_EA] = tf->tf_regs.r_regs[R_EA];
 	gr[_REG_BA] = tf->tf_regs.r_regs[R_BA];
 
-	gr[_REG_PC] = tf->tf_pc;
+	gr[_REG_PC] = tf->tf_regs.r_regs[R_PC];
 
 	if ((ras_pc = (__greg_t)ras_lookup(l->l_proc,
 	    (void *) gr[_REG_PC])) != -1)

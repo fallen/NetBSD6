@@ -107,7 +107,7 @@ sendsig_siginfo(const ksiginfo_t *ksi, const sigset_t *mask)
 	tf->tf_regs.r_regs[R2] = (intptr_t)&sf->sf_si;
 	tf->tf_regs.r_regs[R3] = (intptr_t)&sf->sf_uc;
 
-	tf->tf_pc = (intptr_t)catcher;
+	tf->tf_regs.r_regs[R_PC] = (intptr_t)catcher;
 	tf->tf_regs.r_regs[R_SP] = (intptr_t)sf;
 	tf->tf_regs.r_regs[R_RA] = (intptr_t)sa->sa_sigdesc[signo].sd_tramp;
 
