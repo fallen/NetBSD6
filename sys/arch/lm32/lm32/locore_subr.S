@@ -100,7 +100,11 @@ ENTRY(lwp_trampoline)
 /* from this point, we return to user space.
  * setregs has been called to set all regs to 0 and pc to entry point */
 
+/* save kernel stack pointer to PCB */
 	GET_CPUVAR(r1, CURLWP)
+	lw	r2, (r1+L_PCB)
+	sw	(r2+PCB_KSP), sp
+
 	lw	r1, (r1+L_MD_UTF)
 	lw	r3, (r1+TF_REGS+4*_REG_R3)
 	lw	r4, (r1+TF_REGS+4*_REG_R4)

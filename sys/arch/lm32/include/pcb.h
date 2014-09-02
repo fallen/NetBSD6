@@ -46,9 +46,10 @@ struct faultbuf {
 
 struct pcb {
 	struct pmap *pcb_pm;	/* pmap of our vmspace */
-  register_t pcb_regs[31];
+	register_t pcb_regs[31];
 	int pcb_flags;
 	struct faultbuf *pcb_onfault;	/* For use during copyin/copyout */
+	unsigned int pcb_ksp; /* kernel stack pointer */
 };
 
 struct md_coredump {

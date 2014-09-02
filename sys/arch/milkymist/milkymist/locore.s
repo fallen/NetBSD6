@@ -307,6 +307,13 @@ _ENTRY(_real_interrupt_handler)
 	addi	r2, r2, 132
 	sw	(r1+0), r2
 
+	andi	r4, r3, PSW_EUSR
+	be	r4, r0, 2f
+	GET_CPUVAR(r4, CURLWP)
+	lw	r4, (r4+L_PCB)
+	lw	sp, (r4+PCB_KSP) /* load kernel stack pointer */
+
+2:
 	rcsr	r1, IP
 	mvhi	ea, hi(__isr) /* function we want to call */
 	ori	ea, ea, lo(__isr)
