@@ -3,3 +3,4 @@ device-major	mem		char 1
 device-major	pts		char 2			pty
 device-major	ptc		char 3			pty
 device-major	swap		char 4	block 1		vmswap
+device-major	milkymist_com	char 110		milkymist_com

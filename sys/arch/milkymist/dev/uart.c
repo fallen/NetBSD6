@@ -6,6 +6,8 @@ __KERNEL_RCSID(0, "$NetBSD: $");
 #include <sys/param.h>
 #include <sys/systm.h>
 #include <sys/device.h>
+#include <sys/conf.h>
+#include <sys/tty.h>
 
 #include <dev/cons.h>
 
@@ -25,6 +27,22 @@ static struct cnm_state milkymist_com_cnm_state;
 CFATTACH_DECL_NEW(uart, 0,
     uart_match, uart_attach, NULL, NULL);
 
+/* char dev switch structure for tty */
+const struct cdevsw milkymist_com_cdevsw = 
+{
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    NULL,
+    nommap,             /* mmap not supported */
+    ttykqfilter,
+    D_TTY
+};
+
 int
 uart_match(device_t parent, cfdata_t cf, void *aux)
 {
@@ -34,7 +52,11 @@ uart_match(device_t parent, cfdata_t cf, void *aux)
 void
 uart_attach(device_t parent, device_t self, void *aux)
 {
-	aprint_normal("\n");
+	int maj;
+
+	maj = cdevsw_lookup_major(&milkymist_com_cdevsw);
+	cn_tab->cn_dev = makedev(maj, 0);
+	aprint_normal("milkymist_uart: major = %i: console\n", maj);
 }
 
 #define UART_STAT_RX_EVT (0x2)
