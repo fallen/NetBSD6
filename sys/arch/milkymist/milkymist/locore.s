@@ -293,9 +293,9 @@ _ENTRY(_real_interrupt_handler)
 	sw	(r0+100), gp
 	sw	(r0+104), fp
 	sw	(r0+108), sp
-	sw	(r0+112), ea
-	sw	(r0+116), ba
-	sw	(r0+120), ra
+	sw	(r0+112), ra
+	sw	(r0+116), ea
+	sw	(r0+120), ba
 	rcsr	r3, PSW
 	sw	(r0+128), r3
 	xor	r0, r0, r0 /* restore r0 value to 0 */
@@ -362,9 +362,9 @@ _ENTRY(_real_interrupt_handler)
 	lw	gp, (r0+100)
 	lw	fp, (r0+104)
 	lw	sp, (r0+108)
-	lw	ea, (r0+112)
-	lw	ba, (r0+116)
-	lw	ra, (r0+120)
+	lw	ra, (r0+112)
+	lw	ea, (r0+116)
+	lw	ba, (r0+120)
 	xor	r0, r0, r0 /* restore r0 value to 0 */
 	eret
 
@@ -400,9 +400,9 @@ _ENTRY(_real_tlb_miss_handler)
 	sw	(r0+100), gp
 	sw	(r0+104), fp
 	sw	(r0+108), sp
-	sw	(r0+112), ea
-	sw	(r0+116), ba
-	sw	(r0+120), ra
+	sw	(r0+112), ra
+	sw	(r0+116), ea
+	sw	(r0+120), ba
 	rcsr	r3, PSW
 	sw	(r0+128), r3
 	xor	r0, r0, r0 /* restore r0 value to 0 */
@@ -534,9 +534,9 @@ trapping:
 	lw	gp, (r0+100)
 	lw	fp, (r0+104)
 	lw	sp, (r0+108)
-	lw	ea, (r0+112)
-	lw	ba, (r0+116)
-	lw	ra, (r0+120)
+	lw	ra, (r0+112)
+	lw	ea, (r0+116)
+	lw	ba, (r0+120)
 	xor	r0, r0, r0 /* restore r0 value to 0 */
 	eret
 
