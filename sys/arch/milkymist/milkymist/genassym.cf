@@ -125,3 +125,5 @@ define	MD_UTF			offsetof(struct mdlwp, md_utf)
 define	TF_REGS			offsetof(struct trapframe, tf_regs)
 
 define	P_RASLIST		offsetof(struct proc, p_raslist)
+
+define P_MD_SYSCALL		offsetof(struct proc, p_md.md_syscall)

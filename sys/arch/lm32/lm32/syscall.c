@@ -63,6 +63,8 @@ syscall(struct trapframe *frame)
 	register_t code, rval[2];
 	register_t args[2 + SYS_MAXSYSARGS];
 
+	frame = (struct trapframe *)kern_phy_to_virt_ramwindow(frame);
+
 	l = curlwp;
 	p = l->l_proc;
 	LWP_CACHE_CREDS(l, p);
@@ -73,12 +75,8 @@ syscall(struct trapframe *frame)
 	SYSCALL_COUNT(syscall_counts, code);
 	SYSCALL_TIME_SYS_ENTRY(l, syscall_times, code);
 
-	if (callp->sy_argsize) {
-		error = copyin((char *)frame->tf_regs.r_regs[R_SP] + sizeof(int), args,
-			    callp->sy_argsize);
-		if (__predict_false(error != 0))
-			goto bad;
-	}
+	if (callp->sy_argsize)
+		memcpy(args, &frame->tf_regs.r_regs[R2], callp->sy_argsize);
 
 	if (!__predict_false(p->p_trace_enabled)
 	    || __predict_false(callp->sy_flags & SYCALL_INDIRECT)
@@ -105,11 +103,12 @@ syscall(struct trapframe *frame)
 			/* nothing to do */
 			break;
 		default:
-		bad:
 			LM32_TF_R1(frame) = error;
 			break;
 		}
 	}
+
+	LM32_TF_EA(frame) += 4;
 
 	SYSCALL_TIME_SYS_EXIT(l);
 	userret(l);

@@ -98,7 +98,7 @@ clock_intr(void *arg)
 	struct clockframe cf;
 //	printf("clock ticked!\n");
 
-	memcpy(&cf, (void *)kern_phy_to_virt_ramwindow(arg), sizeof(cf));
+	memcpy(&cf, (void *)arg, sizeof(cf));
 
 	_ack_irq(TIMER0_IRQ);
 	hardclock(&cf);

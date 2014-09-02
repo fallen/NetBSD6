@@ -126,7 +126,7 @@ _interrupt_handler:
 	nop
 
 _syscall_handler:
-	nop
+	bi	_call_syscall_handler
 	nop
 	nop
 	nop
@@ -187,6 +187,119 @@ macaddress:
 	/* padding to align to a 32-bit boundary */
 	.byte 0x00
 	.byte 0x00
+
+_ENTRY(_call_syscall_handler)
+	mvhi	r0, 0x4000
+	ori	r0, r0, lo(_memory_store_area)
+	lw	r0, (r0+0)
+	sw	(r0+0), r1
+	sw	(r0+4), r2
+	sw	(r0+8), r3
+	sw	(r0+12), r4
+	sw	(r0+16), r5
+	sw	(r0+20), r6
+	sw	(r0+24), r7
+	sw	(r0+28), r8
+	sw	(r0+32), r9
+	sw	(r0+36), r10
+	sw	(r0+40), r11
+	sw	(r0+44), r12
+	sw	(r0+48), r13
+	sw	(r0+52), r14
+	sw	(r0+56), r15
+	sw	(r0+60), r16
+	sw	(r0+64), r17
+	sw	(r0+68), r18
+	sw	(r0+72), r19
+	sw	(r0+76), r20
+	sw	(r0+80), r21
+	sw	(r0+84), r22
+	sw	(r0+88), r23
+	sw	(r0+92), r24
+	sw	(r0+96), r25
+	sw	(r0+100), gp
+	sw	(r0+104), fp
+	sw	(r0+108), sp
+	sw	(r0+112), ra
+	sw	(r0+116), ea
+	sw	(r0+120), ba
+	rcsr	r3, PSW
+	sw	(r0+128), r3
+	xor	r0, r0, r0 /* restore r0 value to 0 */
+  /* now update memory_store_area in case of nested tlb miss */
+	mvhi	r1, 0x4000
+	ori	r1, r1, lo(_memory_store_area)
+	lw	r2, (r1+0)
+	mv	r5, r2
+	addi	r2, r2, 132
+	sw	(r1+0), r2
+
+	mvhi	ea, hi(3f)
+	ori	ea, ea, lo(3f)
+	ori	r3, r3, 0x90 /* PSW_EDTLBE | PSW_EITLBE */
+	mvhi	r4, 0xFFFF
+	ori	r4, r4, 0xFBFF
+	and	r3, r4, r3 /* r3 &= ~PSW_EUSR */
+	wcsr	PSW, r3
+	eret
+3:
+	GET_CPUVAR(r2, CURLWP)
+	lw	r6, (r2+L_PCB)
+	lw	sp, (r6+PCB_KSP) /* load kernel stack pointer */
+2:
+	lw	r2, (r2+L_PROC)
+	lw	r2, (r2+P_MD_SYSCALL)
+
+	mv	r1, r5
+
+	/* call syscall() (in r2) with MMU ON */
+	call	r2
+
+	mvhi	r1, hi(_memory_store_area)
+	ori	r1, r1, lo(_memory_store_area)
+	lw	r2, (r1+0)
+	addi	r2, r2, -132
+	sw	(r1+0), r2
+	mvhi	r3, 0x4000
+	sub	r2, r2, r3
+	mvhi	r3, 0xc000
+	add	r2, r2, r3
+	mv	r0, r2
+	lw	r1, (r0+128)
+	wcsr	PSW, r1
+	lw	r1, (r0+0)
+	lw	r2, (r0+4)
+	lw	r3, (r0+8)
+	lw	r4, (r0+12)
+	lw	r5, (r0+16)
+	lw	r6, (r0+20)
+	lw	r7, (r0+24)
+	lw	r8, (r0+28)
+	lw	r9, (r0+32)
+	lw	r10, (r0+36)
+	lw	r11, (r0+40)
+	lw	r12, (r0+44)
+	lw	r13, (r0+48)
+	lw	r14, (r0+52)
+	lw	r15, (r0+56)
+	lw	r16, (r0+60)
+	lw	r17, (r0+64)
+	lw	r18, (r0+68)
+	lw	r19, (r0+72)
+	lw	r20, (r0+76)
+	lw	r21, (r0+80)
+	lw	r22, (r0+84)
+	lw	r23, (r0+88)
+	lw	r24, (r0+92)
+	lw	r25, (r0+96)
+	lw	gp, (r0+100)
+	lw	fp, (r0+104)
+	lw	sp, (r0+108)
+	lw	ra, (r0+112)
+	lw	ea, (r0+116)
+	lw	ba, (r0+120)
+	xor	r0, r0, r0 /* restore r0 value to 0 */
+	eret
 
 _ENTRY(_fake_itlb_miss_handler)
 	mvhi	r0, 0x4000

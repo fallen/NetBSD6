@@ -39,9 +39,9 @@ ipl_t _splraise(ipl_t level)
 void __isr(unsigned int irq_pending_mask, unsigned int return_address, struct trapframe *tf)
 {
  unsigned int psw;
+	struct trapframe *vtf = (struct trapframe *)kern_phy_to_virt_ramwindow(tf); // virtual pointer to trapframe
 
-
-	lm32_dispatch_irq(irq_pending_mask, tf);
+	lm32_dispatch_irq(irq_pending_mask, vtf);
 
   /* return to _real_interrupt_handler with mmu OFF */
   psw = PSW_DTLBE | PSW_ITLBE;
