@@ -35,7 +35,7 @@ static int clock_match(struct device *, struct cfdata *, void *);
 static void clock_attach(struct device *, struct device *, void *);
 
 struct clock_softc {
-	struct device       device;
+	device_t       device;
 	int                 sc_intr;
   vaddr_t             base_vaddr;
 };
@@ -51,7 +51,7 @@ clock_match(struct device *parent, struct cfdata *match, void *aux)
 static void
 clock_attach(struct device *parent, struct device *self, void *aux)
 {
-	struct clock_softc *sc = (struct clock_softc*) self;
+	struct clock_softc *sc = device_private(self);
   vaddr_t clock_base_vaddress;
 
   aprint_normal("\n");
