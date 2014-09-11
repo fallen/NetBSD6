@@ -25,7 +25,7 @@ config netbsd root on ? type ?
 
 mainbus0 at root
 timer0 at mainbus0
-uart0 at mainbus0
+milkymist_com0 at mainbus0
 clock0 at mainbus0
 
 pseudo-device	pty			# pseudo-terminals

@@ -18,9 +18,9 @@ attach	timer at mainbus
 file	arch/milkymist/dev/timer.c
 
 # serial port
-device	uart: tty
-attach	uart at mainbus
-file	arch/milkymist/dev/uart.c		uart needs-flag
+device	milkymist_com: tty
+attach	milkymist_com at mainbus
+file	arch/milkymist/dev/uart.c		milkymist_com needs-flag
 
 # clock
 device clock
