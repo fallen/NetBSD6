@@ -457,7 +457,8 @@ _ENTRY(_real_interrupt_handler)
 	sw	(sp+PCB_REGS+4*_REG_R24),  r8
 	lw	r8, (r5+36) /* r25 */
 	sw	(sp+PCB_REGS+4*_REG_R25),  r8
-	sw	(sp+PCB_REGS+4*_REG_EA),  ea
+	lw	r8, (r5+24) /* ea */
+	sw	(sp+PCB_REGS+4*_REG_EA),  r8
 
 	rcsr	r1, IP
 	mvhi	ea, hi(__isr) /* function we want to call */
@@ -469,18 +470,20 @@ _ENTRY(_real_interrupt_handler)
   
 
 1:
-	GET_CPUVAR(r4, CURLWP)
-	lw	r4, (r4+L_PCB)
-	lw	sp, (r4+PCB_KSP) /* load kernel stack pointer */
-	mvhi	r0, hi(_memory_store_area)
-	ori	r0, r0, lo(_memory_store_area)
-	lw	r1, (r0+0)
-	addi	r1, r1, -40
-	sw	(r0+0), r1
-	addi	r0, r1, 0 /* we cannot use 'mv' when r0 != 0 */
-	lw	r1, (r0+28)
-	wcsr	PSW, r1
-	xor	r0, r0, r0 /* restore r0 value to 0 */
+/*	GET_CPUVAR(r4, CURLWP) */
+/*	lw	r4, (r4+L_PCB) */
+/*	lw	sp, (r4+PCB_KSP)*/ /* load kernel stack pointer */
+	mvhi	r1, hi(_memory_store_area)
+	ori	r1, r1, lo(_memory_store_area)
+	lw	r2, (r1+0)
+	addi	r2, r2, -40
+	sw	(r1+0), r2
+	mvhi	r3, 0x4000
+	sub	r2, r2, r3
+	mvhi	r3, 0xc000
+	add	r2, r2, r3
+	lw	r3, (r2+28)
+	wcsr	PSW, r3
 	lw	r1,  (sp+PCB_REGS+4*_REG_R1)
 	lw	r2,  (sp+PCB_REGS+4*_REG_R2)
 	lw	r3,  (sp+PCB_REGS+4*_REG_R3)
