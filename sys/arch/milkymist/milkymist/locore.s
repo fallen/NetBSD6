@@ -423,6 +423,7 @@ _ENTRY(_real_interrupt_handler)
 	sw	(sp+PCB_REGS+4*_REG_R8),  r8
 	sw	(sp+PCB_REGS+4*_REG_R9),  r9
 	sw	(sp+PCB_REGS+4*_REG_R10), r10
+	sw	(sp+PCB_REGS+4*_REG_R11), r11
 	sw	(sp+PCB_REGS+4*_REG_R12), r12
 	sw	(sp+PCB_REGS+4*_REG_R13), r13
 	sw	(sp+PCB_REGS+4*_REG_R14), r14
@@ -494,6 +495,7 @@ _ENTRY(_real_interrupt_handler)
 	lw	r8,  (sp+PCB_REGS+4*_REG_R8)
 	lw	r9,  (sp+PCB_REGS+4*_REG_R9)
 	lw	r10, (sp+PCB_REGS+4*_REG_R10)
+	lw	r11, (sp+PCB_REGS+4*_REG_R11)
 	lw	r12, (sp+PCB_REGS+4*_REG_R12)
 	lw	r13, (sp+PCB_REGS+4*_REG_R13)
 	lw	r14, (sp+PCB_REGS+4*_REG_R14)
