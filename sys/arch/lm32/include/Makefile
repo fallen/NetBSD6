@@ -13,9 +13,9 @@ INCS=	ansi.h asm.h aout_machdep.h \
 	limits.h lock.h \
 	mcontext.h mutex.h math.h \
 	param.h pcb.h pmap.h \
-	proc.h psl.h pte.h ptrace.h \
+	proc.h profile.h psl.h pte.h ptrace.h \
 	reg.h registers.h rwlock.h \
-	signal.h \
+	setjmp.h signal.h \
 	trap.h types.h \
 	vmparam.h \
 	wchar_limits.h
