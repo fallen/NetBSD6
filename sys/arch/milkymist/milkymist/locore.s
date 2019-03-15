@@ -417,7 +417,7 @@ _ENTRY(_real_interrupt_handler)
 	lw	r4, (r4+L_PCB)
 	lw	sp, (r4+PCB_KSP) /* load kernel stack pointer */
 1:
-
+	addi	sp, sp, -(PCB_REGS+4*_REG_BA) /* allocate space on the stack */
 	sw	(sp+PCB_REGS+4*_REG_R6),  r6
 	sw	(sp+PCB_REGS+4*_REG_R7),  r7
 	sw	(sp+PCB_REGS+4*_REG_R8),  r8
