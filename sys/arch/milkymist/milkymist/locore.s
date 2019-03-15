@@ -464,9 +464,6 @@ _ENTRY(_real_interrupt_handler)
 	ori	ea, ea, lo(__isr)
 	mvhi	r2, hi(1f)                          /* where we want to return back to */
 	ori	r2, r2, lo(1f)
-	xor	r3, r3, r3
-	ori	r3, r3, 0x90 /* PSW_EDTLBE | PSW_EITLBE */
-	wcsr	PSW, r3
 	mv	r3, r5 /* arg3 is trapframe */
 	calli	__isr
   
