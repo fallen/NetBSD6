@@ -72,7 +72,7 @@ __weak_alias(xdr_float,_xdr_float)
 #if defined(__m68k__) || defined(__sparc__) || defined(__i386__) || \
     defined(__mips__) || defined(__ns32k__) || defined(__alpha__) || \
     defined(__arm__) || defined(__powerpc__) || defined(__sh__) || \
-    defined(__x86_64__) || defined(__hppa__) || defined(__ia64__)
+    defined(__x86_64__) || defined(__hppa__) || defined(__ia64__) || defined(__lm32__)
 #include <machine/endian.h>
 #define IEEEFP
 #endif
