@@ -35,8 +35,8 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef _COMMON_PMAP_TLB_VMPAGEMD_H_
-#define _COMMON_PMAP_TLB_VMPAGEMD_H_
+#ifndef _UVM_PMAP_VMPAGEMD_H_
+#define _UVM_PMAP_VMPAGEMD_H_
 
 #ifdef _LOCORE
 #error use assym.h instead
@@ -46,8 +46,10 @@
 #error this file should not be included by loadable kernel modules
 #endif
 
+#ifdef _KERNEL_OPT
 #include "opt_modular.h"
 #include "opt_multiprocessor.h"
+#endif
 
 #include <sys/mutex.h>
 
@@ -109,4 +111,4 @@ do {									\
 	VM_PAGEMD_PVLIST_LOCK_INIT(&(pg)->mdpage);			\
 } while (/* CONSTCOND */ 0)
 
-#endif /* __COMMON_PMAP_TLB_VMPAGEMD_H_ */
+#endif /* __UVM_PMAP_VMPAGEMD_H_ */
