@@ -436,11 +436,9 @@ _ENTRY(_real_interrupt_handler)
 	sw	(sp+PCB_REGS+4*_REG_R21), r21
 	sw	(sp+PCB_REGS+4*_REG_R22), r22
 	sw	(sp+PCB_REGS+4*_REG_R23), r23
-	sw	(sp+PCB_REGS+4*_REG_R24), r24
 	sw	(sp+PCB_REGS+4*_REG_GP),  gp
 	sw	(sp+PCB_REGS+4*_REG_FP),  fp
 	sw	(sp+PCB_REGS+4*_REG_RA),  ra
-	sw	(sp+PCB_REGS+4*_REG_EA),  ea
 	sw	(sp+PCB_REGS+4*_REG_BA),  ba
 	lw	r8, (r5+0) /* r1 */
 	sw	(sp+PCB_REGS+4*_REG_R1),  r8
