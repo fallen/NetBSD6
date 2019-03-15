@@ -383,109 +383,137 @@ _ENTRY(_real_interrupt_handler)
 	sw	(r0+8), r3
 	sw	(r0+12), r4
 	sw	(r0+16), r5
-	sw	(r0+20), r6
-	sw	(r0+24), r7
-	sw	(r0+28), r8
-	sw	(r0+32), r9
-	sw	(r0+36), r10
-	sw	(r0+40), r11
-	sw	(r0+44), r12
-	sw	(r0+48), r13
-	sw	(r0+52), r14
-	sw	(r0+56), r15
-	sw	(r0+60), r16
-	sw	(r0+64), r17
-	sw	(r0+68), r18
-	sw	(r0+72), r19
-	sw	(r0+76), r20
-	sw	(r0+80), r21
-	sw	(r0+84), r22
-	sw	(r0+88), r23
-	sw	(r0+92), r24
-	sw	(r0+96), r25
-	sw	(r0+100), gp
-	sw	(r0+104), fp
-	sw	(r0+108), sp
-	sw	(r0+112), ra
-	sw	(r0+116), ea
-	sw	(r0+120), ba
+	sw	(r0+20), sp
+	sw	(r0+24), ea
 	rcsr	r3, PSW
-	sw	(r0+128), r3
+	sw	(r0+28), r3
+	sw	(r0+32), r24 /* GET_CPUVAR_MMUOFF overwrites r24 and r25, beware */
+	sw	(r0+36), r25
 	xor	r0, r0, r0 /* restore r0 value to 0 */
   /* now update memory_store_area in case of nested tlb miss */
 	mvhi	r1, 0x4000
 	ori	r1, r1, lo(_memory_store_area)
 	lw	r2, (r1+0)
 	mv	r5, r2
-	addi	r2, r2, 132
+	addi	r2, r2, 40
 	sw	(r1+0), r2
 
+
 	andi	r4, r3, PSW_EUSR
-	be	r4, r0, 2f
+
+	/* enable MMU */
+	rcsr	r1, PSW
+	ori	r1, r1, 0x90 /* EITLBE | EDTLBE */
+	mvhi	r2, 0xffff
+	ori	r2, r2, 0xfbfd
+	and	r1, r1, r2 /* psw &=  ~(PSW.EIE | PSW.EUSR) */
+	wcsr	PSW, r1
+	mvhi	ea, hi(2f)
+	ori	ea, ea, lo(2f)
+	eret
+2:
+	be	r4, r0, 1f
 	GET_CPUVAR(r4, CURLWP)
 	lw	r4, (r4+L_PCB)
 	lw	sp, (r4+PCB_KSP) /* load kernel stack pointer */
+1:
 
-2:
+	sw	(sp+PCB_REGS+4*_REG_R6),  r6
+	sw	(sp+PCB_REGS+4*_REG_R7),  r7
+	sw	(sp+PCB_REGS+4*_REG_R8),  r8
+	sw	(sp+PCB_REGS+4*_REG_R9),  r9
+	sw	(sp+PCB_REGS+4*_REG_R10), r10
+	sw	(sp+PCB_REGS+4*_REG_R12), r12
+	sw	(sp+PCB_REGS+4*_REG_R13), r13
+	sw	(sp+PCB_REGS+4*_REG_R14), r14
+	sw	(sp+PCB_REGS+4*_REG_R15), r15
+	sw	(sp+PCB_REGS+4*_REG_R16), r16
+	sw	(sp+PCB_REGS+4*_REG_R17), r17
+	sw	(sp+PCB_REGS+4*_REG_R18), r18
+	sw	(sp+PCB_REGS+4*_REG_R19), r19
+	sw	(sp+PCB_REGS+4*_REG_R20), r20
+	sw	(sp+PCB_REGS+4*_REG_R21), r21
+	sw	(sp+PCB_REGS+4*_REG_R22), r22
+	sw	(sp+PCB_REGS+4*_REG_R23), r23
+	sw	(sp+PCB_REGS+4*_REG_R24), r24
+	sw	(sp+PCB_REGS+4*_REG_GP),  gp
+	sw	(sp+PCB_REGS+4*_REG_FP),  fp
+	sw	(sp+PCB_REGS+4*_REG_RA),  ra
+	sw	(sp+PCB_REGS+4*_REG_EA),  ea
+	sw	(sp+PCB_REGS+4*_REG_BA),  ba
+	lw	r8, (r5+0) /* r1 */
+	sw	(sp+PCB_REGS+4*_REG_R1),  r8
+	lw	r8, (r5+4) /* r2 */
+	sw	(sp+PCB_REGS+4*_REG_R2),  r8
+	lw	r8, (r5+8) /* r3 */
+	sw	(sp+PCB_REGS+4*_REG_R3),  r8
+	lw	r8, (r5+12) /* r4 */
+	sw	(sp+PCB_REGS+4*_REG_R4),  r8
+	lw	r8, (r5+16) /* r5 */
+	sw	(sp+PCB_REGS+4*_REG_R5),  r8
+	lw	r8, (r5+20) /* sp */
+	sw	(sp+PCB_REGS+4*_REG_SP),  r8
+	lw	r8, (r5+32) /* r24 */
+	sw	(sp+PCB_REGS+4*_REG_R24),  r8
+	lw	r8, (r5+36) /* r25 */
+	sw	(sp+PCB_REGS+4*_REG_R25),  r8
+	sw	(sp+PCB_REGS+4*_REG_EA),  ea
+
 	rcsr	r1, IP
 	mvhi	ea, hi(__isr) /* function we want to call */
 	ori	ea, ea, lo(__isr)
 	mvhi	r2, hi(1f)                          /* where we want to return back to */
 	ori	r2, r2, lo(1f)
-	mvhi	r3, 0xc000
-	sub	r2, r2, r3
-	mvhi	r3, 0x4000
-	add	r2, r2, r3
 	xor	r3, r3, r3
 	ori	r3, r3, 0x90 /* PSW_EDTLBE | PSW_EITLBE */
 	wcsr	PSW, r3
 	mv	r3, r5 /* arg3 is trapframe */
-	/* we then use eret as a trick to call __isr
-	* with TLB ON and interrupts off */
-	eret
+	calli	__isr
   
 
 1:
-	mvhi	r0, 0x4000
+	GET_CPUVAR(r4, CURLWP)
+	lw	r4, (r4+L_PCB)
+	lw	sp, (r4+PCB_KSP) /* load kernel stack pointer */
+	mvhi	r0, hi(_memory_store_area)
 	ori	r0, r0, lo(_memory_store_area)
 	lw	r1, (r0+0)
-	addi	r1, r1, -132
+	addi	r1, r1, -40
 	sw	(r0+0), r1
 	addi	r0, r1, 0 /* we cannot use 'mv' when r0 != 0 */
-	lw	r1, (r0+128)
+	lw	r1, (r0+28)
 	wcsr	PSW, r1
-	lw	r1, (r0+0)
-	lw	r2, (r0+4)
-	lw	r3, (r0+8)
-	lw	r4, (r0+12)
-	lw	r5, (r0+16)
-	lw	r6, (r0+20)
-	lw	r7, (r0+24)
-	lw	r8, (r0+28)
-	lw	r9, (r0+32)
-	lw	r10, (r0+36)
-	lw	r11, (r0+40)
-	lw	r12, (r0+44)
-	lw	r13, (r0+48)
-	lw	r14, (r0+52)
-	lw	r15, (r0+56)
-	lw	r16, (r0+60)
-	lw	r17, (r0+64)
-	lw	r18, (r0+68)
-	lw	r19, (r0+72)
-	lw	r20, (r0+76)
-	lw	r21, (r0+80)
-	lw	r22, (r0+84)
-	lw	r23, (r0+88)
-	lw	r24, (r0+92)
-	lw	r25, (r0+96)
-	lw	gp, (r0+100)
-	lw	fp, (r0+104)
-	lw	sp, (r0+108)
-	lw	ra, (r0+112)
-	lw	ea, (r0+116)
-	lw	ba, (r0+120)
 	xor	r0, r0, r0 /* restore r0 value to 0 */
+	lw	r1,  (sp+PCB_REGS+4*_REG_R1)
+	lw	r2,  (sp+PCB_REGS+4*_REG_R2)
+	lw	r3,  (sp+PCB_REGS+4*_REG_R3)
+	lw	r4,  (sp+PCB_REGS+4*_REG_R4)
+	lw	r5,  (sp+PCB_REGS+4*_REG_R5)
+	lw	r6,  (sp+PCB_REGS+4*_REG_R6)
+	lw	r7,  (sp+PCB_REGS+4*_REG_R7)
+	lw	r8,  (sp+PCB_REGS+4*_REG_R8)
+	lw	r9,  (sp+PCB_REGS+4*_REG_R9)
+	lw	r10, (sp+PCB_REGS+4*_REG_R10)
+	lw	r12, (sp+PCB_REGS+4*_REG_R12)
+	lw	r13, (sp+PCB_REGS+4*_REG_R13)
+	lw	r14, (sp+PCB_REGS+4*_REG_R14)
+	lw	r15, (sp+PCB_REGS+4*_REG_R15)
+	lw	r16, (sp+PCB_REGS+4*_REG_R16)
+	lw	r17, (sp+PCB_REGS+4*_REG_R17)
+	lw	r18, (sp+PCB_REGS+4*_REG_R18)
+	lw	r19, (sp+PCB_REGS+4*_REG_R19)
+	lw	r20, (sp+PCB_REGS+4*_REG_R20)
+	lw	r21, (sp+PCB_REGS+4*_REG_R21)
+	lw	r22, (sp+PCB_REGS+4*_REG_R22)
+	lw	r23, (sp+PCB_REGS+4*_REG_R23)
+	lw	r24, (sp+PCB_REGS+4*_REG_R24)
+	lw	r25, (sp+PCB_REGS+4*_REG_R25)
+	lw	gp,  (sp+PCB_REGS+4*_REG_GP)
+	lw	fp,  (sp+PCB_REGS+4*_REG_FP)
+	lw	ra,  (sp+PCB_REGS+4*_REG_RA)
+	lw	ea,  (sp+PCB_REGS+4*_REG_EA)
+	lw	ba,  (sp+PCB_REGS+4*_REG_BA)
+	lw	sp,  (sp+PCB_REGS+4*_REG_SP)
 	eret
 
 _ENTRY(_real_tlb_miss_handler)
@@ -593,7 +621,7 @@ goto_trap:
 	mvhi	ea, hi(_C_LABEL(lm32_trap))
 	ori	ea, ea, lo(_C_LABEL(lm32_trap))
 	xor	r3, r3, r3
-	ori	r3, r3, 0x92 /* EDTLBE | EITLBE | EIE */
+	ori	r3, r3, 0x90 /* EDTLBE | EITLBE */
 	wcsr	PSW, r3
 	mvhi	r4, 0xc000
 	mvhi	r3, hi(1f)

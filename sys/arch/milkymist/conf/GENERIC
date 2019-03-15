@@ -6,8 +6,8 @@ options INCLUDE_CONFIG_FILE # embed config file in kernel binary
 
 maxusers 16
 
-options KERNHIST_PRINT
-options KERNHIST
+#options KERNHIST_PRINT
+#options KERNHIST
 options HZ=100
 options LOCKDEBUG
 options DEBUG

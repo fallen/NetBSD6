@@ -2320,6 +2320,14 @@ vax-*-netbsd*)
 	extra_parts=""
 	use_collect2=yes
 	;;
+lm32-*-netbsd*)
+        tm_file="dbxelf.h elfos.h netbsd.h netbsd-elf.h lm32/lm32-netbsd.h ${tm_file}"
+        tmake_file="${tmake_file} lm32/t-lm32 lm32/t-fprules-softfp soft-fp/t-softfp"
+        ;;
+lm32-*-elf*)
+        tm_file="dbxelf.h elfos.h ${tm_file}"
+        tmake_file="${tmake_file} lm32/t-lm32 lm32/t-fprules-softfp soft-fp/t-softfp"
+        ;;
 vax-*-openbsd*)
 	tm_file="vax/vax.h vax/openbsd1.h openbsd.h vax/openbsd.h"
 	use_collect2=yes

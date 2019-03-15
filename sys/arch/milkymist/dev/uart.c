@@ -40,6 +40,7 @@ CFATTACH_DECL_NEW(milkymist_com, sizeof(struct milkymist_com_softc),
     uart_match, uart_attach, NULL, NULL);
 
 dev_type_open(milkymist_com_open);
+dev_type_read(milkymist_com_read);
 dev_type_write(milkymist_com_write);
 
 /* char dev switch structure for tty */
@@ -47,7 +48,7 @@ const struct cdevsw milkymist_com_cdevsw =
 {
     milkymist_com_open,
     NULL,
-    NULL,
+    milkymist_com_read,
     milkymist_com_write,
     NULL,
     NULL,
@@ -95,6 +96,15 @@ milkymist_com_open(dev_t dev, int flag, int mode, struct lwp *l)
 }
 
 int
+milkymist_com_read(dev_t dev, struct uio *uio, int flag)
+{
+    struct milkymist_com_softc *sc = uart_sc;
+    struct tty *tp = sc->sc_tty;
+
+    return ((*tp->t_linesw->l_read)(tp, uio, flag));
+}
+
+int
 milkymist_com_write(dev_t dev, struct uio *uio, int flag)
 {
 	struct milkymist_com_softc *sc = uart_sc;
@@ -137,6 +147,37 @@ uart_match(device_t parent, cfdata_t cf, void *aux)
 	return 1;
 }
 
+static __inline void uart_enable_irq(void)
+{
+	IPL2IM[IPL_NONE] |= UART_IRQ;
+}
+
+static int
+uart_intr(void *arg)
+{
+	struct milkymist_com_softc *sc = uart_sc;
+	struct tty *tp = sc->sc_tty;
+	char c;
+
+	c = milkymist_com_cngetc(0);
+
+	if (tp->t_state & TS_ISOPEN)
+		(*tp->t_linesw->l_rint)(c, tp);
+
+	_ack_irq(UART_IRQ);
+	return 1;
+}
+
+#define RX_IRQ_ENABLE		(1)
+
+void write_control_register(unsigned int val);
+void write_control_register(unsigned int val)
+{
+	volatile unsigned int *controlReg = (volatile unsigned int *)uart_base_vaddr + 3;
+
+	*controlReg = val;
+}
+
 void
 uart_attach(device_t parent, device_t self, void *aux)
 {
@@ -163,6 +204,12 @@ uart_attach(device_t parent, device_t self, void *aux)
 	tp->t_dev = makedev(maj, mm_min);
 	tty_attach(tp);
 	cn_tab->cn_dev = tp->t_dev;
+
+	write_control_register(RX_IRQ_ENABLE);
+
+	lm32_intrhandler_register(UART_IRQ, uart_intr, NULL);
+	_ack_irq(UART_IRQ);
+	uart_enable_irq();
 }
 
 #define UART_STAT_RX_EVT (0x2)

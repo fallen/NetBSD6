@@ -88,6 +88,7 @@ cpu_lwp_fork(struct lwp *l1, struct lwp *l2, void *stack, size_t stacksize,
 	pcb2->pcb_regs[_REG_R1] = (register_t)arg;
 	pcb2->pcb_regs[_REG_R2] = (register_t)func;
 	pcb2->pcb_regs[_REG_RA] = (register_t)lwp_trampoline;
+	pcb2->pcb_ksp = (register_t)tf;
 }
 
 /*

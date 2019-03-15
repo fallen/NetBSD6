@@ -73,7 +73,7 @@ const struct cdevsw uart_cdevsw = {
 struct consdev uartcons = {
         .cn_getc = uart_cngetc,
 	.cn_putc = uart_cnputc,
-	.cn_pollc = uart_cnpollc,
+	.cn_pollc = nullcnpollc,
         .cn_dev = NODEV,
 	.cn_pri = CN_NORMAL
 };
@@ -176,13 +176,6 @@ uart_cngetc(dev_t dev)
 		continue;
 	return (*((volatile unsigned long *)0xb2600000)) & 0xff;
 }
-
-void
-uart_cnpollc(dev_t dev, int on)
-{
-
-}
-
 
 /*
  * TTY device

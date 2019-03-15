@@ -368,7 +368,8 @@ case $basic_machine in
 	| x86-* | x86_64-* | xps100-* | xscale-* | xscalee[bl]-* \
 	| xstormy16-* | xtensa-* \
 	| ymp-* \
-	| z8k-*)
+	| z8k-* \
+	| lm32-* )
 		;;
 	m32c-*)
 		;;

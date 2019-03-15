@@ -75,7 +75,7 @@ static __inline void _mask_irq(int irq_mask)
 static __inline void _unmask_irq(int irq_mask)
 {
 	int old_mask = _get_irq_mask();
-	_set_irq_mask( old_mask & irq_mask);
+	_set_irq_mask( old_mask | irq_mask);
 }
 
 

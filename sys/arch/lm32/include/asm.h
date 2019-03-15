@@ -105,6 +105,22 @@
 	ori	r25, r25, lo(_C_LABEL(cpu_info_store)) ; \
 	lw	reg, (r25+__CONCAT(CPU_INFO_,off))
 
+#define GET_CPUVAR_MMUOFF(reg,off) \
+	mvhi	r25, hi(_C_LABEL(cpu_info_store)) ; \
+	ori	r25, r25, lo(_C_LABEL(cpu_info_store)) ; \
+	mvhi	r24, 0xc000 ; \
+	sub	r25, r25, r24 ; \
+	mvhi	r24, 0x4000 ; \
+	add	r25, r24, r25 ; \
+	lw	reg, (r25+__CONCAT(CPU_INFO_,off))
+
+#define DEREF_MMUOFF(dst_reg,src_reg_addr,off) \
+	mvhi	r25, 0xc000 ; \
+	sub	src_reg_addr, src_reg_addr, r25 ; \
+	mvhi	r25, 0x4000 ; \
+	add	src_reg_addr, src_reg_addr, r25 ; \
+	lw	dst_reg, (src_reg_addr+off)
+
 #define SET_CPUVAR(off,reg) \
 	mvhi	r25, hi(_C_LABEL(cpu_info_store)) ; \
 	ori	r25, r25, lo(_C_LABEL(cpu_info_store)) ; \
