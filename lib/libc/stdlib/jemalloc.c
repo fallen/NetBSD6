@@ -280,6 +280,11 @@ __strerror_r(int e, char *s, size_t l)
 #  define SIZEOF_PTR_2POW      2                                                                                                                        
 #  define USE_BRK                                                                                                                                       
 #endif           
+#ifdef __lm32__
+#  define QUANTUM_2POW_MIN     4                                                                                                                        
+#  define SIZEOF_PTR_2POW      2                                                                                                                        
+#  define USE_BRK                                                                                                                                       
+#endif
 
 #define	SIZEOF_PTR		(1 << SIZEOF_PTR_2POW)
 

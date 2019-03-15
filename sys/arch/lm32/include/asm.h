@@ -83,15 +83,7 @@
 #endif /* !__ELF__ */
 
 #ifdef GPROF
-#define	_PROF_PROLOGUE				  \
-;FIXME: to be replaced by lm32 asm code         ; \
-;	mov.l	1f,r1				; \
-;	mova	2f,r0				; \
-;	jmp	@r1				; \
-;	 nop					; \
-;	.align	2				; \
-;1:	.long	__mcount			; \
-;2:
+#define	_PROF_PROLOGUE
 #else  /* !GPROF */
 #define	_PROF_PROLOGUE
 #endif /* !GPROF */
