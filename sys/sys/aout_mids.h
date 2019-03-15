@@ -61,6 +61,7 @@
 #define	MID_X86_64	157	/* AMD x86-64 */
 #define	MID_SH5_32	158	/* ILP32 SH5 */
 #define	MID_IA64	159	/* Itanium */
+#define MID_LM32        160
 #define	MID_HP200	200	/* hp200 (68010) BSD binary */
 #define	MID_HP300	300	/* hp300 (68020+68881) BSD binary */
 #define	MID_HPUX	0x20C	/* hp200/300 HP-UX binary */
