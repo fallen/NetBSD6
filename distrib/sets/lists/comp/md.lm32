@@ -1,0 +1,78 @@
+# $NetBSD: md.lm32,v 1.38 2013/01/16 16:01:06 christos Exp $
+./usr/include/ieeefp.h				comp-obsolete		obsolete
+./usr/include/gcc-4.5/tgmath.h			comp-c-include		gcccmds,gcc=45
+./usr/include/lm32				comp-c-include
+./usr/include/lm32/_G_config.h			comp-obsolete		obsolete
+./usr/include/lm32/ansi.h			comp-c-include
+./usr/include/lm32/aout_machdep.h		comp-c-include
+./usr/include/lm32/asm.h				comp-c-include
+./usr/include/lm32/bswap.h			comp-c-include
+./usr/include/lm32/bus.h				comp-c-include
+./usr/include/lm32/byte_swap.h			comp-c-include
+./usr/include/lm32/cdefs.h			comp-c-include
+./usr/include/lm32/clock.h			comp-c-include
+./usr/include/lm32/coff_machdep.h		comp-c-include
+./usr/include/lm32/cpu.h				comp-c-include
+./usr/include/lm32/db_machdep.h			comp-obsolete		obsolete
+./usr/include/lm32/disklabel.h			comp-c-include
+./usr/include/lm32/elf_machdep.h			comp-c-include
+./usr/include/lm32/endian.h			comp-c-include
+./usr/include/lm32/endian_machdep.h		comp-c-include
+./usr/include/lm32/float.h			comp-c-include
+./usr/include/lm32/frame.h			comp-c-include
+./usr/include/lm32/ibcs2_machdep.h		comp-c-include
+./usr/include/lm32/int_const.h			comp-c-include
+./usr/include/lm32/int_fmtio.h			comp-c-include
+./usr/include/lm32/int_limits.h			comp-c-include
+./usr/include/lm32/int_mwgwtypes.h		comp-c-include
+./usr/include/lm32/int_types.h			comp-c-include
+./usr/include/lm32/ioa.h				comp-c-include
+./usr/include/lm32/ka410.h			comp-c-include
+./usr/include/lm32/ka420.h			comp-c-include
+./usr/include/lm32/ka43.h			comp-c-include
+./usr/include/lm32/ka630.h			comp-c-include
+./usr/include/lm32/ka650.h			comp-c-include
+./usr/include/lm32/ka750.h			comp-c-include
+./usr/include/lm32/ka820.h			comp-c-include
+./usr/include/lm32/lcgreg.h			comp-c-include
+./usr/include/lm32/leds.h			comp-c-include
+./usr/include/lm32/limits.h			comp-c-include
+./usr/include/lm32/lock.h			comp-c-include
+./usr/include/lm32/macros.h			comp-c-include
+./usr/include/lm32/math.h			comp-c-include
+./usr/include/lm32/mcontext.h			comp-c-include
+./usr/include/lm32/mutex.h			comp-c-include
+./usr/include/lm32/mtpr.h			comp-c-include
+./usr/include/lm32/nexus.h			comp-c-include
+./usr/include/lm32/param.h			comp-c-include
+./usr/include/lm32/pcb.h				comp-c-include
+./usr/include/lm32/pmap.h			comp-c-include
+./usr/include/lm32/pmc.h				comp-c-include
+./usr/include/lm32/proc.h			comp-c-include
+./usr/include/lm32/profile.h			comp-c-include
+./usr/include/lm32/psl.h				comp-c-include
+./usr/include/lm32/pte.h				comp-c-include
+./usr/include/lm32/ptrace.h			comp-c-include
+./usr/include/lm32/qdioctl.h			comp-c-include
+./usr/include/lm32/qdreg.h			comp-c-include
+./usr/include/lm32/qduser.h			comp-c-include
+./usr/include/lm32/qevent.h			comp-c-include
+./usr/include/lm32/reg.h				comp-c-include
+./usr/include/lm32/rpb.h				comp-c-include
+./usr/include/lm32/rsp.h				comp-c-include
+./usr/include/lm32/rwlock.h			comp-c-include
+./usr/include/lm32/scb.h				comp-c-include
+./usr/include/lm32/setjmp.h			comp-c-include
+./usr/include/lm32/sid.h				comp-c-include
+./usr/include/lm32/signal.h			comp-c-include
+./usr/include/lm32/stdarg.h			comp-obsolete		obsolete
+./usr/include/lm32/trap.h			comp-c-include
+./usr/include/lm32/types.h			comp-c-include
+./usr/include/lm32/ulm32.h			comp-c-include
+./usr/include/lm32/varargs.h			comp-obsolete		obsolete
+./usr/include/lm32/lm32fp.h			comp-c-include
+./usr/include/lm32/vmparam.h			comp-c-include
+./usr/include/lm32/vsbus.h			comp-c-include
+./usr/include/lm32/wchar_limits.h		comp-c-include
+./usr/lib/c++rt0.o				comp-obsolete		obsolete
+./usr/lib/scrt0.o				comp-obsolete		obsolete
