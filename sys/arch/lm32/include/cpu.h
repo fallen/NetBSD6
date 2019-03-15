@@ -61,6 +61,7 @@
 
 #include <sys/cpu_data.h>
 
+#ifdef _KERNEL
 struct intrsource;
 //struct pmap;
 
@@ -327,4 +328,5 @@ struct disklist {
 #define	LM32_TF_R2(tf)	tf->tf_regs.r_regs[R2]
 #define	LM32_TF_EA(tf)	tf->tf_regs.r_regs[R_EA]
 
+#endif /* _KERNEL */
 #endif /* !_LM32_CPU_H_ */

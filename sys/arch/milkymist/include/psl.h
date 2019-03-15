@@ -3,6 +3,7 @@
 #ifndef _MILKYMIST_PSL_H_
 #define _MILKYMIST_PSL_H_
 
+#ifdef _KERNEL
 #include <lm32/psl.h>
 #include <milkymist/intr.h>
 
@@ -30,4 +31,5 @@ static __inline void splx(int ipl)
 #define splsched() 		_splraise(IPL_SCHED)
 #define splhigh() 		_splraise(IPL_HIGH)
 
+#endif /* _KERNEL */
 #endif

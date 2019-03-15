@@ -64,19 +64,18 @@
 #define _LM32_PTE_H_
 
 
-#if !defined(_LOCORE)
 
 #include <sys/types.h>
 #include <uvm/uvm_prot.h>
 #include <uvm/pmap/vmpagemd.h>
-#include <lib/libkern/libkern.h>
 /*
  * here we define the data types for PDEs and PTEs
  */
+#if !defined(_LOCORE)
 typedef uint32_t pd_entry_t;		/* PDE */
+typedef uint32_t pt_entry_t;		/* PTE */
 #ifndef __BSD_PT_ENTRY_T
 #define __BSD_PT_ENTRY_T	__uint32_t
-typedef uint32_t pt_entry_t;		/* PTE */
 #endif
 #endif
 
@@ -123,6 +122,9 @@ typedef uint32_t pt_entry_t;		/* PTE */
 // FIXME: we should not have to redefine this here
 // This is defined in sys/uvm/uvm_pmap.h
 #define PMAP_NOCACHE    0x00000100  /* [BOTH] */
+
+#ifdef _KERNEL
+#include <lib/libkern/libkern.h>
 
 static inline pt_entry_t
 pte_prot_downgrade(pt_entry_t pt_entry, vm_prot_t newprot)
@@ -289,5 +291,5 @@ pte_unwire_entry(pt_entry_t pt_entry)
 {
 	return pt_entry & ~PTE_WIRED;
 }
-
+#endif /* _KERNEL */
 #endif /* _LM32_PTE_H_ */
