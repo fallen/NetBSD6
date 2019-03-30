@@ -28,6 +28,7 @@ AC_PREREQ(2.64)
 AC_INIT
 AC_CONFIG_SRCDIR(tree.c)
 AC_CONFIG_HEADER(auto-host.h:config.in)
+m4_pattern_allow([AM_LC_MESSAGES])
 
 gcc_version=`cat $srcdir/BASE-VER`
 
@@ -3816,15 +3817,16 @@ gcc_cv_ld_eh_frame_hdr=no
 if test $in_tree_ld = yes ; then
   if test "$gcc_cv_gld_major_version" -eq 2 -a "$gcc_cv_gld_minor_version" -ge 12 -o "$gcc_cv_gld_major_version" -gt 2 \
      && test $in_tree_ld_is_elf = yes; then
-    gcc_cv_ld_eh_frame_hdr=yes
+#    gcc_cv_ld_eh_frame_hdr=yes
   fi
 elif test x$gcc_cv_ld != x; then
 	# Check if linker supports --eh-frame-hdr option
-	if $gcc_cv_ld --help 2>/dev/null | grep eh-frame-hdr > /dev/null; then
-		gcc_cv_ld_eh_frame_hdr=yes
-	fi
+#	if $gcc_cv_ld --help 2>/dev/null | grep eh-frame-hdr > /dev/null; then
+#		gcc_cv_ld_eh_frame_hdr=yes
+#	fi
 fi
 GCC_TARGET_TEMPLATE([HAVE_LD_EH_FRAME_HDR])
+gcc_cv_ld_eh_frame_hdr=no
 if test x"$gcc_cv_ld_eh_frame_hdr" = xyes; then
 	AC_DEFINE(HAVE_LD_EH_FRAME_HDR, 1,
 [Define if your linker supports --eh-frame-hdr option.])

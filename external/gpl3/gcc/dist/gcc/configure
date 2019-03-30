@@ -24647,7 +24647,8 @@ if test $in_tree_ld = yes ; then
 elif test x$gcc_cv_ld != x; then
 	# Check if linker supports --eh-frame-hdr option
 	if $gcc_cv_ld --help 2>/dev/null | grep eh-frame-hdr > /dev/null; then
-		gcc_cv_ld_eh_frame_hdr=yes
+#FIXME: why is lm32-ld --help showing eh-frame-hdr and prints an error if using it??
+		gcc_cv_ld_eh_frame_hdr=no
 	fi
 fi
 

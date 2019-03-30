@@ -66,7 +66,6 @@
 #undef  ENDFILE_SPEC
 #define ENDFILE_SPEC ""
 #undef  LIB_SPEC
-#define LIB_SPEC "%{!T*:-T sim.ld}"
 
 #define OVERRIDE_OPTIONS lm32_override_options()
 

@@ -27,6 +27,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
+#include <inttypes.h>
 
 #define SIZEOF(a) (sizeof(a) / sizeof(a[0]))
 
