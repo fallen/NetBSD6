@@ -850,7 +850,7 @@ while ($_ = &next_line) {
     s/\@refill\s+//g;
     # other substitutions
     &simple_substitutions;
-    s/\@value{($VARRE)}/$value{$1}/eg;
+    s/\@value\{($VARRE)\}/$value{$1}/eg;
     s/\@footnote\{/\@footnote$docu_doc\{/g; # mark footnotes, cf. pass 4
     #
     # analyze the tag again
@@ -1175,7 +1175,7 @@ while (@lines) {
     #
     # xref
     #
-    while (/\@(x|px|info|)ref{($XREFRE)(}?)/o) {
+    while (/\@(x|px|info|)ref\{($XREFRE)(\}?)/o) {
 	# note: Texinfo may accept other characters
 	($type, $nodes, $full) = ($1, $2, $3);
 	($before, $after) = ($`, $');
@@ -1532,7 +1532,7 @@ sub update_sec_num {
     $level--; # here we start at 0
     if ($name =~ /^appendix/) {
 	# appendix style
-	if (defined(@appendix_sec_num)) {
+	if (@appendix_sec_num) {
 	    &incr_sec_num($level, @appendix_sec_num);
 	} else {
 	    @appendix_sec_num = ('A', 0, 0, 0);
@@ -1540,7 +1540,7 @@ sub update_sec_num {
 	return(join('.', @appendix_sec_num[0..$level]));
     } else {
 	# normal style
-	if (defined(@normal_sec_num)) {
+	if (@normal_sec_num) {
 	    &incr_sec_num($level, @normal_sec_num);
 	} else {
 	    @normal_sec_num = (1, 0, 0, 0);
@@ -1781,7 +1781,7 @@ sub substitute_style {
     while ($changed) {
 	$changed = 0;
 	$done = '';
-	while (/\@(\w+|"|\~|,|\^){([^\{\}]+)}/) {
+	while (/\@(\w+|"|\~|,|\^)\{([^\{\}]+)\}/) {
 	    $text = &apply_style($1, $2);
 	    if ($text) {
 		$_ = "$`$text$'";
