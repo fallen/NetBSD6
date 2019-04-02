@@ -2,7 +2,7 @@
 
 .include <bsd.own.mk>
 
-.if ${MKPIC} != "no"
+.if ${MKPIC} != "no" && ${MKSHARED} != "no"
 # No support for shared libraries and pic code.
 SUBDIR+=	gpio sqlite
 .endif

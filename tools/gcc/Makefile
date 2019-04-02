@@ -2,7 +2,7 @@
 
 .include <bsd.own.mk>
 
-GCC_LANGUAGES=c c++ objc
+GCC_LANGUAGES=c
 MODULE=			gcc4
 
 MKNATIVE_CONFIG_TARGET_LIBS= \

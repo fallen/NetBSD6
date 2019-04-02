@@ -665,6 +665,11 @@ MKGDB=		no
 MKPICLIB:=	no
 .endif
 
+
+.if ${MACHINE_ARCH} == "lm32"
+MKPIC=no
+.endif
+
 #
 # On VAX using ELF, all objects are PIC, not just shared libraries,
 # so don't build the _pic version.
