@@ -152,6 +152,7 @@ do {                                                    \
 
 #define SIZE_TYPE "unsigned int"
 
+#undef PTRDIFF_TYPE
 #define PTRDIFF_TYPE "int"
 
 /*---------------------------*/
@@ -394,6 +395,9 @@ enum reg_class
 /* Sections.  */
 /*------------*/
 
+#undef TEXT_SECTION_ASM_OP
+#undef DATA_SECTION_ASM_OP
+#undef BSS_SECTION_ASM_OP
 #define TEXT_SECTION_ASM_OP             "\t.section\t.text"
 #define DATA_SECTION_ASM_OP             "\t.section\t.data"
 #define SDATA_SECTION_ASM_OP            "\t.section\t.sdata,\"aw\""
@@ -516,6 +520,7 @@ while (0)
 #define ASM_OUTPUT_ALIGN(FILE,LOG)                              \
   do { if ((LOG) != 0) fprintf (FILE, "\t.align %d\n", (1 << (LOG))); } while (0)
 
+#undef ASM_OUTPUT_ADDR_VEC_ELT
 #define ASM_OUTPUT_ADDR_VEC_ELT(FILE, VALUE)                    \
 do {                                                            \
   char label[64];                                               \
@@ -525,6 +530,7 @@ do {                                                            \
   fprintf (FILE, "\n");                                         \
 } while (0)
 
+#undef ASM_OUTPUT_ADDR_DIFF_ELT
 #define ASM_OUTPUT_ADDR_DIFF_ELT(FILE, BODY, VALUE, REL)        \
 do {                                                            \
   char label[64];                                               \

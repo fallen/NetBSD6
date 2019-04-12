@@ -19,7 +19,7 @@ CPPFLAGS+=	-I${.CURDIR} -I${GCCARCHLIBGCC}
 CPPFLAGS+=	-I${GCCARCH} ${GCPPFLAGS:M-D*} ${GCPPFLAGS:M-I*:N-I.*}
 CPPFLAGS+=	${GCPPFLAGS:M-m*} ${GCPPFLAGS:M-f*}
 CPPFLAGS+=	${G_EXTRA_HEADERS:M/*:H:u:S/^/-I/g}
-CPPFLAGS+=	-I${DIST} -I${DIST}/gcc/cp -I${DIST}/gcc/config -I${GCCARCHXX} -I.
+CPPFLAGS+=	-I${DIST} -I${DIST}/gcc/cp -I${DIST}/gcc/config -I${GCCARCHXX} -I. -I${DIST}/libgcc/config/lm32
 
 .if ${MACHINE_ARCH} == "powerpc" || \
     ${MACHINE_ARCH} == "sh3el" || \

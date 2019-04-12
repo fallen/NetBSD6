@@ -7,3 +7,4 @@ MULTILIB_OPTIONS = mbarrel-shift-enabled mmultiply-enabled mdivide-enabled msign
 #LIB1ASMFUNCS = _udivsi3 _umodsi3
 
 LIB2FUNCS_EXTRA += $(srcdir)/config/lm32/_divsi3.c $(srcdir)/config/lm32/_modsi3.c $(srcdir)/config/lm32/_mulsi3.c $(srcdir)/config/lm32/_udivmodsi4.c $(srcdir)/config/lm32/_udivsi3.c $(srcdir)/config/lm32/_umodsi3.c $(srcdir)/config/lm32/_ashlsi3.asm $(srcdir)/config/lm32/_ashrsi3.asm $(srcdir)/config/lm32/_lshrsi3.asm
+LIBGCC2_INCLUDES += -I$(srcdir)/config/lm32/
